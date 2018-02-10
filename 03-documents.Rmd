@@ -1,0 +1,21 @@
+# (PART) Output Formats {-}
+
+# Documents
+
+## HTML document
+
+## Notebook
+
+## PDF document
+
+## Word document
+
+## OpenDocument Text document
+
+## Rich Text Format document
+
+## Markdown document
+
+also Github Flavored Markdown
+
+## R package vignette

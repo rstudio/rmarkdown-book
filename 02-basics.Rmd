@@ -1,0 +1,19 @@
+# Basics
+
+## Compile an R Markdown document {#compile}
+
+also `xaringan::inf_mr()`
+
+## Cheat sheets
+
+## Output formats
+
+## Markdown syntax
+
+## R code syntax
+
+tables, graphics
+
+## Other code languages
+
+## Shiny documents {#shiny-basic}
