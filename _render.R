@@ -1,12 +1,6 @@
 quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
 
-src = (function() {
-  attr(body(sys.function()), 'srcfile')
-})()$filename
-if (is.null(src) || src == '') src = '.'
-owd = setwd(dirname(src))
-
 # provide default formats if necessary
 if (length(formats) == 0) formats = c(
   'bookdown::pdf_book', 'bookdown::epub_book', 'bookdown::gitbook'
@@ -18,6 +12,6 @@ for (fmt in formats) {
   if (res != 0) stop('Failed to compile the book to ', fmt)
 }
 
-if (length(formats) > 1 && Sys.getenv('USER') == 'yihui') bookdown::publish_book()
-
-setwd(owd)
+if (length(formats) > 1 && Sys.getenv('USER') == 'yihui') {
+  bookdown::publish_book(account = 'yihui', server = 'bookdown.org')
+}
