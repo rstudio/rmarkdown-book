@@ -1,0 +1,117 @@
+--- 
+title: "R Markdown: The Definitive Guide"
+author: "Yihui Xie, J. J. Allaire, Garrett Grolemund"
+date: "`r Sys.Date()`"
+documentclass: krantz
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+graphics: yes
+lot: yes
+lof: yes
+fontsize: 12pt
+mainfont: Palatino
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
+site: bookdown::bookdown_site
+description: "The definitive guide to the R Markdown ecosystem."
+url: 'https\://bookdown.org/yihui/rmarkdown/'
+github-repo: rstudio/rmarkdown-book
+#cover-image: images/cover.png
+---
+
+```{r setup, include=FALSE}
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2,
+  width = 55, digits = 4, warnPartialMatchAttr = FALSE, warnPartialMatchDollar = FALSE
+)
+
+lapply(c(), function(pkg) {
+  if (system.file(package = pkg) == '') install.packages(pkg)
+})
+```
+
+# Preface {-}
+
+```{r fig.align='center', eval=FALSE, echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://www.crcpress.com/p/book/9780815363729', out.width='50%'}
+knitr::include_graphics('images/cover.png', dpi = NA)
+```
+
+> **NOTE**: This manuscript is still in its very early stage and far far from being complete, so please do not promote it in public yet until this notice is removed. Thank you!
+
+The document format "R Markdown" was first introduced in the **knitr** package [@xie2015; @R-knitr] in early 2012. The idea was to embed code chunks (of R or other languages) in Markdown documents. In fact, **knitr** supported several authoring languages from the beginning in addition to Markdown, including LaTeX, HTML, AsciiDoc, reStructuredText, and Textile. Looking back over the five years, it seems to be fair to say that Markdown has become the most popular document format, which is what we expected. The simplicity of Markdown clearly stands out among these document formats.
+
+However, the original version of Markdown [invented by John Gruber](https://en.wikipedia.org/wiki/Markdown) was often found overly simple and not suitable to write highly technical documents. For example, there was no syntax for tables, footnotes, math expressions, or citations. Fortunately, John MacFarlane created a wonderful package named Pandoc (http://pandoc.org) to convert Markdown documents (and many other types of documents) to a large variety of output formats. More importantly, the Markdown syntax was significantly enriched. Now we can write more types of elements with Markdown while still enjoying its simplicity.
+
+In a nutshell, R Markdown stands on the shoulders of **knitr** and Pandoc. The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown. The latter renders Markdown to the output format you want (PDF, HTML, Word, and so on).
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://github.com/rstudio/rmarkdown'}
+knitr::include_graphics('https://slides.yihui.name/images/hex-rmarkdown.png', dpi = NA)
+```
+
+The **rmarkdown** package [@R-rmarkdown] was first created in early 2014. During the past four years, it has steadily evolved into a relatively complete ecosystem for authoring documents, so it is a good time for us to provide a definitive guide to this ecosystem now. At this point, there are a large number of tasks that you could do with R Markdown:
+
+- Compile a single R Markdown document to a report in different formats, such as PDF, HTML, or Word.
+
+- Create notebooks in which you can directly run code chunks interactively.
+
+- Make slides for presentations (HTML5 or LaTeX Beamer).
+
+- Produce dashboards with flexible, interactive, and attractive layouts.
+
+- Build interactive applications based on Shiny.
+
+- Write journal articles.
+
+- Author books of multiple chapters.
+
+- Generate websites and blogs.
+
+There is a fundamental assumption underneath R Markdown that users should be aware of: we assume it suffices that only a limited number of features are supported in Markdown. By "features", we mean the types of elements you can create with native Markdown. The limitation is a great feature, not a bug. R Markdown may not be the right format for you if you find these elements not enough for your writing: paragraphs, (section) headers, block quotations, code blocks, (numbered and unnumbered) lists, horizontal rules, tables, inline formatting (emphasis, strikeout, superscripts, subscripts, verbatim, and small caps text), LaTeX math expressions, equations, links, images, footnotes, citations, theorems, proofs, and examples. We believe this list of elements suffice for most technical and non-technical documents. It may not be impossible to support other types of elements in R Markdown, but you may start to lose the simplicity of Markdown if you wish to go that far.
+
+Please do not underestimate the customizability of R Markdown because of the simplicity of its syntax. In particular, Pandoc templates can be surprisingly powerful, as long as you understand the underlying technologies such as LaTeX and CSS, and are willing to invest time in the appearance of your output documents (reports, books, presentations, and/or websites). As one example, you may check out the [PDF report](http://files.kff.org/attachment/Report-Employer-Health-Benefits-Annual-Survey-2017) of the [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/report/2017-employer-health-benefits-survey/). It looks fairly sophisticated, but was actually produced via **bookdown** [@xie2016], which is an R Markdown extension. A custom LaTeX template and a lot of LaTeX tricks were used to generate this report. Not surprisingly, this book was also written in R Markdown.
+
+R Markdown documents are often portable in the sense that they can be compiled to multiple types of output formats. Again, this is mainly due to the simplified syntax of the authoring language, Markdown. The simpler the elements in your document are, the more likely that the document can be converted to different formats. Similarly, if you heavily tailor R Markdown to a specific output format (e.g., LaTeX), you are likely to lose the portability, because not all features in one format work in another format.
+
+Last but not least, your computing results will be more likely to be reproducible if you use R Markdown (or other **knitr**-based source documents), compared to the manual cut-and-paste approach. This is because the results are dynamically generated from computer source code. If anything goes wrong or needs to be updated, you can simply fix or update the source code, compile the document again, and the results will automatically updated. You can enjoy reproducibility and convenience at the same time.
+
+<!--
+This book has been published by [Chapman & Hall/CRC](https://www.crcpress.com/p/book/9780815363729). The online version of this book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+-->
+
+## Structure of the book {-}
+
+
+## Software information and conventions {#software-info .unnumbered}
+
+The R session information when compiling this book is shown below:
+
+```{r include=FALSE}
+# only show versions of very relevant packages
+sessionInfo = function() {
+  res = utils::sessionInfo()
+  loaded = res$loadedOnly
+  res$loadedOnly = loaded[intersect(names(loaded), c(
+    'blogdown', 'bookdown', 'knitr', 'rmarkdown', 'htmltools'
+  ))]
+  res$BLAS = res$LAPACK = NULL
+  res
+}
+```
+
+```{r}
+sessionInfo()
+```
+
+We do not add prompts (`>` and `+`) to R source code in this book, and we comment out the text output with two hashes `##` by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `blogdown::serve_site()`). The double-colon operator `::` means accessing an object from a package.
+
+<!--
+## Acknowledgments {-}
+
+
+```{block2, type='flushright', html.tag='p'}
+Yihui Xie  
+Elkhorn, Nebraska
+```
+-->
