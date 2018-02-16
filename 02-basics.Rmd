@@ -1,5 +1,61 @@
 # Basics
 
+R Markdown provides an authoring framework for data science. You can use a single R Markdown file to both
+
+- save and execute code, and
+
+- generate high quality reports that can be shared with an audience.
+
+R Markdown was designed for easier reproducibility, since both the computing code and narratives are in the same document, and results are automatically generated from the source code. R Markdown supports dozens of static and dynamic/interactive output formats.
+
+If you prefer a video introduction to R Markdown, we recommend that you check out the website https://rmarkdown.rstudio.com, and watch the videos in the "Get Started" section, which cover the basics of R Markdown.
+
+Below is a minimal R Markdown document:
+
+```{r include=FALSE}
+b = '`r b[1]`'  # an ugly hack; don't look at me
+```
+```yaml
+---
+title: "Hello R Markdown"
+author: "Awesome Me"
+date: "2018-02-14"
+output: html_document
+---
+```
+````markdown
+This is a paragraph in an R Markdown document.
+
+Below is a code chunk:
+
+`r ''````{r, lm-cars, fig.height=5}
+fit = lm(dist ~ speed, data = cars)
+b   = coef(fit)
+plot(fit)
+```
+
+The slope of the regression is `r b[1]`.
+```
+````
+
+There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML), so sometimes it is also called the YAML metadata or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
+
+The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code-syntax):
+
+- A code chunk starts with three backticks like ```` ```{r} ```` where `r` indicates the language name, and ends with three backticks. You can write chunk options in the curly braces.
+
+- An inline R code expression starts with `` `r `` and ends with a backtick `` ` ``.
+
+Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit` button to compile the document (to an HTML page).
+
+```{r hello-rmd, echo=FALSE, fig.cap='A minimal R Markdown example in RStudio.', out.width='100%'}
+knitr::include_graphics('images/hello-rmd.png', dpi = NA)
+```
+
+Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit` button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself before I discovered this problem, but I discovered it anyway.
+
+It is fine for humans to err (in computing), as long as the source code is readily available.
+
 ## Compile an R Markdown document {#compile}
 
 also `xaringan::inf_mr()`
