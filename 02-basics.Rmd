@@ -10,7 +10,7 @@ R Markdown was designed for easier reproducibility, since both the computing cod
 
 If you prefer a video introduction to R Markdown, we recommend that you check out the website https://rmarkdown.rstudio.com, and watch the videos in the "Get Started" section, which cover the basics of R Markdown.
 
-Below is a minimal R Markdown document:
+Below is a minimal R Markdown document, which should be a plain text file, with the conventional extension `.Rmd`:
 
 ```{r include=FALSE}
 b = '`r b[1]`'  # an ugly hack; don't look at me
@@ -58,7 +58,7 @@ It is fine for humans to err (in computing), as long as the source code is readi
 
 ## Compile an R Markdown document {#compile}
 
-The usual way to compile an R Markdown document is to click the `Knit` button as shown in Figure \@ref(fig:hello-rmd). Under the hood, RStudio calls the function `rmarkdown::render()` to render the document _in a new R session_. Please note the emphasis here, which often confuses R Markdown users. Rendering an Rmd document in a new R session means that none of the objects in your current R session (e.g., those you created in your R console) are available to that session.^[This is not strictly true, but mostly true. You may save objects in your current R session to a file, e.g., `.RData`, and load it in a new R session.] Reproducibility is the main reason that RStudio uses a new R session to render your Rmd documents: in most cases, you may want your documents to continue to work the next time you open R, or in other people's computing environments. See [this StackOverflow answer](https://stackoverflow.com/a/48494678/559676) for more information if you want.
+The usual way to compile an R Markdown document is to click the `Knit` button as shown in Figure \@ref(fig:hello-rmd), and the corresponding keyboard shortcut is `Ctrl + Shift + K` (`Cmd + Shift + K` on macOS). Under the hood, RStudio calls the function `rmarkdown::render()` to render the document _in a new R session_. Please note the emphasis here, which often confuses R Markdown users. Rendering an Rmd document in a new R session means that none of the objects in your current R session (e.g., those you created in your R console) are available to that session.^[This is not strictly true, but mostly true. You may save objects in your current R session to a file, e.g., `.RData`, and load it in a new R session.] Reproducibility is the main reason that RStudio uses a new R session to render your Rmd documents: in most cases, you may want your documents to continue to work the next time you open R, or in other people's computing environments. See [this StackOverflow answer](https://stackoverflow.com/a/48494678/559676) if you want to know more.
 
 If you must render a document in the current R session, you can also call `rmarkdown::render()` by yourself, and pass the path of the Rmd file to this function. The second argument of this function is the output format, which defaults to the first output format you specify in the YAML metadata (if it is missing, the default is `html_document`). When you have multiple output formats in the metadata, and do not want to use the first one, you can specify the one you want in the second argument, e.g., for an Rmd document `foo.Rmd` with the metadata:
 
@@ -85,6 +85,8 @@ Lastly, I want to mention an "unofficial" way to compile Rmd documents: the func
 A few R Markdown extension packages, such as **bookdown** and **blogdown**, have their own way of compiling documents, and we will introduce them later.
 
 ## Cheat sheets
+
+RStudio has created a large number of cheatsheets, including the one-page R Markdown cheetsheet, which are freely available at https://www.rstudio.com/resources/cheatsheets/. There is also a more detailed R Markdown reference guide. Both documents can be used as quick references after you become more familiar with R Markdown.
 
 ## Output formats
 
