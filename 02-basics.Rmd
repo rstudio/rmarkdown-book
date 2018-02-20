@@ -58,7 +58,31 @@ It is fine for humans to err (in computing), as long as the source code is readi
 
 ## Compile an R Markdown document {#compile}
 
-also `xaringan::inf_mr()`
+The usual way to compile an R Markdown document is to click the `Knit` button as shown in Figure \@ref(fig:hello-rmd). Under the hood, RStudio calls the function `rmarkdown::render()` to render the document _in a new R session_. Please note the emphasis here, which often confuses R Markdown users. Rendering an Rmd document in a new R session means that none of the objects in your current R session (e.g., those you created in your R console) are available to that session.^[This is not strictly true, but mostly true. You may save objects in your current R session to a file, e.g., `.RData`, and load it in a new R session.] Reproducibility is the main reason that RStudio uses a new R session to render your Rmd documents: in most cases, you may want your documents to continue to work the next time you open R, or in other people's computing environments. See [this StackOverflow answer](https://stackoverflow.com/a/48494678/559676) for more information if you want.
+
+If you must render a document in the current R session, you can also call `rmarkdown::render()` by yourself, and pass the path of the Rmd file to this function. The second argument of this function is the output format, which defaults to the first output format you specify in the YAML metadata (if it is missing, the default is `html_document`). When you have multiple output formats in the metadata, and do not want to use the first one, you can specify the one you want in the second argument, e.g., for an Rmd document `foo.Rmd` with the metadata:
+
+```yaml
+output:
+  html_document:
+    toc: true
+  pdf_document:
+    keep_tex: true
+```
+
+You can render it to PDF via:
+
+```r
+rmarkdown::render('foo.Rmd', 'pdf_document')
+```
+
+The function call gives you much more freedom (e.g., you can generate a series of reports in a loop), but you should bear reproducibility in mind when you render documents this way.
+
+Another main way to work with Rmd documents is the R Markdown Notebooks, which will be introduced in Section \@ref(notebook). With notebooks, you can run code chunks individually and see results right inside the RStudio editor. This is a convenient way to interact or experiment with code in an Rmd document, because you do not have to compile the whole document. Again, for the sake of reproducibility, you will need to compile the whole document eventually in a clean environment.
+
+Lastly, I want to mention an "unofficial" way to compile Rmd documents: the function `xaringan::inf_mr()`, or equivalently, the RStudio addin "Infinite Moon Reader". Obviously, this requires you to install the **xaringan** package [@R-xaringan], which is available on CRAN. The main advantage of this way is LiveReload: a technology that enables you to live preview the output as soon as you save the source document, and you do not need to hit the `Knit` button. This only works for Rmd documents that output to HTML.
+
+A few R Markdown extension packages, such as **bookdown** and **blogdown**, have their own way of compiling documents, and we will introduce them later.
 
 ## Cheat sheets
 
