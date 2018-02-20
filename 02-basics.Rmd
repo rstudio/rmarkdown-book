@@ -90,6 +90,62 @@ RStudio has created a large number of cheatsheets, including the one-page R Mark
 
 ## Output formats
 
+There are two types of output formats in the **rmarkdown** package: documents, and presentations. All available formats are listed below:
+
+`r knitr::combine_words(grep('^[^_]+_(document|presentation)$', ls(asNamespace('rmarkdown')), value = TRUE), sep = '\n', and = '', before = '- \x60', after = '\x60')`
+
+We will document these output formats in detail in Chapters \@ref(documents) and \@ref(presentations). There are more output formats provided in other extension packages (Chapter \@ref(extensions)). For the output format names in the YAML metadata of an Rmd file, you need to include the package name if a format is from an extension package, e.g.,
+
+```yaml
+output: tufte::tufte_html
+```
+
+If the format is from the **rmarkdown** package, you do not need the `rmarkdown::` prefix (although it will not hurt).
+
+When there are multiple output formats in a document, there will be a dropdown menu behind the RStudio `Knit` button that lists the output format names (Figure \@ref(fig:format-dropdown)).
+
+```{r format-dropdown, echo=FALSE, fig.cap='The output formats listed in the dropdown menu on the RStudio toolbar.', out.width='50%', fig.align='center'}
+knitr::include_graphics('images/format-dropdown.png', dpi = NA)
+```
+
+Each output format is often accompanied with several format options. All these options are documented on the R package help pages. For example, you can type `?rmarkdown::html_document` in R to open the help page of the `html_document` format. When you want to use certain options, you have to translate the values from R to YAML, e.g.,
+
+```r
+html_document(toc = TRUE, toc_depth = 2, dev = 'svg')
+```
+
+can be written in YAML as:
+
+```yaml
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    dev: 'svg'
+```
+
+The translation is often straightforward. Remember that R's `TRUE`, `FALSE`, and `NULL` are `true`, `false`, and `null`, respectively, in YAML. Character strings in YAML often do not require the quotes (e.g., `dev: 'svg'` and `dev: svg` are the same), unless they contain special characters, such as the colon `:`. If you are not sure if a string should be quoted or not, test it with the **yaml** package, e.g.,
+
+```{r test-yaml, tidy=FALSE, comment='', class.output='yaml'}
+cat(yaml::as.yaml(list(
+  title = 'A Wonderful Day',
+  subtitle = 'hygge: a quality of coziness'
+)))
+```
+
+Note that the subtitle in the above example is quoted because of the colon.
+
+If a certain option has sub-options (which means the value of this option is a list in R), the sub-options need to be further indented, e.g.,
+
+```yaml
+output:
+  html_document:
+    toc: true
+    includes:
+      in_header: header.html
+      before_body: before.html
+```
+
 ## Markdown syntax
 
 ## R code syntax

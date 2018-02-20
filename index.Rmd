@@ -13,7 +13,7 @@ lof: yes
 fontsize: 12pt
 mainfont: Palatino
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
+monofontoptions: "Scale=0.8"
 site: bookdown::bookdown_site
 description: "The definitive guide to the R Markdown ecosystem."
 url: 'https\://bookdown.org/yihui/rmarkdown/'
