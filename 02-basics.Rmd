@@ -399,11 +399,49 @@ Besides code chunks, you can also insert values of R objects inline in text. For
 x = 5  # radius of a circle
 ```
 
-For a circle with the radius `r x`,
-its area is `r pi * x^2`.
+For a circle with the radius `r '\x60r x\x60'`,
+its area is `r '\x60r pi * x^2\x60'`.
 ````
 
-
 ## Other code languages
+
+A less well-known fact about R Markdown is that many other languages are also supported, such as Python, Julia, C++, and SQL. The support comes from the **knitr** package, which has provided a large number of _language engines_. Language engines are essentially functions registered in the object `knitr::knit_engine`. You can list the names of all available engines via:
+
+```{r all-engines}
+names(knitr::knit_engines$get())
+```
+
+Most engines have been documented in Chapter 11 of @xie2015. The engines from `theorem` to `solution` are only available when you use the **bookdown** package, and the rest are shipped with the **knitr** package. To use a different language engine, you can change the language name in the chunk header from `r` to the engine name, e.g.,
+
+````markdown
+`r ''````{python}
+x = 'hello, python world!'
+print(x.split(' '))
+```
+````
+
+For engines that rely on external interpreters such as `python`, `perl`, and `ruby`, the default interpreters are obtained from `Sys.which()`, i.e., using the interpreter found via the environment variable `PATH` of the system. If you want to use an alternative interpreter, you may specify its path in the chunk option `engine.path`. For example, you may want to use Python 3 instead of the default Python 2, and we assume Python 3 is at `/usr/bin/python3` (may not be true for your system):
+
+````markdown
+`r ''````{python, engine.path = '/usr/bin/python3'}
+import sys
+print(sys.version)
+```
+````
+
+You can also change the engine interpreters globally for multiple engines, e.g.,
+
+```{r engine-path, eval=FALSE, tidy=FALSE}
+knitr::opts_chunk$set(engine.path = list(
+  python = '~/anaconda/bin//python',
+  ruby = '/usr/local/bin/ruby'
+))
+```
+
+Note that you can use a named list to specify the paths for different engines.
+
+Most engines will execute each code chunk in a separate new session (via a `system()` call in R), which means objects created in memory in a previous code chunk will not be directly available to latter code chunks. For example, if you create a variable in a `bash` code chunk, you will not be able to use it in the next `bash` code chunk. Currently the only exceptions are `r`, `python`, and `julia`. Only these engines execute code in the same session throughout the document. To clarify, all `r` code chunks are executed in the same R session, all `python` code chunks are executed in the same Python session, and so on, but the R session and the Python session are independent, unless you explicity import/export between the two sessions.
+
+
 
 ## Shiny documents {#shiny-basic}

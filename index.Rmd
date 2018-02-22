@@ -10,7 +10,7 @@ colorlinks: yes
 graphics: yes
 lot: yes
 lof: yes
-fontsize: 12pt
+fontsize: 11pt
 mainfont: Palatino
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.8"
