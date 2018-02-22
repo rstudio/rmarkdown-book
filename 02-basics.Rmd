@@ -604,5 +604,85 @@ int timesTwo(int x) {
 
 The two `Rcpp` chunks that include code will be collected and compiled together in the first `Rcpp` chunk via the `ref.label` chunk option. Note that we set the `eval = FALSE` option on the `Rcpp` chunks with code in them to prevent them from being compiled again.
 
+### Stan
+
+The `stan` engine enables embedding of the [Stan probabilistic programming language](http://mc-stan.org) within R Markdown documents.
+
+The Stan model within the code chunk is compiled into a `stanmodel` object, and is assigned to a variable with the name given by the `output.var` option. For example:
+
+````markdown
+`r ''````{stan, output.var="ex1"}
+parameters {
+  real y[2]; 
+} 
+model {
+  y[1] ~ normal(0, 1);
+  y[2] ~ double_exponential(0, 2);
+} 
+```
+
+`r ''````{r}
+library(rstan)
+fit = sampling(ex1) 
+print(fit)
+```
+````
+
+### JavaScript and CSS
+
+If you are using an R Markdown format that targets HTML output (e.g.，`html_document` and `ioslides_presenation`, etc.), you can include JavaScript to be executed within the HTML page using the JavaScript engine named `js`.
+
+For example, the following chunk uses jQuery (which is included in most R Markdown HTML formats) to change the color of the document title to red:
+
+````markdown
+`r ''````{js, echo=FALSE}
+$('.title').css('color', 'red')
+```
+````
+
+Similarly, you can embed CSS rules in the output document. For example, the following code chunk turns text within the document body red:
+
+````markdown
+`r ''````{css, echo=FALSE}
+body {
+  color: red;
+}
+```
+````
+
+Without the chunk option `echo = FALSE`, the JavaScript/CSS code will be displayed verbatim in the output document, which is probably not what you want.
+
+### Julia
+
+The [Julia](https://julialang.org) language is supported through the **JuliaCall** package [@R-JuliaCall]. Similar to the `python` engine, the `julia` engine runs all Julia code chunks in the same Julia session. Below is a minimal example:
+
+````markdown
+`r ''````{julia}
+a = sqrt(2);  # the semicolon inhibits printing
+```
+````
+
+### C and Fortran
+
+For code chunks that use C or Fortran, **knitr** uses `R CMD SHLIB` to compile the code, and load the shared object (a `*.so` file on Unix or `*.dll` on Windows). Then you can use `.C()` / `.Fortran()` to call the C / Fortran functions, e.g.,
+
+````markdown
+`r ''````{c, test-c, results='hide'}
+void square(double *x) {
+  *x = *x * *x;
+}
+```
+
+Test the `square()` function:
+
+`r ''````{r}
+.C('square', 9)
+.C('square', 123)
+```
+````
+
+You can find more examples on different language engines in the GitHub repository https://github.com/yihui/knitr-examples (look for filenames that contain the word "engine").
 
 ## Shiny documents {#shiny-basic}
+
+
