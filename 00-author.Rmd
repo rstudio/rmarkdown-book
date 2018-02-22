@@ -1,6 +1,6 @@
 # About the Authors {#author .unnumbered}
 
-This book is primarily put together by Yihui Xie based on the existing R documentation of the **rmarkdown** package and the **rmarkdown** website, which were mainly contributed by J. J. Allaire and Garret Grolemund.
+This book is primarily put together by me (Yihui Xie) based on the existing R documentation of the **rmarkdown** package and the **rmarkdown** website, which were mainly contributed by J. J. Allaire and Garret Grolemund. They do not know I stole their materials and wrote this book. Please do me a favor to keep the secret till the book is published. I just want to hear them say "WAT! I wrote a book? How? When?" It must be fun. Hehe.
 
 ## Yihui Xie {-}
 
