@@ -40,7 +40,7 @@ The slope of the regression is `r b[1]`.
 
 There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML), so sometimes it is also called the YAML metadata or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
 
-The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code-syntax):
+The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code):
 
 - A code chunk starts with three backticks like ```` ```{r} ```` where `r` indicates the language name, and ends with three backticks. You can write chunk options in the curly braces.
 
@@ -440,8 +440,169 @@ knitr::opts_chunk$set(engine.path = list(
 
 Note that you can use a named list to specify the paths for different engines.
 
-Most engines will execute each code chunk in a separate new session (via a `system()` call in R), which means objects created in memory in a previous code chunk will not be directly available to latter code chunks. For example, if you create a variable in a `bash` code chunk, you will not be able to use it in the next `bash` code chunk. Currently the only exceptions are `r`, `python`, and `julia`. Only these engines execute code in the same session throughout the document. To clarify, all `r` code chunks are executed in the same R session, all `python` code chunks are executed in the same Python session, and so on, but the R session and the Python session are independent, unless you explicity import/export between the two sessions.
+Most engines will execute each code chunk in a separate new session (via a `system()` call in R), which means objects created in memory in a previous code chunk will not be directly available to latter code chunks. For example, if you create a variable in a `bash` code chunk, you will not be able to use it in the next `bash` code chunk. Currently the only exceptions are `r`, `python`, and `julia`. Only these engines execute code in the same session throughout the document. To clarify, all `r` code chunks are executed in the same R session, all `python` code chunks are executed in the same Python session, and so on, but the R session and the Python session are independent.^[This is not strictly true, since the Python session is actually launched from R. What I mean here is that you should not expect to use R variables and Python variables interchangeably without explicitly importing/exporting variables between the two sessions.]
 
+I will introduce some specific features and examples for a subset of language engines in **knitr** below. Note that most chunk options should work for both R and other languages, such as `eval` and `echo`, so these options will not be mentioned again.
+
+### Python
+
+The `python` engine is based on the **reticulate** package [@R-reticulate], which makes it possible to execute all Python code chunks in the same Python session. If you actually want to execute a certain code chunk in a new Python session, you may use the chunk option `python.reticulate = FALSE`. If you are using a **knitr** version lower than 1.18, you should update your R packages.
+
+Below is a relatively simple example that shows how you can create/modify variables, and draw graphics in Python code chunks. Values can be passed to or retrieved from the Python session. To pass a value to Python, assign to `py$name`, where `name` is the variable name you want to use in the Python session; to retrieve a value from Python, also use `py$name`.
+
+````markdown
+`r xfun::file_string('examples/python.Rmd')`
+````
+
+### Shell scripts
+
+You can also write Shell scripts in R Markdown, if your system can run them (the executable `bash` or `sh` should exist). Usually this is not a problem for Linux or macOS users. It is not impossible for Windows users to run Shell scripts, but you will have to install additional software (such as [Cygwin](https://www.cygwin.com) or the Linux Subsystem).
+
+````markdown
+`r ''````{bash}
+echo "Hello Bash!"
+cat flights1.csv flights2.csv flights3.csv > flights.csv
+```
+````
+
+Shell scripts are executed via the `system2()` function in R. Basically **knitr** passes a code chunk to the command `bash -c` to run it.
+
+### SQL
+
+The `sql` engine uses the [**DBI**](https://cran.rstudio.com/package=DBI) package to execute SQL queries, print their results, and optionally assign the results to a data frame.
+
+To use the `sql` engine, you first need to establish a DBI connection to a database (typically via the `DBI::dbConnect()` function). You can make use of this connection in a `sql` chunk via the `connection` option. For example:
+
+````markdown
+`r ''````{r}
+library(DBI)
+db = dbConnect(RSQLite::SQLite(), dbname = "sql.sqlite")
+```
+
+`r ''````{sql, connection=db}
+SELECT * FROM trials
+```
+````
+
+By default, `SELECT` queries will display the first 10 records of their results within the document. The number of records displayed is controlled by the `max.print` option, which is turn derived from the global **knitr** option `sql.max.print` (e.g., `knitr::opts_knit$set(sql.max.print = 10)`; N.B. it is `opts_knit` instead of `opts_chunk`). For example, the following code chunk displays the first 20 records:
+
+````markdown
+`r ''````{sql, connection=db, max.print = 20}
+SELECT * FROM trials
+```
+````
+
+You can specify no limit on the records to be displayed via `max.print = -1` or `max.print = NA`.
+
+By default, the `sql` engine includes a caption that indicates the total number of records displayed. You can override this caption using the `tab.cap` chunk option. For example:
+
+````markdown
+`r ''````{sql, connection=db, tab.cap = "My Caption"}
+SELECT * FROM trials
+```
+````
+
+You can specify that you want no caption all via `tab.cap = NA`.
+
+If you want to assign the results of the SQL query to an R object as a data frame, you can do this using the `output.var` option, e.g.,
+
+````markdown
+`r ''````{sql, connection=db, output.var="trials"}
+SELECT * FROM trials
+```
+````
+
+When the results of a SQL query are assigned to a data frame, no records will be printed within the document (if desired, you can manually print the data frame in a subsequent R chunk).
+
+If you need to bind the values of R variables into SQL queries, you can do so by prefacing R variable references with a `?`. For example:
+
+````markdown
+`r ''````{r}
+subjects = 10
+```
+
+`r ''````{sql, connection=db, output.var="trials"}
+SELECT * FROM trials WHERE subjects >= ?subjects
+```
+````
+
+If you have many SQL chunks, it may be helpful to set a default for the `connection` chunk option in the setup chunk, so that it is not necessary to specify the connection on each individual chunk. You can do this as follows:
+
+````markdown
+`r ''````{r setup}
+library(DBI)
+db = dbConnect(RSQLite::SQLite(), dbname = "sql.sqlite")
+knitr::opts_chunk$set(connection = "db")
+```
+````
+
+Note that the `connection` option should be a string naming the connection object (not the object itself). Once set, you can execute SQL chunks without specifying an explicit connection:
+
+````markdown
+`r ''````{sql}
+SELECT * FROM trials
+```
+````
+
+### Rcpp
+
+The `Rcpp` engine enables compilation of C++ into R functions via the **Rcpp** `sourceCpp()` function. For example:
+
+````markdown
+`r ''````{Rcpp}
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+NumericVector timesTwo(NumericVector x) {
+  return x * 2;
+}
+```
+````
+
+Executing this chunk will compile the code and make the C++ function `timesTwo()` available to R.
+
+You can cache the compilation of C++ code chunks using standard **knitr** caching, i.e., add the `cache = TRUE` option to the chunk:
+
+````markdown
+`r ''````{Rcpp, cache=TRUE}
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+NumericVector timesTwo(NumericVector x) {
+  return x * 2;
+}
+```
+````
+
+In some cases, it is desirable to combine all of the `Rcpp` code chunks in a document into a single compilation unit. This is especially useful when you want to intersperse narrative between pieces of C++ code (e.g., for a tutorial or user guide). It also reduces total compilation time for the document (since there is only a single invocation of the C++ compiler rather than multiple).
+
+To combine all Rcpp chunks into a single compilation unit, you use the `ref.label` chunk option along with the `knitr::all_rcpp_labels()` function to collect all of the `Rcpp` chunks in the document. Here is a simple example:
+
+````markdown
+All C++ code chunks will be combined to the chunk below:
+
+`r ''````{Rcpp, ref.label=knitr::all_rcpp_labels(), include=FALSE}
+```
+
+First we include the header `Rcpp.h`:
+
+`r ''````{Rcpp, eval=FALSE}
+#include <Rcpp.h>
+```
+
+Then we define a function:
+
+`r ''````{Rcpp, eval=FALSE}
+// [[Rcpp::export]]
+int timesTwo(int x) {
+  return x * 2;
+}
+```
+````
+
+The two `Rcpp` chunks that include code will be collected and compiled together in the first `Rcpp` chunk via the `ref.label` chunk option. Note that we set the `eval = FALSE` option on the `Rcpp` chunks with code in them to prevent them from being compiled again.
 
 
 ## Shiny documents {#shiny-basic}
