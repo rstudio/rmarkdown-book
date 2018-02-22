@@ -630,7 +630,7 @@ print(fit)
 
 ### JavaScript and CSS
 
-If you are using an R Markdown format that targets HTML output (e.g.，`html_document` and `ioslides_presenation`, etc.), you can include JavaScript to be executed within the HTML page using the JavaScript engine named `js`.
+If you are using an R Markdown format that targets HTML output (e.g., `html_document` and `ioslides_presenation`, etc.), you can include JavaScript to be executed within the HTML page using the JavaScript engine named `js`.
 
 For example, the following chunk uses jQuery (which is included in most R Markdown HTML formats) to change the color of the document title to red:
 
@@ -683,6 +683,44 @@ Test the `square()` function:
 
 You can find more examples on different language engines in the GitHub repository https://github.com/yihui/knitr-examples (look for filenames that contain the word "engine").
 
-## Shiny documents {#shiny-basic}
+## Interactive documents
 
+R Markdown documents can also generate interactive content. There are two types of interactive R Markdown documents: you can use the HTML Widgets framework, or the Shiny framework (or both). They will be described in more detail in Chapter \@ref(html-widgets) and Chapter \@ref(shiny-documents), respectively.
 
+### HTML widgets {#intro-widgets}
+
+The HTML Widgets framework is implemented in the R package **htmlwidgets** [@R-htmlwidgets], interfacing JavaScript libraries that create interactive applications, such as interactive graphics and tables. Several widget packages have been developed based on this framework, such as **DT** [@R-DT], **leaflet** [@R-leaflet], and **dygraphs** [@R-dygraphs]. Visit https://www.htmlwidgets.org to know more widget packages as well as how to develop a widget package by yourself.
+
+Figure \@ref(fig:leaflet) shows an interactive map created via the **leaflet** package, and the source document is below:
+
+````markdown
+`r xfun::file_string('examples/htmlwidgets.Rmd')`
+````
+
+```{r leaflet, echo=FALSE, fig.cap='An R Markdown document with a leaflet map widget.', out.width='100%'}
+knitr::include_graphics('images/leaflet.png', dpi = NA)
+```
+
+Although HTML widgets are based on JavaScript, the syntax to create them in R is often pure R syntax.
+
+If you include an HTML widget in a non-HTML output format, such as a PDF, **knitr** will try to embed a screenshot of the widget if you have installed the R package **webshot** [@R-webshot] and the PhantomJS package (via `webshot::install_phantomjs()`).
+
+### Shiny documents {#intro-shiny}
+
+The **shiny** package [@R-shiny] builds interactive web apps powered by R. To call Shiny code from an R Markdown document, add  `runtime: shiny` to the YAML metadata, like in this document:
+
+````markdown
+`r xfun::file_string('examples/shiny.Rmd')`
+````
+
+Figure \@ref(fig:shiny) shows the output, where you can see a dropdown menu that allows you to choose the number of bins in the histogram.
+
+```{r shiny, echo=FALSE, fig.cap='An R Markdown document with a Shiny widget.', out.width='100%'}
+knitr::include_graphics('images/shiny.png', dpi = NA)
+```
+
+You may use Shiny to run any R code that you like in response to user actions. Since web browsers cannot execute R code, Shiny interactions occur on the server side and rely on a live R session. By comparison, HTML widgets do not require a live R session to support them, because the interactivity comes from the client side (via JavaScript in the web browser).
+
+You can learn more about Shiny at https://shiny.rstudio.com.
+
+HTML widgets and Shiny elements rely on HTML and JavaScript. They will work in any R Markdown format that is viewed in a web browser, such as HTML documents, dashboards, and HTML5 presentations.
