@@ -968,7 +968,7 @@ output: word_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(html-md-exts)), and Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 The most notable feature of Word documents is the Word template, which is also known as the "style reference document". You can specify a document to be used as as a style reference in producing a `*.docx` file (a Word document). This will allow you to customize things such as margins and other formatting characteristics. For best results, the reference document should be a modified version of a `.docx` file produced using **rmarkdown** or Pandoc. The path of such a document can be passed to the `reference_docx` argument of the `word_document` format. Pass `"default"` to use the default styles. For example:
 
@@ -984,6 +984,30 @@ output:
 For more on how to create and use a reference document, you may watch this short video: https://vimeo.com/110804387, or read this detailed article: https://rmarkdown.rstudio.com/articles_docx.html.
 
 ## OpenDocument Text document
+
+To create an OpenDocument Text (ODT) document from R Markdown, you specify the `odt_document` output format in the YAML metadata of your document:
+
+```yaml
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: odt_document
+---
+```
+
+Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+
+Similar to `word_document,` you can also provide a style reference document to `odt_document` throught the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  odt_document:
+    reference_odt: my-styles.odt
+---
+```
 
 ## Rich Text Format document
 
