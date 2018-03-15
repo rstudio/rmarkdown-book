@@ -1011,6 +1011,27 @@ output:
 
 ## Rich Text Format document
 
+To create a Rich Text Format (RTF) document from R Markdown, you specify the `rtf_document` output format in the YAML metadata of your document:
+
+```yaml
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: rtf_document
+---
+```
+
+Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+
+If you know the RTF format really well, you can actually embed raw RTF content in R Markdown. For example, you may create a table in RTF using other software packages, and insert it to your final RTF output document. An RTF document is essentially a plain-text document, so you can read it into R using functions like `readLines()`. Now suppose you have an RTF table in the file `table.rtf`. To embed it in R Markdown, you read it and pass to `knitr::raw_output()`, e.g.,
+
+````markdown
+`r ''````{r, echo=FALSE}
+knitr::raw_output(readLines('table.rtf'))
+```
+````
+
 ## Markdown document
 
 also Github Flavored Markdown
