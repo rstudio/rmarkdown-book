@@ -119,7 +119,7 @@ There are several options that control the appearance of HTML documents:
 
 - `theme` specifies the Bootstrap theme to use for the page (themes are drawn from the [Bootswatch](http://bootswatch.com) theme library). Valid themes include `r knitr::combine_words(rmarkdown:::themes())`. Pass `null` for no theme (in this case you can use the `css` parameter to add your own styles).
 
-- `highlight` specifies the syntax highlighting style. Supported styles include `r knitr::combine_words(rmarkdown:::html_highlighters())`. Pass `null` to prevent syntax highlighting.
+- `highlight` specifies the syntax highlighting style. Supported styles include `r knitr::combine_words(rmarkdown:::html_highlighters(), before='\x60')`. Pass `null` to prevent syntax highlighting.
 
 - `smart` indicates whether to produce typographically correct output, converting straight quotes to curly quotes, `---` to em-dashes, `--` to en-dashes, and `...` to ellipses. Note that `smart` is enabled by default.
 
@@ -396,7 +396,7 @@ output:
 
 Consult the documentation on [Pandoc templates](http://pandoc.org/MANUAL.html#templates) for additional details on templates. You can also study the [default HTML template `default.html5`](https://github.com/jgm/pandoc-templates/) as an example.
 
-#### Markdown extensions
+#### Markdown extensions {#html-md-exts}
 
 By default, R Markdown is defined as all Pandoc Markdown extensions with the following tweaks for backward compatibility with the old **markdown** package [@R-markdown]:
 
@@ -421,9 +421,9 @@ The above would disable the `autolink_bare_uris` extension, and enable the `hard
 
 For more on available markdown extensions see the [Pandoc Markdown specification](http://pandoc.org/MANUAL.html#pandocs-markdown).
 
-#### Pandoc arguments
+#### Pandoc arguments {#pandoc-arguments}
 
-If there are Pandoc features you want to use that lack equivilants in the YAML options described above, you can still use them by passing custom `pandoc_args`. For example:
+If there are Pandoc features that you want to use but lack equivalents in the YAML options described above, you can still use them by passing custom `pandoc_args`. For example:
 
 ```yaml
 ---
@@ -439,7 +439,7 @@ output:
 
 Documentation on all available pandoc arguments can be found in the [Pandoc User Guide](http://pandoc.org/MANUAL.html#options).
 
-### Shared options
+### Shared options {#shared-options}
 
 If you want to specify a set of default options to be shared by multiple documents within a directory, you can include a file named `_output.yml` within the directory. Note that no YAML delimeters (`---`) or the enclosing `output` field are used in this file. For example:
 
@@ -746,6 +746,214 @@ str(parsed, width = 60, strict.width = 'wrap')
 This interface can be used to recover the original Rmd source, and also (with some more effort from the front-end) the ability to recover chunk outputs from the document itself.
 
 ## PDF document
+
+To create a PDF document from R Markdown, you specify the `pdf_document` output format in the YAML metadata:
+
+```yaml
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: pdf_document
+---
+```
+
+Within R Markdown documents that generate PDF output, you can use raw LaTeX, and even define LaTeX macros. See Pandoc's documentation on the [raw_tex extension](http://pandoc.org/MANUAL.html#extension-raw_tex) for details.
+
+Note that PDF output (including Beamer slides) requires an installation of LaTeX (see Chapter \@ref(installation)).
+
+### Table of contents
+
+You can add a table of contents using the `toc` option and specify the depth of headers that it applies to using the `toc_depth` option. For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
+---
+```
+
+If the TOC depth is not explicitly specified, it defaults to 3 (meaning that all level 1, 2, and 3 headers will be included in the TOC).
+
+You can add section numbering to headers using the `number_sections` option:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    toc: true
+    number_sections: true
+---
+```
+
+If you are familiar with LaTeX, `number_sections: true` means `\section{}`, and `number_sections: false` means `\section*{}` for sections in LaTeX (it also applies to other levels of "sections" such as `\chapter{}`, and `\subsection{}`).
+
+### Figure options
+
+There are a number of options that affect the output of figures within PDF documents:
+
+- `fig_width` and `fig_height` can be used to control the default figure width and height (6x4.5 is used by default).
+
+- `fig_crop` controls whether the the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default). If your graphics device is `postscript`, we recommend that you disable this feature (see more info [in this **knitr** issue](https://github.com/yihui/knitr/issues/1365)).
+
+* `fig_caption` controls whether figures are rendered with captions (this is `false` by default).
+
+* `dev` controls the graphics device used to render figures (defaults to `pdf`).
+
+For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+---
+```
+
+### Data frame printing
+
+You can enhance the default display of data frames via the `df_print` option. Valid values are presented in Table \@ref(tab:df-print-pdf).
+
+Table: (\#tab:df-print-pdf) The possible values of the `df_print` option for the `pdf_document` format.
+
+| Option  | Description  |
+|------------|-------------------------------------------|
+| default  | Call the `print.data.frame` generic method |
+| kable  | Use the `knitr::kable()` function |
+| tibble  | Use the `tibble::print.tbl_df()` function |
+
+For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    df_print: kable
+---
+```
+
+### Syntax highlighting
+
+The `highlight` option specifies the syntax highlighting style. Its usage in `pdf_document` is the same as `html_document` (Section \@ref(appearance-and-style)). For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    highlight: tango
+---
+```
+
+### LaTeX options
+
+Many aspects of the LaTeX template used to create PDF documents can be customized using _top-level_ YAML metadata (note that these options do not appear underneath the `output` section, but rather appear at the top level along with `title`, `author`, and so on). For example:
+
+```yaml
+---
+title: "Crop Analysis Q3 2013"
+output: pdf_document
+fontsize: 11pt
+geometry: margin=1in
+---
+```
+
+A few available metadata variables are displayed in Table \@ref(tab:latex-vars) (consult the Pandoc manual for the full list):
+
+Table: (\#tab:latex-vars) Available top-level YAML metadata variables for LaTeX output.
+
+Variable|Description
+------------------------|--------------------------------------------------------------------
+lang|Document language code
+fontsize|Font size (e.g., `10pt`, `11pt`, or `12pt`)
+documentclass|LaTeX document class (e.g., `article`)
+classoption|Options for documentclass (e.g., `oneside`)
+geometry|Options for geometry class (e.g., `margin=1in`)
+mainfont, sansfont, monofont, mathfont|Document fonts (works only with `xelatex` and `lualatex`)
+linkcolor, urlcolor, citecolor|Color for internal, external, and citation links
+
+### LaTeX packages for citations
+
+By default, citations are processed through `pandoc-citeproc`, which works for all output formats. For PDF output, sometimes it is better to use LaTeX packages to process citations, such as `natbib` or `biblatex`. To use one of these packages, just set the option `citation_package` to be `natbib` or `biblatex`, e.g.
+
+```yaml
+---
+output:
+  pdf_document:
+    citation_package: natbib
+---
+```
+
+### Advanced customization
+
+#### LaTeX engine
+
+By default, PDF documents are rendered using `pdflatex`. You can specify an alternate engine using the `latex_engine` option. Available engines are `pdflatex`, `xelatex`, and `lualatex`. For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    latex_engine: xelatex
+---
+```
+
+#### Keeping intermediate TeX
+
+R Markdown documents are converted to PDF by first converting to a TeX file and then calling the LaTeX engine to convert to PDF. By default, this TeX file is removed, however if you want to keep it (e.g., for an article submission), you can specify the `keep_tex` option. For example:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    keep_tex: true
+---
+```
+
+#### Includes
+
+You can do more advanced customization of PDF output by including additional LaTeX directives and/or content or by replacing the core Pandoc template entirely. To include content in the document header or before/after the document body, you use the `includes` option as follows:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+      before_body: doc-prefix.tex
+      after_body: doc-suffix.tex
+---
+```
+
+#### Custom templates
+
+You can also replace the underlying Pandoc template using the `template` option:
+
+```yaml
+---
+title: "Habits"
+output:
+  pdf_document:
+    template: quarterly-report.tex
+---
+```
+
+Consult the documentation on [Pandoc templates](https://pandoc.org/README.html#templates) for additional details on templates. You can also study the [default LaTeX template](https://github.com/jgm/pandoc-templates/blob/master/default.latex) as an example.
+
+### Other features
+
+Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(html-md-exts) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared options in `_output.yml` (Section \@ref(shared-options)).
 
 ## Word document
 
