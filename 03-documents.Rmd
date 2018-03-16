@@ -970,8 +970,6 @@ output: word_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
-
 The most notable feature of Word documents is the Word template, which is also known as the "style reference document". You can specify a document to be used as as a style reference in producing a `*.docx` file (a Word document). This will allow you to customize things such as margins and other formatting characteristics. For best results, the reference document should be a modified version of a `.docx` file produced using **rmarkdown** or Pandoc. The path of such a document can be passed to the `reference_docx` argument of the `word_document` format. Pass `"default"` to use the default styles. For example:
 
 ```yaml
@@ -984,6 +982,10 @@ output:
 ```
 
 For more on how to create and use a reference document, you may watch this short video: https://vimeo.com/110804387, or read this detailed article: https://rmarkdown.rstudio.com/articles_docx.html.
+
+### Other features
+
+Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## OpenDocument Text document
 
@@ -998,8 +1000,6 @@ output: odt_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
-
 Similar to `word_document,` you can also provide a style reference document to `odt_document` throught the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
 
 ```yaml
@@ -1010,6 +1010,10 @@ output:
     reference_odt: my-styles.odt
 ---
 ```
+
+### Other features
+
+Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## Rich Text Format document
 
@@ -1024,8 +1028,6 @@ output: rtf_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
-
 If you know the RTF format really well, you can actually embed raw RTF content in R Markdown. For example, you may create a table in RTF using other software packages, and insert it to your final RTF output document. An RTF document is essentially a plain-text document, so you can read it into R using functions like `readLines()`. Now suppose you have an RTF table in the file `table.rtf`. To embed it in R Markdown, you read it and pass to `knitr::raw_output()`, e.g.,
 
 ````markdown
@@ -1033,6 +1035,10 @@ If you know the RTF format really well, you can actually embed raw RTF content i
 knitr::raw_output(readLines('table.rtf'))
 ```
 ````
+
+### Other features
+
+Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## Markdown document
 
@@ -1095,6 +1101,8 @@ WordPress.com|`markdown_phpextra+backtick_code_blocks`
 StackOverflow|`markdown_strict+autolink_bare_uris`
 
 In many cases, you can simply copy and paste the Markdown generated by `rmarkdown::render()` into the editing interface of the system you are targeting. Note, however, that if you have embedded plots or other images, you will need to upload them separately and fixup their URLs to point to the uploaded location. If you intend to build websites based on R Markdown, we recommend that you use the more straightforward solutions such as **blogdown** [@xie2017; @R-blogdown] as introduced in Section \@ref(websites) instead of manually copying the Markdown content.
+
+### Other features
 
 Refer to Section \@ref(html-document) for the documentation of other features of Markdown documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), header and before/after body includes (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
