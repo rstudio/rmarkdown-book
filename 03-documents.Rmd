@@ -907,6 +907,8 @@ output:
 ---
 ```
 
+The main reasons you may want to use `xelatex` or `lualatex` are: (1) They support Unicode better; (2) It is easier to make use of system fonts. See some posts on StackOverflow for more detailed explanations, e.g., https://tex.stackexchange.com/q/3393/9128 and https://tex.stackexchange.com/q/36/9128.
+
 #### Keeping intermediate TeX
 
 R Markdown documents are converted to PDF by first converting to a TeX file and then calling the LaTeX engine to convert to PDF. By default, this TeX file is removed, however if you want to keep it (e.g., for an article submission), you can specify the `keep_tex` option. For example:
