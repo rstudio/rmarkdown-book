@@ -396,7 +396,7 @@ output:
 
 Consult the documentation on [Pandoc templates](http://pandoc.org/MANUAL.html#templates) for additional details on templates. You can also study the [default HTML template `default.html5`](https://github.com/jgm/pandoc-templates/) as an example.
 
-#### Markdown extensions {#html-md-exts}
+#### Markdown extensions {#markdown-extensions}
 
 By default, R Markdown is defined as all Pandoc Markdown extensions with the following tweaks for backward compatibility with the old **markdown** package [@R-markdown]:
 
@@ -955,7 +955,7 @@ Consult the documentation on [Pandoc templates](https://pandoc.org/README.html#t
 
 ### Other features
 
-Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(html-md-exts) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared options in `_output.yml` (Section \@ref(shared-options)).
+Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(markdown-extensions) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared options in `_output.yml` (Section \@ref(shared-options)).
 
 ## Word document
 
@@ -970,7 +970,7 @@ output: word_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 The most notable feature of Word documents is the Word template, which is also known as the "style reference document". You can specify a document to be used as as a style reference in producing a `*.docx` file (a Word document). This will allow you to customize things such as margins and other formatting characteristics. For best results, the reference document should be a modified version of a `.docx` file produced using **rmarkdown** or Pandoc. The path of such a document can be passed to the `reference_docx` argument of the `word_document` format. Pass `"default"` to use the default styles. For example:
 
@@ -998,7 +998,7 @@ output: odt_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 Similar to `word_document,` you can also provide a style reference document to `odt_document` throught the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
 
@@ -1024,7 +1024,7 @@ output: rtf_document
 ---
 ```
 
-Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(html-md-exts)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 If you know the RTF format really well, you can actually embed raw RTF content in R Markdown. For example, you may create a table in RTF using other software packages, and insert it to your final RTF output document. An RTF document is essentially a plain-text document, so you can read it into R using functions like `readLines()`. Now suppose you have an RTF table in the file `table.rtf`. To embed it in R Markdown, you read it and pass to `knitr::raw_output()`, e.g.,
 
