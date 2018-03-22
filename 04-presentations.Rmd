@@ -6,7 +6,7 @@ For documents, the basic units are often sections. For presentations, the basic 
 
 To create an ioslides presentation from R Markdown, you specify the `ioslides_presentation` output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`---`). For example here is a simple slide show:
 
-```markdown
+````markdown
 ---
 title: "Habits"
 author: John Doe
@@ -35,13 +35,15 @@ output: ioslides_presentation
 
 ---
 
-![picture of spaghetti](images/spaghetti.jpg)
+`r ''````{r, cars, fig.cap="A scatterplot.", echo=FALSE}
+plot(cars)
+```
 
 ## Going to sleep
 
 - Get in bed
 - Count sheep
-```
+````
 
 You can add a subtitle to a slide or section by including text after the pipe (`|`) character. For example:
 
@@ -324,7 +326,7 @@ Refer to Section \@ref(html-document) for the documentation of other features of
 
 To create a [Slidy](https://www.w3.org/Talks/Tools/Slidy2/) presentation from R Markdown, you specify the `slidy_presentation` output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `##` heading tag (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show:
 
-```markdown
+````markdown
 ---
 title: "Habits"
 author: John Doe
@@ -351,15 +353,17 @@ output: slidy_presentation
 - Eat spaghetti
 - Drink wine
 
-----
+---
 
-![picture of spaghetti](images/spaghetti.jpg)
+`r ''````{r, cars, fig.cap="A scatterplot.", echo=FALSE}
+plot(cars)
+```
 
 ## Going to sleep
 
 - Get in bed
 - Count sheep
-```
+````
 
 ### Display modes
 
@@ -429,7 +433,7 @@ Slide presentations have several features in common with ioslides presentations 
 
 To create a Beamer presentation from R Markdown, you specify the `beamer_presentation` output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show:
 
-```yaml
+````markdown
 ---
 title: "Habits"
 author: John Doe
@@ -456,15 +460,17 @@ output: beamer_presentation
 - Eat spaghetti
 - Drink wine
 
-----
+---
 
-![picture of spaghetti](images/spaghetti.jpg)
+`r ''````{r, cars, fig.cap="A scatterplot.", echo=FALSE}
+plot(cars)
+```
 
 ## Going to sleep
 
 - Get in bed
 - Count sheep
-```
+````
 
 Within R Markdown documents that generate PDF output, you can use raw LaTeX and even define LaTeX macros. See Pandoc's manual for details.
 
@@ -504,3 +510,86 @@ Beamer presentations have a few features in common with ioslides presentations i
 
 ## PowerPoint presentation
 
+To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to install Pandoc separately by yourself if `rmarkdown::pandoc_version()` returns a version lower than 2.0.5. In the future, the RStudio IDE will bundle Pandoc 2.x, so you will not need to install Pandoc by yourlself.
+
+Below is a quick example:
+
+````markdown
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: powerpoint_presentation
+---
+
+# In the morning
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+---
+
+`r ''````{r, cars, fig.cap="A scatterplot.", echo=FALSE}
+plot(cars)
+```
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+````
+
+The default slide level (i.e., the heading level that defines individual slides) is determined in the same way as in Beamer slides (Section \@ref(slide-level)), and you can specify an explicit level via the `slide_level` option under `powerpoint_presentation`. You can also start a new slide without a header using a horizontal rule `---`.
+
+You can generate most elements supported by Pandoc's Markdown (Section \@ref(markdown-syntax)) in PowerPoint output, such as bold/italic text, footnotes, bullets, LaTeX math expressions, images, and tables, etc.
+
+At this time, syntax highlighting for fenced code blocks has not been supported yet.
+
+Please note that images and tables will always be placed on new slides. The only elements that can coexist with an image or table on a slide are the slide header and image/table caption. When you have a text paragraph and an image on the same slide, the image will be moved to a new slide automatically. Images will be scaled automatically to fit the slide, and if the automatic size does not work well, you may manually control the image sizes: for static images included via the Markdown syntax `![]()`, you may use the `width` and/or `height` attributes in a pair of curly braces after the image, e.g., `![caption](foo.png){width=40%}`; for images generated dynamically from R code chunks, you can use the chunk options `fig.width` and `fig.height` to control the sizes.
+
+Please read the section "Producing slide shows with pandoc" in Pandoc's manual for more information on slide shows, such as the multi-column layout:
+
+```markdown
+:::::: {.columns}
+::: {.column width="40%"}
+Content of the left column.
+:::
+
+::: {.column width="60%"}
+Content of the right column.
+:::
+::::::
+```
+
+### Custom templates
+
+Like Word documents (Section \@ref(word-document)), you can customize the appearance of PowerPoint presentations by passing a custom reference document via the `reference_doc` option, e.g.,
+
+```yaml
+---
+title: "Habits"
+output:
+  powerpoint_presentation:
+    reference_doc: my-styles.pptx
+---
+```
+
+Basically any template included in a recent version of Microsoft PowerPoint should work. You can create a new `*.pptx` file from the menu `File -> New` with your desired template, save the new file, and use it as the reference document (template) through the `reference_doc` option. Pandoc will read the styles in the template and apply them to the PowerPoint presentation to be created from R Markdown.
+
+### Other features
+
+Refer to Section \@ref(html-document) for the documentation of other features of PowerPoint presentations, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
