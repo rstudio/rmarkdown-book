@@ -510,7 +510,7 @@ Beamer presentations have a few features in common with ioslides presentations i
 
 ## PowerPoint presentation
 
-To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to install Pandoc separately by yourself if `rmarkdown::pandoc_version()` returns a version lower than 2.0.5. In the future, the RStudio IDE will bundle Pandoc 2.x, so you will not need to install Pandoc by yourlself.
+To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a daily build of RStudio](https://dailies.rstudio.com) (>= 1.2.482).
 
 Below is a quick example:
 
