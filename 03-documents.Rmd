@@ -8,7 +8,7 @@ The syntax of Markdown has been greatly extended by Pandoc. What is more, Pandoc
 
 ## HTML document
 
-As we just mentioned before, Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats.
+As we just mentioned before, Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats. We recommend that you read this full section before you learn other output formats, because other formats have several features in common with the HTML document format, and we will not repeat these features in the corresponding sections.
 
 To create an HTML document from R Markdown, you specify the `html_document` output format in the YAML metadata of your document:
 
