@@ -156,13 +156,13 @@ output:
 You can also target specific slides or classes of slice with custom CSS by adding IDs or classes to the slides headers within your document. For example the following slide header:
 
 ```markdown
-## Next Steps {#nextsteps .emphasized}
+## Future Steps {#future-steps .emphasized}
 ```
 
 Would enable you to apply CSS to all of its content using either of the following CSS selectors:
 
 ```css
-#nextsteps {
+#future-steps {
   color: blue;
 }
 
