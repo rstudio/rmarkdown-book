@@ -1,0 +1,3 @@
+# HTML documentation for R packages {#pkgdown}
+
+pkgdown

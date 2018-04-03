@@ -96,7 +96,7 @@ There are two types of output formats in the **rmarkdown** package: documents, a
 
 `r knitr::combine_words(grep('^[^_]+_(document|presentation)$', ls(asNamespace('rmarkdown')), value = TRUE), sep = '\n', and = '', before = '- \x60', after = '\x60')`
 
-We will document these output formats in detail in Chapters \@ref(documents) and \@ref(presentations). There are more output formats provided in other extension packages (Chapter \@ref(extensions)). For the output format names in the YAML metadata of an Rmd file, you need to include the package name if a format is from an extension package, e.g.,
+We will document these output formats in detail in Chapters \@ref(documents) and \@ref(presentations). There are more output formats provided in other extension packages (starting from Chapter \@ref(dashboards)). For the output format names in the YAML metadata of an Rmd file, you need to include the package name if a format is from an extension package, e.g.,
 
 ```yaml
 output: tufte::tufte_html
