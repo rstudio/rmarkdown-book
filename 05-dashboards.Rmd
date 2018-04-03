@@ -1,0 +1,120 @@
+# (PART) Extensions {-}
+
+# Dashboards
+
+R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard].
+
+Dashboards are particularly common in business-style reports. They can be used to highlight brief and key summaries of a report. The layout of a dashboard is often grid-based, with components arranged in boxes of various sizes.
+
+With the **flexdashboard** package, you can
+
+- Use R Markdown to publish a group of related data visualizations as a dashboard.
+
+- Embed a wide variety of components including HTML widgets, R graphics, tabular data, gauges, value boxes, and text annotations.
+
+- Specify row or column-based layouts (components are intelligently re-sized to fill the browser and adapted for display on mobile devices).
+
+- Create story boards for presenting sequences of visualizations and related commentary.
+
+- Optionally use Shiny to drive visualizations dynamically.
+
+To author a dashboard, you create an R Markdown document with the `flexdashboard::flex_dashboard` output format. You can also create a document from within RStudio using the `File -> New File -> R Markdown` dialog, and choosing a "Flex Dashboard" template.
+
+If you are not using RStudio, you can create a new `flexdashboard` R Markdown file from the R console:
+
+```r
+rmarkdown::draft(
+  "dashboard.Rmd", template = "flex_dashboard",
+  package = "flexdashboard"
+)
+```
+
+The full documentation of **flexdashboard** is at https://rmarkdown.rstudio.com/flexdashboard/. We will only cover some basic ideas and usage in this chapter.
+
+## Layout
+
+The overall rule about the dashboard layout is that a first-level section generates a page, a second-level section generates a column (or a row), and a third-level section generates a box (that contains one or more dashboard components). Below is a quick example:
+
+````markdown
+`r xfun::file_string('examples/dashboard/01-start.Rmd')`
+````
+
+Note that a series of dashes under a line of text is the alternative Markdown syntax for the second-level section header, i.e.,
+
+```markdown
+Column 1
+--------------------------------------------------
+```
+
+is equivalent to
+
+```markdown
+## Column 1
+```
+
+We used a series of dashes just to make the second-level sections stand out in the source document. By default, the second-level sections generate columns on a dashbard, and the third level sections will be stacked vertically inside columns. You do not have to have columns on a dashboard: when all you have are the third-level sections in the source document, they will be stacked vertically as one column in the output.
+
+The text of the second-level headers will not be displayed in the output. The second-level headers are for the sole purpose of layout, so the actual content of the headers does not matter at all. By contrast, the first-level and thrid-level headers will be displayed as titles.
+
+Figure \@ref(fig:dashboard-start) shows the output of the above example, in which you can see two columns, with the first column containing "Chart A", and the second column containing "Chart B" and "Chart C". We did not really include any R code in the code chunks, so all boxes are empty. In these code chunks, you may write arbitrary R code that generates R plots, HTML widgets, and various other components to be introduced in Section \@ref(dashboard-components).
+
+```{r dashboard-start, echo=FALSE, fig.cap='A quick example of the dashboard layout.', out.width='100%'}
+knitr::include_graphics('images/dashboard-start.png', dpi = NA)
+```
+
+You may change the column-oriented layout to the row-oriented layout through the `orientation` option, e.g.,
+
+```yaml
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+```
+
+That means the second-level sections will be rows, and the third-level sections will be arranged as columns within rows.
+
+The second-level section headers may have attributes on them, e.g., you can set the width of a column to 350:
+
+```markdown
+A narrow column {data-width=350}
+--------------------------------
+```
+
+For the row-oriented layout, you can set the `data-height` attribute for rows. The `{.tabset}` attribute can be applied on a column so that the third-level sections will be arranged in tabs, e.g.,
+
+```markdown
+Two tabs {.tabset}
+------------------
+
+### Tab A
+
+### Tab B
+```
+
+When you have multiple first-level sections in the document, they will be displayed as separate pages on the dashboard. Below is an example, and Figure \@ref(fig:dashboard-pages) shows the output. Note that a series of equal signs is the alternative Markdown syntax for the first-level section headers (you can use a single pound sign `#`, too).
+
+````markdown
+`r xfun::file_string('examples/dashboard/02-pages.Rmd')`
+````
+
+Page titles are displayed as a navigation menu at the top of the dashboard. In this example, we applied icons to page titles through the `data-icon` attribute. You can find other available icons from https://fontawesome.com.
+
+```{r dashboard-pages, echo=FALSE, fig.cap='Multiple pages on a dashboard.', out.width='100%'}
+knitr::include_graphics('images/dashboard-pages.png', dpi = NA)
+```
+
+Besides the column and row-based layouts, you may present a series of visualizations and related commentary through the "storyboard" layout. To enable this layout, you use the option `storyboard`. Below is an example, and Figure \@ref(fig:dashboard-story) shows the output, in which you can see left/right navigation buttons at the top to help you go through all visualizations and associated commentaries one by one.
+
+````markdown
+`r xfun::file_string('examples/dashboard/03-storyboard.Rmd')`
+````
+
+```{r dashboard-story, echo=FALSE, fig.cap='An example story board.', out.width='100%'}
+knitr::include_graphics('images/dashboard-story.png', dpi = NA)
+```
+
+## Components {#dashboard-components}
+
+
+
+## Shiny
+
