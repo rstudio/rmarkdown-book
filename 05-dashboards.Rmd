@@ -231,3 +231,52 @@ The `social` option can include any number of the following services: `"facebook
 
 ## Shiny
 
+By adding Shiny to a dashboard, you can let viewers change underlying parameters and see the results immediately, or let dashboards update themselves incrementally as their underlying data changes (see functions `reactiveFileReader()` and `reactivePoll()` in the **shiny** package). This is done by adding `runtime: shiny` to a standard dashboard document, and then adding one or more input controls and/or reactive expressions that dynamically drive the appearance of the components within the dashboard.
+
+Using Shiny with **flexdashboard** turns a static R Markdown report into an interactive document. It is important to note that interactive documents need to be deployed to a Shiny Server to be shared broadly (whereas static R Markdown documents are standalone web pages that can be attached to emails or served from any standard web server).
+
+Note that the [**shinydashboard**](https://rstudio.github.io/shinydashboard/) package provides another way to create dashboards with Shiny.
+
+### Getting started
+
+The steps required to add Shiny components to a dashboard are:
+
+1. Add `runtime: shiny` to the options declared at the top of the document (YAML metadata).
+
+1. Add the `{.sidebar}` attribute to the first column of the dashboard to make it a host for Shiny input controls (note that this step is not strictly required, but this will generate a typical layout for Shiny-based dashboards).
+
+1. Add Shiny inputs and outputs as appropriate.
+
+1. When including plots, be sure to wrap them in a call to `renderPlot()`. This is important not only for dynamically responding to changes, but also to ensure that they are automatically re-sized when their container changes.
+
+### A Shiny dashboard example
+
+Here is a simple example of a dashboard that uses Shiny (see Figure \@ref(fig:dashboard-shiny) for the output):
+
+````markdown
+`r xfun::file_string('examples/dashboard/07-shiny.Rmd')`
+````
+
+```{r dashboard-shiny, echo=FALSE, fig.cap='An interactive dashboard based on Shiny.', out.width='100%'}
+knitr::include_graphics('images/dashboard-shiny.png', dpi = NA)
+```
+
+The first column includes the `{.sidebar}` attribute and two Shiny input controls; the second column includes the Shiny code required to render the chart based on the inputs.
+
+One important thing to note about this example is the chunk labeled `global` at the top of the document. The `global` chunk has special behavior within **flexdashboard**: it is executed only once within the global environment, so that its results (e.g., data frames read from disk) can be accessed by all users of a multi-user dashboard. Loading your data within a `global` chunk will result in substantially better startup performance for your users, hence is highly recommended.
+
+### Input sidebar
+
+You add an input sidebar to a flexdashboard by adding the `{.sidebar}` attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document. 
+
+If you are creating a dashboard with multiple pages, you may want to use a single sidebar that applies across all pages. In this case, you should define the sidebar using a _first-level_ Markdown header.
+
+### Learning more
+
+Below are some good resources for learning more about Shiny and creating interactive documents:
+
+1. The official Shiny website (http://shiny.rstudio.com) includes extensive articles, tutorials, and examples to help you learn more about Shiny.
+
+1. The article "[Introduction to Interactive Documents](http://shiny.rstudio.com/articles/interactive-docs.html)" on the Shiny website is a great guide for getting started with Shiny and R Markdown.
+
+1. For deploying interactive documents, you may consider Shiny Server or RStudio Connect: https://www.rstudio.com/products/shiny/shiny-server/.
