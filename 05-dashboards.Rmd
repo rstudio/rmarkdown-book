@@ -29,7 +29,7 @@ rmarkdown::draft(
 )
 ```
 
-The full documentation of **flexdashboard** is at https://rmarkdown.rstudio.com/flexdashboard/. We will only cover some basic ideas and usage in this chapter.
+The full documentation of **flexdashboard** is at https://rmarkdown.rstudio.com/flexdashboard/. We will only cover some basic features and usage in this chapter. Dashboards have many features in common with HTML documents (Section \@ref(html-document)), such as figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), header and before/after body includes (Section \@ref(includes)), and Pandoc arguments (Section \@ref(pandoc-arguments)), and so on. We also recommend that you take a look at the R help page `?flexdashboard::flex_dashboard` to learn about more features and options.
 
 ## Layout
 
@@ -62,6 +62,8 @@ Figure \@ref(fig:dashboard-start) shows the output of the above example, in whic
 knitr::include_graphics('images/dashboard-start.png', dpi = NA)
 ```
 
+### Row-based layouts
+
 You may change the column-oriented layout to the row-oriented layout through the `orientation` option, e.g.,
 
 ```yaml
@@ -71,6 +73,8 @@ output:
 ```
 
 That means the second-level sections will be rows, and the third-level sections will be arranged as columns within rows.
+
+### Attributes on sections
 
 The second-level section headers may have attributes on them, e.g., you can set the width of a column to 350:
 
@@ -90,6 +94,8 @@ Two tabs {.tabset}
 ### Tab B
 ```
 
+### Multiple pages
+
 When you have multiple first-level sections in the document, they will be displayed as separate pages on the dashboard. Below is an example, and Figure \@ref(fig:dashboard-pages) shows the output. Note that a series of equal signs is the alternative Markdown syntax for the first-level section headers (you can use a single pound sign `#`, too).
 
 ````markdown
@@ -101,6 +107,8 @@ Page titles are displayed as a navigation menu at the top of the dashboard. In t
 ```{r dashboard-pages, echo=FALSE, fig.cap='Multiple pages on a dashboard.', out.width='100%'}
 knitr::include_graphics('images/dashboard-pages.png', dpi = NA)
 ```
+
+### Story boards
 
 Besides the column and row-based layouts, you may present a series of visualizations and related commentary through the "storyboard" layout. To enable this layout, you use the option `storyboard`. Below is an example, and Figure \@ref(fig:dashboard-story) shows the output, in which you can see left/right navigation buttons at the top to help you go through all visualizations and associated commentaries one by one.
 
@@ -114,7 +122,112 @@ knitr::include_graphics('images/dashboard-story.png', dpi = NA)
 
 ## Components {#dashboard-components}
 
+A wide variety of components can be included in a dashboard layout, including:
 
+1. Interactive JavaScript data visualizations based on HTML widgets.
+
+1. R graphical output including base, lattice, and grid graphics.
+
+1. Tabular data (with optional sorting, filtering, and paging).
+
+1. Value boxes for highlighting important summary data.
+
+1. Gauges for displaying values on a meter within a specified range.
+
+1. Text annotations of various kinds.
+
+1. A navigation bar to provide more links related to the dashboard.
+
+The first three components work in most R Markdown documents regardless of output formats. Only the latter four are specific to dashboards, and we briefly introduce them in this section.
+
+### Value boxes
+
+Sometimes you want to include one or more simple values within a dashboard. You can use the `valueBox()` function in the **flexdashboard** package to display single values along with a title and an optional icon. For example, here are three side-by-side sections, each displaying a single value (see Figure \@ref(fig:dashboard-valueboxes) for the output):
+
+````markdown
+`r xfun::file_string('examples/dashboard/04-valueboxes.Rmd')`
+````
+
+```{r dashboard-valueboxes, echo=FALSE, fig.cap='Three value boxes side by side on a dashboard.', out.width='100%'}
+knitr::include_graphics('images/dashboard-valueboxes.png', dpi = NA)
+```
+
+The `valueBox()` function is called to emit a value and specify an icon.
+
+The third code chunk ("Spam per Day") makes the background color of the value box dynamic using the `color` parameter. Available colors include `"primary"`, `"info"`, `"success"`, `"warning"`, and `"danger"` (the default is `"primary"`). You can also specify any valid CSS color (e.g., `"#ffffff"`, `"rgb(100, 100, 100)"`, etc.).
+
+### Gauges
+
+Gauges display values on a meter within a specified range. For example, here is a set of three gauges (see Figure \@ref(fig:dashboard-gauges) for the output):
+
+````markdown
+`r xfun::file_string('examples/dashboard/05-gauges.Rmd')`
+````
+
+```{r dashboard-gauges, echo=FALSE, fig.cap='Three gauges side by side on a dashboard.', out.width='100%'}
+knitr::include_graphics('images/dashboard-gauges.png', dpi = NA)
+```
+
+There are a few things to note about this example:
+
+1. The `gauge()` function is used to output a gauge. It has three required arguments: `value`, `min`, and `max` (these can be any numeric values).
+
+1. You can specify an optional `symbol` to be displayed alongside the value (in the example "`%`" is used to denote a percentage).
+
+1. You can specify a set of custom color "sectors" using the `gaugeSectors()` function. By default, the current theme's "success" color (typically green) is used for the gauge color. The `sectors` option enables you to specify a set of three value ranges (`success`, `warning`, and `danger`), which cause the gauge's color to change based on its value.
+
+### Text annotations
+
+If you need to include additional narrative or explanation within your dashboard, you can do so in the following ways:
+
+1. You can include content at the top of the page before dashboard sections are introduced.
+
+1. You can define dashboard sections that do not include a chart but rather include arbitrary content (text, images, and equations, etc.).
+
+For example, the following dashboard includes some content at the top and a dashboard section that contains only text (see Figure \@ref(fig:dashboard-text) for the output):
+
+````markdown
+`r xfun::file_string('examples/dashboard/06-text.Rmd')`
+````
+
+```{r dashboard-text, echo=FALSE, fig.cap='Text annotations on a dashboard.', out.width='100%'}
+knitr::include_graphics('images/dashboard-text.png', dpi = NA)
+```
+
+Each component within a dashboard includes an optional title and notes sections. The title is simply the text after the third-level (`###`) section heading. The notes are any text prefaced with `>` after the code chunk that yields the component's output (see the second component of the above example).
+
+You can exclude the title entirely by applying the `.no-title` attribute to a section heading.
+
+### Navigation bar
+
+By default, the dashboard navigation bar includes the document's `title`, `author`, and `date`. When a dashboard has multiple pages (Section \@ref(multiple-pages)), links to the various pages are also included on the left side of the navigation bar. You can also add social links to the dashboard.
+
+In addition, you can custom links to the navigation bar using the `navbar` option. For example, the following options add an "About" link to the navigation bar:
+
+```yaml
+---
+title: "Navigation Bar"
+output: 
+  flexdashboard::flex_dashboard:
+    navbar:
+      - { title: "About", href: "https://example.com/about" }
+---
+```
+
+Navigation bar items must include either a `title` or `icon` field (or both). You should also include a `href` as the navigation target. The `align` field is optional (it can be "left" or "right" and defaults to "right").
+
+You can include links to social sharing services via the `social` option. For example, the following dashboard includes Twitter and Facebook links as well as a drop-down menu with a more complete list of services:
+
+```yaml
+---
+title: "Social Links"
+output: 
+  flexdashboard::flex_dashboard:
+    social: [ "twitter", "facebook", "menu" ]
+---
+```
+
+The `social` option can include any number of the following services: `"facebook"`, `"twitter"`, `"google-plus"`, `"linkedin"`, and `"pinterest"`. You can also specify `"menu"` to provide a generic sharing drop-down menu that includes all of the services.
 
 ## Shiny
 

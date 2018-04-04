@@ -263,14 +263,14 @@ Or indent by four spaces:
     This text is displayed verbatim / preformatted
 ````
 
-In general, you'd better leave at least one empty line between adjacent but different elements, e.g., a header and a paragraph. This is to avoid ambiguity to the Markdown renderer. For example, does `#` indicate a header below?
+In general, you'd better leave at least one empty line between adjacent but different elements, e.g., a header and a paragraph. This is to avoid ambiguity to the Markdown renderer. For example, does "`#`" indicate a header below?
 
 ```markdown
 In R, the character
 # indicates a comment.
 ```
 
-And does `-` mean a bullet point below?
+And does "`-`" mean a bullet point below?
 
 ```markdown
 The result of 5
