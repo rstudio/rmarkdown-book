@@ -27,7 +27,7 @@ If you use RStudio, you can start a new bookdown project from the menu `File -> 
 You may add or change the R Markdown files, and hit the `Knit` button again to preview the book. If you prefer not to use RStudio, you may also compile the book through the command line using `bookdown::render_book()`.
 
 ```{r bookdown-template, echo=FALSE, fig.cap= "The HTML output of the bookdown template", out.width='100%'}
-knitr::include_graphics("images/bookdown-template.png")
+knitr::include_graphics("images/bookdown-template.png", dpi = NA)
 ```
 
 ## Project structure
