@@ -1,3 +1,55 @@
 # Books
 
-bookdown
+## Introduction: 
+-	Use some of the concepts from the bookdown book pg.2
+-	Add some additional explanation of the times that bookdown is more suitable than RMarkdown
+
+## File structure
+-	Explain the basic directory layout (pg. 4 bookdown book)
+-	Outline a typical directory including `index.Rmd` and the templating files. I feel this is important to explain early on as it can be a bit overwhelming having so many extra files. 
+-	A minimal `bookdown.yml` file example should be shown early to get a reader familiar with the purpose of this file.
+
+## Extended Syntax:
+
+-	Highlight the differences between Rmarkdown and bookdown (Section 2.2)
+	-	Number and reference equations
+	-	Theorems and proofs (reduced length compared to book)
+	-	Special headers
+	-	Text references
+	-	Cross-references
+
+## Output formats:
+
+- Highlight multiple output formats easily developed for same document.
+- Shorten description, but keep list of the YAML options for each format.
+
+## Customisation
+
+-	Do not mention about custom templates and stylings (should be stored in separate chapter)
+- `_bookdown.yml` options available for customising output
+
+## Editing
+- Shorten content compared to book
+- Building full book
+- Previewing chapters
+- Serving book
+
+## Publishing
+
+- Largely beyond the scope of an introduction chapter
+- Reduced in size compared to book, focussing on highlighting the ways work can be published, rather than providing detailed steps on how to do things
+
+## General Tips for a project
+
+Ending the chapter on some considerations of implementing bookdown as a project. I feel there are quite a lot of points I could mention having written my thesis in Rmarkdown.
+
+- Do not worry about appearance of PDF output until end of project
+- Ability to use LaTeX to style advance projects. Trade-off in this approach is the loss of transferability to HTML/ebook outputs.
+- Structuring projects so that they remain manageable:
+	- use of cache for slow processes.
+- Avoid containing too large chunks of code within the `.Rmd` files as they can become unmanageably big. Using `source()` is a good way to save code in seperate files i.e. `analysis.R` and they can be loaded into full report.
+
+## Content to be included from bookdown book in other chapters
+
+- General markdown syntax
+- Customisation of templates
