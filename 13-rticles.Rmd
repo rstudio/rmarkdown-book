@@ -1,3 +1,38 @@
 # Journals
 
-rticles
+- Academic journals will mostly have strict standards on the formatting of articles which can be a painful experience if not thought about at the start.
+- The **rticles** package is designed to simplify the creation of journal articles, and provides support for popular journals (13 on CRAN, 17 on GitHub).
+
+## Get Started
+
+- Installation
+- Usage within RStudio
+
+## Journal Styles
+
+- Summary of styles available
+
+## Usage of Templates
+
+- Extended YAML values: highlight how these are not standard but are part of the template. For example `author` and `currentaddress`
+- Helps to have an understanding of LaTeX
+- Use of LaTeX commands embedded: as the only output is PDF there are no problems with HTML/Word Outputs.
+- Templates may have fixed LaTeX commands which are required as part of the template like `\abstract`
+- Most templates use LaTeX within their template, `\begin{tabular}`, but `kable` will be able to generate tables suitable.
+
+## Linking With bookdown
+
+Cross-referencing and numbering is particurly important in journals. Easier to use bookdown syntax.
+https://bookdown.org/yihui/bookdown/a-single-document.html
+
+output:
+  bookdown::pdf_book:
+    base_format: rticles::jss_article
+    
+
+## Contributing Templates
+
+- Explain that additional libraries can be added. 
+- Explain that most journals provide a LaTeX template and style file
+- **rticles** adds in Pandoc references to connect with the YAML
+- Not to go into much detail here.
