@@ -1,16 +1,18 @@
 # Books
 
-We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package [@R-bookdown] addresses this limitation, and offers several key improvements:
+We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF, and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package [@xie2016; @R-bookdown] addresses this limitation, and offers several key improvements:
 
 - Books and reports can be built from multiple R Markdown files.
-- Additional formatting features are added including cross-referencing, number of figures/equations/tables.
-- Documents can easily be exported in a range of formats suitable for publishing , including PDF, ebooks and HTML websites.
 
-This book itself was created using **bookdown** and acts as an example of what can be achieved. Despite the  name containing the word "book", **bookdown** is not only for books, and it can be used for long reports, dissertations. In fact, many **bookdown** features apply to single R Markdown documents as well (see Section \@ref(a-single-document)).
+- Additional formatting features are added, such as cross-referencing, and numbering of figures, equations, and tables.
 
-In this chapter, we cover the basics of bookdown and explain how to get up and running with a project. Much of the the content is based on the work "*bookdown: Authoring Books and Technical Documents with R Markdown*" (https://bookdown.org/yihui/bookdown/) of @xie2016, which provides more detailed explanations of the concepts highlighted.
+- Documents can easily be exported in a range of formats suitable for publishing, including PDF, e-books and HTML websites.
 
-## Get started
+This book itself was created using **bookdown**, and acts as an example of what can be achieved. Despite the name containing the word "book", **bookdown** is not only for books, and it can be used for long reports, dissertations, or even single R Markdown documents (see Section \@ref(a-single-document)). It also works with other computing languages such as Python and C++ (see Section \@ref(other-code-languages)). If you want, you can even write documents irrelevant to computing, such as a novel.
+
+In this chapter, we cover the basics of **bookdown**, and explain how to start a **bookdown** project. Much of the the content is based on the work "*bookdown: Authoring Books and Technical Documents with R Markdown*" (https://bookdown.org/yihui/bookdown/) of @xie2016, which provides more detailed explanations of the concepts highlighted.
+
+## Get started {#bookdown-start}
 
 You can install either the CRAN version or the development version on GitHub (https://github.com/rstudio/bookdown):
 
@@ -22,17 +24,17 @@ install.packages('bookdown')
 devtools::install_github('rstudio/bookdown')
 ```
 
-If you use RStudio, you can start a new bookdown project from the menu `File -> New Project... -> New Directory -> Book Project using bookdown`.^[Alternatively, the command `bookdown:::bookdown_skeleton(getwd())` (N.B. `:::`) will create a skeleton project in your current working directory.] Open the R Markdown file `index.Rmd` and click the button Build Book on the Build tab of RStudio. This will compile the book and display the online version within the RStudio Viewer, which looks like Figure \@ref(fig:bookdown-template).  
+If you use RStudio, you can start a new bookdown project from the menu `File -> New Project -> New Directory -> Book Project using bookdown`.^[Alternatively, the command `bookdown:::bookdown_skeleton(getwd())` will create a skeleton project in your current working directory.] Open the R Markdown file `index.Rmd`, and click the button `Build Book` on the `Build` tab of RStudio. This will compile the book and display the HTML version within the RStudio Viewer, which looks like Figure \@ref(fig:bookdown-template).  
 
-You may add or change the R Markdown files, and hit the `Knit` button again to preview the book. If you prefer not to use RStudio, you may also compile the book through the command line using `bookdown::render_book()`.
-
-```{r bookdown-template, echo=FALSE, fig.cap= "The HTML output of the bookdown template", out.width='100%'}
+```{r bookdown-template, echo=FALSE, fig.cap= "The HTML output of the bookdown template.", out.width='100%'}
 knitr::include_graphics("images/bookdown-template.png", dpi = NA)
 ```
 
-## Project structure
+You may add or change the R Markdown files, and hit the `Knit` button again to preview the book. If you prefer not to use RStudio, you may also compile the book through the command line using `bookdown::render_book()`.
 
-It can at first seem overwhelming starting a bookdown project, as there are quite a few files in the basic template. Below shows the basic structure of the bookdown template:
+## Project structure {#bookdown-project}
+
+Below shows the basic structure of a default **bookdown** project:
 
 ```markdown
 directory/
@@ -53,35 +55,40 @@ directory/
 
 As a summary of these files:
 
-- `index.Rmd`: This is the only Rmd document to contain a YAML frontmatter as described within the \@ref(basics), and is the first book chapter.
-- `Rmd files`: a typical **bookdown** book contains multiple chapters, and one chapter lives in one Rmd file.
-- `_bookdown.yml`: controls how bookdown builds the book.
-- `_output.yml`: specifies the formatting of the HTML, LaTeX/PDF and e-books.
-- `preamble.tex` and `style.css`: allows for the appearance and styles of the files to be adjusted. Adjusting these are beyond the scope of this chapter, but are covered in Section \@ref(customization).
+- `index.Rmd`: This is the only Rmd document to contain a YAML frontmatter as described within Chapter \@ref(basics), and is the first book chapter.
 
-These files are explained in greater detail within the following subsections. 
+- Rmd files: A typical **bookdown** book contains multiple chapters, and one chapter lives in one Rmd file.
+
+- `_bookdown.yml`: A configuration file for **bookdown**.
+
+- `_output.yml`: It specifies the formatting of the HTML, LaTeX/PDF, and e-books.
+
+- `preamble.tex` and `style.css`: They can be used to adjust the appearance and styles of the book output document(s). Knowledge of LaTeX and/or CSS is required.
+
+These files are explained in greater detail in the following subsections. 
 
 ### Index file
 
-The `index.Rmd` file is the first file when merging all Rmd files. The appearance of this file is more familiar to the original R Markdown filetype and includes the YAML header:
+By default, all Rmd files are merged to render the book. The `index.Rmd` file is the first file when merging all Rmd files. You should and should only specify the YAML metadata in this file, e.g.,
 
 ```yaml
 ---
 title: "A Minimal Book Example"
 author: "Yihui Xie"
-date: "`r Sys.Date()`"
+date: "`r "\x60r Sys.Date()\x60"`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book."
+description: "This is a minimal example of using
+  the bookdown package to write a book."
 ---
 ```
 
 ### Rmd files
 
-Each R Markdown file does not require its own YAML header, but must start immediately with the chapter title using the first-level heading, e.g., `# Chapter Title`.
+The rest of Rmd files must start immediately with the chapter title using the first-level heading, e.g., `# Chapter Title`.
 
 - 01-intro.Rmd
 
@@ -100,19 +107,19 @@ Each R Markdown file does not require its own YAML header, but must start immedi
     Here is a review of existing methods.
     ```
 
-By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped.
+By default, **bookdown** merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped.
 
 ### _bookdown.yml
 
-The `bookdown.yml` file allows you to specify optional setting used to be build the book. Most commonly, you may want to override the order in which files are merged by including  the field `rmd_files`.  For example,
+The `_bookdown.yml` file allows you to specify optional setting used to be build the book. For example, you may want to override the order in which files are merged by including  the field `rmd_files`:
 
 ```yaml
-rmd_files: ["index.Rmd", "01-intro.Rmd", "02-literature.Rmd"]
+rmd_files: ["index.Rmd", "02-literature.Rmd", "01-intro.Rmd"]
 ```
 
 ### _output.yml
 
-The `output.yml` file is used to specify the output formats book, and allows for the customization of the styles. Here is a brief example:
+The `_output.yml` file is used to specify the book output formats (see Section \@ref(bookdown-output)). Here is a brief example:
 
 ```yaml
 bookdown::gitbook:
@@ -127,38 +134,38 @@ bookdown::html_book:
   css: toc.css
 ```
 
-Section \@ref(bookdown-output) provides further detail on how the output formats can be customized.
+## Markdown extensions {#bookdown-markdown}
 
-## Markdown extensions {#markdown-extensions}
-
-**Bookdown** expands upon the markdown syntax Section outlined in \@ref(markdown-syntax), and provides additional powerful features which assist longer documents and academic writing.
+The **bookdown** package expands upon the Markdown syntax outlined in Section \@ref(markdown-syntax), and provides additional powerful features that assist longer documents and academic writing.
 
 ### Number and reference equations {#equations}
 
-Section \@ref(math-expressions) highlighted how equations can be created using LaTeX syntax within Markdown. To number equations, put them in the equation environments and assign labels to them using the syntax `(\#eq:label)`. Equation labels must start with the prefix `eq:` in **bookdown**. For example:
+Section \@ref(math-expressions) highlighted how equations can be created using LaTeX syntax within Markdown. To number equations, put them in the `equation` environments, and assign labels to them using the syntax `(\#eq:label)`. Equation labels must start with the prefix `eq:` in **bookdown**. For example:
 
 ```latex
 \begin{equation} 
   E=mc^2
-  (\#eq:binom)
+  (\#eq:emc)
 \end{equation} 
 ```
 
-It renders the equation below:
+It renders the equation below \@ref(eq:emc):
 
 \begin{equation}
-f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom)
+  E=mc^2
+  (\#eq:emc)
 \end{equation}
 
 ### Theorems and proofs {#theorems}
 
-Theorems and proofs provide a environment which are commonly used within articles and books in mathematics. To write a theorem, you can use the syntax below:
+Theorems and proofs provide environments that are commonly used within articles and books in mathematics. To write a theorem, you can use the syntax below:
 
 ````markdown
 `r ''````{theorem}
 Here is my theorem.
 ```
 ````
+
 For example:
 
 ```{theorem, pyth, name="Pythagorean theorem"}
@@ -168,57 +175,41 @@ and $a$ and $b$ denote the lengths of the other two sides, we have
 $$a^2 + b^2 = c^2$$
 ```
 
-The `proof` environment behaves similarly to theorem environments but are unnumbered. 
+Theorems can be numbered and cross-referenced, as you can see from Theorem \@ref(thm:pyth). The `proof` environment behaves similarly to theorem environments but are unnumbered.
+
+Variants of the `theorem` environments include: `r knitr::combine_words(names(bookdown:::theorem_abbr[-1]), before = '\x60')`. Variants of the `proof` environments include `r knitr::combine_words(names(bookdown:::label_names_math2[-1]), before = '\x60')`. The syntax for these environments is similar to the `theorem` environment, e.g., ```` ```{lemma}````.
 
 ### Special headers
 
 There are two special types of first-level headers than can be used in **bookdown**:
 
-- Parts can be created using `(PART) Part I {-}`. These are useful if there are many chapters within a book.
-- Appendices `(APPENDIX) Appendix {-}`: all chapters after this header will be treated as an appendix, and the numbering of the chapter will be `A1, A2, A3 etc.`.
+- A part can be created using `# (PART) Part Title {-}` before the chapters that belong to this part.
 
-An example of these both shown in use is provided below:
-
-```markdown
-# (PART) Part I {-} 
-
-# Chapter One
-
-# Chapter Two
-
-# (PART) Part II {-} 
-
-# Chapter Three
-
-# (APPENDIX) Appendix {-} 
-
-# Appendix A
-
-# Appendix B
-```
+- Appendices `# (APPENDIX) Appendix {-}`: All chapters after this header will be treated as the appendix. The numbering style of these chapters will be `A`, `B`, `C`, etc., and sections will be numbered as `A.1`, `A.2`, and so on.
 
 ### Text references
 
-A text reference can be created which allows the label to be used elsewhere in the document.The sytax for a reference is `(ref:label) text` where `label` is a unique identifier and `text` which wants to be used throughout the document. For example:
+A text reference is a paragraph with a label. The sytax is `(ref:label) text`, where `label` is a unique identifier, and `text` is a Markdown paragraph. For example:
 
 ```markdown
 (ref:foo) Define a text reference **here**. 
 ```
-Then you can use `(ref:foo)` to refer to the full text. Text references can be used anywhere in the document, and are particularly useful feature where you want to assign a long caption to a figure or include markdown formatting in a caption. For example:
+
+Then you can use `(ref:foo)` to refer to the full text. Text references can be used anywhere in the document, and are particularly useful when assigning a long caption to a figure or including Markdown formatting in a caption. For example:
 
 ````markdown
-A normal paragraph.
+Some text.
 
-(ref:cars-plot) A scatterplot of the data `cars` using **base** R graphics.
+(ref:cool-plot) A boxplot of the data `iris` in **base** R.
 
-`r ''````{r cars-plot, fig.cap='(ref:cars-plot)'}
-plot(cars)  # a scatterplot
+`r ''````{r cool-plot, fig.cap='(ref:cool-plot)'}
+boxplot(Sepal.Length ~ Species, data = iris)
 ```
 ````
 
-### Cross Referencing
+### Cross referencing
 
-**Bookdown** extends cross-referencing in R Markdown documents and allows section headers, tables, figures, equations and theorems to be cross-referenced automatically. This only works for numbered environments, and therefore requires figures and tables to be assigned a label. Cross-references are made in the format `\@ref(type:label)`, where `label` is the chunk label and `type` is the environment being referenced. As examples:
+The **bookdown** package extends cross-referencing in R Markdown documents and allows section headers, tables, figures, equations, and theorems to be cross-referenced automatically. This only works for numbered environments, and therefore requires figures and tables to be assigned a label. Cross-references are made in the format `\@ref(type:label)`, where `label` is the chunk label and `type` is the environment being referenced. As examples:
 
 - Headers:
 
@@ -228,134 +219,137 @@ plot(cars)  # a scatterplot
     This is Chapter \@ref(intro)
     ```
     
-- Figures and images:
+- Figures:
 
     ````markdown
-    See Figure \@ref(fig:foo)
+    See Figure \@ref(fig:cars-plot)
     
-    `r ''````{r foo, fig.cap="A plot caption"}
+    `r ''````{r cars-plot, fig.cap="A plot caption"}
     plot(cars)  # a scatterplot
     ```
     ````
 
-- Tables
+- Tables:
 
     ````markdown
-    See Table \@ref(tab:foo)
+    See Table \@ref(tab:mtcars)
     
-    `r ''````{r foo}
-    knitr::kable(mtcars[1:5, 1:5],
-                 caption = "A caption")
+    `r ''````{r mtcars}
+    knitr::kable(mtcars[1:5, 1:5], caption = "A caption")
     ```
     ````
     
-- Theorems
+- Theorems:
 
     ````markdown
-    See Theorem \@ref(thm:foo-3)
+    See Theorem \@ref(thm:boring)
     
-    `r ''````{theorem, foo-3}
+    `r ''````{theorem, boring}
     Here is my theorem.
     ```
     ````
     
-- Equation
+- Equations:
     
     ````markdown
-    See equation \@ref(eq:foo-4)
+    See equation \@ref(eq:linear)
     
     \begin{equation} 
-    a + bx = c
-    (\#eq:foo-4)
-      \end{equation} 
+    a + bx = c  (\#eq:linear)
+    \end{equation} 
     ````
-  
+
+Note that only alphanumeric characters (`a-z`, `A-Z`, `0-9`), `-`, `/`, and `:` are allowed in these labels.
+
 ## Output Formats {#bookdown-output}
 
-R Markdown supports three types of output formats: HTML, LaTeX/PDF and Word. Compared to R Markdown, **bookdown** provides additional functionality In this section, we introduce the possible options for these formats. The options of these outputs are controlled within the `_output.yml` file. The possible formats include:
+The **bookdown** package inlucdes the following output formats:
 
-- `gitbook`
-- `html_book`
-- `tufte_html_book`
-- `pdf_book`
-- `html_document2`
-- `pdf_document2`
-- `word_document2`
-
-To find full documentation of the output formats in bookdown, see https://bookdown.org/yihui/bookdown/output-formats.html
+- HTML:
+    - `gitbook`
+    - `html_book`
+    - `tufte_html_book`
+- PDF:
+    - `pdf_book`
+- e-book:
+    - `epub_book`
+- Single documents:
+    - `html_document2`
+    - `tufte_html2`
+    - `pdf_document2`
+    - `tufte_handout2`
+    - `tufte_book2`
+    - `word_document2`
 
 ### HTML
 
-Although multiple formats are available for HTML books in **bookdown**, we will focus on the Gitbook style, which is the most popular format and is used by for the online version of this book. It provides a clean style, with a table of contents on the left and main body of the book. The design is fully responsive to make the content suitable for both mobile and desktop devices.
+Although multiple formats are available for HTML books in **bookdown**, we will focus on the Gitbook style, which is the most popular format and is used by for the online version of this book. It provides a clean style, with a table of contents on the left. The design is fully responsive to make the content suitable for both mobile and desktop devices.
 
-`bookdown::gitbook()` is built upon the `rmarkdown::html_document()` which was explained in Section\@ref(html-document). The main difference between rendering in R Markdown and **bookdown** is  is that a book will generate multiple HTML pages by default. To change the way the HTML pages are split, the `split_by` argument can be specified. This defaults to `split_by: chapter`, but readers may prefer to use `split_by: section` if there are many sections within there book.
-
-By default, the bibliography is split and relevant citation items are put at the bottom of each page, so that readers do not have to navigate to a different bibliography page to see the details of citations. This feature can be disabled using `split_bib = FALSE`, in which case all citations are put on a separate page.
+The output format `bookdown::gitbook` is built upon `rmarkdown::html_document`, which was explained in Section \@ref(html-document). The main difference between rendering in R Markdown and **bookdown** is that a book will generate multiple HTML pages by default. To change the way the HTML pages are split, the `split_by` argument can be specified. This defaults to `split_by: chapter`, but readers may prefer to use `split_by: section` if there are many sections within chapters, in which case a chapter page may be too long.
 
 ### LaTeX/PDF
 
-There are limited differences between the output of `pdf_book()` in **bookdown** compared to `pdf_document()` in **rmarkdown**. The primary purpose of new format is to resolve the labels and cross-referencing written in the syntax described in Section \@ref(cross-referencing).
+There are limited differences between the output of `pdf_book()` in **bookdown** compared to `pdf_document()` in **rmarkdown**. The primary purpose of the new format is to resolve the labels and cross-references written in the syntax described in Section \@ref(cross-referencing).
 
-Pandoc supports LaTeX commands in Markdown. Therefore if the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as `\newpage` to force a page break. A major disadvantage of this approach is that LaTeX syntax is not portable to other output formats, and therefore these changes will not be transferred to the HTML or ebook outputs.
+Pandoc supports LaTeX commands in Markdown. Therefore if the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as `\newpage` to force a page break. A major disadvantage of this approach is that LaTeX syntax is not portable to other output formats, meaning that these changes will not be transferred to the HTML or e-book outputs.
 
-### E-Books
+### E-books
 
-The E-book formats can be read on devices like smartphones, tablets, or special e-readers such as Kindle. **bookdown** supports EPUB without the installation of additional software packages. E-books are essentially a collection of HTML pages, however they are stored in a single `.epub` file.  To create an EPUB book, you can use the `epub_book()` function, which is similar to `rmarkdown::html_document()`.
+The e-book formats can be read on devices like smartphones, tablets, or special e-readers such as Kindle. You can create an e-book of the EPUB format with `bookdown::epub_book`.
 
 ### A single document
 
-We highlighted in Section \@ref(markdown-extensions) that **bookdown** extends the syntax provided by R Markdown, allowing automatic numbering of figures/tables/equations, and cross-referencing figures/tables/equations/sections. It can therefore be useful to use **bookdown** within single-file R Markdown documents to benefit from these features. The functions `html_document2()`, `tufte_html2()`, `pdf_document2()`, `word_document2()`, `tufte_handout2()`, and `tufte_book2()` are designed for this purpose. To use this in a traditional R Markdown document, we can replace the output YAML option as follows:
+We highlighted in Section \@ref(bookdown-markdown) that **bookdown** extends the syntax provided by R Markdown, allowing automatic numbering of figures / tables / equations, and cross-referencing them. You may use **bookdown** within single-file R Markdown documents to benefit from these features. The functions `html_document2()`, `tufte_html2()`, `pdf_document2()`, `word_document2()`, `tufte_handout2()`, and `tufte_book2()` are designed for this purpose. To use this in a traditional R Markdown document, you can replace the output YAML option as follows:
 
 ````yaml
 ---
-title: "Untitled"
+title: "Document Title"
 output: bookdown::pdf_document2
 ---
 ````
 
-## Editing
+## Editing {#bookdown-edit}
 
-**Bookdown** provides several ways to preview the book as you develop the book. In this section, we explain how to edit, build, preview, and serve the book locally.
+In this section, we explain how to edit, build, preview, and serve the book locally.
 
 ### Build the book
 
-To build all Rmd files into a book, you can call the `render_book()`. This uses the settings specified in the `_output.yml`, and if multiple file formats are specified, all the outputs will be built when the function is run.  If you are using RStudio, this can be accessed within the `Build` tab, and clicking on the drop down menu provides access if only one format wants to be built.^[If you cannot view the `Build` tab, make sure you have set `site: bookdown::bookdown_site` in the YAML of your index.Rmd and that the directory is an RStudio project.]
+To build all Rmd files into a book, you can call the function `bookdown::render_book()`. It uses the settings specified in the `_output.yml` (if exists). If multiple output formats are specified in it, all formats will be built. If you are using RStudio, this can be done through the `Build` tab. Open the drop down menu `Build Book` if you only want to build one format.
 
-(ref:bookdown-build) The build tab within RStudio highlighting **bookdown** output formats.
+(ref:bookdown-build) The `Build` tab within RStudio highlighting **bookdown** output formats.
 
-```{r bookdown-build, echo=FALSE, fig.cap= "(ref:bookdown-build)", out.width='100%'}
+```{r bookdown-build, echo=FALSE, fig.cap="(ref:bookdown-build)", out.width='90%', fig.align='center'}
 knitr::include_graphics("images/bookdown-build.png", dpi = NA)
 ```
 
 ### Preview a chapter
 
-Building the whole book can be slow when the size of the book is big or your book contains large amount of computation. We can use the `preview_chapter` function in **bookdown** to only build a single chapter at time. This is useful when you are writing a book, as you may often only want to preview the output of the work to quickly see whether you want to add or revise content in the chapter.
+Building the whole book can be slow when the size of the book is big or your book contains large amounts of computation. We can use the `preview_chapter()` function in **bookdown** to only build a single chapter at time. Equivalently, you can click the `Knit` button in RStudio.
 
 ### Serve the book
 
-Instead of running `render_book()` or `preview_chapter()` each time you want to view the changes, you can use the function `serve_book()` in **bookdown** to start a live preview of the book. Any time a Rmd file is saved, the book will be recompiled automatically and the preview will be updated to reflect the changes.
+Instead of running `render_book()` or `preview_chapter()` each time you want to view the changes, you can use the function `bookdown::serve_book()` to start a live preview of the book. Any time a Rmd file is saved, the book will be recompiled automatically, and the preview will be updated to reflect the changes.
 
-### Addins
+### RStudio addins
 
-The **bookdown** package comes with two addins for RStudio which assist the editing of books:^[If you are not familiar with RStudio addins, you may check out the documentation at http://rstudio.github.io/rstudioaddins/.]
+The **bookdown** package comes with two addins for RStudio which assist the editing of books:
 
 - "Preview Book": this calls `bookdown::serve_book()` to compile and serve the book.
-- "Input LaTex Math": provides a text box which allows you to write LaTeX equations, something which is typically error prone.
 
-<!--- Removed mention of citr here: maybe include it within the citations part of the book --->
+- "Input LaTex Math": provides a text box which allows you to write LaTeX equations, to avoid common errors when typing the raw LaTeX math expressions.
 
-## Publishing
+## Publishing {#bookdown-publish}
 
-**Bookdown** makes it easy to generate books suitable for physical or electronic distribution, and this section outlines some of the main options available.
+You can generate books for both physical and electronic distributions. This section outlines some of the main options.
 
 ### RStudio Connect
 
 The easiest way to publish books online is through https://bookdown.org, which is a website provided by RStudio to host your books for free.\index{bookdown.org} Books can be pushed to this website by using `bookdown::publish_book()`. You will need to sign up for an account at https://bookdown.org/connect/, and your login details will be used to authorize **bookdown** the first time you call the `publish_book()` function.
 
-### GitHub
+### Other services
 
-GitHub allow static HTML websites to be hosted for free via GitHub Pages. (https://pages.github.com). The website can be configured to automatically rebuild the website when any changes are made to the GitHub repository, ensuring that your book is always up-to-date with the latest changes without having to manually rebuild the site. Detailed guidance and scripts and configurations can be found in [Section 6.2](https://bookdown.org/yihui/bookdown/github.html) of the bookdown book, and `bookdown-demo` repository.
+You can host your book online with many other web services, such as Netlify or GitHub (via [GitHub Pages](https://pages.github.com)). Because the output from `bookdown::render_book()` is a collection of static files, you can host them using the same methods of hosting normal web pages.
 
 ### Publishers
 
-You can consider publishing physical copies of your book with a publisher or using a self-publishing. Many publishers provide LaTeX style classes which can be used to set the overall appearance of the book, and these can be used easily by setting the `documentclass` option in the YAML metadata of `index.Rmd`. Further customization of the appearance of the PDF book can be achieved by altering the LaTeX preamble in `preamble.tex`. For further detail see https://bookdown.org/yihui/bookdown/publishers.html.
+You can consider publishing physical copies of your book with a publisher or using a self-publishing. Many publishers provide LaTeX style classes that can be used to set the overall appearance of the book, and these can be used easily by setting the `documentclass` option in the YAML metadata of `index.Rmd`. Further customization of the appearance of the PDF book can be achieved by altering the LaTeX preamble via the `includes: in_header` option of `bookdown::pdf_book`.
