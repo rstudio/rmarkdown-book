@@ -12,7 +12,7 @@ knitr::include_graphics(c("images/rticles-elsevier.png", "images/rticles-plos.pn
 
 An understanding of LaTeX is recommended, but not essential, to use this package. Templates will often contain LaTeX code but we can use use markdown and knitr syntax to produce figures, tables and maths equations as explained in Chapter \@ref(basics).
 
-## Get Started
+## Get started
 
 You can install and use **rticles** from CRAN as follows:
 
@@ -56,7 +56,7 @@ The **rticles** package provides templates for a various journals and publishers
 
 The full list is available within R Markdown templates window in RStudio, or through the command `getNamespaceExports("rticles")`.
 
-## Using a Template
+## Using a template
 
 Templates have an extended YAML section compared to the basic R Markdown template, and allows you to specify additional details relevant to the custom template. For example, the *Springer* template includes:
 
@@ -124,7 +124,7 @@ output:
 
 where `peerj_article` is replaced by the template you are using.
 
-## Contributing Templates
+## Contributing templates
 
 If you see the Github respoitory of **rticles** (https://github.com/rstudio/rticles), you will see that a lot of the templates have been created by members of the community. If you are interested in adding further journals templates, you may want to read Chapter \@ref(templates), which outlines how template can be made for RMarkdown. LaTeX templates can quickly be updated to handle Pandoc variables which can be defined in the YAML frontmatter.
 
