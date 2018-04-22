@@ -413,13 +413,13 @@ By default, figures produced by R code will be placed immediately after the code
 plot(cars, pch = 18)
 ```
 
-It is generally advised that each figure has is provided a caption using `fig.cap`. This will place the R plots into figure environments, which will be automatically labeled and numbered. 
+It is generally advised that each figure has is provided a caption using `fig.cap` in the chunk options. This will place the R plots into figure environments, which will be automatically labeled and numbered. 
 
 If you are outputting to PDF, labelled figures will automatically be placed to try and minimize the amount of whitespace in the document, and may result in figures being placed on a different page to the code chunk used to create it. We recommend not to worry too much about this while creating your documents, but you may wish to fine-tine the positions once the content is complete using the `fig.pos` argument. [This link](https://www.sharelatex.com/learn/Positioning_images_and_tables) provides general tips about this behaviour in LaTeX.
 
 To place multiple figures side-by-side from the same code chunk, we can use the `fig.hold='show'` along with the `out.width` argument, whereby the sum of the `out.width` for the plots must be less than or equal to the current line width. Figure \@ref(fig:hold-position) shows an example with two plots each with a width of `50%`.
 
-```{r hold-position, fig.show='hold', out.width='50%', fig.cap="Side-by-side plots"}
+```{r hold-position, fig.cap='Side-by-side plots', fig.show='hold', out.width='50%'}
 plot(cars, pch = 18)
 plot(cars, pch = 19)
 ```
@@ -431,7 +431,7 @@ If you want to include a graphic which is not generated from R code, it is advis
 knitr::include_graphics('rmarkdown-min.png')
 ```
 ````
-```{r include-graphics, out.width='25%', fig.align='center', fig.cap='The R Markdown Hex logo'}
+```{r include-graphics, fig.cap='The R Markdown Hex logo', out.width='25%', fig.align='center'}
 knitr::include_graphics('images/rmarkdown.png')
 ```
 
