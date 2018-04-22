@@ -405,6 +405,53 @@ For a circle with the radius `r '\x60r x\x60'`,
 its area is `r '\x60r pi * x^2\x60'`.
 ````
 
+### Figures
+
+By default, figures produced by R code will be placed immediately after the code chunk they were generated from. For example:
+
+```{r, echo = TRUE}
+plot(cars, pch = 18)
+```
+
+It is generally advised that each figure has is provided a caption using `fig.cap`. This will place the R plots into figure environments, which will be automatically labeled and numbered. 
+
+If you are outputting to PDF, labelled figures will automatically be placed to try and minimize the amount of whitespace in the document, and may result in figures being placed on a different page to the code chunk used to create it. We recommend not to worry too much about this while creating your documents, but you may wish to fine-tine the positions once the content is complete using the `fig.pos` argument. [This link](https://www.sharelatex.com/learn/Positioning_images_and_tables) provides general tips about this behaviour in LaTeX.
+
+To place multiple figures side-by-side from the same code chunk, we can use the `fig.hold='show'` along with the `out.width` argument, whereby the sum of the `out.width` for the plots must be less than or equal to the current line width. Figure \@ref(fig:hold-position) shows an example with two plots each with a width of `50%`.
+
+```{r hold-position, fig.show='hold', out.width='50%', fig.cap="Side-by-side plots"}
+plot(cars, pch = 18)
+plot(cars, pch = 19)
+```
+
+If you want to include a graphic which is not generated from R code, it is advised to use the `knitr::include_graphics()` function. Compared to the markdown technique of `![alt text or image title](path/to/image)`, the function provides consistent syntax for controlling the image attributes with that of formatting R code. Figure \@ref(fig:include-graphics) provides an example of this.
+
+````markdown
+`r ''````{r, out.width='25%', fig.align='center', fig.cap='The R Markdown Hex logo'}
+knitr::include_graphics('rmarkdown-min.png')
+```
+````
+```{r include-graphics, out.width='25%', fig.align='center', fig.cap='The R Markdown Hex logo'}
+knitr::include_graphics('images/rmarkdown.png')
+```
+
+### Tables
+
+The easiest way to include tables is by using `knitr::kable`, which will create tables for HTML, PDF and Word outputs.^[Other packages are available for producing tables within R Markdown, including `xtable`, `Hmisc` and `stargazer`, but are generally less compatable with multiple output formats.] Table captions can be included by passing `caption` to the function:
+
+```{r tables-mtcars, echo = TRUE}
+knitr::kable(
+  mtcars[1:5,],
+  caption = 'A caption',
+  booktabs = TRUE)
+```
+
+Tables in HTML outputs will always be placed after the code block, but LaTeX output will try and position the table to avoid the table being split within the text. If you want to avoid this behaviour, you will need to use the LaTeX package [longtable](https://www.ctan.org/pkg/longtable) which can break tables across multiple pages. This can be achieved by adding `\usepackage{longtable}` to your LaTeX preamble and passing `longtable = TRUE` to `kable()`.
+
+If you are looking for more advanced control of the styling of tables, you are recommended to use the [kableExtra](https://cran.r-project.org/package=kableExtra) package, which provides functions to customise the appearance of PDF and HTML tables. 
+
+We explain in Section \@ref(bookdown-markdown) how the **bookdown** package extends the functionality of **rmarkdown** to allow for Figures and Tables to be easily cross-referenced within your text.
+
 ## Other code languages
 
 A less well-known fact about R Markdown is that many other languages are also supported, such as Python, Julia, C++, and SQL. The support comes from the **knitr** package, which has provided a large number of _language engines_. Language engines are essentially functions registered in the object `knitr::knit_engine`. You can list the names of all available engines via:
