@@ -1,3 +1,50 @@
 # (PART) Advanced Topics {-}
 
 # Parameterized reports
+
+R Markdown reports can be written to allow users to specify one or more parameters. This is useful if you want to create a report template which can be reused across multiple similar scenarios. Examples may include:
+
+- Showing results for a specific geographic location
+- Running a report which covers a specific time period
+- Running a single analysis multiple times for different assumptions.
+
+## Declaring parameters
+
+Parameters are specified using the `params` field within the YAML section. For example:
+
+```yaml
+title: My Document
+output: html_document
+params:
+   continent: North America
+```
+
+## Parameter Types
+ 
+- Character, integer, numeric or logical. 
+- R code expressed with !r
+- Can use function but they need to be stated within the parameter i.e. lubridate::dmy(21042018)
+
+## Using Parameters
+ 
+- param$var
+
+## Parameter user interfaces
+
+- `Knit with Parameters` in RStudio
+- We can use parameterized reports to interactively specify the input parameters allowed. 
+```
+rmarkdown::render("MyDocument.Rmd", params = "ask")
+```
+
+- The command will open up the web browser and allow the user to select settings for the file. 
+- If you are using interactive interfaces, we are able to add additional settings to the parameter to set how they appear
+- Sub-items are used to specify the input type and options for the default values 
+
+
+## Passing parameters
+
+- Use of `rmarkdown::render` to pass parameters
+- Can set default values and only overwrite certain ones.
+
+ 
