@@ -58,8 +58,8 @@ However, the original version of Markdown [invented by John Gruber](https://en.w
 
 In a nutshell, R Markdown stands on the shoulders of **knitr** and Pandoc. The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown. The latter renders Markdown to the output format you want (PDF, HTML, Word, and so on).
 
-```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://github.com/rstudio/rmarkdown'}
-knitr::include_graphics('https://slides.yihui.name/images/hex-rmarkdown.png', dpi = NA)
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://github.com/rstudio/rmarkdown', out.width='30%'}
+knitr::include_graphics('images/hex-rmarkdown.png', dpi = NA)
 ```
 
 The **rmarkdown** package [@R-rmarkdown] was first created in early 2014. During the past four years, it has steadily evolved into a relatively complete ecosystem for authoring documents, so it is a good time for us to provide a definitive guide to this ecosystem now. At this point, there are a large number of tasks that you could do with R Markdown:
