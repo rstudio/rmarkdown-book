@@ -409,7 +409,7 @@ its area is `r '\x60r pi * x^2\x60'`.
 
 By default, figures produced by R code will be placed immediately after the code chunk they were generated from. For example:
 
-````
+````markdown
 `r ''````{r}
 plot(cars, pch = 18)
 ```
