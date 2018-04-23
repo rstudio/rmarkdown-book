@@ -24,7 +24,7 @@ install.packages("rticles", type = "source")
 devtools::install_github("rstudio/rticles")
 ```
 
-We would recommend the latest version of the package, as it contains the most up-to-date versions along with several new templates. 
+We would recommend the development version of the package from GitHub, as it contains the most up-to-date versions along with several new templates. 
 
 If you are using RStudio, you can easily access the templates through `File -> New File -> RMarkdown...`. This will open the dialog box where you can select from one of the available templates as shown in Figure \@ref(fig:rticles-setup). If you are using the command line, you can use the `rmarkdown::draft` which requires you to specify a template i.e. `rmarkdown::draft("MyJSSArticle.Rmd", template = "jss_article", package = "rticles")`.
 
