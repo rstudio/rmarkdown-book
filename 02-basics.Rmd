@@ -405,6 +405,55 @@ For a circle with the radius `r '\x60r x\x60'`,
 its area is `r '\x60r pi * x^2\x60'`.
 ````
 
+### Figures
+
+By default, figures produced by R code will be placed immediately after the code chunk they were generated from. For example:
+
+````markdown
+`r ''````{r}
+plot(cars, pch = 18)
+```
+````
+
+You can provide a figure caption using `fig.cap` in the chunk options. If the document output format supports the option `fig_caption: true` (e.g., the output format `rmarkdown::html_document`), the R plots will be placed into figure environments. In the case of PDF output, such figures will be automatically numbered. If you also want to number figures in other formats (such as HTML), please see the **bookdown** package in Chapter \@ref(books) (in particular, see Section \@ref(a-single-document)).
+
+PDF documents are generated through the LaTeX files generated from R Markdown. A highly surprising fact to LaTeX beginners is that figures float by default: even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page. This is just how LaTeX works by default. It has a tendency to float figures to the top or bottom of pages. Although it can be annoying and distracting, we recommend that you refrain from playing the "Whac-A-Mole" game in the beginning of your writing, i.e., desparately trying to position figures "correctly" while they seem to be always dodging you. You may wish to fine-tune the positions once the content is complete using the `fig.pos` chunk option (e.g., `fig.pos = 'h')`. See https://www.sharelatex.com/learn/Positioning_images_and_tables for possible values of `fig.pos` and more general tips about this behaviour in LaTeX. In short, this can be a difficult problem for PDF output.
+
+To place multiple figures side-by-side from the same code chunk, you can use the `fig.hold='hold'` option along with the `out.width` option. Figure \@ref(fig:hold-position) shows an example with two plots, each with a width of `50%`.
+
+```{r hold-position, fig.cap='Two plots side-by-side.', fig.show='hold', out.width='50%', fig.width=5, fig.height=4}
+par(mar = c(4, 4, .2, .1))
+plot(cars, pch = 19)
+plot(pressure, pch = 17)
+```
+
+If you want to include a graphic that is not generated from R code, you may use the `knitr::include_graphics()` function, which gives you more control over the attributes of the image than the Markdown syntax of `![alt text or image title](path/to/image)` (e.g., you can specify the image width via `out.width`). Figure \@ref(fig:include-graphics) provides an example of this.
+
+````markdown
+`r ''````{r, out.width='25%', fig.align='center', fig.cap='...'}
+knitr::include_graphics('images/hex-rmarkdown.png')
+```
+````
+```{r include-graphics, echo=FALSE, fig.cap='The R Markdown hex logo.', out.width='25%', fig.align='center'}
+knitr::include_graphics('images/hex-rmarkdown.png')
+```
+
+### Tables
+
+The easiest way to include tables is by using `knitr::kable()`, which will create tables for HTML, PDF and Word outputs.^[You may also consider the **pander** package. There are several other packages for producing tables, including **xtable**, **Hmisc**, and **stargazer**, but are generally less compatible with multiple output formats.] Table captions can be included by passing `caption` to the function, e.g.,
+
+````markdown
+`r ''````{r tables-mtcars}
+knitr::kable(iris[1:5, ], caption = 'A caption')
+```
+````
+
+Tables in non-LaTeX output formats will always be placed after the code block. For LaTeX/PDF output foramts, tables have the same issue as figures: they may float. If you want to avoid this behaviour, you will need to use the LaTeX package [longtable](https://www.ctan.org/pkg/longtable), which can break tables across multiple pages. This can be achieved by adding `\usepackage{longtable}` to your LaTeX preamble, and passing `longtable = TRUE` to `kable()`.
+
+If you are looking for more advanced control of the styling of tables, you are recommended to use the [**kableExtra**](https://cran.r-project.org/package=kableExtra) package, which provides functions to customize the appearance of PDF and HTML tables. 
+
+We explain in Section \@ref(bookdown-markdown) how the **bookdown** package extends the functionality of **rmarkdown** to allow for figures and tables to be easily cross-referenced within your text.
+
 ## Other code languages
 
 A less well-known fact about R Markdown is that many other languages are also supported, such as Python, Julia, C++, and SQL. The support comes from the **knitr** package, which has provided a large number of _language engines_. Language engines are essentially functions registered in the object `knitr::knit_engine`. You can list the names of all available engines via:
