@@ -109,7 +109,7 @@ The rest of Rmd files must start immediately with the chapter title using the fi
 
 By default, **bookdown** merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped.
 
-### _bookdown.yml
+### `_bookdown.yml`
 
 The `_bookdown.yml` file allows you to specify optional setting used to be build the book. For example, you may want to override the order in which files are merged by including  the field `rmd_files`:
 
@@ -117,7 +117,7 @@ The `_bookdown.yml` file allows you to specify optional setting used to be build
 rmd_files: ["index.Rmd", "02-literature.Rmd", "01-intro.Rmd"]
 ```
 
-### _output.yml
+### `_output.yml`
 
 The `_output.yml` file is used to specify the book output formats (see Section \@ref(bookdown-output)). Here is a brief example:
 
