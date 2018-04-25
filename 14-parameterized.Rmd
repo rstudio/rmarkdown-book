@@ -2,12 +2,12 @@
 
 # Parameterized reports
 
-One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports allow you to take this one step further, and allows users to specify one or more parameters to customise the analysis. This is useful if you want to create a report template which can be reused across multiple similar scenarios. Examples may include:
+One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports extend this one step further, and allows users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template which can be reused across multiple similar scenarios. Examples may include:
 
 - Showing results for a specific geographic location.
 - Running a report which covers a specific time period.
 - Running a single analysis multiple times for different assumptions.
-- Controlling the behaviour of knitr (i.e. specifying if you want the code to be displayed or not).
+- Controlling the behavior of knitr (i.e. specifying if you want the code to be displayed or not).
 
 In this chapter, we discuss the use of parameterized reports, and explain how they can be used to interactively define the parameters which are used to compile the results.
 
@@ -38,14 +38,14 @@ Note, that any R expressions included within the parameters are executed before 
 
 ## Using Parameters
 
-You can access the parameters within the knitted environment and the RStudio interactive session^[Parameters will not be available immediately after loading the file, but require any line of the report to be executed first]. The values are contained within a read-only list called `params`. Using the previous example, the parameters specied above can be accessed as follows:
+You can access the parameters within the knitted environment and the RStudio interactive session^[Parameters will not be available immediately after loading the file, but require any line of the report to be executed first]. The values are contained within a read-only list called `params`. Using the previous example, the parameters specified above can be accessed as follows:
 
 ```r
 param$year
 params$region
 ```
 
-Parameters can also be used to control the behaviour of knitr. For example, we may want to change the settings whether to display the code using `echo`, with the `knitr::opts_chunk` used to change the settings for the document:
+Parameters can also be used to control the behavior of knitr. For example, we may want to change the settings whether to display the code using `echo`, with the `knitr::opts_chunk` used to change the settings for the document:
 
 ```{r, echo = TRUE, eval = FALSE}
 knitr::opts_chunk$set(echo = params$printcode)
@@ -65,7 +65,7 @@ By using the `Knit` or `rmarkdown::render` function, the default values listed i
 
 ### Knit with Parameters
 
-To vary the parameters of an R Markdown document from the defaults you use the params argument of the `rmarkdown::render` function. For example:
+To vary the parameters of an R Markdown document from the defaults we use the `params` argument for the `rmarkdown::render` function. For example:
 
 ```{r, echo = T, eval = F}
 rmarkdown::render("MyDocument.Rmd", params = list(
@@ -76,7 +76,7 @@ rmarkdown::render("MyDocument.Rmd", params = list(
 ))
 ```
 
-We do not have to explicitally state the parameters within the function, with any parameters not specified defaulting to the value specified in the YAML:
+We do not have to explicitly state the parameters within the function, with any parameters not specified defaulting to the value specified in the YAML:
 
 ```{r, echo = T, eval = F}
 rmarkdown::render("MyDocument.Rmd", params = list(
@@ -105,7 +105,7 @@ We can use an interactive user-interface to specify the parameters of a report, 
 knitr::include_graphics("images/parameterized-input.png", dpi = NA)
 ```
 
-A benefit of user-interfaces is that we are able to customise the input controls for different types of parameters by specifying additional sub-items within the parameter specification in YAML. For example, sliders, checkboxes and text input boxes can all be used for input controls. 
+A benefit of user-interfaces is that we are able to customize the input controls for different types of parameters by specifying additional sub-items within the parameter specification in YAML. For example, sliders, check boxes and text input boxes can all be used for input controls. 
 
 In addition, we can also specify constraints of the values allowed in each parameter.  For example, we may only want our model to be run for years between 2010 and 2018.  This is particularly beneficial if you would like other users to interact with the report, as it prevents users from attempting to run reports outside of the designed limits.
 
