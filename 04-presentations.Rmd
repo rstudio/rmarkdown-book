@@ -586,6 +586,14 @@ output:
 ---
 ```
 
+Note that the `reference_doc` option requires a version of **rmarkdown** higher than 1.19:
+
+```{r eval=FALSE}
+if (packageVersion('rmarkdown') <= '1.9') {
+  devtools::install_github('rstudio/rmarkdown')
+}
+```
+
 Basically any template included in a recent version of Microsoft PowerPoint should work. You can create a new `*.pptx` file from the menu `File -> New` with your desired template, save the new file, and use it as the reference document (template) through the `reference_doc` option. Pandoc will read the styles in the template and apply them to the PowerPoint presentation to be created from R Markdown.
 
 ### Other features
