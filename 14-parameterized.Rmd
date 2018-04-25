@@ -2,49 +2,168 @@
 
 # Parameterized reports
 
-R Markdown reports can be written to allow users to specify one or more parameters. This is useful if you want to create a report template which can be reused across multiple similar scenarios. Examples may include:
+One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports allow you to take this one step further, and allows users to specify one or more parameters to customise the analysis. This is useful if you want to create a report template which can be reused across multiple similar scenarios. Examples may include:
 
-- Showing results for a specific geographic location
-- Running a report which covers a specific time period
+- Showing results for a specific geographic location.
+- Running a report which covers a specific time period.
 - Running a single analysis multiple times for different assumptions.
+- Controlling the behaviour of knitr (i.e. specifying if you want the code to be displayed or not).
 
-## Declaring parameters
+In this chapter, we discuss the use of parameterized reports, and explain how they can be used to interactively define the parameters which are used to compile the results.
 
-Parameters are specified using the `params` field within the YAML section. For example:
+## Parameters
+
+Parameters are specified using the `params` field within the YAML section. We can specify one or more parameters with each item on a new line. As an example:
 
 ```yaml
 title: My Document
 output: html_document
 params:
-   continent: North America
+  year: 2018
+  region: Europe
+  printcode: TRUE
+  data: file.csv
 ```
 
-## Parameter Types
- 
-- Character, integer, numeric or logical. 
-- R code expressed with !r
-- Can use function but they need to be stated within the parameter i.e. lubridate::dmy(21042018)
+All standard R types that can be parsed by `yaml::yaml.load` can be included as parameters, including `character`, `numeric`, `integer` and `logical` types. We can also include R objects by including `!r` before the object. For example, we could include the current date with the following R code:
+
+```yaml
+title: My Document
+output: html_document
+params:
+  date: !r Sys.Date()
+```
+
+Note, that any R expressions included within the parameters are executed before any code in the document, and therefore any package dependencies must explicitly stated using the `package::function` notation (i.e. `!r lubridate::today()`). even if the library is loaded later.
 
 ## Using Parameters
+
+You can access the parameters within the knitted environment and the RStudio interactive session^[Parameters will not be available immediately after loading the file, but require any line of the report to be executed first]. The values are contained within a read-only list called `params`. Using the previous example, the parameters specied above can be accessed as follows:
+
+```r
+param$year
+params$region
+```
+
+Parameters can also be used to control the behaviour of knitr. For example, we may want to change the settings whether to display the code using `echo`, with the `knitr::opts_chunk` used to change the settings for the document:
+
+```{r, echo = TRUE, eval = FALSE}
+knitr::opts_chunk$set(echo = params$printcode)
+```
+
+## Using Parameters
+
+There are three ways in which the document can be knitted:
+
+- Using the `Knit` button within RStudio
+- By using the `params` field in `rmarkdown::render`
+- Using a Parameter User Interface
  
-- param$var
+### Knit button
+ 
+By using the `Knit` or `rmarkdown::render` function, the default values listed in the YAML will be used.
+
+### Knit with Parameters
+
+To vary the parameters of an R Markdown document from the defaults you use the params argument of the `rmarkdown::render` function. For example:
+
+```{r, echo = T, eval = F}
+rmarkdown::render("MyDocument.Rmd", params = list(
+  year = 2017,
+  region = "Asia",
+  printcode = FALSE,
+  file = "file2.csv"
+))
+```
+
+We do not have to explicitally state the parameters within the function, with any parameters not specified defaulting to the value specified in the YAML:
+
+```{r, echo = T, eval = F}
+rmarkdown::render("MyDocument.Rmd", params = list(
+  region = "Asia",
+))
+```
+
+You may want to integrate these changes into a function. Such a function could also be used to create a different named output file for each of the different combination of parameters. In the following example, a new file `MyDocument_region_year.pdf` is created for each set of parameters:
+
+```{r, echo=T, eval=F}
+renderMyDocument <- function(region, year){
+  rmarkdown::render("MyDocument.Rmd", 
+                    params = list(
+                      region = region,
+                      year = year),
+                    output_file = paste0("MyDocument_", region, "_", year, ".pdf")
+  )
+}
+```
 
 ## Parameter user interfaces
 
-- `Knit with Parameters` in RStudio
-- We can use parameterized reports to interactively specify the input parameters allowed. 
+We can use an interactive user-interface to specify the parameters of a report, which uses Shiny to allow users to input parameters. The user interface can be called either by using `rmarkdown::render("MyDocument.Rmd", params = "ask")` or by clicking the `Knit with Parameters...` option in RStudio. An example is shown in Figure \@ref(fig:parameterized-ask).
+
+```{r parameterized-ask, fig.cap= "Interactive input of parameters within parameterized reports", out.width="50%"}
+knitr::include_graphics("images/parameterized-input.png", dpi = NA)
 ```
-rmarkdown::render("MyDocument.Rmd", params = "ask")
+
+A benefit of user-interfaces is that we are able to customise the input controls for different types of parameters by specifying additional sub-items within the parameter specification in YAML. For example, sliders, checkboxes and text input boxes can all be used for input controls. 
+
+In addition, we can also specify constraints of the values allowed in each parameter.  For example, we may only want our model to be run for years between 2010 and 2018.  This is particularly beneficial if you would like other users to interact with the report, as it prevents users from attempting to run reports outside of the designed limits.
+
+Adapting our above example to include some settings:
+
+```yaml
+title: My Document
+output: html_document
+params:
+  year: 
+    label: "Year"
+    value: 2017
+    input: slider
+    min: 2010
+    max: 2018
+    step: 1
+    sep: ""
+  region: 
+    label: "Region:"
+    value: Europe
+    input: select
+    choices: [North America, Europe, Asia, Africa]
+  printcode: 
+    label: "Display Code:"
+    value: TRUE
+  data: 
+    label: "Input dataset:"
+    value: results.csv
+    input: file
+```
+This results in the user-interface for the parameters as shown in Figure \@ref(fig:parameterized-define).
+
+(ref:parameterized-ask) An example user-interface used to input parameters with input types specified.
+
+```{r parameterized-define, fig.cap= "(ref:parameterized-ask)", out.width="50%"}
+knitr::include_graphics("images/parameterized-ask.png", dpi = NA)
 ```
 
-- The command will open up the web browser and allow the user to select settings for the file. 
-- If you are using interactive interfaces, we are able to add additional settings to the parameter to set how they appear
-- Sub-items are used to specify the input type and options for the default values 
+A full list of the parameters is provided with in Table \@ref(tab:input-types). Users can see the full list of controls for each through type of input by seeing the guidance for each function through `?shiny::checkboxInput`. Further details about each of the inputs are provided in Section \@ref() <!--- Add cross reference to shiny input types -->
+
+```{r, input-types}
+knitr::kable(
+  x = read.table(text = 
+                        "checkbox	checkboxInput
+                        numeric	numericInput
+                        slider	sliderInput
+                        date	dateInput
+                        text	textInput
+                        file	fileInput
+                        radio	radioButtons
+                        select	selectInput
+                        password	passwordInput", 
+                 col.names = c("inputType", "shiny function")),
+caption = "Some caption")
+```
+
+<!--- Potential to talk about publishing to RStudio Connect, but this seems too niche in my mind --->
 
 
-## Passing parameters
-
-- Use of `rmarkdown::render` to pass parameters
-- Can set default values and only overwrite certain ones.
 
  
