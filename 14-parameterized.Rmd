@@ -159,7 +159,8 @@ knitr::kable(
                         select	selectInput
                         password	passwordInput", 
                  col.names = c("inputType", "shiny function")),
-caption = "Some caption")
+caption = "Possible options for input fields within parameterized reports",
+booktabs = TRUE)
 ```
 
 <!--- Potential to talk about publishing to RStudio Connect, but this seems too niche in my mind --->
