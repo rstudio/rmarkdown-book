@@ -28,6 +28,9 @@ options(
 )
 
 options(bookdown.post.latex = function(x) {
+  # an ugly hack for Table 15.1 (Pandoc's widths are not good)
+  x = gsub('( & \\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.65\\2', x)
+  x = gsub('(^\\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.35\\2', x)
   if (length(i <- grep('^\\\\begin\\{longtable\\}', x)) == 0) return(x)
   i1 = bookdown:::next_nearest(i, which(x == '\\toprule'))
   i2 = bookdown:::next_nearest(i, which(x == '\\endfirsthead'))
