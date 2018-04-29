@@ -1,4 +1,4 @@
-# Document Templates
+# Document Templates {#document-templates}
 
 R Markdown comes with a built-in template which is used when creating new documents. We can create customized document templates to be used for documents, which can be useful if we need to create a particular type of document frequently or want to customize the appearance of the final report. This approach is demonstrated by the **rticles** package in Chapter \@ref(journals), which provides customized layouts for a range of journals. Some additional examples of where a template could be used include:
 
@@ -98,7 +98,7 @@ Figure \@ref(fig:templates-extra-files) shows the output for an example R Studio
 knitr::include_graphics("images/templates-extra-files.png", dpi = NA)
 ```
 
-## Providing custom pandoc templates
+## Providing custom pandoc templates {#pandoc-templates}
 
 Pandoc is used to convert the compiled R Markdown analysis into the outputted PDF/HTML/Word documents. While the default templates used by R Markdown are designed to be flexible by allowing parameters to be specified in the YAML, users may wish to provide their own template which allows them to have more control over the output format appearance.
 
