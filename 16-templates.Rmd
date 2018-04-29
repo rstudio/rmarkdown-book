@@ -1,2 +1,154 @@
 # Document Templates
 
+R Markdown comes with a built-in template which is used when creating new documents. We can create customized document templates to be used for documents, which can be useful if we need to create a particular type of document frequently or want to customize the appearance of the final report. This approach is demonstrated by the **rticles** package in Chapter \@ref(journals), which provides customized layouts for a range of journals. Some additional examples of where a template could be used include:
+
+- Creating a company branded R Markdown template which includes a logo and branding colors.
+- Updating the default YAML settings to include standard fields for `title`, `author`, `date` or default `output` options.
+- Customizing the layout of the output document by adding additional parameter options the YAML frontmatter. For example, you may want to include a `department` parameter within your document to be included within your title page.
+
+Once created, templates are easily accessed within R Studio, and will appear within the New R Markdown document window as shown in Figure \@ref(fig:templates-select).
+
+```{r templates-select, fig.cap="Selecting templates within R Studio"}
+knitr::include_graphics("images/templates-select.png", dpi = NA)
+```
+
+This chapter explains how templates can be created, and how these can be shared within a package. The examples provided within this chapter are available as a minimal examples within the repository on GitHub (https://github.com/mikey-harper/example-rmd-templates), which you may wish to download for some examples of editing. 
+
+<!--- Feel free to fork this repository if you want to host it yourself. Also may want to make a short repository name --->
+
+## Template structure
+
+R Markdown templates should be contained within a package, which can easily be created using the `New Project` dialog box in R Studio or by running `utils::package.skeleton(name = "My Package")` in the command line.
+
+Templates are located within the `inst/rmarkdown/templates` directory of an R package. It is possible to contain multiple templates in a single package, with each template stored in a separate sub-directory. As a minimal example, `inst/rmarkdown/templates/my_template` requires the following files:
+
+```markdown
+template.yaml 
+skeleton/skeleton.Rmd 
+```
+
+The `template.yaml` specifies how the template is displayed within the R Studio `New Template` dialog box. The template must have a `name` and `description` specified. You can also optionally specify  `create_dir: true` label if you want to a new directory to be created when the template is selected. As an example of the `template.yaml` file:
+
+```markdown
+name: My Template
+description: This is my template
+```
+
+The `skeleton.Rmd` provides the outline of the R Markdown document which is opened when the template is selected. We can use this to form the outline of the report by adding section titles, load commonly used packages or specify default YAML parameters. For example, in the following example we specify the default output format to `bookdown::pdf_document` and select a default template `flatly`:
+
+```markdown
+---
+title: "Untitled"
+author: "Your Name"
+output:
+  bookdown::html_document2:
+    toc: true
+    fig_caption: true
+    template: flatly
+---
+
+## Introduction
+
+## Analysis
+
+## Conclusions
+```
+
+## Supporting files
+
+If want to include supporting files with your template they should be placed in the `skeleton` directory. These files will be automatically copied alongside new documents when creating a new project. For example, if your template included a standard logo and style sheet it contain the following in the directory `inst/rmarkdown/templates/my_template`:
+
+```markdown
+template.yaml 
+skeleton/skeleton.Rmd 
+skeleton/logo.png 
+skeleton/styles.css 
+```
+
+We must then refer to these files within the `skeleton.Rmd` file:
+
+````markdown
+---
+title: "Untitled"
+author: "Your Name"
+output:
+  html_document:
+    toc: true
+    fig_caption: true
+    theme: yeti
+    css: styles.css
+---
+
+![](logo.png)
+
+# Introduction
+
+# Analysis
+
+`r ''````{r}
+knitr::kable(mtcars[1:5, 1:5])
+```
+
+# Conclusion
+````
+
+Figure \@ref(fig:templates-extra-files) shows the output for an example R Studio template. The logo has been loaded within the document, and the custom style sheet has changed the color of the tables to match the logo branding.
+
+```{r templates-extra-files, fig.cap= "Example output from a customized HTML template"}
+knitr::include_graphics("images/templates-extra-files.png", dpi = NA)
+```
+
+## Providing custom pandoc templates
+
+Pandoc is used to convert the compiled R Markdown analysis into the outputted PDF/HTML/Word documents. While the default templates used by R Markdown are designed to be flexible by allowing parameters to be specified in the YAML, users may wish to provide their own template which allows them to have more control over the output format appearance.
+
+Custom template allows for additional YAML parameters to be added to the document. For example, you may wish to have a `department` parameter to be added to your title page of your document, or include an `editor` variable to be added below the author. We can add additional variables to the pandoc template by surrounding the variable in `$` signs within the pandoc template, which can then be referenced from within the YAML of the file. We may also use conditional statements, and allow lists to be included, and readers are recommended to check here for more details: https://pandoc.org/MANUAL.html#using-variables-in-templates.
+
+For R Markdown to use the customized template, we must specify `template` within the YAML output formats, as follows:
+
+```yaml
+output:
+  html_document:
+    template: template.html
+```
+
+If you wish to design their own template, we recommend starting from the default pandoc templates included within the **rmarkdown** package (https://github.com/rstudio/rmarkdown/tree/master/inst/rmd), and that additional content is added to create the desired behaviour. If you decide to remove existing settings within the document, this is done with caution. Although it may be appear that the templates contains a lot of redundant code, much of this is required to ensure the behaviour of the document with R Markdown and **knitr**.
+
+### Adjusting the template
+
+As an exampleof editing the pandoc template, we can add a footer to the HTML output to display the name of an author and show a website URL. Using the default HTML template (https://github.com/rstudio/rmarkdown/blob/master/inst/rmd/h/default.html), we add the following code after the `$body$` tag:
+
+```html
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by $author$ </a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>$website$</em></span></p>
+```
+
+In our R Markdown template, we can use YAML parameters `author` and `website`, and also specify our customized template `template.html`, which is saved in the same directory:
+
+---
+title: "Untitled"
+author: "Your Name"
+website: "https://www.rstudio.com/"
+output:
+  html_document:
+    template: template.html
+---
+
+The output footer is shown in Figure \@ref(fig:templates-html).
+
+```{r templates-html, fig.cap = "Example customized caption in HTML output"}
+knitr::include_graphics("images/templates-html.png", dpi = NA)
+```
+
+## Sharing your templates
+
+As templates are stored within packages, it is easy to distribute these to other users. We recommend using GitHub to host packages, as users can easily install your template with two lines of code:
+
+```{r, eval = FALSE, tidy = TRUE}
+install.packages("devtools")
+devtools::install_github("username/packagename")
+```
+
+To find out more about packages and the use of GitHub, we recommend you refer to the "*R Packages*" of [@wickham2015], which is available at http://r-pkgs.had.co.nz/git.html
