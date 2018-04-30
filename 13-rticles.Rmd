@@ -30,7 +30,7 @@ If you are using RStudio, you can easily access the templates through `File -> N
 
 (ref:rticles-setup) The R Markdown template window in RStudio showing available **rticles** templates.
 
-```{r rticles-setup, echo=FALSE, fig.cap="(ref:rticles-setup)", out.width='80%', fig.align='center'}
+```{r rticles-setup, echo=FALSE, fig.cap="(ref:rticles-setup)", out.width='100%'}
 knitr::include_graphics("images/rticles-templates.png", dpi = NA)
 ```
 
