@@ -276,13 +276,13 @@ This text is red
 
 A separate presenter window can also be opened (ideal for when you are presenting on one screen but have another screen that is private to you). The window stays in sync with the main presentation window and also shows presenter notes and a thumbnail of the next slide. To enable presenter mode add `?presentme=true` to the URL of the presentation. For example:
 
-```text
+```markdown
 my-presentation.html?presentme=true
 ```
 
 The presenter mode window will open and will always re-open with the presentation until it is disabled with:
 
-```text
+```markdown
 my-presentation.html?presentme=false
 ```
 

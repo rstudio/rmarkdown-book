@@ -40,7 +40,7 @@ There is remarkably little code required to create this binding. Next we will go
 
 Let's assume that our widget is named **sigma** and is located within an R package of the same name. Our JavaScript binding source code file is named sigma.js. Since our widget will read GEXF data files, we will also need to include both the base `sigma.min.js` library and its GEXF plugin. Here are the files that we will add to the package:
 
-```text
+```markdown
 R/
 | sigma.R
 
