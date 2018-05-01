@@ -1,2 +1,114 @@
 # Shiny Documents
 
+We have briefly introduced Shiny documents in Section \@ref(intro-shiny). Shiny is a very powerful framework for building web applications based on R. It is out of the scope of this book to make a comprehensive introduction to Shiny. We recommend that readers who are not familiar with Shiny learn more about it from the website https://shiny.rstudio.com before reading this chapter.
+
+Unlike the more traditional workflow of creating static reports, you can create documents that allow your readers to change the parameters underlying your analysis and see the results immediately in Shiny R Markdown documents. In the example shown in Figure \@ref(fig:shiny), the histogram will be automatically updated to reflect the number of bins selected by the reader.
+
+A picture is worth a thousand words, and a Shiny document can potentially show you a thousand pictures as you interact with it. The readers are no longer tied to the fixed analysis and conclusions in the report. They may explore other possibilities by themselves, and possibly make new discoveries or draw different conclusions.
+
+## Getting started {#shiny-start}
+
+You can turn any _HTML-oriented_ R Markdown documents to Shiny documents by adding `runtime: shiny` to the YAML metadata as a _top-level_ field, e.g.,
+
+```yaml
+---
+title: "Shiny Document"
+output: html_document
+runtime: shiny
+---
+```
+
+Note that the output format of the R Markdown document must be an HTML format. That is, the document should generate a web page (a `*.html` file). Non-HTML formats such as `pdf_document` and `word_document` will not work with the Shiny runtime. Please also note that some presentation formats are also HTML formats, such as `ioslides_presentation`, `slidy_presentation`, and `revealjs::revealjs_presentation`.
+
+You can also create a new Shiny document from the RStudio menu `File -> New File -> R Markdown`, and choose the document type "Shiny" (see Figure \@ref(fig:shiny-new-document)).
+
+```{r shiny-new-document, echo=FALSE, fig.cap='Create a new Shiny document in RStudio.', out.width='100%'}
+knitr::include_graphics('images/shiny-new-document.png', dpi = NA)
+```
+
+To run a Shiny document in RStudio, you need to click the button "Run Document" on the editor toolbar (RStudio will automatically replace the "Knit" button with "Run Document" when it detects a Shiny document). If you do not use RStudio, or want to run the document in the R console for troubleshooting, you can call the function `rmarkdown::run()` and pass the filename to it.
+
+You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change. In the following example, we create a numeric input (`numericInput`) with the name `rows`, and then refer to its value via `input$rows` when generating output:
+
+````markdown
+`r ''````{r, echo=FALSE}
+numericInput("rows", "How many cars?", 5)
+
+renderTable({
+  head(cars, input$rows)
+})
+```
+````
+
+```{r shiny-table, echo=FALSE, fig.cap='Increase the number of rows in the table in a Shiny document.', out.width='100%'}
+knitr::include_graphics('images/shiny-table.png', dpi = NA)
+```
+
+In the above example, the output code was wrapped in a call to `renderTable()`. There are many other render functions in Shiny that can be used for plots, printed R output, and more. This example uses `renderPlot()` to create dynamic plot output:
+
+````markdown
+`r ''````{r, echo=FALSE}
+sliderInput(
+  "bins", "Number of bins:", min = 1, max = 50, value = 30
+)
+
+renderPlot({
+  x    = faithful[, 2]  # Old Faithful Geyser data
+  bins = seq(min(x), max(x), length.out = input$bins + 1)
+
+  # draw the histogram with the specified number of bins
+  hist(x, breaks = bins, col = 'darkgray', border = 'white')
+})
+```
+````
+
+```{r shiny-plot, echo=FALSE, fig.cap='Change the number of bins of a histogram in a Shiny document.', out.width='100%'}
+knitr::include_graphics('images/shiny-plot.png', dpi = NA)
+```
+
+## Deployment {#shiny-deploy}
+
+Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
+
+There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny docuemnts.
+
+### ShinyApps.io
+
+You can publish Shiny documents to the ShinyApps (https://shinyapps.io) hosted service. To do this you, should ensure that you have:
+
+1. An account on ShinyApps (use the signup form to request an account).
+
+2. A latest version of the **rsconnect** R package. You can install this as follows:
+
+    ```r
+    install.packages("rsconnect")
+    ```
+
+You can then deploy an interactive Shiny document in the same way as how you currently deploy normal Shiny applications. From the working directory containing the document(s), just execute:
+
+```r
+rsconnect::deployApp()
+```
+
+If you are using RStudio, you can also use the `Publish` button available at the top-right of the window when running a Shiny document (see Figure \@ref(fig:shiny-deploy)).
+
+```{r shiny-deploy, echo=FALSE, fig.cap='Deploy a Shiny document to ShinyApps.io.', out.width='100%'}
+knitr::include_graphics('images/shiny-deploy.png', dpi = NA)
+```
+
+If there is a file named `index.Rmd` in the directory, it will be served as the default document for that directory, otherwise an explicit path to the Rmd file should be specified in the URL if you want to visit this Rmd document. For example, the URL for `index.Rmd` deployed to ShinyApps may be of the form `https://example.shinyapps.io/appName/`, and the URL for `test.Rmd` may be of the form `https://example.shinyapps.io/appName/test.Rmd`.
+
+### Shiny Server / RStudio Connect
+
+Both Shiny Server (https://www.rstudio.com/products/shiny/shiny-server/) and RStudio Connect (https://www.rstudio.com/products/connect/) can be used to publish Shiny documents. They require knowledge about Linux. Installing and configuring them should normally be a task for your system administrator if you are not familiar with Linux or do not have the privilege.
+
+## Embedded Shiny apps {#shiny-embedded}
+
+## Shiny widgets {#shiny-widgets}
+
+## Multiple pages {#shiny-multiple}
+
+## Delayed rendering {#shiny-delay}
+
+## Output arguments for render functions {#shiny-args}
+
