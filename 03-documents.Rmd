@@ -745,6 +745,10 @@ str(parsed, width = 60, strict.width = 'wrap')
 
 This interface can be used to recover the original Rmd source, and also (with some more effort from the front-end) the ability to recover chunk outputs from the document itself.
 
+```{r, include=FALSE}
+rm(parsed)
+```
+
 ## PDF document
 
 To create a PDF document from R Markdown, you specify the `pdf_document` output format in the YAML metadata:
