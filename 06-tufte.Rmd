@@ -1,4 +1,4 @@
-# Tufte handouts
+# Tufte Handouts
 
 The Tufte handout style is a style that Edward Tufte uses in his books and handouts. Tufte's style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography. This style has been implemented in LaTeX and HTML/CSS,^[See Github repositories https://github.com/tufte-latex/tufte-latex and https://github.com/edwardtufte/tufte-css.] respectively. Both implementations have been ported into the **tufte** package [@R-tufte]. If you want LaTeX/PDF output, you may use the `tufte_handout` format for handouts, and `tufte_book` for books. For HTML output, use `tufte_html`, e.g.,
 

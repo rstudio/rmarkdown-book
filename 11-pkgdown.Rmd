@@ -1,4 +1,4 @@
-# HTML documentation for R packages {#pkgdown}
+# HTML Documentation for R Packages {#pkgdown}
 
 R has a built-in HTML help system that can be accessed via `help.start()`. From this system, you can see the HTML help pages of functions and objects in all packages, as well as other information about packages such as the `DESCRIPTION` file and package vignettes. However, this system is usually dynamically launched (via a local web server), and it is not straightforward to turn it into a static website that can be viewed without starting R.
 

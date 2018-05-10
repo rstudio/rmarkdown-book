@@ -1,4 +1,4 @@
-# xaringan presentations {#xaringan}
+# xaringan Presentations {#xaringan}
 
 We have introduced a few HTML5 presentation formats in Chapter \@ref(presentations). The **xaringan** package [@R-xaringan] is an R Markdown extension based on the JavaScript library remark.js (https://remarkjs.com) to generate HTML5 presentations of a different style. See Figure \@ref(fig:xaringan-sample) for two sample slides.
 

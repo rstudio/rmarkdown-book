@@ -1,4 +1,4 @@
-# reveal.js presentations {#revealjs}
+# reveal.js Presentations {#revealjs}
 
 The **revealjs** package [@R-revealjs] provides an output format `revealjs::revealjs_presentation` that can be used to create yet another style of HTML5 slides based on the JavaScript library [reveal.js](https://revealjs.com). You may install the R package from CRAN:
 

@@ -1,4 +1,4 @@
-# Lightweight pretty HTML documents {#prettydoc}
+# Lightweight Pretty HTML Documents {#prettydoc}
 
 When designing the **rmarkdown** package, we wished it could produce output documents that look pleasant by default, especially for HTML documents. Pandoc does not really style the HTML documents when converting Markdown to HTML, but **rmarkdown** does. As we mentioned in Section \@ref(appearance-and-style), the themes of HTML documents are based on Bootswatch (https://bootswatch.com), which actually relies on the Bootstrap library (https://getbootstrap.com). Although these themes look pretty, the major disadvantage is that their file sizes are relatively large. The size of an HTML document created from an empty R Markdown document with the `html_document` format is about 600Kb, which is roughly the total size of all CSS, JavaScript, and font files in the default theme.
 
