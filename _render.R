@@ -1,5 +1,6 @@
 quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
+unlink('_book', recursive = TRUE)
 
 # provide default formats if necessary
 if (length(formats) == 0) formats = c(
