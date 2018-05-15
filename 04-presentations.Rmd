@@ -510,7 +510,7 @@ Beamer presentations have a few features in common with ioslides presentations i
 
 ## PowerPoint presentation
 
-To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a daily build of RStudio](https://dailies.rstudio.com) (>= 1.2.482), which has bundled Pandoc 2.1.3.
+To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a daily build of RStudio](https://dailies.rstudio.com) (>= 1.2.633), which has bundled Pandoc 2.x.
 
 Below is a quick example:
 
@@ -594,7 +594,7 @@ if (packageVersion('rmarkdown') <= '1.9') {
 }
 ```
 
-Basically any template included in a recent version of Microsoft PowerPoint should work. You can create a new `*.pptx` file from the menu `File -> New` with your desired template, save the new file, and use it as the reference document (template) through the `reference_doc` option. Pandoc will read the styles in the template and apply them to the PowerPoint presentation to be created from R Markdown.
+Basically any template included in a recent version of Microsoft PowerPoint should work. You can create a new `*.pptx` file from the PowerPoint menu `File -> New` with your desired template, save the new file, and use it as the reference document (template) through the `reference_doc` option. Pandoc will read the styles in the template and apply them to the PowerPoint presentation to be created from R Markdown.
 
 ### Other features
 
