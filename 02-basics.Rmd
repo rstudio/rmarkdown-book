@@ -454,7 +454,7 @@ If you are looking for more advanced control of the styling of tables, you are r
 
 We explain in Section \@ref(bookdown-markdown) how the **bookdown** package extends the functionality of **rmarkdown** to allow for figures and tables to be easily cross-referenced within your text.
 
-## Other code languages
+## Other language engines {#language-engines}
 
 A less well-known fact about R Markdown is that many other languages are also supported, such as Python, Julia, C++, and SQL. The support comes from the **knitr** package, which has provided a large number of _language engines_. Language engines are essentially functions registered in the object `knitr::knit_engine`. You can list the names of all available engines via:
 

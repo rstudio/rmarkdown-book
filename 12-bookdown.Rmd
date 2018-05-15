@@ -8,7 +8,7 @@ We have introduced the basics of R Markdown in Chapter \@ref(documents), which h
 
 - Documents can easily be exported in a range of formats suitable for publishing, including PDF, e-books and HTML websites.
 
-This book itself was created using **bookdown**, and acts as an example of what can be achieved. Despite the name containing the word "book", **bookdown** is not only for books, and it can be used for long reports, dissertations, or even single R Markdown documents (see Section \@ref(a-single-document)). It also works with other computing languages such as Python and C++ (see Section \@ref(other-code-languages)). If you want, you can even write documents irrelevant to computing, such as a novel.
+This book itself was created using **bookdown**, and acts as an example of what can be achieved. Despite the name containing the word "book", **bookdown** is not only for books, and it can be used for long reports, dissertations, or even single R Markdown documents (see Section \@ref(a-single-document)). It also works with other computing languages such as Python and C++ (see Section \@ref(language-engines)). If you want, you can even write documents irrelevant to computing, such as a novel.
 
 In this chapter, we cover the basics of **bookdown**, and explain how to start a **bookdown** project. Much of the the content is based on the work "*bookdown: Authoring Books and Technical Documents with R Markdown*" (https://bookdown.org/yihui/bookdown/) of @xie2016, which provides more detailed explanations of the concepts highlighted.
 
