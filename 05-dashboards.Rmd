@@ -52,9 +52,9 @@ is equivalent to
 ## Column 1
 ```
 
-We used a series of dashes just to make the second-level sections stand out in the source document. By default, the second-level sections generate columns on a dashbard, and the third level sections will be stacked vertically inside columns. You do not have to have columns on a dashboard: when all you have are the third-level sections in the source document, they will be stacked vertically as one column in the output.
+We used a series of dashes just to make the second-level sections stand out in the source document. By default, the second-level sections generate columns on a dashboard, and the third level sections will be stacked vertically inside columns. You do not have to have columns on a dashboard: when all you have are the third-level sections in the source document, they will be stacked vertically as one column in the output.
 
-The text of the second-level headers will not be displayed in the output. The second-level headers are for the sole purpose of layout, so the actual content of the headers does not matter at all. By contrast, the first-level and thrid-level headers will be displayed as titles.
+The text of the second-level headers will not be displayed in the output. The second-level headers are for the sole purpose of layout, so the actual content of the headers does not matter at all. By contrast, the first-level and third-level headers will be displayed as titles.
 
 Figure \@ref(fig:dashboard-start) shows the output of the above example, in which you can see two columns, with the first column containing "Chart A", and the second column containing "Chart B" and "Chart C". We did not really include any R code in the code chunks, so all boxes are empty. In these code chunks, you may write arbitrary R code that generates R plots, HTML widgets, and various other components to be introduced in Section \@ref(dashboard-components).
 

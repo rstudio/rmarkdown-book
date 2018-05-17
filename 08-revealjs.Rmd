@@ -91,7 +91,7 @@ If you need smaller text for certain paragraphs, you can enclose text in the `<s
 
 ## Slide transitions
 
-You can use the `transition` and `background_transition` optoins to specify the global default slide transition style:
+You can use the `transition` and `background_transition` options to specify the global default slide transition style:
 
 - `transition` specifies the visual effect when moving between slides. Available transitions are `"default"`, `"fade"`, `"slide"`, `"convex"`, `"concave"`, `"zoom"` or `"none"`.
 

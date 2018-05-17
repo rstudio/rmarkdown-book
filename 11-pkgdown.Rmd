@@ -6,9 +6,12 @@ The **pkgdown** package [@R-pkgdown] makes it easy to build a documentation webs
 
 ## Get started {#pkgdown-start}
 
-As of this writing, **pkgdown** is not on CRAN yet, but you can install it from GitHub, and find more information from its GitHub repository (https://github.com/r-lib/pkgdown).
+You can install **pkgdown** from CRAN, or its development version from GitHub, and find more information from its GitHub repository (https://github.com/r-lib/pkgdown).
 
 ```r
+install.packages("pkgdown")
+
+# Or the development version
 devtools::install_github("r-lib/pkgdown")
 ```
 
@@ -31,7 +34,7 @@ Other meta information about the package, such as the package license and author
 
 ### Function reference
 
-The reference pages look like R's own help pages. In fact, these pages are generated from the `*.Rd` files under `man/`. Compared to R's own hel pages, **pkgdown** offers a few more benefits: the examples on a help page (if exist) will be evaluated so that you can see the output, and function names are automatically linked so you can click on a name to navigate to the help page of another function. What is more, **pkgdown** allows you to organize the list of all functions into groups (e.g., by topic), which can make it easier for users to find the right function in a list. By default, all functions are listed alphabetically just like R's help system. To group functions on the list page, you need to provide a `reference` key in `_pkgdown.yml`, e.g.,
+The reference pages look like R's own help pages. In fact, these pages are generated from the `*.Rd` files under `man/`. Compared to R's own help pages, **pkgdown** offers a few more benefits: the examples on a help page (if exist) will be evaluated so that you can see the output, and function names are automatically linked so you can click on a name to navigate to the help page of another function. What is more, **pkgdown** allows you to organize the list of all functions into groups (e.g., by topic), which can make it easier for users to find the right function in a list. By default, all functions are listed alphabetically just like R's help system. To group functions on the list page, you need to provide a `reference` key in `_pkgdown.yml`, e.g.,
 
 ```yaml
 reference:

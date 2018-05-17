@@ -48,13 +48,18 @@ Any R expressions included within the parameters are executed before any code in
 You can access the parameters within the knitting environment and the R console in RStudio.^[Parameters will not be available immediately after loading the file, but require any line of the report to be executed first.] The values are contained within a read-only list called `params`. In the previous example, the parameters can be accessed as follows:
 
 ```r
-param$year
+params$year
 params$region
 ```
 
-Parameters can also be used to control the behavior of **knitr**. For example, we may want to change the settings whether to display the code using the chunk option `echo` globally in the document:
+Parameters can also be used to control the behavior of **knitr**. For example, the **knitr** chunk option `echo` controls whether to display the program code, and we can set this option globally in a document via a parameter:
 
 ````markdown
+---
+params:
+  printcode: false  # or set it to true
+---
+
 `r ''````{r, setup, include=FALSE}
 # set this option in the first code chunk in the document
 knitr::opts_chunk$set(echo = params$printcode)
@@ -182,4 +187,4 @@ knitr::kable(
 
 ## Publishing {#params-publish}
 
-Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously.
+Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.

@@ -91,7 +91,7 @@ knitr::include_graphics('images/learnr-solution.png', dpi = NA)
 
 Sometimes you may not want to give the solutions directly to students, but provide hints instead to guide them. Hints can be either Markdown-based text content or code snippets.
 
-To create a hint based on custom Markdown content, add a `<div>` tag with an `id` attribue that marks it as hint for your exercise (e.g., `filter-hint`). For example:
+To create a hint based on custom Markdown content, add a `<div>` tag with an `id` attribute that marks it as hint for your exercise (e.g., `filter-hint`). For example:
 
 ````markdown
 `r ''````{r filter, exercise=TRUE}
@@ -174,7 +174,7 @@ Figure \@ref(fig:learnr-question) shows what the above question would look like 
 knitr::include_graphics('images/learnr-question.png', dpi = NA)
 ```
 
-The functions `question()` and `answer()` have several other arguments for more features that allow you to customize the questions and answers, such as custom error messages when the user's answer is wrong, allowing users to retry a question, multipe-choice questions, and multiple questions in a group. See their help pages in R for more information.
+The functions `question()` and `answer()` have several other arguments for more features that allow you to customize the questions and answers, such as custom error messages when the user's answer is wrong, allowing users to retry a question, multiple-choice questions, and multiple questions in a group. See their help pages in R for more information.
 
 ## Videos {#learnr-videos}
 

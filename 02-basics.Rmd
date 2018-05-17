@@ -88,7 +88,7 @@ A few R Markdown extension packages, such as **bookdown** and **blogdown**, have
 
 ## Cheat sheets
 
-RStudio has created a large number of cheatsheets, including the one-page R Markdown cheetsheet, which are freely available at https://www.rstudio.com/resources/cheatsheets/. There is also a more detailed R Markdown reference guide. Both documents can be used as quick references after you become more familiar with R Markdown.
+RStudio has created a large number of cheat sheets, including the one-page R Markdown cheetahs, which are freely available at https://www.rstudio.com/resources/cheatsheets/. There is also a more detailed R Markdown reference guide. Both documents can be used as quick references after you become more familiar with R Markdown.
 
 ## Output formats
 
@@ -384,7 +384,7 @@ There are a large number of chunk options in **knitr** documented at https://yih
 
 Chunk options in **knitr** can be surprisingly powerful. For example, you can create animations from a series of plots in a code chunk. I will not explain how here because [it requires an external software package](https://blogdown-demo.rbind.io/2018/01/31/gif-animations/), but encourage you to read the documentation carefully to discover the possibilities. You may also read @xie2015, which is a comprehensive guide to the **knitr** package, but unfortunately biased towards LaTeX users for historical reasons (which was one of the reasons why I wrote this R Markdown book).
 
-There is an optional chunk option that does not take any value, which is the chunk label. It should be the first option in the chunk header. Chunk labels are mainly used in filenames of plots and cache. If the label of a chunk is missing, a default one of the form `unnamed-chunk-i` will be generated, where `i` in incremental. I strongly recommend that you only use alnumeric characters (`a-z`, `A-Z` and `0-9`) and dashes (`-`) in labels, because they are not special characters and will surely work for all output formats. Other characters, spaces and underscores in particular, may cause trouble in certain packages, such as **bookdown**.
+There is an optional chunk option that does not take any value, which is the chunk label. It should be the first option in the chunk header. Chunk labels are mainly used in filenames of plots and cache. If the label of a chunk is missing, a default one of the form `unnamed-chunk-i` will be generated, where `i` in incremental. I strongly recommend that you only use alphanumeric characters (`a-z`, `A-Z` and `0-9`) and dashes (`-`) in labels, because they are not special characters and will surely work for all output formats. Other characters, spaces and underscores in particular, may cause trouble in certain packages, such as **bookdown**.
 
 If a certain option needs to be frequently set to a value in multiple code chunks, you can consider setting it globally in the first code chunk of your document, e.g.,
 

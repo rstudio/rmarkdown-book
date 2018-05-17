@@ -4,7 +4,7 @@ We briefly mentioned HTML widgets in the beginning of this book in Section \@ref
 
 - Used at the R console for data analysis just like conventional R plots.
 
-- Embedded within R Markdown documents.
+- Embedded within R Markdown documents.^[Note that interactivity only works when the output format is HTML, including HTML documents and presentations. If the output format is not HTML, it is possible to automatically create and embed a static screenshot of the widget instead. See Section \@ref(intro-widgets) for more information.]
 
 - Incorporated into Shiny web applications.
 

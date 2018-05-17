@@ -24,7 +24,7 @@ There are two goals for the **tufte** package:
 
 1. To provide simple syntax to write elements of the Tufte style such as side notes and margin figures. For example, when you want a margin figure, all you need to do is the chunk option `fig.margin = TRUE`, and **tufte** will take care of the details for you, so you never need to think about LaTeX environments like `\begin{marginfigure} \end{marginfigure}` or HTML tags like `<span class="marginfigure"> </span>`; the LaTeX and HTML code under the hood may be complicated, but you never need to learn or write such code.
 
-You can use the wizard in RStudio IDE from the menu `File -> New File -> R Markdown -> From Template` to create a new R Markdown docuemnt with a default example provided by the **tufte** package. Note that you need a LaTeX distribution if you want PDF output (see Chapter \@ref(installation)).
+You can use the wizard in RStudio IDE from the menu `File -> New File -> R Markdown -> From Template` to create a new R Markdown document with a default example provided by the **tufte** package. Note that you need a LaTeX distribution if you want PDF output (see Chapter \@ref(installation)).
 
 ## Headings {#tufte-headings}
 
@@ -200,7 +200,7 @@ output:
 ---
 ```
 
-There is also a variant of the Tufte style in HTML/CSS named "[Envisoned CSS](http://nogginfuel.com/envisioned-css/)". This style can be enabled by specifying the argument `tufte_variant = 'envisioned'` in `tufte_html()`,^[The actual Envisioned CSS was not used in the **tufte** package. Only the fonts, background color, and text color are changed based on the default Tufte style.], e.g.,
+There is also a variant of the Tufte style in HTML/CSS named "[Envisioned CSS](http://nogginfuel.com/envisioned-css/)". This style can be enabled by specifying the argument `tufte_variant = 'envisioned'` in `tufte_html()`,^[The actual Envisioned CSS was not used in the **tufte** package. Only the fonts, background color, and text color are changed based on the default Tufte style.], e.g.,
 
 ```yaml
 ---

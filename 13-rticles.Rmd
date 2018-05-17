@@ -10,7 +10,7 @@ The **rticles** package [@R-rticles] is designed to simplify the creation of doc
 knitr::include_graphics(c("images/rticles-plos.png", "images/rticles-springer.png"), dpi = NA)
 ```
 
-Understanding of LaTeX is recommended, but not essential, to use this package. R Markdown templates may sometimes inevitably contain LaTeX code, but usually we can use use the simpler Markdown and **knitr** syntax to produce elments like figures, tables, and math equations as explained in Chapter \@ref(basics).
+Understanding of LaTeX is recommended, but not essential, to use this package. R Markdown templates may sometimes inevitably contain LaTeX code, but usually we can use use the simpler Markdown and **knitr** syntax to produce elements like figures, tables, and math equations as explained in Chapter \@ref(basics).
 
 ## Get started {#rticles-start}
 
@@ -99,7 +99,7 @@ bibliography: bibliography.bib
 output: rticles::springer_article
 ```
 
-As the Rmd documents are built using customized templates, you may not be able to use the YAML metadata to control the layout of the document as described in Section \@ref(pdf-document), unless the template supports such metadata. For example, adding `toc: true` may not add a table of contents. Commands that control the building process may still be used though, including `keep_tex: true`, or those that configure **knitr** chunk opitons (e.g., `fig_width`).
+As the Rmd documents are built using customized templates, you may not be able to use the YAML metadata to control the layout of the document as described in Section \@ref(pdf-document), unless the template supports such metadata. For example, adding `toc: true` may not add a table of contents. Commands that control the building process may still be used though, including `keep_tex: true`, or those that configure **knitr** chunk options (e.g., `fig_width`).
 
 ## LaTeX content {#rticles-latex}
 

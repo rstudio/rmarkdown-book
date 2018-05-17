@@ -393,7 +393,7 @@ If you want to decrease the text size on an individual slide you can use the `.s
 ## Getting up {.smaller}
 ```
 
-If you want to increase the text size on an indvidual slide you can use the `.bigger` slide attribute. For example:
+If you want to increase the text size on an individual slide you can use the `.bigger` slide attribute. For example:
 
 ```markdown
 ## Getting up {.bigger}

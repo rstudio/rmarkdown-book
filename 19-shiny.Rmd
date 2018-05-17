@@ -68,7 +68,7 @@ knitr::include_graphics('images/shiny-plot.png', dpi = NA)
 
 Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
 
-There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny docuemnts.
+There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny documents.
 
 ### ShinyApps.io
 
@@ -267,7 +267,7 @@ In a typical Shiny application, you specify an output element in the UI using fu
 
 By comparison, in a Shiny document, the UI elements are often implicitly and automatically created when you call the `renderXXX()` functions. For example, you may want to use a `renderPlot()` function without having to create a `plotOutput()` slot beforehand. In this case, Shiny helpfully associates the corresponding output object to each `renderXXX()` function, letting you use Shiny code outside of a full Shiny app. However, some functionality can be lost in this process. In particular, `plotOutput()` can take in some optional arguments to set things like width and height, or allow you to click or brush over the plot (and store that information).
 
-To pass options from `renderXXX()` to `xxxOutput()`, you can actually use the `outputArgs` argument, if it is available to a specific `renderXXX()` functions. For example, suppose that you want to render a plot and specify its width to be 200px and height to be 100px. Then you should use: 
+To pass options from `renderXXX()` to `xxxOutput()`, you can use the `outputArgs` argument, if it is available to a specific `renderXXX()` functions. For example, suppose that you want to render a plot and specify its width to be 200px and height to be 100px. Then you should use: 
 
 ````markdown
 `r ''````{r, echo = FALSE}
@@ -304,4 +304,4 @@ full Shiny app, please set the output arguments directly in
 the corresponding output function of your UI code.
 ```
 
-The same will happen if you try to use `outputArgs` in any other context, like inside a regular (i.e., not embedded) Shiny app. The rationale is that, if you are already specifying a `ui` function with all the `output` objects made explicit, you should set their arguments directly there, instead of going through this round-about way.
+The same will happen if you try to use `outputArgs` in any other context, such as inside a regular (i.e., not embedded) Shiny app. The rationale is that if you are already specifying a `ui` function with all the `output` objects made explicit, you should set their arguments directly there instead of going through this round-about way.

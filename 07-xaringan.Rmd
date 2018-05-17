@@ -128,7 +128,7 @@ All these properties require you to understand CSS.^[There are many tutorials on
 
 ### The title slide
 
-There is a special slide, the title slide, that is automatically generated from the YAML metadata of your Rmd document. It contains the title, subtitle, author, and date (all are optional). This slide has the classes `inverse`, `center`, `middle`, and `title-slide`, which looks like the left image in Figure \@ref(fig:xaringan-sample). If you do not like the default style, you may either customze the `.title-slide` class, or disable the automatic slide via the `seal` option and create one manually:
+There is a special slide, the title slide, that is automatically generated from the YAML metadata of your Rmd document. It contains the title, subtitle, author, and date (all are optional). This slide has the classes `inverse`, `center`, `middle`, and `title-slide`, which looks like the left image in Figure \@ref(fig:xaringan-sample). If you do not like the default style, you may either customize the `.title-slide` class, or disable the automatic slide via the `seal` option and create one manually:
 
 ```yaml
 ---

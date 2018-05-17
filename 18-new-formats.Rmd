@@ -76,7 +76,7 @@ The best way to learn more about creating fully custom formats is to study the s
 
 New formats should be stored within a package and installed onto your local system. This allows the format to be provided to the document YAML. Assuming our example format `quarterly_report` is in a package named **mypackage**, we can use it as follows:
 
-```yaml
+```markdown
 ---
 title: "Habits"
 output:

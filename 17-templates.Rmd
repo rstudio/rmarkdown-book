@@ -93,7 +93,19 @@ knitr::kable(mtcars[1:5, 1:5])
 
 An R Markdown is first compiled to Markdown through **knitr**, and then converted to an output document (e.g., PDF, HTML, or Word) by Pandoc through a Pandoc template. While the default Pandoc templates used by R Markdown are designed to be flexible by allowing parameters to be specified in the YAML, users may wish to provide their own template for more control over the output format.
 
-You can make use of additional YAML fields from the source document when designing a Pandoc template. For example, you may wish to have a `department` field to be added to your title page, or include an `editor` field to be displayed below the author. We can add additional variables to the Pandoc template by surrounding the variable in dollar signs (`$`) within the template. These variables take values from the YAML metadata of the R Markdown document (or command-line arguments passed the Pandoc). We may also use conditional statements and for-loops. Readers are recommended to check the Pandoc manual for more details: https://pandoc.org/MANUAL.html#using-variables-in-templates.
+You can make use of additional YAML fields from the source document when designing a Pandoc template. For example, you may wish to have a `department` field to be added to your title page, or include an `editor` field to be displayed below the author. We can add additional variables to the Pandoc template by surrounding the variable in dollar signs (`$`) within the template. Most variables take values from the YAML metadata of the R Markdown document (or command-line arguments passed the Pandoc). We may also use conditional statements and for-loops. Readers are recommended to check the Pandoc manual for more details: https://pandoc.org/MANUAL.html#using-variables-in-templates. Below is an example of a very minimal Pandoc template for HTML documents that only contains two variables (`$title$` and `$body$`):
+
+```html
+<html>
+  <head>
+    <title>$title$</title>
+  </head>
+  
+  <body>
+  $body$
+  </body>
+</html>
+```
 
 For R Markdown to use the customized template, you can specify the `template` option in the output format (provided that the output format supports this option), e.g.,
 

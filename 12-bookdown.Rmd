@@ -263,7 +263,7 @@ Note that only alphanumeric characters (`a-z`, `A-Z`, `0-9`), `-`, `/`, and `:` 
 
 ## Output Formats {#bookdown-output}
 
-The **bookdown** package inlucdes the following output formats:
+The **bookdown** package includes the following output formats:
 
 - HTML:
     - `gitbook`
@@ -336,7 +336,7 @@ The **bookdown** package comes with two addins for RStudio which assist the edit
 
 - "Preview Book": this calls `bookdown::serve_book()` to compile and serve the book.
 
-- "Input LaTex Math": provides a text box which allows you to write LaTeX equations, to avoid common errors when typing the raw LaTeX math expressions.
+- "Input LaTeX Math": provides a text box which allows you to write LaTeX equations, to avoid common errors when typing the raw LaTeX math expressions.
 
 ## Publishing {#bookdown-publish}
 
