@@ -505,6 +505,8 @@ Below is a relatively simple example that shows how you can create/modify variab
 `r xfun::file_string('examples/python.Rmd')`
 ````
 
+You may learn more about the **reticulate** package from https://rstudio.github.io/reticulate/.
+
 ### Shell scripts
 
 You can also write Shell scripts in R Markdown, if your system can run them (the executable `bash` or `sh` should exist). Usually this is not a problem for Linux or macOS users. It is not impossible for Windows users to run Shell scripts, but you will have to install additional software (such as [Cygwin](https://www.cygwin.com) or the Linux Subsystem).

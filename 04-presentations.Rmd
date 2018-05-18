@@ -573,7 +573,7 @@ Content of the right column.
 ::::::
 ```
 
-### Custom templates
+### Custom templates {#ppt-templates}
 
 Like Word documents (Section \@ref(word-document)), you can customize the appearance of PowerPoint presentations by passing a custom reference document via the `reference_doc` option, e.g.,
 
