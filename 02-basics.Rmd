@@ -99,7 +99,7 @@ The [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/repo
 
 Chris Hartgerink explained how and why he used R Markdown to write dynamic research documents in the post at https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown. He published a paper titled "Too Good to be False: Nonsignificant Results Revisited" with two co-authors [@hartgerink2017]. The manuscript was written in R Markdown, and results were dynamically generated from the code in R Markdown.
 
-When checking the accuracy of P-values in the psychology literature, his colleagues and he found that P-values could be mistyped or miscaculated, which could lead to inaccurate or even wrong conclusions. If the P-values were dynamically generated and inserted instead of being manually copied from statistical programs, the chance for those problems to exist will be much lower.
+When checking the accuracy of P-values in the psychology literature, his colleagues and he found that P-values could be mistyped or miscalculated, which could lead to inaccurate or even wrong conclusions. If the P-values were dynamically generated and inserted instead of being manually copied from statistical programs, the chance for those problems to exist will be much lower.
 
 ### Dashboards at eelloo
 
@@ -108,6 +108,8 @@ R Markdown is used at eelloo (https://eelloo.nl) to design and generate research
 ### Books {#examples-books}
 
 We will introduce the R Markdown extension **bookdown** in Chapter \@ref(books). It is an R package that allows you to write books and long-form reports with multiple Rmd files. After this package was published, a large number of books have emerged. You can find a subset of them at https://bookdown.org. Some of these books have been printed, and some only have free online versions.
+
+There have also been students who wrote their dissertations/theses with **bookdown**, such as Ed Berry: https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/. Chester Ismay has even provided an R package **thesisdown** (https://github.com/ismayc/thesisdown) that can render a thesis in various formats. Several other people have customized this package for their own institutions, such as Zhian N. Kamvar's **beaverdown** (https://github.com/zkamvar/beaverdown) and Ben Marwick's **huskydown** (https://github.com/benmarwick/huskydown).
 
 ### Websites {#examples-websites}
 
