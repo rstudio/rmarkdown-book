@@ -1,11 +1,9 @@
 quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
-unlink('_book', recursive = TRUE)
+unlink(c('_book/*.html', '_book/*.epub'))
 
 # provide default formats if necessary
-if (length(formats) == 0) formats = c(
-  'bookdown::pdf_book', 'bookdown::epub_book', 'bookdown::gitbook'
-)
+if (length(formats) == 0) formats = c('bookdown::pdf_book', 'bookdown::gitbook')
 # render the book to all formats unless they are specified via command-line args
 for (fmt in formats) {
   cmd = sprintf("bookdown::render_book('index.Rmd', '%s', quiet = %s)", fmt, quiet)

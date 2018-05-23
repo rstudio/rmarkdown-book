@@ -23,10 +23,8 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   template: null
-  pandoc_args: --top-level-division=chapter
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
   toc_depth: 3
   toc_unnumbered: no
   toc_appendix: yes
   quote_footer: ["\\VA{", "}{}"]
-bookdown::epub_book:
-  stylesheet: css/style.css
