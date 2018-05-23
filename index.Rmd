@@ -28,7 +28,8 @@ options(
 )
 
 options(bookdown.post.latex = function(x) {
-  # an ugly hack for Table 15.1 (Pandoc's widths are not good)
+  # an ugly hack for Table 16.1 (Pandoc's widths are not good)
+  if (length(grep('0.47\\\\columnwidth', x)) == 0) stop('Table 16.1 not found')
   x = gsub('( & \\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.65\\2', x)
   x = gsub('(^\\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.35\\2', x)
   if (length(i <- grep('^\\\\begin\\{longtable\\}', x)) == 0) return(x)
