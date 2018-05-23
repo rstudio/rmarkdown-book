@@ -1,6 +1,6 @@
 # About the Authors {#author .unnumbered}
 
-This book is primarily put together by me (Yihui Xie), making use of the existing R documentation of the **rmarkdown** package and the **rmarkdown** website, which were mainly contributed by J. J. Allaire and Garrett Grolemund.
+This book is primarily put together by me (Yihui Xie), making use of the existing R documentation of the **rmarkdown** package and the **rmarkdown** website, which were mainly contributed by J.J. Allaire and Garrett Grolemund.
 
 ## Yihui Xie {-}
 
@@ -14,10 +14,12 @@ He occasionally rants on Twitter (https://twitter.com/xieyihui), and most of the
 
 He enjoys spicy food as much as classical Chinese literature.
 
-## J. J. Allaire {-}
+## J.J. Allaire {-}
 
-J.J. Allaire is the founder of RStudio and the author of the R interfaces to TensorFlow and Keras.
+J.J. Allaire is the founder of RStudio and the creator of the RStudio IDE. J.J. is an author of several packages in the R Markdown ecosystem including **rmarkdown**, **flexdashboard**, **learnr**, and **radix**. 
 
 ## Garrett Grolemund {-}
 
-Garrett excels at teaching, statistics, and teaching statistics. He wrote the popular **lubridate** package and is the author of "Hands On Programming with R" and "Data Science with R", from O'Reilly Media. He holds a PhD in Statistics and specializes in Data Visualization.
+Garrett Grolemund is the co-author of "R for Data Science" and author of "Hands-On Programming with R". He wrote the **lubridate** R package and works for RStudio as an advocate who trains engineers to do data science with R and the Tidyverse. If you use R yourself, you may recognize Garrett from his video courses on Datacamp.com and O'Reilly media, or for his series of popular R cheatsheets distributed by RStudio.
+
+Garrett earned his PhD in Statistics from Rice University in 2012 under the guidance of Hadley Wickham. Before that, he earned a Bachelor's degree in Psychology from Harvard University and briefly attended law school. Garrett has been one of the foremost promoters of Shiny, R Markdown, and the Tidyverse, documenting and explaining each in detail.
