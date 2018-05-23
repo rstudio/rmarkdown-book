@@ -28,10 +28,11 @@ This is a paragraph in an R Markdown document.
 
 Below is a code chunk:
 
-`r ''````{r, lm-cars, fig.height=5}
+`r ''````{r}
 fit = lm(dist ~ speed, data = cars)
 b   = coef(fit)
-plot(fit)
+plot(cars)
+abline(fit)
 ```
 
 The slope of the regression is `r b[1]`.
@@ -44,7 +45,7 @@ There are three basic components of an R Markdown document: the metadata, text, 
 
 The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code):
 
-- A code chunk starts with three backticks like ```` ```{r} ```` where `r` indicates the language name, and ends with three backticks. You can write chunk options in the curly braces.
+- A code chunk starts with three backticks like ```` ```{r} ```` where `r` indicates the language name, and ends with three backticks. You can write chunk options in the curly braces (e.g., set the figure height to 5 inches: ```` ```{r, fig.height=5} ````).
 
 - An inline R code expression starts with `` `r `` and ends with a backtick `` ` ``.
 
@@ -54,9 +55,71 @@ Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can 
 knitr::include_graphics('images/hello-rmd.png', dpi = NA)
 ```
 
-Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit` button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself before I discovered this problem, but I discovered it anyway.
+Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit` button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself in my presentations before I discovered this problem during one of my talks, but I discovered it anyway.
+
+Although the above is a toy example, it could become a horror story if it happens in scientific research that was not done in a reproducible way (e.g., cut-and-paste). Here are two of my personal favorite videos on this topic:
+
+- "A reproducible workflow" by Ignasi Bartomeus and Francisco Rodríguez-Sánchez (https://youtu.be/s3JldKoA0zw). It is a 2-min video that looks artistic but also shows very common and practical problems in data analysis.
+
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+- "The Importance of Reproducible Research in High-Throughput Biology" by Keith Baggerly (https://youtu.be/7gYIs7uYbMo). You will be impressed by both the content and the style of this lecture. Keith Baggerly and Kevin Coombes were the two notable heroes in revealing [the Duke/Potti scandal](https://en.wikipedia.org/wiki/Anil_Potti), which was described as "one of the biggest medical research frauds ever" by the television program broadcast "60 Minutes".
+
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 It is fine for humans to err (in computing), as long as the source code is readily available.
+
+## Example applications {#basics-examples}
+
+Now you have learned the very basic concepts of R Markdown. The idea should be simple enough: interweave narratives with code in a document, knit the document to dynamically generate results from the code, and you will get a report. This idea was not invented by R Markdown, but came from an early programming paradigm called "Literate Programming" [@knuth1984].
+
+Due to the simplicity of Markdown and the powerful R language for data analysis, R Markdown has been widely used in many areas. Before we dive into the technical details, we want to show some examples to give you an idea of its possible applications.
+
+### Airbnb's knowledge repository
+
+Airbnb uses R Markdown to document all their analyses in R, so they can combine code and data visualizations in a single report [@bion2018]. Eventually all reports are carefully peer-reviewed and published to a company knowledge repository, so that anyone in the company can easily find analyses relevant to their team. Data scientists are also able to learn as much as they want from previous work or reuse the code written by previous authors, because the full R Markdown source is available in the repository.
+
+### Homework assignments on RPubs
+
+A huge number of homework assignments have been published to the website https://RPubs.com (a free publishing platform provided by RStudio), which shows that R Markdown is easy and convenient enough for students to do their homework assignments. When I was still a student, I did most of my homework assignments using Sweave, which was a much earlier implementation of literate programming based on the S language (later R) and LaTeX. I was aware of the importance of reproducible research but did not enjoy LaTeX, and few of my classmates wanted to use Sweave. Right after I graduated, R Markdown was born, and it has been great to see so many students do their homework in the reproducible manner.
+
+In a 2016 JSM (Joint Statistical Meetings) talk, I proposed that course instructors could sometimes intentionally insert some wrong values in the source data before providing it to the students for them to analyze the data in the homework, then correct these values the next time, and ask them to do the analysis again. This way, students should be able to realize the problems with the traditional cut-and-paste approach for data analysis (i.e., run the analysis separately and copy the results manually), and the advantage of using R Markdown to automatically generate the report.
+
+### Personalized mails
+
+One thing you should remember about R Markdown is that you can programmatically generate reports, although most of the time you may be just clicking the `Knit` button in RStudio to generate a single report from a single source document. Being able to program reports is a super power of R Markdown.
+
+Mine Çetinkaya-Rundel once wanted to create personalized handouts for her workshop participants. She used a template R Markdown file, and knitted it in a for-loop to generate 20 PDF files for the 20 participants. Each PDF contained both personalized information and common information. You may read the article https://rmarkdown.rstudio.com/articles_mail_merge.html for the technical details.
+
+### 2017 Employer Health Benefits Survey
+
+The [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/report/2017-employer-health-benefits-survey/) was designed and analyzed by the Kaiser Family Foundation, NORC at the University of Chicago, and Health Research & Educational Trust. The full PDF report was written in R Markdown (with the **bookdown** package). It has a unique appearance, which was made possible by heavy customizations in the LaTeX template. This example shows you that if you really care about typesetting, you are free to apply your knowledge about LaTeX to create highly sophisticated reports from R Markdown.
+
+### Journal articles {#examples-journal}
+
+Chris Hartgerink explained how and why he used R Markdown to write dynamic research documents in the post at https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown. He published a paper titled "Too Good to be False: Nonsignificant Results Revisited" with two co-authors [@hartgerink2017]. The manuscript was written in R Markdown, and results were dynamically generated from the code in R Markdown.
+
+When checking the accuracy of P-values in the psychology literature, his colleagues and he found that P-values could be mistyped or miscaculated, which could lead to inaccurate or even wrong conclusions. If the P-values were dynamically generated and inserted instead of being manually copied from statistical programs, the chance for those problems to exist will be much lower.
+
+### Dashboards at eelloo
+
+R Markdown is used at eelloo (https://eelloo.nl) to design and generate research reports. Here is one of their examples (in Dutch): https://eelloo.nl/groepsrapportages-met-infographics/, where you can find gauges, bar charts, pie charts, wordclouds, and other types of graphs dynamically generated and embedded in dashboards.
+
+### Books {#examples-books}
+
+We will introduce the R Markdown extension **bookdown** in Chapter \@ref(books). It is an R package that allows you to write books and long-form reports with multiple Rmd files. After this package was published, a large number of books have emerged. You can find a subset of them at https://bookdown.org. Some of these books have been printed, and some only have free online versions.
+
+### Websites {#examples-websites}
+
+The **blogdown** package to be introduced in Chapter \@ref(websites) can be used to build general-purpose websites (including blogs and personal websites) based on R Markdown. You may find tons of examples at https://github.com/rbind or by searching on Twitter: https://twitter.com/search?q=blogdown. Here are a few impressive websites that I can quickly think of off the top of my head:
+
+- Rob J Hyndman's personal website: https://robjhyndman.com (a very comprehensive academic website).
+
+- Amber Thomas's personal website: https://amber.rbind.io (a rich project portfolio).
+
+- Emi Tanaka's personal website: https://emitanaka.github.io (in particular, check out the beautiful showcase page).
+
+- "Live Free or Dichotomize" by Nick Strayer and Lucy D'Agostino McGowan: http://livefreeordichotomize.com (the layout is elegant, and the posts are useful and practical).
 
 ## Compile an R Markdown document {#compile}
 
@@ -148,7 +211,7 @@ output:
       before_body: before.html
 ```
 
-Some options are passed to **knitr**, such as `dev`, `fig_width`, and `fig_height`. Detailed documentation of these options can be found on the **knitr** documentation page: https://yihui.name/knitr/options/. Note that the actual **knitr** option names can be different. In particular, **knitr** uses `.` in names, but **rmarkdown** uses `_`, e.g., `fig_width` in **rmarkdown** corresponds to `fig.width` in **knitr**. We apologize for the inconsistencies---programmers often strive for consistencies in their own world, yet one standard plus one standard often equals three standards. If I were to write the **knitr** package again, I would definitely use `_`.
+Some options are passed to **knitr**, such as `dev`, `fig_width`, and `fig_height`. Detailed documentation of these options can be found on the **knitr** documentation page: https://yihui.name/knitr/options/. Note that the actual **knitr** option names can be different. In particular, **knitr** uses `.` in names, but **rmarkdown** uses `_`, e.g., `fig_width` in **rmarkdown** corresponds to `fig.width` in **knitr**. We apologize for the inconsistencies---programmers often strive for consistencies in their own world, yet one standard plus one standard [often equals three standards.](https://xkcd.com/927/) If I were to design the **knitr** package again, I would definitely use `_`.
 
 Some options are passed to Pandoc, such as `toc`, `toc_depth`, and `number_sections`. You should consult the Pandoc documentation when in doubt. R Markdown output format functions often have a `pandoc_args` argument, which should be a character vector of extra arguments to be passed to Pandoc. If you find any Pandoc features that are not represented by the output format arguments, you may use this ultimate argument, e.g.,
 
@@ -382,7 +445,7 @@ There are a large number of chunk options in **knitr** documented at https://yih
 
 - `child`: You can include a child document in the main document. This option takes a path to an external file.
 
-Chunk options in **knitr** can be surprisingly powerful. For example, you can create animations from a series of plots in a code chunk. I will not explain how here because [it requires an external software package](https://blogdown-demo.rbind.io/2018/01/31/gif-animations/), but encourage you to read the documentation carefully to discover the possibilities. You may also read @xie2015, which is a comprehensive guide to the **knitr** package, but unfortunately biased towards LaTeX users for historical reasons (which was one of the reasons why I wrote this R Markdown book).
+Chunk options in **knitr** can be surprisingly powerful. For example, you can create animations from a series of plots in a code chunk. I will not explain how here because [it requires an external software package](https://blogdown-demo.rbind.io/2018/01/31/gif-animations/), but encourage you to read the documentation carefully to discover the possibilities. You may also read @xie2015, which is a comprehensive guide to the **knitr** package, but unfortunately biased towards LaTeX users for historical reasons (which was one of the reasons why I wanted to write this R Markdown book).
 
 There is an optional chunk option that does not take any value, which is the chunk label. It should be the first option in the chunk header. Chunk labels are mainly used in filenames of plots and cache. If the label of a chunk is missing, a default one of the form `unnamed-chunk-i` will be generated, where `i` in incremental. I strongly recommend that you only use alphanumeric characters (`a-z`, `A-Z` and `0-9`) and dashes (`-`) in labels, because they are not special characters and will surely work for all output formats. Other characters, spaces and underscores in particular, may cause trouble in certain packages, such as **bookdown**.
 
