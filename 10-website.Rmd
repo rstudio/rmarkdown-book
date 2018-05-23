@@ -480,7 +480,7 @@ if (!quiet)
   message("\nOutput created: ", output)
 ```
 
-Emitting this line enables front-ends like RStudio to determine which file they should open to preview the website.
+Omitting this line enables front-ends like RStudio to determine which file they should open to preview the website.
 
 #### Examples
 
