@@ -250,7 +250,7 @@ Note that we have included an `output` element within our `_site.yml` file. This
 
 As part of our common output options, we have specified an HTML footer (via the `include: after-body:` option) and a CSS stylesheet. You can also include HTML before the body or in the document's `<head>` tag (see Section \@ref(includes)).
 
-In addition to whatever common options you define, the are two output options that are automatically set when rendering a site:
+In addition to whatever common options you define, there are two output options that are automatically set when rendering a site:
 
 1. The `self_contained` option is set `FALSE`; and
 
