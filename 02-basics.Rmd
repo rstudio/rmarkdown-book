@@ -49,10 +49,14 @@ The body of a document follows the metadata. The syntax for text (also known as 
 
 - An inline R code expression starts with `` `r `` and ends with a backtick `` ` ``.
 
-Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit` button to compile the document (to an HTML page).
+Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit` button to compile the document (to an HTML page). Figure \@ref(fig:hello-rmd-out) shows the output in the RStudio Viewer.
 
 ```{r hello-rmd, echo=FALSE, fig.cap='A minimal R Markdown example in RStudio.', out.width='100%'}
 knitr::include_graphics('images/hello-rmd.png', dpi = NA)
+```
+
+```{r hello-rmd-out, echo=FALSE, fig.cap='The output document of the minimal R Markdown example in RStudio.', out.width='100%'}
+knitr::include_graphics('images/hello-rmd-out.png', dpi = NA)
 ```
 
 Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit` button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself in my presentations before I discovered this problem during one of my talks, but I discovered it anyway.
