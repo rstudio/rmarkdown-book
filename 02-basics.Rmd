@@ -236,11 +236,11 @@ The text in an R Markdown document is written with the Markdown syntax. Precisel
 
 Inline text will be _italic_ if surrounded by underscores or asterisks, e.g., `_text_` or `*text*`. **Bold** text is produced using a pair of double asterisks (`**text**`). A pair of tildes (`~`) turn text to a subscript (e.g., `H~3~PO~4~` renders H~3~PO~4~). A pair of carets (`^`) produce a superscript (e.g., `Cu^2+^` renders Cu^2+^).
 
-To mark text as `inline code`, use a pair of backticks, e.g., `` `code` ``. To include literal backticks, use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: ``` `` `code` `` ```.
+To mark text as `inline code`, use a pair of backticks, e.g., `` `code` ``. To include $n$ literal backticks, use at least $n+1$ backticks outside, e.g., you can use four backticks to preserve three backtick inside: ````` ```` ```code``` ```` `````, which is rendered as ```` ```code``` ````.
 
-Links are created using `[text](link)`, e.g., `[RStudio](https://www.rstudio.com)`, and the syntax for images is similar: just add an exclamation mark, e.g., `![alt text or image title](path/to/image)`. Footnotes are put inside the square brackets after a caret `^[]`, e.g., `^[This is a footnote.]`.
+Hyperlinks are created using the syntax `[text](link)`, e.g., `[RStudio](https://www.rstudio.com)`. The syntax for images is similar: just add an exclamation mark, e.g., `![alt text or image title](path/to/image)`. Footnotes are put inside the square brackets after a caret `^[]`, e.g., `^[This is a footnote.]`.
 
-There are multiple ways to insert citations, and we recommend that you use BibTeX databases, because they work better when the output format is LaTeX/PDF. [Section 2.8](https://bookdown.org/yihui/bookdown/citations.html) of @xie2016 has covered the details. The key idea is that when you have a BibTeX database (a plain-text file with the conventional filename extension `.bib`) that contains entries like:
+There are multiple ways to insert citations, and we recommend that you use BibTeX databases, because they work better when the output format is LaTeX/PDF. [Section 2.8](https://bookdown.org/yihui/bookdown/citations.html) of @xie2016 has explained the details. The key idea is that when you have a BibTeX database (a plain-text file with the conventional filename extension `.bib`) that contains entries like:
 
 ```bibtex
 @Manual{R-base,
@@ -254,7 +254,7 @@ There are multiple ways to insert citations, and we recommend that you use BibTe
 }
 ```
 
-You may add a field named `bibliography` to the YAML metadata, and set its value to the path of the BibTeX file. Then in Markdown, you may use `@R-base` or `[@R-base]` to reference the BibTeX entry. Pandoc will automatically generated a list of references in the end of the document.
+You may add a field named `bibliography` to the YAML metadata, and set its value to the path of the BibTeX file. Then in Markdown, you may use `@R-base` (which generates "@R-base") or `[@R-base]` (which generates "[@R-base]") to reference the BibTeX entry. Pandoc will automatically generated a list of references in the end of the document.
 
 ### Block-level elements
 
@@ -274,12 +274,15 @@ If you do not want a certain heading to be numbered, you can add `{-}` or `{.unn
 # Preface {-}
 ```
 
-Unordered list items start with `*`, `-`, or `+`, and you can nest one list within another list by indenting the sub-list,^[The default rules for indenting in Pandoc 1.19 and 2.0 are different. For Pandoc before 2.0, you should indent by four spaces. The current Pandoc documentation reflects rules for Pandoc >= 2.0.] e.g.,
+Unordered list items start with `*`, `-`, or `+`, and you can nest one list within another list by indenting the sub-list, e.g.,
 
 ```markdown
 - one item
 - one item
 - one item
+    - one more item
+    - one more item
+    - one more item
 ```
 
 The output is:
@@ -287,13 +290,18 @@ The output is:
 - one item
 - one item
 - one item
+    - one more item
+    - one more item
+    - one more item
 
-Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,
+Ordered list items start with numbers (you can also nest lists within lists), e.g.,
 
 ```markdown
 1. the first item
 2. the second item
 3. the third item
+    - one unordered item
+    - one unordered item
 ```
 
 The output does not look too much different with the Markdown source:
@@ -301,6 +309,8 @@ The output does not look too much different with the Markdown source:
 1. the first item
 2. the second item
 3. the third item
+    - one unordered item
+    - one unordered item
 
 Blockquotes are written after `>`, e.g.,
 
