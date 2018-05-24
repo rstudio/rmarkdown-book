@@ -51,7 +51,7 @@ reference:
       - ugh_oh
 ```
 
-As you can see from the above example, you may list the names of functions in the `contents` field, or provide a pattern to let **pkgdown** match the names. There are three ways match function names: `starts_with()` to match names that start with a string, `ends_width()` for an ending pattern, and `matches()` for an arbitrary regular expression.
+As you can see from the above example, you may list the names of functions in the `contents` field, or provide a pattern to let **pkgdown** match the names. There are three ways to match function names: `starts_with()` to match names that start with a string, `ends_width()` for an ending pattern, and `matches()` for an arbitrary regular expression.
 
 ### Articles
 
