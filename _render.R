@@ -1,6 +1,5 @@
 quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
-unlink(c('_book/*.html', '_book/*.epub'))
 
 # provide default formats if necessary
 if (length(formats) == 0) formats = c('bookdown::pdf_book', 'bookdown::gitbook')

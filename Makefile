@@ -1,4 +1,5 @@
 all:
+	rm -f _book/*.html &&\
 	BOOKDOWN_FULL_PDF=false Rscript --quiet _render.R
 
 pdf:
