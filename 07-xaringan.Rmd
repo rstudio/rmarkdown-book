@@ -10,7 +10,7 @@ The name "xaringan" came from Sharingan (http://naruto.wikia.com/wiki/Sharingan)
 
 The **xaringan** package is based on the JavaScript library remark.js (https://remarkjs.com); remark.js only supports Markdown, and **xaringan** added the support for R Markdown as well as other utilities to make it easier to build and preview slides.
 
-You can learn more about the background stories and the usage of the **xaringan** package from the documentation at http://slides.yihui.name/xaringan/, which is actually a set of slides generated from **xaringan**.
+You can learn more about the background stories and the usage of the **xaringan** package from the documentation at http://slides.yihui.name/xaringan/, which is actually a set of slides generated from **xaringan**. You may also read a potentially biased blog post of mine to know why I preferred **xaringan** / remark.js for HTML5 presentations: https://yihui.name/en/2017/08/why-xaringan-remark-js/.
 
 ## Get started {#xaringan-start}
 
