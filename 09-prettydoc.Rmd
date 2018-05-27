@@ -46,4 +46,4 @@ vignette: >
 ---
 ```
 
-Do not forget to change the vignette title, author, and the index entry. You should also add `prettydoc` to the `Suggests` field of your package `DESCRIPTION` file.
+Do not forget to change the vignette title, author, and the index entry. You should also add `prettydoc` to the `Suggests` field of your package `DESCRIPTION` file, and the two package names `knitr, rmarkdown` to the `VignetteBuilder` field.

@@ -283,7 +283,7 @@ The **bookdown** package includes the following output formats:
 
 ### HTML
 
-Although multiple formats are available for HTML books in **bookdown**, we will focus on the Gitbook style, which is the most popular format and is used by for the online version of this book. It provides a clean style, with a table of contents on the left. The design is fully responsive to make the content suitable for both mobile and desktop devices.
+Although multiple formats are available for HTML books in **bookdown**, we will focus on the Gitbook style, which appears to be the most popular format. It provides a clean style, with a table of contents on the left. The design is fully responsive to make the content suitable for both mobile and desktop devices.
 
 The output format `bookdown::gitbook` is built upon `rmarkdown::html_document`, which was explained in Section \@ref(html-document). The main difference between rendering in R Markdown and **bookdown** is that a book will generate multiple HTML pages by default. To change the way the HTML pages are split, the `split_by` argument can be specified. This defaults to `split_by: chapter`, but readers may prefer to use `split_by: section` if there are many sections within chapters, in which case a chapter page may be too long.
 
@@ -324,7 +324,7 @@ knitr::include_graphics("images/bookdown-build.png", dpi = NA)
 
 ### Preview a chapter
 
-Building the whole book can be slow when the size of the book is big or your book contains large amounts of computation. We can use the `preview_chapter()` function in **bookdown** to only build a single chapter at time. Equivalently, you can click the `Knit` button in RStudio.
+Building the whole book can be slow when the size of the book is big or your book contains large amounts of computation. We can use the `preview_chapter()` function in **bookdown** to only build a single chapter at a time. Equivalently, you can click the `Knit` button in RStudio.
 
 ### Serve the book
 

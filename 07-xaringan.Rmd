@@ -437,9 +437,9 @@ The `beforeInit` option can be used to insert arbitrary JavaScript code before r
 
 ### Disadvantages
 
-The **xaringan** package was originally designed for "ninja", meaning that if you know CSS, you will be able to freely customize the style, otherwise you can only accept the default themes. Playing with CSS can be fun and rewarding, but it can also easily wastes your time. You aesthetic standards and taste may change from time to time, and you could end up tweaking the styles all the time.
+The **xaringan** package was originally designed for "ninja", meaning that if you know CSS, you will be able to freely customize the style, otherwise you can only accept the default themes. Playing with CSS can be fun and rewarding, but it can also easily waste your time. You aesthetic standards and taste may change from time to time, and you could end up tweaking the styles all the time.
 
-The HTML output file generated from **xaringan** is not self-contained by default, and it can be tricky to make it self-contained. If your slides must be self-contained and cannot be served through a web server, **xaringan** may not be a good option for you.
+The HTML output file generated from **xaringan** is not self-contained by default, as we mentioned in Section \@ref(xaringan-preview). If your slides must be self-contained and cannot be served through a web server, **xaringan** may not be a good option for you.
 
 HTML widgets may not work well in **xaringan**. This might be improved in the future, but it is a little tricky technically.
 

@@ -153,7 +153,7 @@ You can use the `slide_level` option to specify which level of heading will be u
 # Horizontal Slide 2
 ```
 
-With this layout, horizontal navigation will proceed directly from "Horizontal Slide 1" to "Horizontal Slide 2", with vertical navigation to "Vertical Slide 1" (and then "Vertical Slide 2", etc.) presented as an option on "Horizontal Slide 1".
+With this layout, horizontal navigation will proceed directly from "Horizontal Slide 1" to "Horizontal Slide 2", with vertical navigation to "Vertical Slide 1" (and then "Vertical Slide 2", etc.) presented as an option on "Horizontal Slide 1". See Figure \@ref(fig:revealjs-sample) for an example (note the arrows at the bottom right on the slides).
 
 ## Custom CSS
 

@@ -1112,7 +1112,7 @@ Refer to Section \@ref(html-document) for the documentation of other features of
 
 ## R package vignette
 
-The `html_vignette` format provides a lightweight alternative to `html_document` suitable for inclusion in packages to be released to CRAN. It reduces the size of a basic vignette from 100Kb to around 10Kb. The format differs from a conventional HTML document as follows:
+The `html_vignette` format provides a lightweight alternative to `html_document` suitable for inclusion in packages to be released to CRAN. It reduces the size of a basic vignette from 600Kb to around 10Kb. The format differs from a conventional HTML document as follows:
 
 - Never uses retina figures
 - Has a smaller default figure size
