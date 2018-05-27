@@ -1,10 +1,12 @@
-# Lightweight Pretty HTML Documents {#prettydoc}
+# Community Formats {#community}
+
+## Lightweight Pretty HTML Documents {#prettydoc}
 
 When designing the **rmarkdown** package, we wished it could produce output documents that look pleasant by default, especially for HTML documents. Pandoc does not really style the HTML documents when converting Markdown to HTML, but **rmarkdown** does. As we mentioned in Section \@ref(appearance-and-style), the themes of HTML documents are based on Bootswatch, which actually relies on the Bootstrap library (https://getbootstrap.com). Although these themes look pretty, the major disadvantage is that their file sizes are relatively large. The size of an HTML document created from an empty R Markdown document with the `html_document` format is about 600Kb, which is roughly the total size of all CSS, JavaScript, and font files in the default theme.
 
 If you are concerned about the file size but still want a fancy theme, you may consider the **prettydoc** package [@R-prettydoc], which has bundled a few pretty themes (yet small in size). This package provides an output format `prettydoc::html_pretty`. An empty R Markdown document with this format generates an HTML file of about 70Kb.
 
-## Usage {#prettydoc-usage}
+### Usage {#prettydoc-usage}
 
 The usage of `prettydoc::html_pretty` is very similar to `html_document`, with two major differences:
 
@@ -30,7 +32,7 @@ output:
 knitr::include_graphics('images/prettydoc.png', dpi = NA)
 ```
 
-## Package vignettes {#prettydoc-vignettes}
+### Package vignettes {#prettydoc-vignettes}
 
 The `prettydoc::html_pretty` can be particularly useful for R package vignettes. We have mentioned the `html_vignette` format in Section \@ref(r-package-vignette) that also aims at smaller file sizes, but that format is not as stylish. To apply the `prettydoc::html_pretty` format to a package vignette, you may use the YAML metadata below:
 
