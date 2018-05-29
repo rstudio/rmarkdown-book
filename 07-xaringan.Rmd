@@ -128,7 +128,18 @@ All these properties require you to understand CSS.^[There are many tutorials on
 
 ### The title slide
 
-There is a special slide, the title slide, that is automatically generated from the YAML metadata of your Rmd document. It contains the title, subtitle, author, and date (all are optional). This slide has the classes `inverse`, `center`, `middle`, and `title-slide`, which looks like the left image in Figure \@ref(fig:xaringan-sample). If you do not like the default style, you may either customize the `.title-slide` class, or disable the automatic slide via the `seal` option and create one manually:
+There is a special slide, the title slide, that is automatically generated from the YAML metadata of your Rmd document. It contains the title, subtitle, author, and date (all are optional). This slide has the classes `inverse`, `center`, `middle`, and `title-slide` by default, which looks like the left image in Figure \@ref(fig:xaringan-sample). If you do not like the default style, you may either customize the `.title-slide` class, or provide a custom vector of classes via the `titleSlideClass` option under the `nature` option, e.g.,
+
+```yaml
+---
+output:
+  xaringan::moon_reader:
+    nature:
+      titleSlideClass: ["right", "top", "my-title"]
+---
+```
+
+You can also disable the automatic title slide via the `seal` option and create one manually by yourself:
 
 ```yaml
 ---
@@ -270,13 +281,7 @@ Developing software is fun, isn't it?
 
 ## Build and preview slides {#xaringan-preview}
 
-You can knit the source document like other Rmd documents to view the output, but it may be tedious to have to knit it over and over again whenever you make changes. The other way to preview the slides is the RStudio addin "Infinite Moon Reader" or the function `xaringan::inf_mr()`, as mentioned in Section \@ref(compile). With this way, you can continuously preview your slides just by saving the source document, but your R session will be blocked by default. You can click the red "Stop" button on the right of the R console in RStudio (or press `Ctrl + C` if you are using a terminal) to stop the local web server launched by `inf_mr()` to serve and preview the HTML slides. A better way to prevent it from blocking the R console is to use the daemonized mode by setting the option
-
-```r
-options(servr.daemon = TRUE)
-```
-
-in your current R session, or in the R startup profile file (e.g., `~/.Rprofile`) so that it is applied to all future R sessions. The web server is created from the **servr** package [@R-servr].
+You can knit the source document like other Rmd documents to view the output, but it may be tedious to have to knit it over and over again whenever you make changes. The other way to preview the slides is the RStudio addin "Infinite Moon Reader" or the function `xaringan::inf_mr()`, as mentioned in Section \@ref(compile). With this way, you can continuously preview your slides just by saving the source document. The continuous preview is achieved via a local web server launched by the **servr** package [@R-servr].
 
 One distinction of `xaringan::moon_reader` with other R Markdown output formats is that it does not generate self-contained HTML documents by default (see Section \@ref(document-dependencies)). This means none of external dependencies such as images or JavaScript libraries will be embedded in the HTML output file by default. Due to technical difficulties (remark.js does not use Pandoc but renders Markdown in real time in the browser), it is hard to implement the self-contained mode well. If you have to publish the slides to a web server, but it is not convenient for you to upload all the dependencies, **xaringan** may not be a good choice for you. If you use GitHub Pages or Netlify, this may not be a big problem (you commit or upload all files).
 

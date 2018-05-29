@@ -2,7 +2,11 @@
 
 R has a built-in HTML help system that can be accessed via `help.start()`. From this system, you can see the HTML help pages of functions and objects in all packages, as well as other information about packages such as the `DESCRIPTION` file and package vignettes. However, this system is usually dynamically launched (via a local web server), and it is not straightforward to turn it into a static website that can be viewed without starting R.
 
-The **pkgdown** package [@R-pkgdown] makes it easy to build a documentation website for an R package, which can help you organize different pieces of the package documentation (e.g., README, help pages, vignettes, and news) with a more visually pleasant style. The navigation can also be easier for users than R's built-in help system. This website can be published to any web server (e.g., GitHub Pages or Netlify). An example is **pkgdown**'s own website: http://pkgdown.r-lib.org.
+The **pkgdown** package [@R-pkgdown] makes it easy to build a documentation website for an R package, which can help you organize different pieces of the package documentation (e.g., README, help pages, vignettes, and news) with a more visually pleasant style. The navigation can also be easier for users than R's built-in help system. This website can be published to any web server (e.g., GitHub Pages or Netlify). An example is **pkgdown**'s own website: http://pkgdown.r-lib.org (see Figure \@ref(fig:pkgdown)).
+
+```{r pkgdown, echo=FALSE, out.width='100%', fig.cap='A screenshot of the pkgdown website.'}
+knitr::include_graphics('images/pkgdown.png', dpi = NA)
+```
 
 ## Get started {#pkgdown-start}
 
