@@ -1074,7 +1074,7 @@ output:
 Valid values are:
 
 * `markdown` (Full Pandoc Markdown)
-* `markdown_strict` (Original Markdown specification)
+* `markdown_strict` (Original Markdown specification; the default)
 * `markdown_github` (GitHub Flavored Markdown)
 * `markdown_mmd` (MultiMarkdown)
 * `markdown_phpextra` (PHP Markdown extra)

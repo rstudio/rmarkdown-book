@@ -77,7 +77,7 @@ The **rmarkdown** package [@R-rmarkdown] was first created in early 2014. During
 
 - Create notebooks in which you can directly run code chunks interactively.
 
-- Make slides for presentations (HTML5 or LaTeX Beamer).
+- Make slides for presentations (HTML5, LaTeX Beamer, or PowerPoint).
 
 - Produce dashboards with flexible, interactive, and attractive layouts.
 

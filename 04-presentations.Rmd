@@ -618,4 +618,4 @@ Basically any template included in a recent version of Microsoft PowerPoint shou
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of PowerPoint presentations, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of PowerPoint presentations, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)). As of Pandoc 2.2.1, incremental slides in PowerPoint are not supported yet.
