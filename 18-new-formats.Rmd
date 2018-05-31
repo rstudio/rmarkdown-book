@@ -1,6 +1,6 @@
 # Creating New Formats {#new-formats}
 
-The **rmarkdown** package\index{R Markdown package} has included many built-in document and presentation formats. At their core, these formats are just R functions. When you include an output format in the YAML metadata\index{YAML metadat} of a document, you are essentially specifying the format function to call and the parameters to pass to it.
+The **rmarkdown** package\index{R Markdown package} has included many built-in document and presentation formats. At their core, these formats are just R functions. When you include an output format in the YAML metadata\index{YAML metadata} of a document, you are essentially specifying the format function to call and the parameters to pass to it.
 
 We can create new formats for R Markdown, which makes it easy to customize output formats to use specific options or refer to external files. Defining a new function can be particularly beneficial if you have generated a new template as described in Chapter \@ref(document-templates), as it allows you to use your custom templates without having to copy any files to your local directory.
 
