@@ -33,6 +33,10 @@ options(bookdown.post.latex = function(x) {
     x, '\nThe content in PDF was intentionally removed. Please either read the free online HTML version, or purchase a hard-copy of this book.\n'
     ))
 
+  # fix syntax highlighting:
+  # \FunctionTok{tufte:}\AttributeTok{:tufte_html: default} ->
+  # \FunctionTok{tufte::tufte_html:}\AttributeTok{ default}
+  x = gsub('(\\\\FunctionTok\\{[^:]+:)(})(\\\\AttributeTok\\{)(:[^:]+:)', '\\1\\4\\2\\3', x)
   # an ugly hack for Table 16.1 (Pandoc's widths are not good)
   if (length(grep('0.47\\\\columnwidth', x)) == 0) stop('Table 16.1 not found')
   x = gsub('( & \\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.65\\2', x)
