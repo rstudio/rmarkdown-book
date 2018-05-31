@@ -802,7 +802,7 @@ There are a number of options that affect the output of figures within PDF docum
 
 - `fig_width` and `fig_height` can be used to control the default figure width and height (6x4.5 is used by default).
 
-- `fig_crop` controls whether the the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default). If your graphics device is `postscript`, we recommend that you disable this feature (see more info [in this **knitr** issue](https://github.com/yihui/knitr/issues/1365)).
+- `fig_crop` controls whether the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default). If your graphics device is `postscript`, we recommend that you disable this feature (see more info [in this **knitr** issue](https://github.com/yihui/knitr/issues/1365)).
 
 * `fig_caption` controls whether figures are rendered with captions (this is `false` by default).
 
