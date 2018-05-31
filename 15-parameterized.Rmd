@@ -10,9 +10,9 @@ One of the many benefits of working with R Markdown is that you can reproduce an
 
 - Running a single analysis multiple times for different assumptions.
 
-- Controlling the behavior of **knitr** (e.g., specify if you want the code to be displayed or not).
+- Controlling the behavior of **knitr** (e.g., specify if you want the code to be displayed or not)\index{knitr}.
 
-In this chapter, we discuss the use of parameterized reports, and explain how we can interactively define the parameters to compile the results.
+In this chapter, we discuss the use of parameterized reports\index{parameterized reports}, and explain how we can interactively define the parameters to compile the results.
 
 ## Declaring parameters {#params-declare}
 
@@ -41,7 +41,7 @@ params:
 ---
 ```
 
-Any R expressions included within the parameters are executed before any code in the document, therefore any package dependencies must explicitly stated using the `package::function` notation (e.g., `!r lubridate::today()`), even if the package is loaded later in the Rmd document.
+Any R expressions included within the parameters are executed before any code in the document, therefore any package dependencies must be explicitly stated using the `package::function` notation (e.g., `!r lubridate::today()`), even if the package is loaded later in the Rmd document.
 
 ## Using parameters {#params-use}
 
@@ -75,10 +75,10 @@ There are three ways in which a parameterized report can be knitted:
 - `rmarkdown::render()` with the `params` argument.
 
 - Using an interactive user interface to input parameter values.
- 
+
 ### The `Knit` button
- 
-By using the `Knit` button in RStudio or calling `rmarkdown::render()` function, the default values listed in the YAML metadata (if specified) will be used.
+
+By using the `Knit` button in RStudio or calling `rmarkdown::render()` function, the default values listed in the YAML metadata\index{YAML metadata} (if specified) will be used.
 
 ### Knit with custom parameters
 
@@ -134,7 +134,7 @@ Adapting our above example to include some settings:
 title: My Document
 output: html_document
 params:
-  year: 
+  year:
     label: "Year"
     value: 2017
     input: slider
@@ -142,22 +142,22 @@ params:
     max: 2018
     step: 1
     sep: ""
-  region: 
+  region:
     label: "Region:"
     value: Europe
     input: select
     choices: [North America, Europe, Asia, Africa]
-  printcode: 
+  printcode:
     label: "Display Code:"
     value: TRUE
-  data: 
+  data:
     label: "Input dataset:"
     value: results.csv
     input: file
 ---
 ```
 
-This results in the user interface for the parameters as shown in Figure \@ref(fig:params-controls).
+This results in the user interface\index{user interface} for the parameters as shown in Figure \@ref(fig:params-controls).
 
 ```{r params-controls, echo=FALSE, fig.cap="Custom controls for parameters.", out.width="100%"}
 knitr::include_graphics("images/params-controls.png", dpi = NA)
@@ -176,7 +176,7 @@ knitr::kable(
             file	fileInput
             radio	radioButtons
             select	selectInput
-            password	passwordInput", 
+            password	passwordInput",
     col.names = c("Input Type", "Shiny Function"),
     check.names = FALSE
   ),
@@ -187,4 +187,4 @@ knitr::kable(
 
 ## Publishing {#params-publish}
 
-Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.
+Parameterized reports are supported by the publishing platform RStudio Connect\index{RStudio Connect} (https://www.rstudio.com/products/connect/). If you publish a parameterized report\index{parameterized reports} to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.

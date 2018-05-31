@@ -1,6 +1,6 @@
 # Interactive Tutorials {#learnr}
 
-The **learnr** package [@R-learnr] makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. Tutorials can include any or all of the following:
+The **learnr** package [@R-learnr]\index{learnr package} makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. Tutorials can include any or all of the following:
 
 1. Narrative, figures, illustrations, and equations.
 
@@ -183,7 +183,7 @@ You can include videos published on either YouTube or Vimeo within a tutorial us
 ```markdown
 ![](https://youtu.be/zNzZ1PfUDNk)
 ![](https://www.youtube.com/watch?v=zNzZ1PfUDNk)
- 
+
 ![](https://vimeo.com/142172484)
 ![](https://player.vimeo.com/video/142172484)
 ```
@@ -223,7 +223,7 @@ Again, since tutorials are Shiny applications, they can be deployed using the sa
 
 ## Navigation and progress tracking {#learnr-nav}
 
-Each **learnr** tutorial includes a table of contents on the left that tracks student progress (see Figure \@ref(fig:learnr-progress)). Your browser will remember which sections of a tutorial a student has completed, and return a student to where he/she left off when the tutorial is reopened.
+Each **learnr** tutorial\index{learnr tutorial} includes a table of contents on the left that tracks student progress (see Figure \@ref(fig:learnr-progress)). Your browser will remember which sections of a tutorial a student has completed, and return a student to where he/she left off when the tutorial is reopened.
 
 ```{r learnr-progress, echo=FALSE, out.width='100%', fig.cap="Keeping track of the student's progress in a tutorial."}
 knitr::include_graphics('images/learnr-progress.png', dpi = NA)

@@ -1,6 +1,6 @@
 # Shiny Documents
 
-We have briefly introduced Shiny documents in Section \@ref(intro-shiny). Shiny is a very powerful framework for building web applications based on R. It is out of the scope of this book to make a comprehensive introduction to Shiny (which is a too big topic). We recommend that readers who are not familiar with Shiny learn more about it from the website https://shiny.rstudio.com before reading this chapter.
+We have briefly introduced Shiny\index{Shiny} documents in Section \@ref(intro-shiny). Shiny is a very powerful framework for building web applications based on R. It is out of the scope of this book to make a comprehensive introduction to Shiny (which is too big a topic). We recommend that readers who are not familiar with Shiny learn more about it from the website https://shiny.rstudio.com before reading this chapter.
 
 Unlike the more traditional workflow of creating static reports, you can create documents that allow your readers to change the parameters underlying your analysis and see the results immediately in Shiny R Markdown documents. In the example shown in Figure \@ref(fig:shiny), the histogram will be automatically updated to reflect the number of bins selected by the reader.
 
@@ -44,7 +44,7 @@ renderTable({
 knitr::include_graphics('images/shiny-table.png', dpi = NA)
 ```
 
-In the above example, the output code was wrapped in a call to `renderTable()`. There are many other render functions in Shiny that can be used for plots, printed R output, and more. This example uses `renderPlot()` to create dynamic plot output:
+In the above example, the output code was wrapped in a call to `renderTable()`\index{renderTable()}. There are many other render functions in Shiny that can be used for plots, printed R output, and more. This example uses `renderPlot()`\index{renderPlot} to create dynamic plot output:
 
 ````markdown
 `r ''````{r, echo=FALSE}
@@ -66,9 +66,9 @@ knitr::include_graphics('images/shiny-plot.png', dpi = NA)
 
 ## Deployment {#shiny-deploy}
 
-Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
+Shiny\index{Shiny} documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
 
-There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny documents.
+There are two ways to deploy a Shiny document\index{Shiny document}. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect)\index{Shiny Server}\index{RStudio Connect} on your own server to deploy the Shiny documents.
 
 ### ShinyApps.io
 
@@ -98,7 +98,7 @@ If there is a file named `index.Rmd` in the directory, it will be served as the 
 
 ### Shiny Server / RStudio Connect
 
-Both Shiny Server (https://www.rstudio.com/products/shiny/shiny-server/) and RStudio Connect (https://www.rstudio.com/products/connect/) can be used to publish Shiny documents. They require knowledge about Linux. Installing and configuring them should normally be a task for your system administrator if you are not familiar with Linux or do not have the privilege.
+Both Shiny Server (https://www.rstudio.com/products/shiny/shiny-server/)\index{Shiny Server} and RStudio Connect\index{RStudio Connect} (https://www.rstudio.com/products/connect/) can be used to publish Shiny documents. They require knowledge about Linux. Installing and configuring them should normally be a task for your system administrator if you are not familiar with Linux or do not have the privilege.
 
 ## Embedded Shiny apps {#shiny-embedded}
 
@@ -117,20 +117,20 @@ This example uses an inline definition:
 ````markdown
 `r ''````{r, echo=FALSE}
 shinyApp(
-  
+
   ui = fluidPage(
-    selectInput("region", "Region:", 
+    selectInput("region", "Region:",
                 choices = colnames(WorldPhones)),
     plotOutput("phonePlot")
   ),
-  
+
   server = function(input, output) {
     output$phonePlot = renderPlot({
-      barplot(WorldPhones[,input$region]*1000, 
+      barplot(WorldPhones[,input$region]*1000,
               ylab = "Number of Telephones", xlab = "Year")
     })
   },
-  
+
   options = list(height = 500)
 )
 ```
@@ -155,7 +155,7 @@ Note that in all of R code chunks above, the chunk option `echo = FALSE` is used
 
 ## Shiny widgets {#shiny-widgets}
 
-Shiny widgets enable you to create re-usable Shiny components that are included within an R Markdown document using a single function call. Shiny widgets can also be invoked directly from the console (useful during authoring) and show their output within the RStudio Viewer pane or an external web browser.
+Shiny widgets\index{Shiny widget} enable you to create re-usable Shiny components that are included within an R Markdown document using a single function call. Shiny widgets can also be invoked directly from the console (useful during authoring) and show their output within the RStudio Viewer pane or an external web browser.
 
 ### The `shinyApp()` function
 
@@ -165,7 +165,7 @@ The simplest type of Shiny widget is just an R function that returns a `shinyApp
 
 ### Example: k-Means clustering
 
-The **rmdexamples** package (https://github.com/rstudio/rmdexamples) includes an example of a Shiny widget implemented in this fashion. The `kmeans_cluster()` function takes a single `dataset` argument and returns a Shiny widget to show the result of k-Means clustering. You can use it within an R Markdown document like this:
+The **rmdexamples** package (https://github.com/rstudio/rmdexamples) includes an example of a Shiny widget\index{Shiny widget} implemented in this fashion. The `kmeans_cluster()` function takes a single `dataset` argument and returns a Shiny widget to show the result of k-Means clustering. You can use it within an R Markdown document like this:
 
 ````markdown
 `r ''````{r, echo = FALSE}
@@ -183,11 +183,11 @@ knitr::include_graphics('images/shiny-widget-kmeans.png', dpi = NA)
 Below is the source code of the `kmeans_cluster()` function:
 
 ```r
-kmeans_cluster = function(dataset) { 
-  
+kmeans_cluster = function(dataset) {
+
   library(shiny)  
   vars = names(dataset)
-  
+
   shinyApp(
     ui = fluidPage(
       fluidRow(style = "padding-bottom: 20px;",
@@ -201,18 +201,18 @@ kmeans_cluster = function(dataset) {
         plotOutput('kmeans', height = "400px")  
       )
     ),
-    
+
     server = function(input, output, session) {
-      
+
       # Combine the selected variables into a new data frame
       selectedData = reactive({
         dataset[, c(input$xcol, input$ycol)]
       })
-      
+
       clusters = reactive({
         kmeans(selectedData(), input$clusters)
       })
-      
+
       output$kmeans = renderPlot(height = 400, {
         res = clusters()
         par(mar = c(5.1, 4.1, 0, 1))
@@ -221,7 +221,7 @@ kmeans_cluster = function(dataset) {
         points(res$centers, pch = 4, cex = 4, lwd = 4)
       })
     },
-    
+
     options = list(height = 500)
   )
 }
@@ -229,21 +229,21 @@ kmeans_cluster = function(dataset) {
 
 ### Widget size and layout
 
-Shiny widgets may be embedded in various places including standard full width pages, smaller columns within pages, and even HTML5 presentations. For the widget size and layout to work well in all of these contexts, we recommend that the total height of the widget is no larger than 500 pixels. This is not a hard and fast rule, but HTML5 slides can typically only display content less than 500px in height, so if you want your widget to be usable within presentations, this is a good guideline to follow.
+Shiny widgets\index{Shiny widget} may be embedded in various places including standard full width pages, smaller columns within pages, and even HTML5 presentations. For the widget size and layout to work well in all of these contexts, we recommend that the total height of the widget is no larger than 500 pixels. This is not a hard and fast rule, but HTML5 slides can typically only display content less than 500px in height, so if you want your widget to be usable within presentations, this is a good guideline to follow.
 
 You can also add an explicit `height` argument to the function that creates the widget (default to 500 so it works well within slides).
 
 ## Multiple pages {#shiny-multiple}
 
 You can link to other Shiny documents by using the Markdown link syntax and specifying the *relative* path to the document, e.g., `[Another Shiny Document](another.Rmd)`. If you click the link to another Rmd document on one page, that Rmd document will be launched as the current interactive Shiny document.
- 
+
 Currently, only one document can be active at a time, so documents cannot easily share state, although some primitive global sharing is possible via the R script `global.R` (see the help page `?rmarkdown::run`).
 
-By default, it is only possible to link to R Markdown files in the same directory subtree as the file on which `rmarkdown::run()` was invoked (e.g., you cannot link to `../foo.Rmd`). You can use the `dir` argument of `rmarkdown::run()` to indicate the directory to be treated as the root. 
+By default, it is only possible to link to R Markdown files in the same directory subtree as the file on which `rmarkdown::run()` was invoked (e.g., you cannot link to `../foo.Rmd`). You can use the `dir` argument of `rmarkdown::run()` to indicate the directory to be treated as the root.
 
 ## Delayed rendering {#shiny-delay}
 
-A Shiny document is typically rendered every time it is shown, and is not shown to the user until the rendering is complete. Consequently, a document that is large or contains expensive computations may take some time to load. 
+A Shiny document\index{Shiny document} is typically rendered every time it is shown, and is not shown to the user until the rendering is complete. Consequently, a document that is large or contains expensive computations may take some time to load.
 
 If your document contains interactive Shiny components that do not need to be rendered right away, you can wrap Shiny code in the `rmarkdown::render_delayed()` function. This function saves its argument until the document's rendering is done and has been shown to the user, then evaluates it and injects it into the output document when the computation is finished.
 
@@ -267,7 +267,7 @@ In a typical Shiny application, you specify an output element in the UI using fu
 
 By comparison, in a Shiny document, the UI elements are often implicitly and automatically created when you call the `renderXXX()` functions. For example, you may want to use a `renderPlot()` function without having to create a `plotOutput()` slot beforehand. In this case, Shiny helpfully associates the corresponding output object to each `renderXXX()` function, letting you use Shiny code outside of a full Shiny app. However, some functionality can be lost in this process. In particular, `plotOutput()` can take in some optional arguments to set things like width and height, or allow you to click or brush over the plot (and store that information).
 
-To pass options from `renderXXX()` to `xxxOutput()`, you can use the `outputArgs` argument, if it is available to a specific `renderXXX()` functions. For example, suppose that you want to render a plot and specify its width to be 200px and height to be 100px. Then you should use: 
+To pass options from `renderXXX()` to `xxxOutput()`, you can use the `outputArgs` argument, if it is available to a specific `renderXXX()` functions. For example, suppose that you want to render a plot and specify its width to be 200px and height to be 100px. Then you should use:
 
 ````markdown
 `r ''````{r, echo = FALSE}
@@ -293,7 +293,7 @@ To see `outputArgs` in action, run the R Markdown document below or visit https:
 
 ### A caveat
 
-We want to emphasize that you can only use this functionality within a Shiny R Markdown document (i.e., you must set `runtime: shiny` in the YAML metadata). But even if that is the case, this is only applicable to pieces of Shiny code that render output without the corresponding explicit output elements in the UI. If you embed a full Shiny application in your document and try to use `outputArgs`, it will be ignored and print the following warning to the R Markdown console (in this case, your `ui` function would be something like `ui = plotOutput("plot")`): 
+We want to emphasize that you can only use this functionality within a Shiny R Markdown document (i.e., you must set `runtime: shiny` in the YAML metadata)\index{runtime: shiny}. But even if that is the case, this is only applicable to pieces of Shiny code that render output without the corresponding explicit output elements in the UI. If you embed a full Shiny application in your document and try to use `outputArgs`, it will be ignored and print the following warning to the R Markdown console (in this case, your `ui` function would be something like `ui = plotOutput("plot")`):
 
 ```markdown
 Warning in `output$plot`(...) :
