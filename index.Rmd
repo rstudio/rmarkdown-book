@@ -18,7 +18,7 @@ site: bookdown::bookdown_site
 description: "The definitive guide to the R Markdown ecosystem."
 url: 'https\://bookdown.org/yihui/rmarkdown/'
 github-repo: rstudio/rmarkdown-book
-#cover-image: images/cover.png
+cover-image: images/cover.png
 ---
 
 ```{r setup, include=FALSE}
@@ -59,8 +59,10 @@ lapply(c(), function(pkg) {
 
 # Preface {-}
 
-```{r fig.align='center', eval=FALSE, echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://www.crcpress.com/p/book/9780815363729', out.width='50%'}
-knitr::include_graphics('images/cover.png', dpi = NA)
+```{asis, echo=identical(knitr:::pandoc_to(), 'html')}
+**Note**: This book is to be published by [Chapman & Hall/CRC](https://www.crcpress.com/p/book/9781138359338). The online version of this book is free to read here (thanks to Chapman & Hall/CRC), and licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+<p style="text-align: center;"><a href="https://www.crcpress.com/p/book/9781138359338"><img src="images/cover.png" alt="The R Markdown book cover" /></a></p>
 ```
 
 The document format "R Markdown" was first introduced in the **knitr** package [@xie2015; @R-knitr] in early 2012. The idea was to embed code chunks (of R or other languages) in Markdown documents. In fact, **knitr** supported several authoring languages from the beginning in addition to Markdown, including LaTeX, HTML, AsciiDoc, reStructuredText, and Textile. Looking back over the five years, it seems to be fair to say that Markdown has become the most popular document format, which is what we expected. The simplicity of Markdown clearly stands out among these document formats.
@@ -100,10 +102,6 @@ Please do not underestimate the customizability of R Markdown because of the sim
 R Markdown documents are often portable in the sense that they can be compiled to multiple types of output formats. Again, this is mainly due to the simplified syntax of the authoring language, Markdown. The simpler the elements in your document are, the more likely that the document can be converted to different formats. Similarly, if you heavily tailor R Markdown to a specific output format (e.g., LaTeX), you are likely to lose the portability, because not all features in one format work in another format.
 
 Last but not least, your computing results will be more likely to be reproducible if you use R Markdown (or other **knitr**-based source documents), compared to the manual cut-and-paste approach. This is because the results are dynamically generated from computer source code. If anything goes wrong or needs to be updated, you can simply fix or update the source code, compile the document again, and the results will automatically updated. You can enjoy reproducibility and convenience at the same time.
-
-<!--
-This book has been published by [Chapman & Hall/CRC](https://www.crcpress.com/p/book/9780815363729). The online version of this book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
--->
 
 ## How to read this book {-}
 
