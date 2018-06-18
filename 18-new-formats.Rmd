@@ -1,6 +1,6 @@
 # Creating New Formats {#new-formats}
 
-The **rmarkdown** package\index{R Markdown package} has included many built-in document and presentation formats. At their core, these formats are just R functions. When you include an output format in the YAML metadata\index{YAML metadata} of a document, you are essentially specifying the format function to call and the parameters to pass to it.
+The **rmarkdown** package has included many built-in document and presentation formats. At their core, these formats are just R functions. When you include an output format in the YAML metadata\index{YAML metadata} of a document, you are essentially specifying the format function to call and the parameters to pass to it.
 
 We can create new formats for R Markdown, which makes it easy to customize output formats to use specific options or refer to external files. Defining a new function can be particularly beneficial if you have generated a new template as described in Chapter \@ref(document-templates), as it allows you to use your custom templates without having to copy any files to your local directory.
 
@@ -64,7 +64,7 @@ simple_html_format = function() {
 }
 ```
 
-The **knitr**\index{knitr} and Pandoc options\index{Pandoc options} can get considerably complicated (see help pages `?rmarkdown::knitr_options` and `?rmarkdown::pandoc_options` for details). The `clean_supporting` option indicates that you are not creating self-contained output (like a PDF or HTML document with base64 encoded resources), and therefore want to preserve supporting files like R plots generated during knitting.
+The **knitr** and Pandoc options\index{Pandoc options} can get considerably complicated (see help pages `?rmarkdown::knitr_options` and `?rmarkdown::pandoc_options` for details). The `clean_supporting` option indicates that you are not creating self-contained output (like a PDF or HTML document with base64 encoded resources), and therefore want to preserve supporting files like R plots generated during knitting.
 
 You can also pass a `base_format` to the `output_format()` function if you want to inherit all of the behavior of an existing format but tweak a subset of its options.
 

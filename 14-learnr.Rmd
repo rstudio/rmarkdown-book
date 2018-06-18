@@ -223,7 +223,7 @@ Again, since tutorials are Shiny applications, they can be deployed using the sa
 
 ## Navigation and progress tracking {#learnr-nav}
 
-Each **learnr** tutorial\index{learnr tutorial} includes a table of contents on the left that tracks student progress (see Figure \@ref(fig:learnr-progress)). Your browser will remember which sections of a tutorial a student has completed, and return a student to where he/she left off when the tutorial is reopened.
+Each **learnr** tutorial includes a table of contents on the left that tracks student progress (see Figure \@ref(fig:learnr-progress)). Your browser will remember which sections of a tutorial a student has completed, and return a student to where he/she left off when the tutorial is reopened.
 
 ```{r learnr-progress, echo=FALSE, out.width='100%', fig.cap="Keeping track of the student's progress in a tutorial."}
 knitr::include_graphics('images/learnr-progress.png', dpi = NA)

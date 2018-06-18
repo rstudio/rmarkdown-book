@@ -6,7 +6,7 @@ R Markdown provides an authoring framework for data science. You can use a singl
 
 - generate high quality reports that can be shared with an audience.
 
-R Markdown was designed for easier reproducibility\index{Reproducibility}, since both the computing code and narratives are in the same document, and results are automatically generated from the source code. R Markdown supports dozens of static and dynamic/interactive output formats.
+R Markdown was designed for easier reproducibility, since both the computing code and narratives are in the same document, and results are automatically generated from the source code. R Markdown supports dozens of static and dynamic/interactive output formats.
 
 If you prefer a video introduction to R Markdown, we recommend that you check out the website https://rmarkdown.rstudio.com, and watch the videos in the "Get Started" section, which cover the basics of R Markdown.
 
@@ -39,17 +39,17 @@ The slope of the regression is `r b[1]`.
 ```
 ````
 
-You can create such a text file with any editor (including but not limited to RStudio). If you use RStudio\index{RStudio}, you can create a new Rmd file from the menu `File -> New File -> R Markdown`.
+You can create such a text file with any editor (including but not limited to RStudio). If you use RStudio, you can create a new Rmd file from the menu `File -> New File -> R Markdown`.
 
-There are three basic components of an R Markdown document: the metadata, text, and code. The metadata\index{metadata} is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML)\index{YAML}, so sometimes it is also called the YAML metadata\index{YAML metadata} or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
+There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML)\index{YAML}, so sometimes it is also called the YAML metadata or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
 
-The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown\index{Markdown}, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code):
+The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code):
 
-- A code chunk\index{code chunk} starts with three backticks like ```` ```{r} ```` where `r` indicates the language name,^[It is not limited to the R language; see Section \@ref(language-engines) for how to use other languages.] and ends with three backticks. You can write chunk options\index{chunk options} in the curly braces (e.g., set the figure height to 5 inches: ```` ```{r, fig.height=5} ````).
+- A code chunk\index{code chunk} starts with three backticks like ```` ```{r} ```` where `r` indicates the language name,^[It is not limited to the R language; see Section \@ref(language-engines) for how to use other languages.] and ends with three backticks. You can write chunk options in the curly braces (e.g., set the figure height to 5 inches: ```` ```{r, fig.height=5} ````).
 
 - An inline R code expression starts with `` `r `` and ends with a backtick `` ` ``.
 
-Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit`\index{knit} button to compile the document (to an HTML page). Figure \@ref(fig:hello-rmd-out) shows the output in the RStudio Viewer.
+Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit` button to compile the document (to an HTML page). Figure \@ref(fig:hello-rmd-out) shows the output in the RStudio Viewer.
 
 ```{r hello-rmd, echo=FALSE, fig.cap='A minimal R Markdown example in RStudio.', out.width='100%'}
 knitr::include_graphics('images/hello-rmd.png', dpi = NA)
@@ -59,7 +59,7 @@ knitr::include_graphics('images/hello-rmd.png', dpi = NA)
 knitr::include_graphics('images/hello-rmd-out.png', dpi = NA)
 ```
 
-Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research\index{reproducible research}: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit`\index{knit} button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself in my presentations before I discovered this problem during one of my talks, but I discovered it anyway.
+Now please take a closer look at the example. Did you notice a problem? The object `b` is the vector of coefficients of length 2 from the linear regression; `b[1]` is actually the intercept, and `b[2]` is the slope! This minimal example shows you why R Markdown is great for reproducible research\index{reproducible research}: it includes the source code right inside the document, which makes it easy to discover and fix problems, as well as update the output document. All you have to do is change `b[1]` to `b[2]`, and click the `Knit` button again. Had you copied a number `-17.579` computed elsewhere into this document, it would be very difficult to realize the problem. In fact, I had used this example a few times by myself in my presentations before I discovered this problem during one of my talks, but I discovered it anyway.
 
 Although the above is a toy example, it could become a horror story if it happens in scientific research that was not done in a reproducible way (e.g., cut-and-paste). Here are two of my personal favorite videos on this topic:
 
@@ -75,17 +75,17 @@ It is fine for humans to err (in computing), as long as the source code is readi
 
 ## Example applications {#basics-examples}
 
-Now you have learned the very basic concepts of R Markdown. The idea should be simple enough: interweave narratives with code in a document, knit\index{knit} the document to dynamically generate results from the code, and you will get a report. This idea was not invented by R Markdown, but came from an early programming paradigm called "Literate Programming" [@knuth1984]\index{Literate Programming}.
+Now you have learned the very basic concepts of R Markdown. The idea should be simple enough: interweave narratives with code in a document, knit the document to dynamically generate results from the code, and you will get a report. This idea was not invented by R Markdown, but came from an early programming paradigm called "Literate Programming" [@knuth1984]\index{Literate Programming}.
 
 Due to the simplicity of Markdown and the powerful R language for data analysis, R Markdown has been widely used in many areas. Before we dive into the technical details, we want to show some examples to give you an idea of its possible applications.
 
 ### Airbnb's knowledge repository
 
-Airbnb uses R Markdown\index{R Markdown} to document all their analyses in R, so they can combine code and data visualizations in a single report [@bion2018]. Eventually all reports are carefully peer-reviewed and published to a company knowledge repository, so that anyone in the company can easily find analyses relevant to their team. Data scientists are also able to learn as much as they want from previous work or reuse the code written by previous authors, because the full R Markdown source is available in the repository.
+Airbnb uses R Markdown to document all their analyses in R, so they can combine code and data visualizations in a single report [@bion2018]. Eventually all reports are carefully peer-reviewed and published to a company knowledge repository, so that anyone in the company can easily find analyses relevant to their team. Data scientists are also able to learn as much as they want from previous work or reuse the code written by previous authors, because the full R Markdown source is available in the repository.
 
 ### Homework assignments on RPubs
 
-A huge number of homework assignments have been published to the website https://RPubs.com (a free publishing platform provided by RStudio), which shows that R Markdown\index{R Markdown} is easy and convenient enough for students to do their homework assignments (see Figure \@ref(fig:rpubs)). When I was still a student, I did most of my homework assignments using Sweave, which was a much earlier implementation of literate programming based on the S language (later R) and LaTeX. I was aware of the importance of reproducible research\index{reproducible research} but did not enjoy LaTeX, and few of my classmates wanted to use Sweave. Right after I graduated, R Markdown was born, and it has been great to see so many students do their homework in the reproducible manner.
+A huge number of homework assignments have been published to the website https://RPubs.com (a free publishing platform provided by RStudio), which shows that R Markdown is easy and convenient enough for students to do their homework assignments (see Figure \@ref(fig:rpubs)). When I was still a student, I did most of my homework assignments using Sweave, which was a much earlier implementation of literate programming based on the S language (later R) and LaTeX. I was aware of the importance of reproducible research but did not enjoy LaTeX, and few of my classmates wanted to use Sweave. Right after I graduated, R Markdown was born, and it has been great to see so many students do their homework in the reproducible manner.
 
 ```{r rpubs, echo=FALSE, fig.cap='A screenshot of RPubs.com that contains some homework assginments submitted by students.', out.width='100%'}
 knitr::include_graphics('images/rpubs.png', dpi = NA)
@@ -101,7 +101,7 @@ Mine Çetinkaya-Rundel once wanted to create personalized handouts for her works
 
 ### 2017 Employer Health Benefits Survey
 
-The [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/report/2017-employer-health-benefits-survey/) was designed and analyzed by the Kaiser Family Foundation, NORC at the University of Chicago, and Health Research & Educational Trust. The full PDF report was written in R Markdown (with the **bookdown** package)\index{bookdown package}. It has a unique appearance, which was made possible by heavy customizations in the LaTeX template. This example shows you that if you really care about typesetting, you are free to apply your knowledge about LaTeX to create highly sophisticated reports from R Markdown.
+The [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/report/2017-employer-health-benefits-survey/) was designed and analyzed by the Kaiser Family Foundation, NORC at the University of Chicago, and Health Research & Educational Trust. The full PDF report was written in R Markdown (with the **bookdown** package). It has a unique appearance, which was made possible by heavy customizations in the LaTeX template. This example shows you that if you really care about typesetting, you are free to apply your knowledge about LaTeX to create highly sophisticated reports from R Markdown.
 
 ### Journal articles {#examples-journal}
 
@@ -121,7 +121,7 @@ There have also been students who wrote their dissertations/theses with **bookdo
 
 ### Websites {#examples-websites}
 
-The **blogdown** package\index{blogdown package} to be introduced in Chapter \@ref(websites) can be used to build general-purpose websites (including blogs and personal websites) based on R Markdown. You may find tons of examples at https://github.com/rbind or by searching on Twitter: https://twitter.com/search?q=blogdown. Here are a few impressive websites that I can quickly think of off the top of my head:
+The **blogdown** package to be introduced in Chapter \@ref(websites) can be used to build general-purpose websites (including blogs and personal websites) based on R Markdown. You may find tons of examples at https://github.com/rbind or by searching on Twitter: https://twitter.com/search?q=blogdown. Here are a few impressive websites that I can quickly think of off the top of my head:
 
 - Rob J Hyndman's personal website: https://robjhyndman.com (a very comprehensive academic website).
 
@@ -364,7 +364,7 @@ Different flavors of Markdown may produce different results if there are no blan
 
 ### Math expressions
 
-Inline LaTeX equations\index{LaTeX math expression} can be written in a pair of dollar signs using the LaTeX syntax, e.g., `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$` (actual output: $f(k)={n \choose k}p^{k}(1-p)^{n-k}$); math expressions of the display style can be written in a pair of double dollar signs, e.g., `$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$`, and the output looks like this:
+Inline LaTeX equations\index{LaTeX math} can be written in a pair of dollar signs using the LaTeX syntax, e.g., `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$` (actual output: $f(k)={n \choose k}p^{k}(1-p)^{n-k}$); math expressions of the display style can be written in a pair of double dollar signs, e.g., `$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$`, and the output looks like this:
 
 $$f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}$$
 

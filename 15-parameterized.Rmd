@@ -10,9 +10,9 @@ One of the many benefits of working with R Markdown is that you can reproduce an
 
 - Running a single analysis multiple times for different assumptions.
 
-- Controlling the behavior of **knitr** (e.g., specify if you want the code to be displayed or not)\index{knitr}.
+- Controlling the behavior of **knitr** (e.g., specify if you want the code to be displayed or not).
 
-In this chapter, we discuss the use of parameterized reports\index{parameterized reports}, and explain how we can interactively define the parameters to compile the results.
+In this chapter, we discuss the use of parameterized reports, and explain how we can interactively define the parameters to compile the results.
 
 ## Declaring parameters {#params-declare}
 
@@ -78,7 +78,7 @@ There are three ways in which a parameterized report can be knitted:
 
 ### The `Knit` button
 
-By using the `Knit` button in RStudio or calling `rmarkdown::render()` function, the default values listed in the YAML metadata\index{YAML metadata} (if specified) will be used.
+By using the `Knit` button in RStudio or calling `rmarkdown::render()` function, the default values listed in the YAML metadata (if specified) will be used.
 
 ### Knit with custom parameters
 
@@ -157,7 +157,7 @@ params:
 ---
 ```
 
-This results in the user interface\index{user interface} for the parameters as shown in Figure \@ref(fig:params-controls).
+This results in the user interface for the parameters as shown in Figure \@ref(fig:params-controls).
 
 ```{r params-controls, echo=FALSE, fig.cap="Custom controls for parameters.", out.width="100%"}
 knitr::include_graphics("images/params-controls.png", dpi = NA)
@@ -187,4 +187,4 @@ knitr::kable(
 
 ## Publishing {#params-publish}
 
-Parameterized reports are supported by the publishing platform RStudio Connect\index{RStudio Connect} (https://www.rstudio.com/products/connect/). If you publish a parameterized report\index{parameterized reports} to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.
+Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report\index{parameterized reports} to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.
