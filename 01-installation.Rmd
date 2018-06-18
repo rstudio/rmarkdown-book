@@ -4,7 +4,7 @@
 
 # Installation
 
-We assume you have already installed R (https://www.r-project.org) [@R-base] and the RStudio IDE (https://www.rstudio.com). RStudio is not required but recommended, because it makes it easier for an average user to work with R Markdown\index{R Markdown}. If you do not have RStudio IDE installed, you will have to install Pandoc\index{Pandoc} (http://pandoc.org), otherwise there is no need to install Pandoc separately because RStudio has bundled it. Next you can install the **rmarkdown** package in R:
+We assume you have already installed R (https://www.r-project.org) [@R-base] and the RStudio IDE (https://www.rstudio.com). RStudio is not required but recommended, because it makes it easier for an average user to work with R Markdown. If you do not have RStudio IDE installed, you will have to install Pandoc\index{Pandoc} (http://pandoc.org), otherwise there is no need to install Pandoc separately because RStudio has bundled it. Next you can install the **rmarkdown** package in R:
 
 ```{r eval=FALSE, tidy=FALSE}
 # Install from CRAN
@@ -17,7 +17,7 @@ if (!requireNamespace("devtools"))
 devtools::install_github('rstudio/rmarkdown')
 ```
 
-If you want to generate PDF output, you will need to install LaTeX\index{LaTeX}. For R Markdown users who have not installed LaTeX before, we recommend that you install TinyTeX (https://yihui.name/tinytex/):
+If you want to generate PDF output, you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend that you install TinyTeX (https://yihui.name/tinytex/):
 
 ```{r eval=FALSE}
 install.packages('tinytex')

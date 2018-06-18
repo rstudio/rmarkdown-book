@@ -1,6 +1,6 @@
 # HTML Widgets
 
-We briefly mentioned HTML widgets in the beginning of this book in Section \@ref(intro-widgets). The **htmlwidgets** package [@R-htmlwidgets] provides a framework for creating R bindings to JavaScript libraries. HTML Widgets can be:
+We briefly mentioned HTML widgets\index{HTML widgets} in the beginning of this book in Section \@ref(intro-widgets). The **htmlwidgets** package [@R-htmlwidgets] provides a framework for creating R bindings to JavaScript libraries. HTML Widgets can be:
 
 - Used at the R console for data analysis just like conventional R plots.
 
@@ -66,7 +66,7 @@ dependencies:
   - name: sigma
     version: 1.0.3
     src: htmlwidgets/lib/sigma-1.0.3
-    script: 
+    script:
       - sigma.min.js
       - plugins/sigma.parsers.gexf.min.js
 ```
@@ -84,16 +84,16 @@ sigma = function(
   gexf, drawEdges = TRUE, drawNodes = TRUE, width = NULL,
   height = NULL
 ) {
-  
+
   # read the gexf file
   data = paste(readLines(gexf), collapse = "\n")
-  
+
   # create a list that contains the settings
   settings = list(drawEdges = drawEdges, drawNodes = drawNodes)
-  
+
   # pass the data and settings using 'x'
   x = list(data = data, settings = settings)
-  
+
   # create the widget
   htmlwidgets::createWidget(
     "sigma", x, width = width, height = height
@@ -129,25 +129,25 @@ The third piece in the puzzle is the JavaScript required to activate the widget.
 HTMLWidgets.widget({
 
   name: "sigma",
-  
+
   type: "output",
-  
+
   factory: function(el, width, height) {
-  
+
     // create our sigma object and bind it to the element
     var sig = new sigma(el.id);
-    
+
     return {
       renderValue: function(x) {
-          
+
         // parse gexf data
         var parser = new DOMParser();
         var data = parser.parseFromString(x.data, "application/xml");
-        
+
         // apply settings
         for (var name in x.settings)
           sig.settings(name, x.settings[name]);
-        
+
         // update the sigma object
         sigma.parsers.gexf(
           data,          // parsed gexf data
@@ -159,14 +159,14 @@ HTMLWidgets.widget({
           }
         );
       },
-      
+
       resize: function(width, height) {
-        
+
         // forward resize on to sigma renderers
         for (var name in sig.renderers)
           sig.renderers[name].resize(width, height);  
       },
-      
+
       // make the sigma object available as a property on the
       // widget instance we are returning from factory(). This
       // is generally a good idea for extensibility -- it helps
@@ -242,8 +242,8 @@ ui = shinyUI(fluidPage(
 
 server = function(input, output) {
   output$sigma = renderSigma(
-    sigma(gexf, 
-          drawEdges = input$drawEdges, 
+    sigma(gexf,
+          drawEdges = input$drawEdges,
           drawNodes = input$drawNodes)
   )
 }
@@ -311,7 +311,7 @@ Studying the source code of other packages is a great way to learn more about cr
 2. The [**dygraphs**](https://github.com/rstudio/dygraphs/) package illustrates using widget instance data, handling dynamic re-sizing, and using **magrittr** to decompose a large and flat JavaScript API into a more modular and pipeable R API.
 
 3. The [**sparkline**](https://github.com/htmlwidgets/sparkline) package illustrates providing a custom HTML generation function (since sparklines must be housed in `<span>` rather than `<div>` elements).
- 
+
 If you have questions about developing widgets or run into problems during development, please do not hesitate to post an issue on the project's GitHub repository: https://github.com/ramnathv/htmlwidgets/issues.
 
 ## Widget sizing {#htmlwidgets-size}
@@ -338,9 +338,9 @@ Note that for most widgets the default sizing behavior is fine, and you will not
 
 ```{r eval=FALSE, tidy=FALSE}
 htmlwidgets::createWidget(
-  "sigma", 
-  x, 
-  width = width, 
+  "sigma",
+  x,
+  width = width,
   height = height,
   sizingPolicy = htmlwidgets::sizingPolicy(
     viewer.padding = 0,
@@ -403,18 +403,18 @@ Every JavaScript library handles dynamic sizing a bit differently. Some do it au
 HTMLWidgets.widget({
 
   name: "demo",
-  
+
   type: "output",
-  
+
   factory: function(el, width, height) {
-  
+
     return {
       renderValue: function(x) {
-      
+
       },
-      
+
       resize: function(width, height) {
-        
+
       }
     };
   }
@@ -436,24 +436,24 @@ What you do with the passed width and height is up to you, and depends on the re
 
     ```js
     factory: function(el, width, height) {
-    
+
       var force = d3.layout.force();
-    
+
       d3.select(el).append("svg")
         .attr("width", width)
         .attr("height", height);
-          
+
       return {
         renderValue: function(x) {
           // implementation excluded
         },
-          
+
         resize: function(width, height) {
-             
+
           d3.select(el).select("svg")
             .attr("width", width)
             .attr("height", height);
-    
+
           force.size([width, height]).resume();
         }
       };
@@ -480,7 +480,7 @@ R objects passed as part of the `x` parameter to the `createWidget()` function a
 
 #### HTMLWidgets.dataframeToD3()
 
-R data frames are represented in "long" form (an array of named vectors) whereas D3 typically requires "wide" form (an array of objects each of which includes all names and values). Since the R representation is smaller in size and much faster to transmit over the network, we create the long-form representation of R data, and then transform the data in JavaScript using the `dataframeToD3()` helper function. 
+R data frames are represented in "long" form (an array of named vectors) whereas D3 typically requires "wide" form (an array of objects each of which includes all names and values). Since the R representation is smaller in size and much faster to transmit over the network, we create the long-form representation of R data, and then transform the data in JavaScript using the `dataframeToD3()` helper function.
 
 Here is an example of the long-form representation of an R data frame:
 
@@ -501,7 +501,7 @@ renderValue: function(x) {
 
   // convert links data frame to d3 friendly format
   var links = HTMLWidgets.dataframeToD3(x.links);
-  
+
   // ... use the links, etc ...
 
 }
@@ -525,12 +525,12 @@ As a real example, the [dygraphs](https://rstudio.github.io/dygraphs) widget use
 
 ```javascript
 renderValue: function(x) {
-   
+
     // ... code excluded ...
-    
+
     // transpose array
     x.attrs.file = HTMLWidgets.transposeArray2D(x.attrs.file);
-    
+
     // ... more code excluded ...
 }
 ```

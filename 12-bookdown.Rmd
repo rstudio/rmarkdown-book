@@ -1,6 +1,6 @@
 # Books
 
-We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF, and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package [@xie2016; @R-bookdown] addresses this limitation, and offers several key improvements:
+We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF, and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package\index{bookdown package} [@xie2016; @R-bookdown] addresses this limitation, and offers several key improvements:
 
 - Books and reports can be built from multiple R Markdown files.
 
@@ -19,7 +19,7 @@ You can install either the CRAN version or the development version on GitHub (ht
 ```{r eval=FALSE}
 # install from CRAN
 install.packages('bookdown')
-    
+
 # or GitHub
 devtools::install_github('rstudio/bookdown')
 ```
@@ -65,7 +65,7 @@ As a summary of these files:
 
 - `preamble.tex` and `style.css`: They can be used to adjust the appearance and styles of the book output document(s). Knowledge of LaTeX and/or CSS is required.
 
-These files are explained in greater detail in the following subsections. 
+These files are explained in greater detail in the following subsections.
 
 ### Index file
 
@@ -94,16 +94,16 @@ The rest of Rmd files must start immediately with the chapter title using the fi
 
     ```markdown
     # Introduction
-    
+
     This chapter is an overview of the methods that
     we propose to solve an **important problem**.
     ```
-    
+
 - 02-literature.Rmd
 
     ```markdown
     # Literature
-    
+
     Here is a review of existing methods.
     ```
 
@@ -143,10 +143,10 @@ The **bookdown** package expands upon the Markdown syntax outlined in Section \@
 Section \@ref(math-expressions) highlighted how equations can be created using LaTeX syntax within Markdown. To number equations, put them in the `equation` environments, and assign labels to them using the syntax `(\#eq:label)`. Equation labels must start with the prefix `eq:` in **bookdown**. For example:
 
 ```latex
-\begin{equation} 
+\begin{equation}
   E=mc^2
   (\#eq:emc)
-\end{equation} 
+\end{equation}
 ```
 
 It renders the equation below \@ref(eq:emc):
@@ -192,7 +192,7 @@ There are two special types of first-level headers than can be used in **bookdow
 A text reference is a paragraph with a label. The sytax is `(ref:label) text`, where `label` is a unique identifier, and `text` is a Markdown paragraph. For example:
 
 ```markdown
-(ref:foo) Define a text reference **here**. 
+(ref:foo) Define a text reference **here**.
 ```
 
 Then you can use `(ref:foo)` to refer to the full text. Text references can be used anywhere in the document, and are particularly useful when assigning a long caption to a figure or including Markdown formatting in a caption. For example:
@@ -215,15 +215,15 @@ The **bookdown** package extends cross-referencing in R Markdown documents and a
 
     ```markdown
     # Introduction {#intro}
-  
+
     This is Chapter \@ref(intro)
     ```
-    
+
 - Figures:
 
     ````markdown
     See Figure \@ref(fig:cars-plot)
-    
+
     `r ''````{r cars-plot, fig.cap="A plot caption"}
     plot(cars)  # a scatterplot
     ```
@@ -233,30 +233,30 @@ The **bookdown** package extends cross-referencing in R Markdown documents and a
 
     ````markdown
     See Table \@ref(tab:mtcars)
-    
+
     `r ''````{r mtcars}
     knitr::kable(mtcars[1:5, 1:5], caption = "A caption")
     ```
     ````
-    
+
 - Theorems:
 
     ````markdown
     See Theorem \@ref(thm:boring)
-    
+
     `r ''````{theorem, boring}
     Here is my theorem.
     ```
     ````
-    
+
 - Equations:
-    
+
     ````markdown
     See equation \@ref(eq:linear)
-    
-    \begin{equation} 
+
+    \begin{equation}
     a + bx = c  (\#eq:linear)
-    \end{equation} 
+    \end{equation}
     ````
 
 Note that only alphanumeric characters (`a-z`, `A-Z`, `0-9`), `-`, `/`, and `:` are allowed in these labels.
@@ -344,7 +344,7 @@ You can generate books for both physical and electronic distributions. This sect
 
 ### RStudio Connect
 
-The easiest way to publish books online is through https://bookdown.org, which is a website provided by RStudio to host your books for free.\index{bookdown.org} Books can be pushed to this website by using `bookdown::publish_book()`. You will need to sign up for an account at https://bookdown.org/connect/, and your login details will be used to authorize **bookdown** the first time you call the `publish_book()` function.
+The easiest way to publish books online is through https://bookdown.org, which is a website provided by RStudio to host your books for free. Books can be pushed to this website by using `bookdown::publish_book()`. You will need to sign up for an account at https://bookdown.org/connect/, and your login details will be used to authorize **bookdown** the first time you call the `publish_book()` function.
 
 ### Other services
 

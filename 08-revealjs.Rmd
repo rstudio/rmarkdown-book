@@ -1,6 +1,6 @@
 # reveal.js Presentations {#revealjs}
 
-The **revealjs** package [@R-revealjs] provides an output format `revealjs::revealjs_presentation` that can be used to create yet another style of HTML5 slides based on the JavaScript library [reveal.js](https://revealjs.com). You may install the R package from CRAN:
+The **revealjs** package [@R-revealjs] provides an output format `revealjs::revealjs_presentation` that can be used to create yet another style of HTML5 slides\index{HTML5 slides} based on the JavaScript library [reveal.js](https://revealjs.com). You may install the R package from CRAN:
 
 ```r
 install.packages("revealjs")
@@ -83,7 +83,7 @@ output:
 
 ### Smaller text
 
-If you need smaller text for certain paragraphs, you can enclose text in the `<small>` tag. For example: 
+If you need smaller text for certain paragraphs, you can enclose text in the `<small>` tag. For example:
 
 ```html
 <small>This sentence will appear smaller.</small>
@@ -175,7 +175,7 @@ If you want to override the appearance of particular HTML element document-wide,
 }
 ```
 
-### Slide IDs and classes 
+### Slide IDs and classes
 
 You can also target specific slides or classes of slice with custom CSS by adding IDs or classes to the slides headers within your document. For example, the following slide header
 

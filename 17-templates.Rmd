@@ -1,6 +1,6 @@
 # Document Templates {#document-templates}
 
-When you create a new R Markdown document\index{R Markdown document} from the RStudio menu `File -> New File -> R Markdown`, you will see a default example document (a template) in the RStudio editor. In fact, you can create custom document templates by yourself, which can be useful if you need to create a particular type of document frequently or want to customize the appearance of the final report. The **rticles** package in Chapter \@ref(journals) is a good example of custom templates for a range of journals. Some additional examples of where a template could be used include:
+When you create a new R Markdown document from the RStudio menu `File -> New File -> R Markdown`, you will see a default example document (a template) in the RStudio editor. In fact, you can create custom document templates by yourself, which can be useful if you need to create a particular type of document frequently or want to customize the appearance of the final report. The **rticles** package in Chapter \@ref(journals) is a good example of custom templates for a range of journals. Some additional examples of where a template could be used include:
 
 - Creating a company branded R Markdown template that includes a logo and branding colors.
 
@@ -34,7 +34,7 @@ name: My Template
 description: This is my template
 ```
 
-You can provide a brief example R Markdown document\index{R Markdown document} in `skeleton.Rmd`, which will be opened in RStudio when the template is selected. We can add section titles, load commonly used packages, or specify default YAML parameters in this skeleton document. In the following example, we specify the default output format to `bookdown::html_document2`, and select a default template `flatly`:
+You can provide a brief example R Markdown document in `skeleton.Rmd`, which will be opened in RStudio when the template is selected. We can add section titles, load commonly used packages, or specify default YAML parameters in this skeleton document. In the following example, we specify the default output format to `bookdown::html_document2`, and select a default template `flatly`:
 
 ```yaml
 ---
@@ -93,7 +93,7 @@ knitr::kable(mtcars[1:5, 1:5])
 
 An R Markdown is first compiled to Markdown through **knitr**, and then converted to an output document (e.g., PDF, HTML, or Word) by Pandoc through a Pandoc template. While the default Pandoc templates used by R Markdown are designed to be flexible by allowing parameters to be specified in the YAML, users may wish to provide their own template for more control over the output format.
 
-You can make use of additional YAML fields from the source document when designing a Pandoc template\indeq{Pandoc template}. For example, you may wish to have a `department` field to be added to your title page, or include an `editor` field to be displayed below the author. We can add additional variables to the Pandoc template by surrounding the variable in dollar signs (`$`) within the template. Most variables take values from the YAML metadata of the R Markdown document (or command-line arguments passed to Pandoc). We may also use conditional statements and for-loops. Readers are recommended to check the Pandoc manual for more details: https://pandoc.org/MANUAL.html#using-variables-in-templates. Below is an example of a very minimal Pandoc template for HTML documents that only contains two variables (`$title$` and `$body$`):
+You can make use of additional YAML fields from the source document when designing a Pandoc template\index{Pandoc template}. For example, you may wish to have a `department` field to be added to your title page, or include an `editor` field to be displayed below the author. We can add additional variables to the Pandoc template by surrounding the variable in dollar signs (`$`) within the template. Most variables take values from the YAML metadata of the R Markdown document (or command-line arguments passed to Pandoc). We may also use conditional statements and for-loops. Readers are recommended to check the Pandoc manual for more details: https://pandoc.org/MANUAL.html#using-variables-in-templates. Below is an example of a very minimal Pandoc template for HTML documents that only contains two variables (`$title$` and `$body$`):
 
 ```html
 <html>

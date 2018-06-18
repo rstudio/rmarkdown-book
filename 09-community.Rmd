@@ -1,6 +1,6 @@
 # Community Formats {#community}
 
-Most output formats introduced in this book are created and maintained by the RStudio team. In fact, other members in the R community have also created a number of R Markdown output formats. We mention those formats that we are aware of in this chapter. If you have developed or know other formats, please feel free to suggest us add them to the page https://rmarkdown.rstudio.com/formats.html.
+Most output formats introduced in this book are created and maintained by the RStudio team. In fact, other members in the R community\index{R community} have also created a number of R Markdown output formats. We mention those formats that we are aware of in this chapter. If you have developed or know other formats, please feel free to suggest us add them to the page https://rmarkdown.rstudio.com/formats.html.
 
 ## Lightweight Pretty HTML Documents {#prettydoc}
 

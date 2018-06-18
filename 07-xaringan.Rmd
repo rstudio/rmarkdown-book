@@ -1,6 +1,6 @@
 # xaringan Presentations {#xaringan}
 
-We have introduced a few HTML5 presentation formats in Chapter \@ref(presentations). The **xaringan** package [@R-xaringan] is an R Markdown extension based on the JavaScript library remark.js (https://remarkjs.com) to generate HTML5 presentations of a different style. See Figure \@ref(fig:xaringan-sample) for two sample slides.
+We have introduced a few HTML5 presentation formats in Chapter \@ref(presentations). The **xaringan** package [@R-xaringan]\index{xaringan} is an R Markdown extension based on the JavaScript library remark.js (https://remarkjs.com) to generate HTML5 presentations of a different style. See Figure \@ref(fig:xaringan-sample) for two sample slides.
 
 ```{r xaringan-sample, echo=FALSE, fig.cap='Two sample slides created from the xaringan package.', out.width='49%', fig.show='hold'}
 knitr::include_graphics(c('images/xaringan-1.png', 'images/xaringan-2.png'), dpi = NA)
@@ -172,10 +172,10 @@ The content inside `[ ]` can be anything, such as several paragraphs, or lists. 
     ```markdown
     .pull-left[
     - One bullet.
-    
+
     - Another bullet.
     ]
-    
+
     .pull-right[
     ![an image](foo.png)
     ]
@@ -381,8 +381,8 @@ if (TRUE) {
 
 `r ''````{r tidy=FALSE}
 library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
+ggplot(mtcars) +
+  aes(mpg, disp) +
   geom_point() +   #<<
   geom_smooth()    #<<
 ```
@@ -402,7 +402,7 @@ output:
     chakra: libs/remark-latest.min.js
 ```
 
-Making the slides work offline can be tricky, since you may have other dependencies. The remark.js dependency is easy to deal with because it is a single JavaScript file; other dependencies such as MathJax can be extremely tricky. If you used Google web fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they will not work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS. 
+Making the slides work offline can be tricky, since you may have other dependencies. The remark.js dependency is easy to deal with because it is a single JavaScript file; other dependencies such as MathJax can be extremely tricky. If you used Google web fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they will not work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
 ### Macros
 

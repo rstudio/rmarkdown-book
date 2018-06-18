@@ -2,7 +2,7 @@
 
 # Dashboards
 
-R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard].
+R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard]\index{flexdashboard}.
 
 Dashboards are particularly common in business-style reports. They can be used to highlight brief and key summaries of a report. The layout of a dashboard is often grid-based, with components arranged in boxes of various sizes.
 
@@ -207,7 +207,7 @@ In addition, you can custom links to the navigation bar using the `navbar` optio
 ```yaml
 ---
 title: "Navigation Bar"
-output: 
+output:
   flexdashboard::flex_dashboard:
     navbar:
       - { title: "About", href: "https://example.com/about" }
@@ -221,7 +221,7 @@ You can include links to social sharing services via the `social` option. For ex
 ```yaml
 ---
 title: "Social Links"
-output: 
+output:
   flexdashboard::flex_dashboard:
     social: [ "twitter", "facebook", "menu" ]
 ---
@@ -267,7 +267,7 @@ One important thing to note about this example is the chunk labeled `global` at 
 
 ### Input sidebar
 
-You add an input sidebar to a flexdashboard by adding the `{.sidebar}` attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document. 
+You add an input sidebar to a flexdashboard by adding the `{.sidebar}` attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document.
 
 If you are creating a dashboard with multiple pages, you may want to use a single sidebar that applies across all pages. In this case, you should define the sidebar using a _first-level_ Markdown header.
 
