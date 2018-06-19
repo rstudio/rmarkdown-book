@@ -1,6 +1,6 @@
 # Books
 
-We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF, and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package\index{bookdown package} [@xie2016; @R-bookdown] addresses this limitation, and offers several key improvements:
+We have introduced the basics of R Markdown in Chapter \@ref(documents), which highlighted how HTML, PDF, and Word documents can be produced from an R workflow. However, larger projects can become difficult to manage in a single R Markdown file. The **bookdown** package\index{bookdown} [@xie2016; @R-bookdown] addresses this limitation, and offers several key improvements:
 
 - Books and reports can be built from multiple R Markdown files.
 
