@@ -1,6 +1,6 @@
 # Interactive Tutorials {#learnr}
 
-The **learnr** package [@R-learnr] makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. Tutorials can include any or all of the following:
+The **learnr** package [@R-learnr]\index{learnr} makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. Tutorials can include any or all of the following:
 
 1. Narrative, figures, illustrations, and equations.
 
@@ -183,7 +183,7 @@ You can include videos published on either YouTube or Vimeo within a tutorial us
 ```markdown
 ![](https://youtu.be/zNzZ1PfUDNk)
 ![](https://www.youtube.com/watch?v=zNzZ1PfUDNk)
- 
+
 ![](https://vimeo.com/142172484)
 ![](https://player.vimeo.com/video/142172484)
 ```

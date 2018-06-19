@@ -1,8 +1,8 @@
 # Journals
 
-Academic journals often have strict guidelines on the formatting for submitted articles. As of today, few journals directly support R Markdown submissions, but many support the LaTeX format. While you can convert R Markdown to LaTeX (see Section \@ref(pdf-document)), different journals have different typesetting requirements and LaTeX styles, and it may be be slow and frustrating for all authors who want to use R Markdown to figure out the technical details about how to properly convert a paper based on R Markdown to a LaTeX document that meets the journal requirements.
+Academic journals\index{academic journals} often have strict guidelines on the formatting for submitted articles. As of today, few journals directly support R Markdown submissions, but many support the LaTeX format. While you can convert R Markdown to LaTeX (see Section \@ref(pdf-document)), different journals have different typesetting requirements and LaTeX styles, and it may be slow and frustrating for all authors who want to use R Markdown to figure out the technical details about how to properly convert a paper based on R Markdown to a LaTeX document that meets the journal requirements.
 
-The **rticles** package [@R-rticles] is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals are provided by the package such as those shown in Figure \@ref(rticles-templates).
+The **rticles** package [@R-rticles]\index{rticles} is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals are provided by the package such as those shown in Figure \@ref(rticles-templates).
 
 (ref:rticles-templates) Two journal templates in the **rticles** package (PLOS and Springer).
 
@@ -10,7 +10,7 @@ The **rticles** package [@R-rticles] is designed to simplify the creation of doc
 knitr::include_graphics(c("images/rticles-plos.png", "images/rticles-springer.png"), dpi = NA)
 ```
 
-Understanding of LaTeX is recommended, but not essential, to use this package. R Markdown templates may sometimes inevitably contain LaTeX code, but usually we can use use the simpler Markdown and **knitr** syntax to produce elements like figures, tables, and math equations as explained in Chapter \@ref(basics).
+Understanding of LaTeX is recommended, but not essential, to use this package. R Markdown templates may sometimes inevitably contain LaTeX code, but usually we can use the simpler Markdown and **knitr** syntax to produce elements like figures, tables, and math equations as explained in Chapter \@ref(basics).
 
 ## Get started {#rticles-start}
 
@@ -75,11 +75,11 @@ subtitle: Do you have a subtitle? If so, write it here
 titlerunning: Short form of title (if too long for head)
 authorrunning:
   Short form of author list if too long for running head
-thanks: | 
+thanks: |
   Grants or other notes about the article that should go
   on the front page should be placed here. General
   acknowledgments should be placed at the end of the article.
-authors: 
+authors:
   - name: Author 1
     address: Department of YYY, University of XXX
     email: abc@def
@@ -111,7 +111,7 @@ As the only output format of the **rticles** formats is PDF, the content of the 
 \includegraphics[width=\linewidth]{foo}
 \caption{An example image.}
 \label{fig:foo}
-\end{figure} 
+\end{figure}
 ```
 
 Unless you have specific requirements for using LaTeX, we recommend that you use the R Markdown syntax. This keeps you work generally more readable (in terms of the source document), and less prone to formatting errors. For example, the above code block would be better represented as:
@@ -124,10 +124,10 @@ knitr::include_graphics("foo.png")
 
 ## Linking with bookdown {#rticles-bookdown}
 
-As explained in Section \@ref(bookdown-markdown), **bookdown** offers several extensions to the Markdown syntax, which can be particularly useful for academic writing, including cross-referencing of figures and tables. All **rticles** output formats are based on `rmarkdown::pdf_document`, and we can use them as the "base formats" for `bookdown::pdf_document2`, e.g.,
+As explained in Section \@ref(bookdown-markdown), **bookdown**\index{bookdown} offers several extensions to the Markdown syntax, which can be particularly useful for academic writing, including cross-referencing of figures and tables. All **rticles** output formats are based on `rmarkdown::pdf_document`, and we can use them as the "base formats" for `bookdown::pdf_document2`, e.g.,
 
 ```yaml
-output: 
+output:
   bookdown::pdf_document2:
     base_format: rticles::peerj_article
 ```
@@ -136,4 +136,4 @@ You can substitute `rticles::peerj_article` with the template you actually inten
 
 ## Contributing templates {#rticles-contrib}
 
-If you take a look at the GitHub respoitory of **rticles** (https://github.com/rstudio/rticles), you will see that a lot of the templates have been contributed by the R community. If you are interested in improving them or adding more journal templates, you may want to read Chapter \@ref(document-templates), which outlines how template can be made for R Markdown. Basically these templates are defined to translate the Pandoc variables from the YAML frontmatter and the body of the R Markdown document into LaTeX.
+If you take a look at the GitHub repository of **rticles** (https://github.com/rstudio/rticles), you will see that a lot of the templates have been contributed by the R community. If you are interested in improving them or adding more journal templates, you may want to read Chapter \@ref(document-templates), which outlines how template can be made for R Markdown. Basically these templates are defined to translate the Pandoc variables from the YAML frontmatter and the body of the R Markdown document into LaTeX.

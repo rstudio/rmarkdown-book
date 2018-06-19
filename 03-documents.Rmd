@@ -8,7 +8,7 @@ The syntax of Markdown has been greatly extended by Pandoc. What is more, Pandoc
 
 ## HTML document
 
-As we just mentioned before, Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats. We recommend that you read this full section before you learn other output formats, because other formats have several features in common with the HTML document format, and we will not repeat these features in the corresponding sections.
+As we just mentioned before, Markdown was originally designed for HTML output, so it may not be surprising that the HTML format\index{HTML format} has the richest features among all output formats. We recommend that you read this full section before you learn other output formats, because other formats have several features in common with the HTML document format, and we will not repeat these features in the corresponding sections.
 
 To create an HTML document from R Markdown, you specify the `html_document` output format in the YAML metadata of your document:
 
@@ -250,7 +250,7 @@ Table: (\#tab:paged) The options for paged HTML tables.
 | cols.min.print  | The minimum number of columns to display.             |
 | pages.print     | The number of pages to display under page navigation. |
 | paged.print     | When set to `FALSE` turns off paged tables.           |
-| rownames.print  | When set to `FALSE` turns off row names.              | 
+| rownames.print  | When set to `FALSE` turns off row names.              |
 
 These options are specified in each chunk like below:
 
@@ -417,7 +417,7 @@ output:
 ---
 ```
 
-The above would disable the `autolink_bare_uris` extension, and enable the `hard_line_breaks` extension. 
+The above would disable the `autolink_bare_uris` extension, and enable the `hard_line_breaks` extension.
 
 For more on available markdown extensions see the [Pandoc Markdown specification](http://pandoc.org/MANUAL.html#pandocs-markdown).
 
@@ -550,20 +550,20 @@ In general, when you execute code in a notebook chunk, it will do exactly the sa
 - **Working directory**: The current working directory inside a notebook chunk is always the directory containing the notebook `.Rmd` file. This makes it easier to use relative paths inside notebook chunks, and also matches the behavior when knitting, making it easier to write code that works identically both interactively and in a standalone render.
 
     You'll get a warning if you try to change the working directory inside a notebook chunk, and the directory will revert back to the notebook's directory once the chunk is finished executing. You can suppress this warning by using the `warnings = FALSE` chunk option.
-    
+
     If it is necessary to execute notebook chunks in a different directory, you can change the working directory for **all** your chunks by using the **knitr** `root.dir` option. For instance, to execute all notebook chunks in the grandparent folder of the notebook:
-    
+
     ```r
-    knitr::opts_knit$set(root.dir = normalizePath("..")) 
+    knitr::opts_knit$set(root.dir = normalizePath(".."))
     ```
-    
+
     This option is only effective when used inside the setup chunk. Also note that, as in **knitr**, the `root.dir` chunk option applies only to chunks; relative paths in Markdown are still relative to the notebook's parent folder.
 
 - **Warnings**: Inside a notebook chunk, warnings are always displayed immediately rather than being held until the end, as in `options(warn = 1)`.
 
 - **Plots**: Plots emitted from a chunk are rendered to match the width of the editor at the time the chunk was executed. The height of the plot is determined by the [golden ratio](https://en.wikipedia.org/wiki/Golden_ratio). The plot's display list is saved, too, and the plot is re-rendered to match the editor's width when the editor is resized.
 
-    You can use the `fig.width`, `fig.height`, and `fig.asp` chunk options to manually specify the size of rendered plots in the notebook; you can also use `knitr::opts_chunk$set(fig.width = ..., fig.height = ...)` in the setup chunk to to set a default rendered size. Note, however, specifying a chunk size manually suppresses the generation of the display list, so plots with manually specified sizes will be resized using simple image scaling when the notebook editor is resized. 
+    You can use the `fig.width`, `fig.height`, and `fig.asp` chunk options to manually specify the size of rendered plots in the notebook; you can also use `knitr::opts_chunk$set(fig.width = ..., fig.height = ...)` in the setup chunk to to set a default rendered size. Note, however, specifying a chunk size manually suppresses the generation of the display list, so plots with manually specified sizes will be resized using simple image scaling when the notebook editor is resized.
 
 To execute an inline R expression in the notebook, put your cursor inside the chunk and press `Ctrl + Shift + Enter` (macOS: `Cmd + Shift + Enter`). As in the execution of ordinary chunks, the content of the expression will be sent to the R console for evaluation. The results will appear in a small pop-up window next to the code (Figure \@ref(fig:notebook-inline-output)).
 
@@ -1138,12 +1138,12 @@ Most options for `html_document` (Section \@ref(html-document)) also work for `h
 The `html_vignette` template includes a basic CSS theme. To override this theme, you can specify your own CSS in the document metadata as follows:
 
 ```yaml
-output: 
+output:
   rmarkdown::html_vignette:
     css: mystyles.css
 ```
 
-The default figure size is 3x3. Because the figure width is small, usually you will be able to put two images side-by-side if you set the chunk option `fig.show='hold'`, e.g., 
+The default figure size is 3x3. Because the figure width is small, usually you will be able to put two images side-by-side if you set the chunk option `fig.show='hold'`, e.g.,
 
 ````markdown
 `r ''````{r, fig.show='hold'}

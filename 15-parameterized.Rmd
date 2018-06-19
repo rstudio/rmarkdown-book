@@ -2,7 +2,7 @@
 
 # Parameterized reports
 
-One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports extend this one step further, and allow users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:
+One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports\index{parameterized reports} extend this one step further, and allow users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:
 
 - Showing results for a specific geographic location.
 
@@ -41,7 +41,7 @@ params:
 ---
 ```
 
-Any R expressions included within the parameters are executed before any code in the document, therefore any package dependencies must explicitly stated using the `package::function` notation (e.g., `!r lubridate::today()`), even if the package is loaded later in the Rmd document.
+Any R expressions included within the parameters are executed before any code in the document, therefore any package dependencies must be explicitly stated using the `package::function` notation (e.g., `!r lubridate::today()`), even if the package is loaded later in the Rmd document.
 
 ## Using parameters {#params-use}
 
@@ -75,9 +75,9 @@ There are three ways in which a parameterized report can be knitted:
 - `rmarkdown::render()` with the `params` argument.
 
 - Using an interactive user interface to input parameter values.
- 
+
 ### The `Knit` button
- 
+
 By using the `Knit` button in RStudio or calling `rmarkdown::render()` function, the default values listed in the YAML metadata (if specified) will be used.
 
 ### Knit with custom parameters
@@ -134,7 +134,7 @@ Adapting our above example to include some settings:
 title: My Document
 output: html_document
 params:
-  year: 
+  year:
     label: "Year"
     value: 2017
     input: slider
@@ -142,15 +142,15 @@ params:
     max: 2018
     step: 1
     sep: ""
-  region: 
+  region:
     label: "Region:"
     value: Europe
     input: select
     choices: [North America, Europe, Asia, Africa]
-  printcode: 
+  printcode:
     label: "Display Code:"
     value: TRUE
-  data: 
+  data:
     label: "Input dataset:"
     value: results.csv
     input: file
@@ -176,7 +176,7 @@ knitr::kable(
             file	fileInput
             radio	radioButtons
             select	selectInput
-            password	passwordInput", 
+            password	passwordInput",
     col.names = c("Input Type", "Shiny Function"),
     check.names = FALSE
   ),
