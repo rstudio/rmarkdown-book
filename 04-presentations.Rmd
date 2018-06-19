@@ -328,7 +328,7 @@ Refer to Section \@ref(html-document) for the documentation of other features of
 
 ## Slidy presentation
 
-To create a [Slidy](https://www.w3.org/Talks/Tools/Slidy2/) presentation from R Markdown, you specify the `slidy_presentation`\index{slidy presentations} output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `##` heading tag (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show (see Figure \@ref(fig:slidy) for two sample slides):
+To create a [Slidy](https://www.w3.org/Talks/Tools/Slidy2/) presentation from R Markdown, you specify the `slidy_presentation`\index{Slidy presentation} output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `##` heading tag (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show (see Figure \@ref(fig:slidy) for two sample slides):
 
 ````markdown
 ---
