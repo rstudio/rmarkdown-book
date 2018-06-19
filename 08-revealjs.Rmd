@@ -157,7 +157,7 @@ With this layout, horizontal navigation will proceed directly from "Horizontal S
 
 ## Custom CSS
 
-You can add your own CSS to a reveal.js presentation using the `css` option:
+You can add your own CSS\index{CSS} to a reveal.js presentation using the `css` option:
 
 ```yaml
 ---

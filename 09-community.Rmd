@@ -1,6 +1,6 @@
 # Community Formats {#community}
 
-Most output formats introduced in this book are created and maintained by the RStudio team. In fact, other members in the R community have also created a number of R Markdown output formats. We mention those formats that we are aware of in this chapter. If you have developed or know other formats, please feel free to suggest that we add them to the page https://rmarkdown.rstudio.com/formats.html.
+Most output formats introduced in this book are created and maintained by the RStudio team. In fact, other members in the R community have also created a number of R Markdown output formats.\index{output formats} We mention those formats that we are aware of in this chapter. If you have developed or know other formats, please feel free to suggest that we add them to the page https://rmarkdown.rstudio.com/formats.html.
 
 ## Lightweight Pretty HTML Documents {#prettydoc}
 
@@ -36,7 +36,7 @@ knitr::include_graphics('images/prettydoc.png', dpi = NA)
 
 ### Package vignettes {#prettydoc-vignettes}
 
-The `prettydoc::html_pretty` can be particularly useful for R package vignettes. We have mentioned the `html_vignette` format in Section \@ref(r-package-vignette) that also aims at smaller file sizes, but that format is not as stylish. To apply the `prettydoc::html_pretty` format to a package vignette, you may use the YAML metadata below:
+The `prettydoc::html_pretty` can be particularly useful for R package vignettes.\index{R package vignette} We have mentioned the `html_vignette` format in Section \@ref(r-package-vignette) that also aims at smaller file sizes, but that format is not as stylish. To apply the `prettydoc::html_pretty` format to a package vignette, you may use the YAML metadata below:
 
 ```yaml
 ---
@@ -80,7 +80,7 @@ These output formats have some additional features such as responsiveness and co
 
 ## Shower presentations
 
-Shower (https://github.com/shower/shower) is a popular and customizable HTML5 presentation framework. See Figure \@ref(fig:shower) for what it looks like.
+Shower (https://github.com/shower/shower) is a popular and customizable HTML5 presentation\index{HTML5 slides} framework. See Figure \@ref(fig:shower) for what it looks like.
 
 ```{r shower, echo=FALSE, fig.cap='A few sample slides created via the Shower presentation framework.', out.width='100%'}
 knitr::include_graphics('images/shower.png', dpi = NA)

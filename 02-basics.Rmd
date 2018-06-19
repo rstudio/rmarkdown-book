@@ -47,7 +47,7 @@ The body of a document follows the metadata. The syntax for text (also known as 
 
 - A code chunk\index{code chunk} starts with three backticks like ```` ```{r} ```` where `r` indicates the language name,^[It is not limited to the R language; see Section \@ref(language-engines) for how to use other languages.] and ends with three backticks. You can write chunk options in the curly braces (e.g., set the figure height to 5 inches: ```` ```{r, fig.height=5} ````).
 
-- An inline R code expression starts with `` `r `` and ends with a backtick `` ` ``.
+- An inline R code expression\index{inline R expression} starts with `` `r `` and ends with a backtick `` ` ``.
 
 Figure \@ref(fig:hello-rmd) shows the above example in the RStudio IDE. You can click the `Knit` button to compile the document (to an HTML page). Figure \@ref(fig:hello-rmd-out) shows the output in the RStudio Viewer.
 
@@ -63,11 +63,11 @@ Now please take a closer look at the example. Did you notice a problem? The obje
 
 Although the above is a toy example, it could become a horror story if it happens in scientific research that was not done in a reproducible way (e.g., cut-and-paste). Here are two of my personal favorite videos on this topic:
 
-- "A reproducible workflow"\index{reproducible workflow} by Ignasi Bartomeus and Francisco Rodríguez-Sánchez (https://youtu.be/s3JldKoA0zw). It is a 2-min video that looks artistic but also shows very common and practical problems in data analysis.
+- "A reproducible workflow" by Ignasi Bartomeus and Francisco Rodríguez-Sánchez (https://youtu.be/s3JldKoA0zw). It is a 2-min video that looks artistic but also shows very common and practical problems in data analysis.
 
     <iframe width="100%" height="400" src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-- "The Importance of Reproducible Research\index{Reproducible Research} in High-Throughput Biology" by Keith Baggerly (https://youtu.be/7gYIs7uYbMo). You will be impressed by both the content and the style of this lecture. Keith Baggerly and Kevin Coombes were the two notable heroes in revealing [the Duke/Potti scandal](https://en.wikipedia.org/wiki/Anil_Potti), which was described as "one of the biggest medical research frauds ever" by the television program "60 Minutes".
+- "The Importance of Reproducible Research in High-Throughput Biology" by Keith Baggerly (https://youtu.be/7gYIs7uYbMo). You will be impressed by both the content and the style of this lecture. Keith Baggerly and Kevin Coombes were the two notable heroes in revealing [the Duke/Potti scandal](https://en.wikipedia.org/wiki/Anil_Potti), which was described as "one of the biggest medical research frauds ever" by the television program "60 Minutes".
 
     <iframe width="100%" height="400" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -169,7 +169,7 @@ RStudio has created a large number of cheat sheets, including the one-page R Mar
 
 ## Output formats
 
-There are two types of output formats in the **rmarkdown** package: documents, and presentations. All available formats are listed below:
+There are two types of output formats\index{output formats} in the **rmarkdown** package: documents, and presentations. All available formats are listed below:
 
 `r knitr::combine_words(grep('^[^_]+_(document|presentation)$', ls(asNamespace('rmarkdown')), value = TRUE), sep = '\n', and = '', before = '- \x60', after = '\x60')`
 
@@ -187,7 +187,7 @@ When there are multiple output formats in a document, there will be a dropdown m
 knitr::include_graphics('images/format-dropdown.png', dpi = NA)
 ```
 
-Each output format is often accompanied with several format options. All these options are documented on the R package help pages. For example, you can type `?rmarkdown::html_document` in R to open the help page of the `html_document` format. When you want to use certain options, you have to translate the values from R to YAML, e.g.,
+Each output format is often accompanied with several format options. All these options are documented on the R package help pages. For example, you can type `?rmarkdown::html_document` in R to open the help page of the `html_document` format. When you want to use certain options, you have to translate the values from R to YAML,\index{YAML} e.g.,
 
 ```r
 html_document(toc = TRUE, toc_depth = 2, dev = 'svg')
@@ -238,7 +238,7 @@ output:
 
 ## Markdown syntax
 
-The text in an R Markdown document is written with the Markdown syntax. Precisely speaking, it is Pandoc's Markdown. There are many flavors of Markdown invented by different people, and Pandoc's flavor is the most comprehensive one to our knowledge. You can find the full documentation of Pandoc's Markdown at https://pandoc.org/MANUAL.html. We strongly recommend that you read this page at least once to know all the possibilities with Pandoc's Markdown, even if you will not use all of them. This section is adapted from [Section 2.1](https://bookdown.org/yihui/bookdown/markdown-syntax.html) of @xie2016, and only covers a small subset of Pandoc's Markdown syntax.
+The text in an R Markdown document is written with the Markdown syntax\index{Markdown syntax}. Precisely speaking, it is Pandoc's Markdown. There are many flavors of Markdown invented by different people, and Pandoc's flavor is the most comprehensive one to our knowledge. You can find the full documentation of Pandoc's Markdown at https://pandoc.org/MANUAL.html. We strongly recommend that you read this page at least once to know all the possibilities with Pandoc's Markdown, even if you will not use all of them. This section is adapted from [Section 2.1](https://bookdown.org/yihui/bookdown/markdown-syntax.html) of @xie2016, and only covers a small subset of Pandoc's Markdown syntax.
 
 ### Inline formatting
 
@@ -248,7 +248,7 @@ To mark text as `inline code`, use a pair of backticks, e.g., `` `code` ``. To i
 
 Hyperlinks are created using the syntax `[text](link)`, e.g., `[RStudio](https://www.rstudio.com)`. The syntax for images is similar: just add an exclamation mark, e.g., `![alt text or image title](path/to/image)`. Footnotes are put inside the square brackets after a caret `^[]`, e.g., `^[This is a footnote.]`.
 
-There are multiple ways to insert citations, and we recommend that you use BibTeX databases, because they work better when the output format is LaTeX/PDF. [Section 2.8](https://bookdown.org/yihui/bookdown/citations.html) of @xie2016 has explained the details. The key idea is that when you have a BibTeX database (a plain-text file with the conventional filename extension `.bib`) that contains entries like:
+There are multiple ways to insert citations,\index{citation} and we recommend that you use BibTeX databases, because they work better when the output format is LaTeX/PDF. [Section 2.8](https://bookdown.org/yihui/bookdown/citations.html) of @xie2016 has explained the details. The key idea is that when you have a BibTeX database (a plain-text file with the conventional filename extension `.bib`) that contains entries like:
 
 ```bibtex
 @Manual{R-base,
@@ -420,7 +420,7 @@ c & d
 
 ## R code chunks and inline R code {#r-code}
 
-You can insert an R code chunk either using the RStudio toolbar (the `Insert` button) or the keyboard shortcut `Ctrl + Alt + I` (`Cmd + Option + I` on macOS).
+You can insert an R code chunk\index{code chunk} either using the RStudio toolbar (the `Insert` button) or the keyboard shortcut `Ctrl + Alt + I` (`Cmd + Option + I` on macOS).
 
 There are a lot of things you can do in a code chunk: you can produce text output, tables, or graphics. You have fine control over all these output via chunk options, which can be provided inside the curly braces (between ```` ```{r```` and `}`). For example, you can choose hide text output via the chunk option `results = 'hide'`, or set the figure height to 4 inches via `fig.height = 4`. Chunk options are separated by commas, e.g.,
 
@@ -441,7 +441,7 @@ x = rnorm(100)
 ```
 ````
 
-There are a large number of chunk options in **knitr** documented at https://yihui.name/knitr/options. We list a subset of them below:
+There are a large number of chunk options\index{chunk options} in **knitr** documented at https://yihui.name/knitr/options. We list a subset of them below:
 
 - `eval`: Whether to evaluate a code chunk.
 
@@ -481,7 +481,7 @@ knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 ```
 ````
 
-Besides code chunks, you can also insert values of R objects inline in text. For example:
+Besides code chunks, you can also insert values of R objects inline in text.\index{inline R expression} For example:
 
 ````markdown
 `r ''````{r}
@@ -494,7 +494,7 @@ its area is `r '\x60r pi * x^2\x60'`.
 
 ### Figures
 
-By default, figures produced by R code will be placed immediately after the code chunk they were generated from. For example:
+By default, figures\index{figures} produced by R code will be placed immediately after the code chunk they were generated from. For example:
 
 ````markdown
 `r ''````{r}
@@ -527,7 +527,7 @@ knitr::include_graphics('images/hex-rmarkdown.png')
 
 ### Tables
 
-The easiest way to include tables is by using `knitr::kable()`, which can create tables for HTML, PDF and Word outputs.^[You may also consider the **pander** package. There are several other packages for producing tables, including **xtable**, **Hmisc**, and **stargazer**, but these are generally less compatible with multiple output formats.] Table captions can be included by passing `caption` to the function, e.g.,
+The easiest way to include tables\index{tables} is by using `knitr::kable()`, which can create tables for HTML, PDF and Word outputs.^[You may also consider the **pander** package. There are several other packages for producing tables, including **xtable**, **Hmisc**, and **stargazer**, but these are generally less compatible with multiple output formats.] Table captions can be included by passing `caption` to the function, e.g.,
 
 ````markdown
 `r ''````{r tables-mtcars}
@@ -584,7 +584,7 @@ I will introduce some specific features and examples for a subset of language en
 
 ### Python
 
-The `python` engine is based on the **reticulate** package [@R-reticulate], which makes it possible to execute all Python code chunks in the same Python session. If you actually want to execute a certain code chunk in a new Python session, you may use the chunk option `python.reticulate = FALSE`. If you are using a **knitr** version lower than 1.18, you should update your R packages.
+The `python` engine is based on the **reticulate** package [@R-reticulate], which makes it possible to execute all Python\index{Python} code chunks in the same Python session. If you actually want to execute a certain code chunk in a new Python session, you may use the chunk option `python.reticulate = FALSE`. If you are using a **knitr** version lower than 1.18, you should update your R packages.
 
 Below is a relatively simple example that shows how you can create/modify variables, and draw graphics in Python code chunks. Values can be passed to or retrieved from the Python session. To pass a value to Python, assign to `py$name`, where `name` is the variable name you want to use in the Python session; to retrieve a value from Python, also use `py$name`.
 
@@ -596,7 +596,7 @@ You may learn more about the **reticulate** package from https://rstudio.github.
 
 ### Shell scripts
 
-You can also write Shell scripts in R Markdown, if your system can run them (the executable `bash` or `sh` should exist). Usually this is not a problem for Linux or macOS users. It is not impossible for Windows users to run Shell scripts, but you will have to install additional software (such as [Cygwin](https://www.cygwin.com) or the Linux Subsystem).
+You can also write Shell scripts\index{Shell script} in R Markdown, if your system can run them (the executable `bash` or `sh` should exist). Usually this is not a problem for Linux or macOS users. It is not impossible for Windows users to run Shell scripts, but you will have to install additional software (such as [Cygwin](https://www.cygwin.com) or the Linux Subsystem).
 
 ````markdown
 `r ''````{bash}
@@ -609,7 +609,7 @@ Shell scripts are executed via the `system2()` function in R. Basically **knitr*
 
 ### SQL
 
-The `sql` engine uses the [**DBI**](https://cran.rstudio.com/package=DBI) package to execute SQL queries, print their results, and optionally assign the results to a data frame.
+The `sql` engine uses the [**DBI**](https://cran.rstudio.com/package=DBI) package to execute SQL\index{SQL} queries, print their results, and optionally assign the results to a data frame.
 
 To use the `sql` engine, you first need to establish a DBI connection to a database (typically via the `DBI::dbConnect()` function). You can make use of this connection in a `sql` chunk via the `connection` option. For example:
 
@@ -686,7 +686,7 @@ SELECT * FROM trials
 
 ### Rcpp
 
-The `Rcpp` engine enables compilation of C++ into R functions via the **Rcpp** `sourceCpp()` function. For example:
+The `Rcpp` engine enables compilation of C++\index{C++} into R functions via the **Rcpp** `sourceCpp()` function. For example:
 
 ````markdown
 `r ''````{Rcpp}
@@ -746,7 +746,7 @@ The two `Rcpp` chunks that include code will be collected and compiled together 
 
 ### Stan
 
-The `stan` engine enables embedding of the [Stan probabilistic programming language](http://mc-stan.org) within R Markdown documents.
+The `stan` engine enables embedding of the [Stan probabilistic programming language](http://mc-stan.org)\index{Stan} within R Markdown documents.
 
 The Stan model within the code chunk is compiled into a `stanmodel` object, and is assigned to a variable with the name given by the `output.var` option. For example:
 
@@ -770,7 +770,7 @@ print(fit)
 
 ### JavaScript and CSS
 
-If you are using an R Markdown format that targets HTML output (e.g., `html_document` and `ioslides_presenation`, etc.), you can include JavaScript to be executed within the HTML page using the JavaScript engine named `js`.
+If you are using an R Markdown format that targets HTML output (e.g., `html_document` and `ioslides_presenation`, etc.), you can include JavaScript\index{JavaScript} to be executed within the HTML page using the JavaScript engine named `js`.
 
 For example, the following chunk uses jQuery (which is included in most R Markdown HTML formats) to change the color of the document title to red:
 
@@ -780,7 +780,7 @@ $('.title').css('color', 'red')
 ```
 ````
 
-Similarly, you can embed CSS rules in the output document. For example, the following code chunk turns text within the document body red:
+Similarly, you can embed CSS\index{CSS} rules in the output document. For example, the following code chunk turns text within the document body red:
 
 ````markdown
 `r ''````{css, echo=FALSE}
@@ -794,7 +794,7 @@ Without the chunk option `echo = FALSE`, the JavaScript/CSS code will be display
 
 ### Julia
 
-The [Julia](https://julialang.org) language is supported through the **JuliaCall** package [@R-JuliaCall]. Similar to the `python` engine, the `julia` engine runs all Julia code chunks in the same Julia session. Below is a minimal example:
+The [Julia](https://julialang.org) language \index{Julia} is supported through the **JuliaCall** package [@R-JuliaCall]. Similar to the `python` engine, the `julia` engine runs all Julia code chunks in the same Julia session. Below is a minimal example:
 
 ````markdown
 `r ''````{julia}
@@ -804,7 +804,7 @@ a = sqrt(2);  # the semicolon inhibits printing
 
 ### C and Fortran
 
-For code chunks that use C or Fortran, **knitr** uses `R CMD SHLIB` to compile the code, and load the shared object (a `*.so` file on Unix or `*.dll` on Windows). Then you can use `.C()` / `.Fortran()` to call the C / Fortran functions, e.g.,
+For code chunks that use C\index{C language} or Fortran\index{Fortran}, **knitr** uses `R CMD SHLIB` to compile the code, and load the shared object (a `*.so` file on Unix or `*.dll` on Windows). Then you can use `.C()` / `.Fortran()` to call the C / Fortran functions, e.g.,
 
 ````markdown
 `r ''````{c, test-c, results='hide'}
@@ -829,7 +829,7 @@ R Markdown documents can also generate interactive content. There are two types 
 
 ### HTML widgets {#intro-widgets}
 
-The HTML Widgets framework is implemented in the R package **htmlwidgets** [@R-htmlwidgets], interfacing JavaScript libraries that create interactive applications, such as interactive graphics and tables. Several widget packages have been developed based on this framework, such as **DT** [@R-DT], **leaflet** [@R-leaflet], and **dygraphs** [@R-dygraphs]. Visit https://www.htmlwidgets.org to know more about widget packages as well as how to develop a widget package by yourself.
+The HTML Widgets\index{HTML widgets} framework is implemented in the R package **htmlwidgets** [@R-htmlwidgets], interfacing JavaScript libraries that create interactive applications, such as interactive graphics and tables. Several widget packages have been developed based on this framework, such as **DT** [@R-DT], **leaflet** [@R-leaflet], and **dygraphs** [@R-dygraphs]. Visit https://www.htmlwidgets.org to know more about widget packages as well as how to develop a widget package by yourself.
 
 Figure \@ref(fig:leaflet) shows an interactive map created via the **leaflet** package, and the source document is below:
 
@@ -847,7 +847,7 @@ If you include an HTML widget in a non-HTML output format, such as a PDF, **knit
 
 ### Shiny documents {#intro-shiny}
 
-The **shiny** package [@R-shiny] builds interactive web apps powered by R. To call Shiny code from an R Markdown document, add  `runtime: shiny` to the YAML metadata, like in this document:
+The **shiny** package [@R-shiny] builds interactive web apps powered by R. To call Shiny\index{Shiny} code from an R Markdown document, add  `runtime: shiny` to the YAML metadata, like in this document:
 
 ````markdown
 `r xfun::file_string('examples/shiny.Rmd')`

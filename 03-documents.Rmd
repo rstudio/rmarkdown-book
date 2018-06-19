@@ -137,7 +137,7 @@ output:
 
 #### Custom CSS
 
-You can add your own CSS to an HTML document using the `css` option:
+You can add your own CSS\index{CSS} to an HTML document using the `css` option:
 
 ```yaml
 ---
@@ -279,7 +279,7 @@ You can specify `code_folding: show` to still show all R code by default but the
 
 ### MathJax equations
 
-By default, [MathJax](https://www.mathjax.org) scripts are included in HTML documents for rendering LaTeX and MathML equations. You can use the `mathjax` option to control how MathJax is included:
+By default, [MathJax](https://www.mathjax.org)\index{MathJax} scripts are included in HTML documents for rendering LaTeX and MathML equations. You can use the `mathjax` option to control how MathJax is included:
 
 - Specify `"default"` to use an HTTPS URL from a CDN host (currently provided by RStudio).
 
@@ -383,7 +383,7 @@ output:
 
 #### Custom templates
 
-You can also replace the underlying Pandoc template using the `template` option:
+You can also replace the underlying Pandoc template\index{Pandoc template} using the `template` option:
 
 ```yaml
 ---
@@ -762,7 +762,7 @@ output: pdf_document
 ---
 ```
 
-Within R Markdown documents that generate PDF output, you can use raw LaTeX, and even define LaTeX macros. See Pandoc's documentation on the [raw_tex extension](http://pandoc.org/MANUAL.html#extension-raw_tex) for details.
+Within R Markdown documents that generate PDF output, you can use raw LaTeX\index{LaTeX}, and even define LaTeX macros. See Pandoc's documentation on the [raw_tex extension](http://pandoc.org/MANUAL.html#extension-raw_tex) for details.
 
 Note that PDF output (including Beamer slides) requires an installation of LaTeX (see Chapter \@ref(installation)).
 
@@ -886,7 +886,7 @@ linkcolor, urlcolor, citecolor|Color for internal, external, and citation links
 
 ### LaTeX packages for citations
 
-By default, citations are processed through `pandoc-citeproc`, which works for all output formats. For PDF output, sometimes it is better to use LaTeX packages to process citations, such as `natbib` or `biblatex`. To use one of these packages, just set the option `citation_package` to be `natbib` or `biblatex`, e.g.
+By default, citations\index{citation} are processed through `pandoc-citeproc`, which works for all output formats. For PDF output, sometimes it is better to use LaTeX packages to process citations, such as `natbib` or `biblatex`. To use one of these packages, just set the option `citation_package` to be `natbib` or `biblatex`, e.g.
 
 ```yaml
 ---
@@ -963,7 +963,7 @@ Similar to HTML documents, you can enable or disable certain Markdown extensions
 
 ## Word document
 
-To create a Word document from R Markdown, you specify the `word_document` output format in the YAML metadata of your document:
+To create a Word\index{Word} document from R Markdown, you specify the `word_document` output format in the YAML metadata of your document:
 
 ```yaml
 ---
@@ -1112,7 +1112,7 @@ Refer to Section \@ref(html-document) for the documentation of other features of
 
 ## R package vignette
 
-The `html_vignette` format provides a lightweight alternative to `html_document` suitable for inclusion in packages to be released to CRAN. It reduces the size of a basic vignette from 600Kb to around 10Kb. The format differs from a conventional HTML document as follows:
+The `html_vignette` format provides a lightweight alternative to `html_document` suitable for inclusion in packages to be released to CRAN. It reduces the size of a basic vignette\index{R package vignette} from 600Kb to around 10Kb. The format differs from a conventional HTML document as follows:
 
 - Never uses retina figures
 - Has a smaller default figure size

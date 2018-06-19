@@ -147,7 +147,7 @@ You can specify a background image for a slide using the attribute `data-backgro
 
 #### Custom CSS {#custom-css-ioslides}
 
-You can add your own CSS to an ioslides presentation using the `css` option:
+You can add your own CSS\index{CSS} to an ioslides presentation using the `css` option:
 
 ```markdown
 ---
@@ -439,7 +439,7 @@ Slide presentations have several features in common with ioslides presentations 
 
 ## Beamer presentation
 
-To create a Beamer presentation from R Markdown, you specify the `beamer_presentation` output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show (see Figure \@ref(fig:beamer) for two sample slides):
+To create a Beamer\index{LaTeX Beamer} presentation from R Markdown, you specify the `beamer_presentation` output format in the YAML metadata of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`---`). For example, here is a simple slide show (see Figure \@ref(fig:beamer) for two sample slides):
 
 ````markdown
 ---
@@ -526,7 +526,7 @@ Beamer presentations have a few features in common with ioslides presentations i
 
 ## PowerPoint presentation
 
-To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. The RStudio version 1.1.x ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a preview version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (>= 1.2.633), which has bundled Pandoc 2.x.
+To create a PowerPoint\index{PowerPoint} presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. The RStudio version 1.1.x ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a preview version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (>= 1.2.633), which has bundled Pandoc 2.x.
 
 Below is a quick example (see Figure \@ref(fig:powerpoint) for a sample slide):
 

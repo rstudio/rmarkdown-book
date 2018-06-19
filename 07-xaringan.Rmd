@@ -1,6 +1,6 @@
 # xaringan Presentations {#xaringan}
 
-We have introduced a few HTML5 presentation formats in Chapter \@ref(presentations). The **xaringan** package [@R-xaringan]\index{xaringan} is an R Markdown extension based on the JavaScript library remark.js (https://remarkjs.com) to generate HTML5 presentations of a different style. See Figure \@ref(fig:xaringan-sample) for two sample slides.
+We have introduced a few HTML5 presentation formats in Chapter \@ref(presentations). The **xaringan** package [@R-xaringan]\index{xaringan} is an R Markdown extension based on the JavaScript library remark.js (https://remarkjs.com) to generate HTML5 presentations\index{HTML5 slides} of a different style. See Figure \@ref(fig:xaringan-sample) for two sample slides.
 
 ```{r xaringan-sample, echo=FALSE, fig.cap='Two sample slides created from the xaringan package.', out.width='49%', fig.show='hold'}
 knitr::include_graphics(c('images/xaringan-1.png', 'images/xaringan-2.png'), dpi = NA)
@@ -253,7 +253,7 @@ knitr::include_graphics('images/mirror-display.png', dpi = NA)
 
 ### yolo: true
 
-Inspired by a random feature request from [a tweet by Karthik Ram](https://twitter.com/_inundata/status/798970002992873472), the output format `xaringan::moon_reader` provided an option named `yolo` (an acronym of "you only live once"). If you set it to true, a photo of Karl Broman (with a mustache) will be inserted into a random slide in your presentation.^[For the full story behind the mustache, see Karl's post at http://kbroman.org/blog/2014/08/28/the-mustache-photo/.]
+Inspired by a random feature request from [a tweet by Karthik Ram](https://twitter.com/_inundata/status/798970002992873472), the output format `xaringan::moon_reader` provided an option named `yolo` (an acronym of "you only live once"). If you set it to true, a photo of Karl Broman\index{Karl Broman} (with a mustache) will be inserted into a random slide in your presentation.^[For the full story behind the mustache, see Karl's post at http://kbroman.org/blog/2014/08/28/the-mustache-photo/.]
 
 ```yaml
 ---
@@ -287,7 +287,7 @@ One distinction of `xaringan::moon_reader` when compared to other R Markdown out
 
 ## CSS and themes
 
-The format `xaringan::moon_reader` has a `css` option, to which you can pass a vector of CSS file paths, e.g.,
+The format `xaringan::moon_reader` has a `css` option, to which you can pass a vector of CSS\index{CSS} file paths, e.g.,
 
 ```yaml
 ---

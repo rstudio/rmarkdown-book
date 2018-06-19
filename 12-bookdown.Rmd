@@ -136,7 +136,7 @@ bookdown::html_book:
 
 ## Markdown extensions {#bookdown-markdown}
 
-The **bookdown** package expands upon the Markdown syntax outlined in Section \@ref(markdown-syntax), and provides additional powerful features that assist longer documents and academic writing.
+The **bookdown** package expands upon the Markdown syntax\index{Markdown syntax} outlined in Section \@ref(markdown-syntax), and provides additional powerful features that assist longer documents and academic writing.
 
 ### Number and reference equations {#equations}
 
@@ -263,7 +263,7 @@ Note that only alphanumeric characters (`a-z`, `A-Z`, `0-9`), `-`, `/`, and `:` 
 
 ## Output Formats {#bookdown-output}
 
-The **bookdown** package includes the following output formats:
+The **bookdown** package includes the following output formats\index{output formats}:
 
 - HTML:
     - `gitbook`

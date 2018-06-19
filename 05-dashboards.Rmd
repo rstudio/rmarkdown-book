@@ -2,7 +2,7 @@
 
 # Dashboards
 
-R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter on, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard]\index{flexdashboard}.
+R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter on, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards\index{dashboard} based on the **flexdashboard** package [@R-flexdashboard].
 
 Dashboards are particularly common in business-style reports. They can be used to highlight brief and key summaries of a report. The layout of a dashboard is often grid-based, with components arranged in boxes of various sizes.
 
@@ -231,7 +231,7 @@ The `social` option can include any number of the following services: `"facebook
 
 ## Shiny
 
-By adding Shiny to a dashboard, you can let viewers change underlying parameters and see the results immediately, or let dashboards update themselves incrementally as their underlying data changes (see functions `reactiveFileReader()` and `reactivePoll()` in the **shiny** package). This is done by adding `runtime: shiny` to a standard dashboard document, and then adding one or more input controls and/or reactive expressions that dynamically drive the appearance of the components within the dashboard.
+By adding Shiny\index{Shiny} to a dashboard, you can let viewers change underlying parameters and see the results immediately, or let dashboards update themselves incrementally as their underlying data changes (see functions `reactiveFileReader()` and `reactivePoll()` in the **shiny** package). This is done by adding `runtime: shiny` to a standard dashboard document, and then adding one or more input controls and/or reactive expressions that dynamically drive the appearance of the components within the dashboard.
 
 Using Shiny with **flexdashboard** turns a static R Markdown report into an interactive document. It is important to note that interactive documents need to be deployed to a Shiny Server to be shared broadly (whereas static R Markdown documents are standalone web pages that can be attached to emails or served from any standard web server).
 

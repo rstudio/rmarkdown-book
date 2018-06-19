@@ -20,7 +20,7 @@ By following a small set of conventions, it is possible to create HTML widgets w
 
 3. **R binding**. This is the function that end-users will call to provide input data to the widget and specify various options for how the widget should render. This also includes some short boilerplate functions required to use the widget within Shiny applications.
 
-3. **JavaScript binding**. This is the JavaScript code that glues everything together, passing the data and options gathered in the R binding to the underlying JavaScript library.
+3. **JavaScript binding**. This is the JavaScript\index{JavaScript} code that glues everything together, passing the data and options gathered in the R binding to the underlying JavaScript library.
 
 HTML widgets are always hosted within an R package, and should include all of the source code for their dependencies. This is to ensure that R code that renders widgets is fully reproducible (i.e., it does not require an Internet connection or the ongoing availability of an Internet service to run).
 
