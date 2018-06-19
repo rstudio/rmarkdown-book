@@ -492,7 +492,7 @@ Any R Markdown document can be used as a notebook, and all R Notebooks can be re
 
 #### Creating a Notebook
 
-You can create a new notebook in RStudio with the menu command `File -> New File -> R Notebook`, or by using the `html_notebook` output type in your document's YAML metadata.\index{YAML metadata}
+You can create a new notebook in RStudio with the menu command `File -> New File -> R Notebook`, or by using the `html_notebook` output type in your document's YAML metadata.
 
 ```yaml
 ---
