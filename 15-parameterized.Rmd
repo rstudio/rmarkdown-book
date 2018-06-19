@@ -2,7 +2,7 @@
 
 # Parameterized reports
 
-One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report.  Parameterized reports extend this one step further, and allows users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:
+One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report. Parameterized reports\index{parameterized reports} extend this one step further, and allows users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:
 
 - Showing results for a specific geographic location.
 
@@ -187,4 +187,4 @@ knitr::kable(
 
 ## Publishing {#params-publish}
 
-Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report\index{parameterized reports} to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.
+Parameterized reports are supported by the publishing platform RStudio Connect (https://www.rstudio.com/products/connect/). If you publish a parameterized report to an RStudio Connect server, you will be able to compile reports by interactively choosing different parameter values on the server, and easily store/navigate through different reports built previously. You may watch a video demonstration at https://bit.ly/rsc-params.
