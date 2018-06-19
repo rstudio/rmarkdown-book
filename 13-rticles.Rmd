@@ -1,8 +1,8 @@
 # Journals
 
-Academic journals\index{Academic journals} often have strict guidelines on the formatting for submitted articles. As of today, few journals directly support R Markdown submissions, but many support the LaTeX format. While you can convert R Markdown to LaTeX\index{R markdown to LaTeX} (see Section \@ref(pdf-document)), different journals have different typesetting requirements and LaTeX styles, and it may be slow and frustrating for all authors who want to use R Markdown to figure out the technical details about how to properly convert a paper based on R Markdown to a LaTeX document that meets the journal requirements.
+Academic journals\index{academic journals} often have strict guidelines on the formatting for submitted articles. As of today, few journals directly support R Markdown submissions, but many support the LaTeX format. While you can convert R Markdown to LaTeX (see Section \@ref(pdf-document)), different journals have different typesetting requirements and LaTeX styles, and it may be slow and frustrating for all authors who want to use R Markdown to figure out the technical details about how to properly convert a paper based on R Markdown to a LaTeX document that meets the journal requirements.
 
-The **rticles** package [@R-rticles]\index{rticles package} is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals are provided by the package such as those shown in Figure \@ref(rticles-templates).
+The **rticles** package [@R-rticles]\index{rticles} is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals are provided by the package such as those shown in Figure \@ref(rticles-templates).
 
 (ref:rticles-templates) Two journal templates in the **rticles** package (PLOS and Springer).
 
