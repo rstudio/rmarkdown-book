@@ -27,4 +27,5 @@ bookdown::pdf_book:
   toc_depth: 3
   toc_unnumbered: no
   toc_appendix: yes
+  highlight_bw: yes
   quote_footer: ["\\VA{", "}{}"]

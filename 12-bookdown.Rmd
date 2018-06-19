@@ -111,7 +111,7 @@ By default, **bookdown** merges all Rmd files by the order of filenames, e.g., `
 
 ### `_bookdown.yml`
 
-The `_bookdown.yml` file allows you to specify optional setting used to be build the book. For example, you may want to override the order in which files are merged by including  the field `rmd_files`:
+The `_bookdown.yml` file allows you to specify optional settings to build the book. For example, you may want to override the order in which files are merged by including  the field `rmd_files`:
 
 ```yaml
 rmd_files: ["index.Rmd", "02-literature.Rmd", "01-intro.Rmd"]
