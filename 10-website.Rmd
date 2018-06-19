@@ -22,7 +22,7 @@ devtools::install_github("rstudio/blogdown")
 
 The easiest way to get started with a **blogdown**-based website is to create a website project from RStudio: `File -> New Project`. If you do not use RStudio, you may call the function `blogdown::new_site()`.
 
-The first time when you create a new website, **blogdown** will do a series of things behind the scenes: it downloads Hugo (the default static site generator), creates a website skeleton, installs a theme, adds some example posts, builds the site, and serve it so that you can see the website in your browser (or RStudio Viewer if you are in RStudio). It will not go through all these steps again the next time when you work on this website. All you need in the future is `blogdown::serve_site()`, or equivalently, the RStudio addin "Serve Site".
+The first time when you create a new website, **blogdown** will do a series of things behind the scenes: it downloads Hugo (the default static site generator), creates a website skeleton, installs a theme, adds some example posts, builds the site, and serves it so that you can see the website in your browser (or RStudio Viewer if you are in RStudio). It will not go through all these steps again the next time when you work on this website. All you need in the future is `blogdown::serve_site()`, or equivalently, the RStudio addin "Serve Site".
 
 Every time you open a website project, you only need to serve the site once, and **blogdown** will keep running in the background, listening to changes in your source files, and rebuilding the website automatically. All you have to do is create new posts, or edit existing posts, and save them. You will see the automatic live preview as you save the changes (unless you have errors in a source document).
 
@@ -71,7 +71,7 @@ Netlify will assign a random subdomain of the form `xxx-xxx-1234.netlify.com` to
 
 If possible, I strongly recommend that you enable HTTPS for your websites ([why?](https://https.cio.gov/everything/)). HTTPS is free on Netlify, so you really do not have a reason not to enable it.
 
-Once your GIT repository is connected with Netlify, you only need to push source files to the repository in future, and Netlify will automatically rebuild your website. This is called "continuous deployment".
+Once your GIT repository is connected with Netlify, you only need to push source files to the repository in the future, and Netlify will automatically rebuild your website. This is called "continuous deployment".
 
 ## Other site generators {#blogdown-other}
 
@@ -128,7 +128,7 @@ Note that the minimum requirement for any R Markdown website is that it have an 
 
 The HTML files within the `_site` directory are now ready to deploy as a standalone static website.
 
-The full source code for simple example above can be found in the `hello-website` folder in the repository <https://github.com/rstudio/rmarkdown-website-examples>.
+The full source code for the simple example above can be found in the `hello-website` folder in the repository <https://github.com/rstudio/rmarkdown-website-examples>.
 
 ### Site authoring
 

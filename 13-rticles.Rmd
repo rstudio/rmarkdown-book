@@ -2,7 +2,7 @@
 
 Academic journals\index{academic journals} often have strict guidelines on the formatting for submitted articles. As of today, few journals directly support R Markdown submissions, but many support the LaTeX format. While you can convert R Markdown to LaTeX (see Section \@ref(pdf-document)), different journals have different typesetting requirements and LaTeX styles, and it may be slow and frustrating for all authors who want to use R Markdown to figure out the technical details about how to properly convert a paper based on R Markdown to a LaTeX document that meets the journal requirements.
 
-The **rticles** package [@R-rticles]\index{rticles} is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals are provided by the package such as those shown in Figure \@ref(rticles-templates).
+The **rticles** package [@R-rticles]\index{rticles} is designed to simplify the creation of documents that conform to submission standards. A suite of custom R Markdown templates for popular journals is provided by the package such as those shown in Figure \@ref(rticles-templates).
 
 (ref:rticles-templates) Two journal templates in the **rticles** package (PLOS and Springer).
 
@@ -45,7 +45,7 @@ rmarkdown::draft(
 
 ## rticles templates
 
-The **rticles** package provides templates for a various journals and publishers, including:
+The **rticles** package provides templates for various journals and publishers, including:
 
 - JSS articles (Journal of Statistical Software)
 - R Journal articles
@@ -136,4 +136,4 @@ You can substitute `rticles::peerj_article` with the template you actually inten
 
 ## Contributing templates {#rticles-contrib}
 
-If you take a look at the GitHub repository of **rticles** (https://github.com/rstudio/rticles), you will see that a lot of the templates have been contributed by the R community. If you are interested in improving them or adding more journal templates, you may want to read Chapter \@ref(document-templates), which outlines how template can be made for R Markdown. Basically these templates are defined to translate the Pandoc variables from the YAML frontmatter and the body of the R Markdown document into LaTeX.
+If you take a look at the GitHub repository of **rticles** (https://github.com/rstudio/rticles), you will see that a lot of the templates have been contributed by the R community. If you are interested in improving them or adding more journal templates, you may want to read Chapter \@ref(document-templates), which outlines how a template can be made for R Markdown. Basically these templates are defined to translate the Pandoc variables from the YAML frontmatter and the body of the R Markdown document into LaTeX.

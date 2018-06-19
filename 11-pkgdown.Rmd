@@ -38,7 +38,7 @@ Other meta information about the package, such as the package license and author
 
 ### Function reference
 
-The reference pages look like R's own help pages. In fact, these pages are generated from the `*.Rd` files under `man/`. Compared to R's own help pages, **pkgdown** offers a few more benefits: the examples on a help page (if exist) will be evaluated so that you can see the output, and function names are automatically linked so you can click on a name to navigate to the help page of another function. What is more, **pkgdown** allows you to organize the list of all functions into groups (e.g., by topic), which can make it easier for users to find the right function in a list. By default, all functions are listed alphabetically just like R's help system. To group functions on the list page, you need to provide a `reference` key in `_pkgdown.yml`, e.g.,
+The reference pages look like R's own help pages. In fact, these pages are generated from the `*.Rd` files under `man/`. Compared to R's own help pages, **pkgdown** offers a few more benefits: the examples on a help page (if they exist) will be evaluated so that you can see the output, and function names are automatically linked so you can click on a name to navigate to the help page of another function. What is more, **pkgdown** allows you to organize the list of all functions into groups (e.g., by topic), which can make it easier for users to find the right function in a list. By default, all functions are listed alphabetically just like R's help system. To group functions on the list page, you need to provide a `reference` key in `_pkgdown.yml`, e.g.,
 
 ```yaml
 reference:

@@ -180,7 +180,7 @@ HTMLWidgets.widget({
 
 We provide a name and type for the widget, plus a `factory` function that takes `el` (the HTML element that will host this widget), `width`, and `height` (width and height of the HTML element, in pixels --- you can always use `offsetWidth` and `offsetHeight` for this).
 
-The `factory` function should prepare the HTML element to start receiving values. In this case, we create a new `sigma` element and pass it the `id` of the DOM element that hosts the widget on the page.
+The `factory` function should prepare the HTML element to start receiving values. In this case, we create a new `sigma` element and pass it to the `id` of the DOM element that hosts the widget on the page.
 
 We are going to need access to the `sigma` object later (to update its data and settings), so we save it as a variable `sig`. Note that variables declared directly inside of the `factory` function are tied to a particular widget instance (`el`).
 

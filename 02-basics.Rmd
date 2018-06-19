@@ -67,7 +67,7 @@ Although the above is a toy example, it could become a horror story if it happen
 
     <iframe width="100%" height="400" src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-- "The Importance of Reproducible Research\index{Reproducible Research} in High-Throughput Biology" by Keith Baggerly (https://youtu.be/7gYIs7uYbMo). You will be impressed by both the content and the style of this lecture. Keith Baggerly and Kevin Coombes were the two notable heroes in revealing [the Duke/Potti scandal](https://en.wikipedia.org/wiki/Anil_Potti), which was described as "one of the biggest medical research frauds ever" by the television program broadcast "60 Minutes".
+- "The Importance of Reproducible Research\index{Reproducible Research} in High-Throughput Biology" by Keith Baggerly (https://youtu.be/7gYIs7uYbMo). You will be impressed by both the content and the style of this lecture. Keith Baggerly and Kevin Coombes were the two notable heroes in revealing [the Duke/Potti scandal](https://en.wikipedia.org/wiki/Anil_Potti), which was described as "one of the biggest medical research frauds ever" by the television program "60 Minutes".
 
     <iframe width="100%" height="400" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -93,7 +93,7 @@ knitr::include_graphics('images/rpubs.png', dpi = NA)
 
 In a 2016 JSM (Joint Statistical Meetings) talk, I proposed that course instructors could sometimes intentionally insert some wrong values in the source data before providing it to the students for them to analyze the data in the homework, then correct these values the next time, and ask them to do the analysis again. This way, students should be able to realize the problems with the traditional cut-and-paste approach for data analysis (i.e., run the analysis separately and copy the results manually), and the advantage of using R Markdown to automatically generate the report.
 
-### Personalized mails
+### Personalized mail
 
 One thing you should remember about R Markdown is that you can programmatically generate reports, although most of the time you may be just clicking the `Knit` button in RStudio to generate a single report from a single source document. Being able to program reports is a super power of R Markdown.
 
@@ -107,7 +107,9 @@ The [2017 Employer Health Benefits Survey](https://www.kff.org/health-costs/repo
 
 Chris Hartgerink explained how and why he used R Markdown to write dynamic research documents in the post at https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown. He published a paper titled "Too Good to be False: Nonsignificant Results Revisited" with two co-authors [@hartgerink2017]. The manuscript was written in R Markdown, and results were dynamically generated from the code in R Markdown.
 
-When checking the accuracy of P-values in the psychology literature, his colleagues and he found that P-values could be mistyped or miscalculated, which could lead to inaccurate or even wrong conclusions. If the P-values were dynamically generated and inserted instead of being manually copied from statistical programs, the chance for those problems to exist will be much lower.
+When checking the accuracy of P-values in the psychology literature, his colleagues and he found that P-values could be mistyped or miscalculated, which could lead to inaccurate or even wrong conclusions. If the P-values were dynamically generated and inserted instead of being manually copied from statistical programs, the chance for those problems to exist would be much lower.
+
+@lowndes2017 also shows that using R Markdown (and version control) not only enhances reproducibility, but also produces better scientific research in less time.
 
 ### Dashboards at eelloo
 
@@ -502,7 +504,7 @@ plot(cars, pch = 18)
 
 You can provide a figure caption using `fig.cap` in the chunk options. If the document output format supports the option `fig_caption: true` (e.g., the output format `rmarkdown::html_document`), the R plots will be placed into figure environments. In the case of PDF output, such figures will be automatically numbered. If you also want to number figures in other formats (such as HTML), please see the **bookdown** package in Chapter \@ref(books) (in particular, see Section \@ref(a-single-document)).
 
-PDF documents are generated through the LaTeX files generated from R Markdown. A highly surprising fact to LaTeX beginners is that figures float by default: even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page. This is just how LaTeX works by default. It has a tendency to float figures to the top or bottom of pages. Although it can be annoying and distracting, we recommend that you refrain from playing the "Whac-A-Mole" game in the beginning of your writing, i.e., desparately trying to position figures "correctly" while they seem to be always dodging you. You may wish to fine-tune the positions once the content is complete using the `fig.pos` chunk option (e.g., `fig.pos = 'h')`. See https://www.sharelatex.com/learn/Positioning_images_and_tables for possible values of `fig.pos` and more general tips about this behaviour in LaTeX. In short, this can be a difficult problem for PDF output.
+PDF documents are generated through the LaTeX files generated from R Markdown. A highly surprising fact to LaTeX beginners is that figures float by default: even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page. This is just how LaTeX works by default. It has a tendency to float figures to the top or bottom of pages. Although it can be annoying and distracting, we recommend that you refrain from playing the "Whac-A-Mole" game in the beginning of your writing, i.e., desparately trying to position figures "correctly" while they seem to be always dodging you. You may wish to fine-tune the positions once the content is complete using the `fig.pos` chunk option (e.g., `fig.pos = 'h')`. See https://www.sharelatex.com/learn/Positioning_images_and_tables for possible values of `fig.pos` and more general tips about this behavior in LaTeX. In short, this can be a difficult problem for PDF output.
 
 To place multiple figures side-by-side from the same code chunk, you can use the `fig.hold='hold'` option along with the `out.width` option. Figure \@ref(fig:hold-position) shows an example with two plots, each with a width of `50%`.
 
@@ -525,7 +527,7 @@ knitr::include_graphics('images/hex-rmarkdown.png')
 
 ### Tables
 
-The easiest way to include tables is by using `knitr::kable()`, which can create tables for HTML, PDF and Word outputs.^[You may also consider the **pander** package. There are several other packages for producing tables, including **xtable**, **Hmisc**, and **stargazer**, but are generally less compatible with multiple output formats.] Table captions can be included by passing `caption` to the function, e.g.,
+The easiest way to include tables is by using `knitr::kable()`, which can create tables for HTML, PDF and Word outputs.^[You may also consider the **pander** package. There are several other packages for producing tables, including **xtable**, **Hmisc**, and **stargazer**, but these are generally less compatible with multiple output formats.] Table captions can be included by passing `caption` to the function, e.g.,
 
 ````markdown
 `r ''````{r tables-mtcars}
@@ -533,7 +535,7 @@ knitr::kable(iris[1:5, ], caption = 'A caption')
 ```
 ````
 
-Tables in non-LaTeX output formats will always be placed after the code block. For LaTeX/PDF output foramts, tables have the same issue as figures: they may float. If you want to avoid this behaviour, you will need to use the LaTeX package [longtable](https://www.ctan.org/pkg/longtable), which can break tables across multiple pages. This can be achieved by adding `\usepackage{longtable}` to your LaTeX preamble, and passing `longtable = TRUE` to `kable()`.
+Tables in non-LaTeX output formats will always be placed after the code block. For LaTeX/PDF output formats, tables have the same issue as figures: they may float. If you want to avoid this behavior, you will need to use the LaTeX package [longtable](https://www.ctan.org/pkg/longtable), which can break tables across multiple pages. This can be achieved by adding `\usepackage{longtable}` to your LaTeX preamble, and passing `longtable = TRUE` to `kable()`.
 
 If you are looking for more advanced control of the styling of tables, you are recommended to use the [**kableExtra**](https://cran.r-project.org/package=kableExtra) package, which provides functions to customize the appearance of PDF and HTML tables. Formatting tables can be a very complicated task, especially when certain cells span more than one column or row. It is even more complicated when you have to consider different output formats. For example, it is difficult to make a complex table work for both PDF and HTML output. We know it is disappointing, but sometimes you may have to consider alternative ways of presenting data, such as using graphics.
 
@@ -827,7 +829,7 @@ R Markdown documents can also generate interactive content. There are two types 
 
 ### HTML widgets {#intro-widgets}
 
-The HTML Widgets framework is implemented in the R package **htmlwidgets** [@R-htmlwidgets], interfacing JavaScript libraries that create interactive applications, such as interactive graphics and tables. Several widget packages have been developed based on this framework, such as **DT** [@R-DT], **leaflet** [@R-leaflet], and **dygraphs** [@R-dygraphs]. Visit https://www.htmlwidgets.org to know more widget packages as well as how to develop a widget package by yourself.
+The HTML Widgets framework is implemented in the R package **htmlwidgets** [@R-htmlwidgets], interfacing JavaScript libraries that create interactive applications, such as interactive graphics and tables. Several widget packages have been developed based on this framework, such as **DT** [@R-DT], **leaflet** [@R-leaflet], and **dygraphs** [@R-dygraphs]. Visit https://www.htmlwidgets.org to know more about widget packages as well as how to develop a widget package by yourself.
 
 Figure \@ref(fig:leaflet) shows an interactive map created via the **leaflet** package, and the source document is below:
 

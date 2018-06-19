@@ -56,7 +56,7 @@ There are two main types of tutorial documents:
 
 The first type of tutorial is much easier to author while still being very useful. These documents will typically add `exercise = TRUE` to selected code chunks, and also set `exercise.eval = TRUE` so the chunk output is visible by default. The reader can simply look at the R code and move on, or play with it to reinforce their understanding.
 
-The second type of tutorial provides much richer feedback and assessment, but also requires considerably more effort to author. If you are primarily interested in this sort of tutorials, there are many features in **learnr** to support it, including exercise hints and solutions, automated exercise checkers, and multiple choice quizzes with custom feedback.
+The second type of tutorial provides much richer feedback and assessment, but also requires considerably more effort to author. If you are primarily interested in this sort of tutorial, there are many features in **learnr** to support it, including exercise hints and solutions, automated exercise checkers, and multiple choice quizzes with custom feedback.
 
 The most straightforward path is to start with the first type of tutorial (executable chunks with pre-evaluated output), and then move into more sophisticated assessment and feedback over time.
 

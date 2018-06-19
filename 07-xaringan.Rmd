@@ -57,11 +57,11 @@ After opening slides generated from **xaringan** or remark.js, you may press the
 
 - To go the next slide, you may press `Right`/`Down` arrows, `PageDown`, `Space`, or `j`.
 
-- You may press `Home` to go to the first slide, or `End` to the last slide, if you have these keys.
+- You may press `Home` to go to the first slide, or `End` to go to the last slide, if you have these keys.
 
 - Typing a number and pressing `Return` (or `Enter`), you can jump to a specific slide with that page number.
 
-- Press `b` to black out a slide, and `m` to "mirror" a slide (reverse everything on the slide). These techniques can be useful when you do not want the audience to read the slide, e.g., when you have solutions on a slide but do not want to show to your students immediately. I encourage you to try `m`; it can be a lot of fun. You can press these keys again to resume the normal slide.
+- Press `b` to black out a slide, and `m` to "mirror" a slide (reverse everything on the slide). These techniques can be useful when you do not want the audience to read the slide, e.g., when you have solutions on a slide but do not want to show them to your students immediately. I encourage you to try `m`; it can be a lot of fun. You can press these keys again to resume the normal slide.
 
 - Press `f` to toggle the fullscreen mode.
 
@@ -73,7 +73,7 @@ After opening slides generated from **xaringan** or remark.js, you may press the
 
 The [remark.js Wiki](https://github.com/gnab/remark/wiki) contains detailed documentation about how to format slides and use the presentation (keyboard shortcuts). The **xaringan** package has simplified several things compared to the official remark.js guide, e.g., you do not need a boilerplate HTML file, you can set the autoplay mode via an option of `moon_reader()`, and LaTeX math basically just works.
 
-Please note that remark.js has its own Markdown interpreter that is _not compatible_ with Pandoc's Markdown converter, so you will not be able to use any advanced Pandoc Markdown features (e.g., the citation syntax `[@key]`). You may use raw HTML when there is something you desire but is not supported by remark.js. For example, you can generate an HTML table via `knitr::kable(head(iris), 'html')`.
+Please note that remark.js has its own Markdown interpreter that is _not compatible_ with Pandoc's Markdown converter, so you will not be able to use any advanced Pandoc Markdown features (e.g., the citation syntax `[@key]`). You may use raw HTML when there is something you desire that is not supported by remark.js. For example, you can generate an HTML table via `knitr::kable(head(iris), 'html')`.
 
 ### Slides and properties
 
@@ -253,7 +253,7 @@ knitr::include_graphics('images/mirror-display.png', dpi = NA)
 
 ### yolo: true
 
-Inspired by a random feature request from [a tweet by Karthik Ram](https://twitter.com/_inundata/status/798970002992873472), the output format `xaringan::moon_reader` provided an option named `yolo` (an acronym of "you only live once"). If you set it to true, a photo of Karl Broman (with a mustache) will be inserted to a random slide in your presentation.^[For the full story behind the mustache, see Karl's post at http://kbroman.org/blog/2014/08/28/the-mustache-photo/.]
+Inspired by a random feature request from [a tweet by Karthik Ram](https://twitter.com/_inundata/status/798970002992873472), the output format `xaringan::moon_reader` provided an option named `yolo` (an acronym of "you only live once"). If you set it to true, a photo of Karl Broman (with a mustache) will be inserted into a random slide in your presentation.^[For the full story behind the mustache, see Karl's post at http://kbroman.org/blog/2014/08/28/the-mustache-photo/.]
 
 ```yaml
 ---
@@ -283,7 +283,7 @@ Developing software is fun, isn't it?
 
 You can knit the source document like other Rmd documents to view the output, but it may be tedious to have to knit it over and over again whenever you make changes. The other way to preview the slides is the RStudio addin "Infinite Moon Reader" or the function `xaringan::inf_mr()`, as mentioned in Section \@ref(compile). With this way, you can continuously preview your slides just by saving the source document. The continuous preview is achieved via a local web server launched by the **servr** package [@R-servr].
 
-One distinction of `xaringan::moon_reader` with other R Markdown output formats is that it does not generate self-contained HTML documents by default (see Section \@ref(document-dependencies)). This means none of external dependencies such as images or JavaScript libraries will be embedded in the HTML output file by default. Due to technical difficulties (remark.js does not use Pandoc but renders Markdown in real time in the browser), it is hard to implement the self-contained mode well. If you have to publish the slides to a web server, but it is not convenient for you to upload all the dependencies, **xaringan** may not be a good choice for you. If you use GitHub Pages or Netlify, this may not be a big problem (you commit or upload all files).
+One distinction of `xaringan::moon_reader` when compared to other R Markdown output formats is that it does not generate self-contained HTML documents by default (see Section \@ref(document-dependencies)). This means none of the external dependencies such as images or JavaScript libraries will be embedded in the HTML output file by default. Due to technical difficulties (remark.js does not use Pandoc but renders Markdown in real time in the browser), it is hard to implement the self-contained mode well. If you have to publish the slides to a web server, but it is not convenient for you to upload all the dependencies, **xaringan** may not be a good choice for you. If you use GitHub Pages or Netlify, this may not be a big problem (you commit or upload all files).
 
 ## CSS and themes
 

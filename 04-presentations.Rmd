@@ -324,7 +324,7 @@ However, please note that the level of customization that can be achieved is lim
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of ioslides presentations, including figure options (Section \@ref(figure-options)), MathJax equations (Section \@ref(mathjax-equations)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), keeping Markdown (Section \@ref(keeping-markdown)), document dependencies (Section \@ref(document-dependencies)), header and before/after body includes (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of ioslides presentations, including figure options (Section \@ref(figure-options)), MathJax equations (Section \@ref(mathjax-equations)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), keeping Markdown (Section \@ref(keeping-markdown)), document dependencies (Section \@ref(document-dependencies)), header and before/after body inclusions (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## Slidy presentation
 
@@ -433,7 +433,7 @@ output:
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of Slidy presentations, including figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), keeping Markdown (Section \@ref(keeping-markdown)), document dependencies (Section \@ref(document-dependencies)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of Slidy presentations, including figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), keeping Markdown (Section \@ref(keeping-markdown)), document dependencies (Section \@ref(document-dependencies)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 Slide presentations have several features in common with ioslides presentations in Section \@ref(ioslides-presentation). For incremental bullets, see Section \@ref(incremental-bullets). For custom CSS, see Section \@ref(custom-css-ioslides). For printing Slidy slides to PDF, see Section \@ref(printing-and-pdf-output).
 
@@ -520,13 +520,13 @@ output:
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of Beamer presentations, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of Beamer presentations, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 Beamer presentations have a few features in common with ioslides presentations in Section \@ref(ioslides-presentation) and PDF documents in Section \@ref(pdf-document). For incremental bullets, see Section \@ref(incremental-bullets). For how to keep the intermediate LaTeX output file, see Section \@ref(keeping-intermediate-tex).
 
 ## PowerPoint presentation
 
-To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. Currently the RStudio version 1.1.x still ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a daily build of RStudio](https://dailies.rstudio.com) (>= 1.2.633), which has bundled Pandoc 2.x.
+To create a PowerPoint presentation from R Markdown, you specify the `powerpoint_presentation` output format in the YAML metadata of your document. Please note that this output format is only available in **rmarkdown** >= v1.9, and requires at least Pandoc v2.0.5. You can check the versions of your **rmarkdown** package and Pandoc with `packageVersion('rmarkdown')` and `rmarkdown::pandoc_version()` in R, respectively. The RStudio version 1.1.x ships Pandoc 1.19.2.1, which is not sufficient to generate PowerPoint presentations. You need to either install Pandoc 2.x by yourself if you use RStudio 1.1.x, or install [a preview version of RStudio](https://www.rstudio.com/products/rstudio/download/preview/) (>= 1.2.633), which has bundled Pandoc 2.x.
 
 Below is a quick example (see Figure \@ref(fig:powerpoint) for a sample slide):
 
@@ -579,7 +579,7 @@ You can generate most elements supported by Pandoc's Markdown (Section \@ref(mar
 
 Please note that images and tables will always be placed on new slides. The only elements that can coexist with an image or table on a slide are the slide header and image/table caption. When you have a text paragraph and an image on the same slide, the image will be moved to a new slide automatically. Images will be scaled automatically to fit the slide, and if the automatic size does not work well, you may manually control the image sizes: for static images included via the Markdown syntax `![]()`, you may use the `width` and/or `height` attributes in a pair of curly braces after the image, e.g., `![caption](foo.png){width=40%}`; for images generated dynamically from R code chunks, you can use the chunk options `fig.width` and `fig.height` to control the sizes.
 
-Please read the section "Producing slide shows with pandoc" in Pandoc's manual for more information on slide shows, such as the multi-column layout:
+Please read the section "Producing slide shows with Pandoc" in Pandoc's manual for more information on slide shows, such as the multi-column layout:
 
 ```markdown
 :::::: {.columns}
@@ -610,7 +610,7 @@ Note that the `reference_doc` option requires a version of **rmarkdown** higher 
 
 ```{r eval=FALSE}
 if (packageVersion('rmarkdown') <= '1.9') {
-  devtools::install_github('rstudio/rmarkdown')
+  install.packages('rmarkdown')  # update rmarkdown from CRAN
 }
 ```
 

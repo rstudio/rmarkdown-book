@@ -30,7 +30,7 @@ You can use the wizard in RStudio IDE from the menu `File -> New File -> R Markd
 
 The Tufte style provides the first and second-level headings (that is, `#` and `##`), demonstrated in the next section. You may get unexpected output (and even errors) if you try to use `###` and smaller headings.
 
-In his later books,^[Such as "Beautiful Evidence": http://www.edwardtufte.com/tufte/books_be.], Tufte starts each section with a bit of vertical space, a non-indented paragraph, and sets the first few words of the sentence in small caps. To accomplish this using this style, call the `newthought()` function in **tufte** in an _inline R expression_ `` `r ` ``. Note that you should not assume **tufte** has been attached to your R session. You should either `library(tufte)` in your R Markdown document before you call `newthought()`, or use `tufte::newthought()`.
+In his later books,^[Such as "Beautiful Evidence": http://www.edwardtufte.com/tufte/books_be.], Tufte starts each section with a bit of vertical space, a non-indented paragraph, and sets the first few words of the sentence in small caps. To accomplish this using this style, call the `newthought()` function in **tufte** in an _inline R expression_ `` `r ` ``. Note that you should not assume **tufte** has been attached to your R session. You should either use `library(tufte)` in your R Markdown document before you call `newthought()`, or use `tufte::newthought()`.
 
 ## Figures {#tufte-figures}
 
@@ -64,7 +64,7 @@ $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
 ```
 ````
 
-For the sake of portability between LaTeX and HTML, you should keep the margin content as simple as possible (syntax-wise) in the `marginefigure` blocks. You may use simple Markdown syntax like `**bold**` and `_italic_` text, but please refrain from using footnotes, citations, or block-level elements (e.g., blockquotes and lists) there.
+For the sake of portability between LaTeX and HTML, you should keep the margin content as simple as possible (syntax-wise) in the `marginfigure` blocks. You may use simple Markdown syntax like `**bold**` and `_italic_` text, but please refrain from using footnotes, citations, or block-level elements (e.g., blockquotes and lists) there.
 
 Note that if you set `echo = FALSE` in your global chunk options, you will have to add `echo = TRUE` to the chunk to display a margin figure, for example ```` ```{marginfigure, echo = TRUE} ````.
 

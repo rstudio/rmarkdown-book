@@ -68,7 +68,7 @@ The **knitr** and Pandoc options can get considerably complicated (see help page
 
 You can also pass a `base_format` to the `output_format()` function if you want to inherit all of the behavior of an existing format but tweak a subset of its options.
 
-If there are supporting files required for your format but cannot be easily handled by the `includes` option (see Section \@ref(includes)), you will also need to use the other arguments to `output_format` to ensure they are handled correctly (e.g., use the `intermediates_generator` to copy them into the place alongside the generated document).
+If there are supporting files required for your format that cannot be easily handled by the `includes` option (see Section \@ref(includes)), you will also need to use the other arguments to `output_format` to ensure they are handled correctly (e.g., use the `intermediates_generator` to copy them into the place alongside the generated document).
 
 The best way to learn more about creating fully custom formats is to study the source code of the existing built-in formats (e.g., `html_document` and `pdf_document`): https://github.com/rstudio/rmarkdown/tree/master/R. In some cases, a custom format will define its own Pandoc template, which was discussed in Section \@ref(template-pandoc).
 

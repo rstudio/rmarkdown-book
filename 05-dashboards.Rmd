@@ -2,7 +2,7 @@
 
 # Dashboards
 
-R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard]\index{flexdashboard}.
+R Markdown is customizable and extensible. In Chapters \@ref(documents) and \@ref(presentations), we have introduced basic document and presentation formats in the **rmarkdown** package, and explained how to customize them. From this chapter on, we will show several more existing extension packages that bring different styles, layouts, and applications to the R Markdown ecosystem. In this chapter, we introduce dashboards based on the **flexdashboard** package [@R-flexdashboard]\index{flexdashboard}.
 
 Dashboards are particularly common in business-style reports. They can be used to highlight brief and key summaries of a report. The layout of a dashboard is often grid-based, with components arranged in boxes of various sizes.
 
@@ -29,7 +29,7 @@ rmarkdown::draft(
 )
 ```
 
-The full documentation of **flexdashboard** is at https://rmarkdown.rstudio.com/flexdashboard/. We will only cover some basic features and usage in this chapter. Dashboards have many features in common with HTML documents (Section \@ref(html-document)), such as figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), header and before/after body includes (Section \@ref(includes)), and Pandoc arguments (Section \@ref(pandoc-arguments)), and so on. We also recommend that you take a look at the R help page `?flexdashboard::flex_dashboard` to learn about more features and options.
+The full documentation of **flexdashboard** is at https://rmarkdown.rstudio.com/flexdashboard/. We will only cover some basic features and usage in this chapter. Dashboards have many features in common with HTML documents (Section \@ref(html-document)), such as figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), header and before/after body inclusions (Section \@ref(includes)), and Pandoc arguments (Section \@ref(pandoc-arguments)), and so on. We also recommend that you take a look at the R help page `?flexdashboard::flex_dashboard` to learn about more features and options.
 
 ## Layout
 
@@ -194,7 +194,7 @@ For example, the following dashboard includes some content at the top and a dash
 knitr::include_graphics('images/dashboard-text.png', dpi = NA)
 ```
 
-Each component within a dashboard includes an optional title and notes sections. The title is simply the text after the third-level (`###`) section heading. The notes are any text prefaced with `>` after the code chunk that yields the component's output (see the second component of the above example).
+Each component within a dashboard includes optional title and notes sections. The title is simply the text after the third-level (`###`) section heading. The notes are any text prefaced with `>` after the code chunk that yields the component's output (see the second component of the above example).
 
 You can exclude the title entirely by applying the `.no-title` attribute to a section heading.
 
@@ -202,7 +202,7 @@ You can exclude the title entirely by applying the `.no-title` attribute to a se
 
 By default, the dashboard navigation bar includes the document's `title`, `author`, and `date`. When a dashboard has multiple pages (Section \@ref(multiple-pages)), links to the various pages are also included on the left side of the navigation bar. You can also add social links to the dashboard.
 
-In addition, you can custom links to the navigation bar using the `navbar` option. For example, the following options add an "About" link to the navigation bar:
+In addition, you can add custom links to the navigation bar using the `navbar` option. For example, the following options add an "About" link to the navigation bar:
 
 ```yaml
 ---
@@ -263,7 +263,7 @@ knitr::include_graphics('images/dashboard-shiny.png', dpi = NA)
 
 The first column includes the `{.sidebar}` attribute and two Shiny input controls; the second column includes the Shiny code required to render the chart based on the inputs.
 
-One important thing to note about this example is the chunk labeled `global` at the top of the document. The `global` chunk has special behavior within **flexdashboard**: it is executed only once within the global environment, so that its results (e.g., data frames read from disk) can be accessed by all users of a multi-user dashboard. Loading your data within a `global` chunk will result in substantially better startup performance for your users, hence is highly recommended.
+One important thing to note about this example is the chunk labeled `global` at the top of the document. The `global` chunk has special behavior within **flexdashboard**: it is executed only once within the global environment, so that its results (e.g., data frames read from disk) can be accessed by all users of a multi-user dashboard. Loading your data within a `global` chunk will result in substantially better startup performance for your users, and hence is highly recommended.
 
 ### Input sidebar
 

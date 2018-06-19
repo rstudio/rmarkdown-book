@@ -219,7 +219,7 @@ Table: (\#tab:df-print) The possible values of the `df_print` option for the `ht
 
 #### Paged printing
 
-When the `df_print` option is set to `paged`, tables are printed as an HTML table with support for pagination over rows and columns. For instance (see Figure \@ref(fig:paged)):
+When the `df_print` option is set to `paged`, tables are printed as HTML tables with support for pagination over rows and columns. For instance (see Figure \@ref(fig:paged)):
 
 ````markdown
 ---
@@ -338,7 +338,7 @@ output:
 
 Note that even for self-contained documents, MathJax is still loaded externally (this is necessary because of its big size). If you want to serve MathJax locally, you should specify `mathjax: local` and `self_contained: false`.
 
-One common reason keep dependencies external is for serving R Markdown documents from a website (external dependencies can be cached separately by browsers, leading to faster page load times). In the case of serving multiple R Markdown documents you may also want to consolidate dependent library files (e.g. Bootstrap, and MathJax, etc.) into a single directory shared by multiple documents. You can use the `lib_dir` option to do this. For example:
+One common reason to keep dependencies external is for serving R Markdown documents from a website (external dependencies can be cached separately by browsers, leading to faster page load times). In the case of serving multiple R Markdown documents you may also want to consolidate dependent library files (e.g. Bootstrap, and MathJax, etc.) into a single directory shared by multiple documents. You can use the `lib_dir` option to do this. For example:
 
 ```yaml
 ---
@@ -513,7 +513,7 @@ If you prefer to use the console by default for *all* your R Markdown documents 
 
 Notebook chunks can be inserted quickly using the keyboard shortcut `Ctrl + Alt + I` (macOS: `Cmd + Option + I`), or via the `Insert` menu in the editor toolbar.
 
-Because all of a chunk's output appears beneath the chunk (not alongside the statement which emitted the output, as it does in the rendered R Markdown output), it is often helpful to split chunks that produce multiple outputs into two or more chunks which each produce only one output. To do this, select the code to split into a new chunk (Figure \@ref(fig:notebook-split-before)), and use the same keyboard shortcut for inserting a new code chunks (Figure \@ref(fig:notebook-split-after)).
+Because all of a chunk's output appears beneath the chunk (not alongside the statement which emitted the output, as it does in the rendered R Markdown output), it is often helpful to split chunks that produce multiple outputs into two or more chunks which each produce only one output. To do this, select the code to split into a new chunk (Figure \@ref(fig:notebook-split-before)), and use the same keyboard shortcut for inserting a new code chunk (Figure \@ref(fig:notebook-split-after)).
 
 ```{r notebook-split-before, echo=FALSE, fig.cap='Select the code to split into a new chunk.', out.width='90%', fig.align='center'}
 knitr::include_graphics('images/notebook-split-before.png', dpi = NA)
@@ -571,7 +571,7 @@ To execute an inline R expression in the notebook, put your cursor inside the ch
 knitr::include_graphics('images/notebook-inline-output.png', dpi = NA)
 ```
 
-In notebooks, inline R expressions can only produce text (not figures or other kinds of output). It is also important that inline R expressions executes quickly and does not have side-effects, as they are executed whenever you save the notebook.
+In notebooks, inline R expressions can only produce text (not figures or other kinds of output). It is also important that inline R expressions executes quickly and do not have side-effects, as they are executed whenever you save the notebook.
 
 Notebooks are typically self-contained. However, in some situations, it is preferable to re-use code from an R script as a notebook chunk, as in **knitr**'s [code externalization](https://yihui.name/knitr/demo/externalization/). This can be done by using `knitr::read_chunk()` in your notebook's setup chunk, along with a special `## ---- chunkname` annotation in the R file from which you intend to read code. Here is a minimal example with two files:
 
@@ -974,7 +974,7 @@ output: word_document
 ---
 ```
 
-The most notable feature of Word documents is the Word template, which is also known as the "style reference document". You can specify a document to be used as as a style reference in producing a `*.docx` file (a Word document). This will allow you to customize things such as margins and other formatting characteristics. For best results, the reference document should be a modified version of a `.docx` file produced using **rmarkdown** or Pandoc. The path of such a document can be passed to the `reference_docx` argument of the `word_document` format. Pass `"default"` to use the default styles. For example:
+The most notable feature of Word documents is the Word template, which is also known as the "style reference document". You can specify a document to be used as a style reference in producing a `*.docx` file (a Word document). This will allow you to customize things such as margins and other formatting characteristics. For best results, the reference document should be a modified version of a `.docx` file produced using **rmarkdown** or Pandoc. The path of such a document can be passed to the `reference_docx` argument of the `word_document` format. Pass `"default"` to use the default styles. For example:
 
 ```yaml
 ---
@@ -1017,7 +1017,7 @@ output:
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body includes (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## Rich Text Format document
 
@@ -1108,7 +1108,7 @@ In many cases, you can simply copy and paste the Markdown generated by `rmarkdow
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of Markdown documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), header and before/after body includes (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of Markdown documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), header and before/after body inclusions (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
 ## R package vignette
 

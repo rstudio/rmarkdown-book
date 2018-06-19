@@ -175,7 +175,7 @@ and $a$ and $b$ denote the lengths of the other two sides, we have
 $$a^2 + b^2 = c^2$$
 ```
 
-Theorems can be numbered and cross-referenced, as you can see from Theorem \@ref(thm:pyth). The `proof` environment behaves similarly to theorem environments but are unnumbered.
+Theorems can be numbered and cross-referenced, as you can see from Theorem \@ref(thm:pyth). The `proof` environment behaves similarly to theorem environments but is unnumbered.
 
 Variants of the `theorem` environments include: `r knitr::combine_words(names(bookdown:::theorem_abbr[-1]), before = '\x60')`. Variants of the `proof` environments include `r knitr::combine_words(names(bookdown:::label_names_math2[-1]), before = '\x60')`. The syntax for these environments is similar to the `theorem` environment, e.g., ```` ```{lemma}````.
 
@@ -189,7 +189,7 @@ There are two special types of first-level headers than can be used in **bookdow
 
 ### Text references
 
-A text reference is a paragraph with a label. The sytax is `(ref:label) text`, where `label` is a unique identifier, and `text` is a Markdown paragraph. For example:
+A text reference is a paragraph with a label. The syntax is `(ref:label) text`, where `label` is a unique identifier, and `text` is a Markdown paragraph. For example:
 
 ```markdown
 (ref:foo) Define a text reference **here**.
@@ -314,7 +314,7 @@ In this section, we explain how to edit, build, preview, and serve the book loca
 
 ### Build the book
 
-To build all Rmd files into a book, you can call the function `bookdown::render_book()`. It uses the settings specified in the `_output.yml` (if exists). If multiple output formats are specified in it, all formats will be built. If you are using RStudio, this can be done through the `Build` tab. Open the drop down menu `Build Book` if you only want to build one format.
+To build all Rmd files into a book, you can call the function `bookdown::render_book()`. It uses the settings specified in the `_output.yml` (if it exists). If multiple output formats are specified in it, all formats will be built. If you are using RStudio, this can be done through the `Build` tab. Open the drop down menu `Build Book` if you only want to build one format.
 
 (ref:bookdown-build) The `Build` tab within RStudio highlighting **bookdown** output formats.
 
@@ -340,7 +340,7 @@ The **bookdown** package comes with two addins for RStudio which assist the edit
 
 ## Publishing {#bookdown-publish}
 
-You can generate books for both physical and electronic distributions. This section outlines some of the main options.
+You can generate books for both physical and electronic distribution. This section outlines some of the main options.
 
 ### RStudio Connect
 
@@ -352,4 +352,4 @@ You can host your book online with many other web services, such as Netlify or G
 
 ### Publishers
 
-You can consider publishing physical copies of your book with a publisher or using a self-publishing. Many publishers provide LaTeX style classes that can be used to set the overall appearance of the book, and these can be used easily by setting the `documentclass` option in the YAML metadata of `index.Rmd`. Further customization of the appearance of the PDF book can be achieved by altering the LaTeX preamble via the `includes: in_header` option of `bookdown::pdf_book`.
+You can consider publishing physical copies of your book with a publisher or using self-publishing. Many publishers provide LaTeX style classes that can be used to set the overall appearance of the book, and these can be used easily by setting the `documentclass` option in the YAML metadata of `index.Rmd`. Further customization of the appearance of the PDF book can be achieved by altering the LaTeX preamble via the `includes: in_header` option of `bookdown::pdf_book`.
