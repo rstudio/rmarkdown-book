@@ -15,7 +15,7 @@ mainfont: Palatino
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.8"
 site: bookdown::bookdown_site
-description: "The definitive guide to the R Markdown ecosystem."
+description: "The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages."
 url: 'https\://bookdown.org/yihui/rmarkdown/'
 github-repo: rstudio/rmarkdown-book
 cover-image: images/cover.png
