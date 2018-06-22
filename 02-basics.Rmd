@@ -41,7 +41,7 @@ The slope of the regression is `r b[1]`.
 
 You can create such a text file with any editor (including but not limited to RStudio). If you use RStudio, you can create a new Rmd file from the menu `File -> New File -> R Markdown`.
 
-There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML)\index{YAML}, so sometimes it is also called the YAML metadata or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
+There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes `---`. The syntax for the metadata is YAML (YAML Ain't Markup Language, https://en.wikipedia.org/wiki/YAML, so sometimes it is also called the YAML metadata or the YAML frontmatter. Before it bites you hard, we want to warn you in advance that indentation matters in YAML, so do not forget to indent the sub-fields of a top field properly. See the [Appendix B.2](https://bookdown.org/yihui/bookdown/r-markdown.html) of @xie2016 for a few simple examples that show the YAML syntax.
 
 The body of a document follows the metadata. The syntax for text (also known as prose or narratives) is Markdown, which is introduced in Section \@ref(markdown-syntax). There are two types of computer code, which are explained in detail in Section \@ref(r-code):
 
@@ -119,7 +119,7 @@ R Markdown is used at eelloo (https://eelloo.nl) to design and generate research
 
 We will introduce the R Markdown extension **bookdown** in Chapter \@ref(books). It is an R package that allows you to write books and long-form reports with multiple Rmd files. After this package was published, a large number of books have emerged. You can find a subset of them at https://bookdown.org. Some of these books have been printed, and some only have free online versions.
 
-There have also been students who wrote their dissertations/theses with **bookdown**, such as Ed Berry: https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/. Chester Ismay has even provided an R package **thesisdown** (https://github.com/ismayc/thesisdown)\index{thesisdown} that can render a thesis in various formats. Several other people have customized this package for their own institutions, such as Zhian N. Kamvar's **beaverdown** (https://github.com/zkamvar/beaverdown) and Ben Marwick's **huskydown** (https://github.com/benmarwick/huskydown).
+There have also been students who wrote their dissertations/theses with **bookdown**, such as Ed Berry: https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/. Chester Ismay has even provided an R package **thesisdown** (https://github.com/ismayc/thesisdown) that can render a thesis in various formats. Several other people have customized this package for their own institutions, such as Zhian N. Kamvar's **beaverdown** (https://github.com/zkamvar/beaverdown) and Ben Marwick's **huskydown** (https://github.com/benmarwick/huskydown).
 
 ### Websites {#examples-websites}
 
