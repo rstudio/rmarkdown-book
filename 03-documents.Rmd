@@ -565,7 +565,7 @@ In general, when you execute code in a notebook chunk, it will do exactly the sa
 
     You can use the `fig.width`, `fig.height`, and `fig.asp` chunk options to manually specify the size of rendered plots in the notebook; you can also use `knitr::opts_chunk$set(fig.width = ..., fig.height = ...)` in the setup chunk to to set a default rendered size. Note, however, specifying a chunk size manually suppresses the generation of the display list, so plots with manually specified sizes will be resized using simple image scaling when the notebook editor is resized.
 
-To execute an inline R expression in the notebook, put your cursor inside the chunk and press `Ctrl + Shift + Enter` (macOS: `Cmd + Shift + Enter`). As in the execution of ordinary chunks, the content of the expression will be sent to the R console for evaluation. The results will appear in a small pop-up window next to the code (Figure \@ref(fig:notebook-inline-output)).
+To execute an inline R expression in the notebook, put your cursor inside the chunk and press `Ctrl + Enter` (macOS: `Cmd + Enter`). As in the execution of ordinary chunks, the content of the expression will be sent to the R console for evaluation. The results will appear in a small pop-up window next to the code (Figure \@ref(fig:notebook-inline-output)).
 
 ```{r notebook-inline-output, echo=FALSE, fig.cap='Output from an inline R expression in the notebook.', out.width='40%', fig.align='center'}
 knitr::include_graphics('images/notebook-inline-output.png', dpi = NA)
