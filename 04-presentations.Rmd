@@ -435,7 +435,7 @@ output:
 
 Refer to Section \@ref(html-document) for the documentation of other features of Slidy presentations, including figure options (Section \@ref(figure-options)), appearance and style (Section \@ref(appearance-and-style)), MathJax equations (Section \@ref(mathjax-equations)), data frame printing (Section \@ref(data-frame-printing)), Markdown extensions (Section \@ref(markdown-extensions)), keeping Markdown (Section \@ref(keeping-markdown)), document dependencies (Section \@ref(document-dependencies)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
 
-Slide presentations have several features in common with ioslides presentations in Section \@ref(ioslides-presentation). For incremental bullets, see Section \@ref(incremental-bullets). For custom CSS, see Section \@ref(custom-css-ioslides). For printing Slidy slides to PDF, see Section \@ref(printing-and-pdf-output).
+Slidy presentations have several features in common with ioslides presentations in Section \@ref(ioslides-presentation). For incremental bullets, see Section \@ref(incremental-bullets). For custom CSS, see Section \@ref(custom-css-ioslides). For printing Slidy slides to PDF, see Section \@ref(printing-and-pdf-output).
 
 ## Beamer presentation
 
