@@ -165,7 +165,7 @@ Note that it is also possible to render a series of reports instead of single on
 
 ## Cheat sheets
 
-RStudio has created a large number of cheat sheets, including the one-page R Markdown cheetahs, which are freely available at https://www.rstudio.com/resources/cheatsheets/. There is also a more detailed R Markdown reference guide. Both documents can be used as quick references after you become more familiar with R Markdown.
+RStudio has created a large number of cheat sheets, including the one-page R Markdown cheat sheet, which are freely available at https://www.rstudio.com/resources/cheatsheets/. There is also a more detailed R Markdown reference guide. Both documents can be used as quick references after you become more familiar with R Markdown.
 
 ## Output formats
 
