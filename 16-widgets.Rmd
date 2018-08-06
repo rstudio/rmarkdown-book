@@ -369,7 +369,7 @@ Below are two examples:
                  knitr.defaultHeight = 500)
     ```
 
-Table \@ref(tab:sizing-policy) shows the various options that can be specified within a sizing policy. Note that the default width, height, and padding will be overridden if their values for a specific viewing context are provided (e.g., `browser.defaultWidth` will override `defaultWidth` when the widget is viewed in a web browser). Also note that when you want a widget a fill a viewer, the padding is still applied.
+Table \@ref(tab:sizing-policy) shows the various options that can be specified within a sizing policy. Note that the default width, height, and padding will be overridden if their values for a specific viewing context are provided (e.g., `browser.defaultWidth` will override `defaultWidth` when the widget is viewed in a web browser). Also note that when you want a widget to fill a viewer, the padding is still applied.
 
 Table: (\#tab:sizing-policy) Options that can be specified within a sizing policy.
 

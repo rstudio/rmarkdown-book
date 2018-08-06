@@ -27,7 +27,7 @@ template.yaml
 skeleton/skeleton.Rmd
 ```
 
-The `template.yaml` specifies how the template is displayed within the RStudio "From Template" dialog box. This YAML file must have a `name` and a `description` field. You can optionally specify  `create_dir: true` if you want to a new directory to be created when the template is selected. As an example of the `template.yaml` file:
+The `template.yaml` specifies how the template is displayed within the RStudio "From Template" dialog box. This YAML file must have a `name` and a `description` field. You can optionally specify  `create_dir: true` if you want a new directory to be created when the template is selected. As an example of the `template.yaml` file:
 
 ```yaml
 name: My Template
