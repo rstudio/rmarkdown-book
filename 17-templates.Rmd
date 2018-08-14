@@ -20,7 +20,7 @@ This chapter explains how to create templates and share them within an R package
 
 R Markdown templates should be contained within an R package, which can be easily created from the menu `File -> New Project` in RStudio (choose the project type to be "R Package"). If you are already familiar with creating R packages, you are certainly free to use your own favorite way to create a new package.
 
-Templates are located within the `inst/rmarkdown/templates` directory of a package. This structure can be generated automatically with the [`use_rmarkdown_template()`](https://usethis.r-lib.org/reference/use_rmarkdown_template.html) function from the usethis package. It is possible to contain multiple templates in a single package, with each template stored in a separate sub-directory. As a minimal example, `inst/rmarkdown/templates/my_template` requires the following files:
+Templates are located within the `inst/rmarkdown/templates` directory of a package. This structure can be generated automatically with the [`use_rmarkdown_template()`](https://usethis.r-lib.org/reference/use_rmarkdown_template.html) function from the **usethis** package. It is possible to contain multiple templates in a single package, with each template stored in a separate sub-directory. As a minimal example, `inst/rmarkdown/templates/my_template` requires the following files:
 
 ```markdown
 template.yaml
