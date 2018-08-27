@@ -62,7 +62,7 @@ if (!xfun::loadable('sigma', new_session = TRUE)) source('https://install-github
 # Preface {-}
 
 ```{asis, echo=identical(knitr:::pandoc_to(), 'html')}
-**Note**: This book is to be published by [Chapman & Hall/CRC](https://www.crcpress.com/p/book/9781138359338). The online version of this book is free to read here (thanks to Chapman & Hall/CRC), and licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+**Note**: This book has been published by [Chapman & Hall/CRC](https://www.crcpress.com/p/book/9781138359338). The online version of this book is free to read here (thanks to Chapman & Hall/CRC), and licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 <p style="text-align: center;"><a href="https://www.crcpress.com/p/book/9781138359338"><img src="images/cover.png" alt="The R Markdown book cover" /></a></p>
 ```
