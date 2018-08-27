@@ -139,7 +139,7 @@ Slides are contained within a limited portion of the screen by default to allow 
 
 Backgrounds transition using a `fade` animation by default. This can be changed to a linear sliding transition by specifying the `background-transition: slide`. Alternatively, you can set `data-background-transition` on any slide with a background to override that specific transition.
 
-## 2-D presenations
+## 2-D presentations
 
 You can use the `slide_level` option to specify which level of heading will be used to denote individual slides. If `slide_level` is 2 (the default), a two-dimensional layout will be produced, with level-1 headers building horizontally and level-2 headers building vertically. For example:
 
