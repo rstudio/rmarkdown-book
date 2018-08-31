@@ -606,7 +606,7 @@ output:
 ---
 ```
 
-Note that the `reference_doc` option requires a version of **rmarkdown** higher than 1.19:
+Note that the `reference_doc` option requires a version of **rmarkdown** higher than 1.9:
 
 ```{r eval=FALSE}
 if (packageVersion('rmarkdown') <= '1.9') {
