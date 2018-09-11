@@ -461,7 +461,7 @@ There are a large number of chunk options\index{chunk options} in **knitr** docu
 
 - `out.width` and `out.height`: The output size of R plots in the output document. These options may scale images. You can use percentages, e.g., `out.width = '80%'` means 80% of the page width.
 
-- `fig.align`: The alignment of plots. It can be `'left'`, `center`, or `'right'`.
+- `fig.align`: The alignment of plots. It can be `'left'`, `'center'`, or `'right'`.
 
 - `dev`: The graphical device to record R plots. Typically it is `'pdf'` for LaTeX output, and `'png'` for HTML output, but you can certainly use other devices, such as `'svg'` or `'jpeg'`.
 
