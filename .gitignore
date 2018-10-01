@@ -4,3 +4,6 @@
 .Ruserdata
 _book
 rsconnect
+_bookdown_files
+examples/r-notebook-stub.nb.html
+packages.bib
