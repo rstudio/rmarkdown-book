@@ -503,7 +503,7 @@ output: html_notebook
 
 By default, RStudio enables inline output (Notebook mode) on all R Markdown documents, so you can interact with any R Markdown document as though it were a notebook. If you have a document with which you prefer to use the traditional console method of interaction, you can disable notebook mode by clicking the gear button in the editor toolbar, and choosing `Chunk Output in Console` (Figure \@ref(fig:notebook-console)).
 
-```{r notebook-console, echo=FALSE, fig.cap='Send the R code chunk output to the console.', out.width='50%', fig.align='center'}
+```{r notebook-console, echo=FALSE, fig.cap='Send the R code chunk output to the console.', out.width='80%', fig.align='center'}
 knitr::include_graphics('images/notebook-console.png', dpi = NA)
 ```
 
