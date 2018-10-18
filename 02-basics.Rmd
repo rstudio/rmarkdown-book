@@ -506,7 +506,7 @@ You can provide a figure caption using `fig.cap` in the chunk options. If the do
 
 PDF documents are generated through the LaTeX files generated from R Markdown. A highly surprising fact to LaTeX beginners is that figures float by default: even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page. This is just how LaTeX works by default. It has a tendency to float figures to the top or bottom of pages. Although it can be annoying and distracting, we recommend that you refrain from playing the "Whac-A-Mole" game in the beginning of your writing, i.e., desparately trying to position figures "correctly" while they seem to be always dodging you. You may wish to fine-tune the positions once the content is complete using the `fig.pos` chunk option (e.g., `fig.pos = 'h')`. See https://www.sharelatex.com/learn/Positioning_images_and_tables for possible values of `fig.pos` and more general tips about this behavior in LaTeX. In short, this can be a difficult problem for PDF output.
 
-To place multiple figures side-by-side from the same code chunk, you can use the `fig.hold='hold'` option along with the `out.width` option. Figure \@ref(fig:hold-position) shows an example with two plots, each with a width of `50%`.
+To place multiple figures side-by-side from the same code chunk, you can use the `fig.show='hold'` option along with the `out.width` option. Figure \@ref(fig:hold-position) shows an example with two plots, each with a width of `50%`.
 
 ```{r hold-position, fig.cap='Two plots side-by-side.', fig.show='hold', out.width='50%', fig.width=5, fig.height=4}
 par(mar = c(4, 4, .2, .1))
