@@ -251,9 +251,9 @@ Here is an example that demonstrates how `render_delayed()` works. The code encl
 
 ````markdown
 `r ''````{r, echo = FALSE}
-rmarkdown::render_delayed({
-  numericInput("rows", "How many cars?", 5)
+numericInput("rows", "How many cars?", 5)
 
+rmarkdown::render_delayed({
   renderTable({
     head(cars, input$rows)
   })
