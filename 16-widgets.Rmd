@@ -633,7 +633,7 @@ Typically the HTML "housing" for a widget is just a `<div>` element, and this is
 
 ```r
 sparkline_html = function(id, style, class, ...){
-  tags$span(id = id, class = class)
+  htmltools::tags$span(id = id, class = class)
 }
 ```
 
