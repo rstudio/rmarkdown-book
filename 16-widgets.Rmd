@@ -611,7 +611,7 @@ dyCallbacks(
 )
 ```
 
-Another example is in the `DT` (DataTables) widget (https://rstudio.github.io/DT), where users can specify an `initCallback` with JavaScript to execute after the table is loaded and initialized:
+Another example is in the `DT` (DataTables) widget (https://rstudio.github.io/DT), where users can specify an `initComplete` with JavaScript to execute after the table is loaded and initialized:
 
 ```{r eval=FALSE, tidy=FALSE}
 datatable(head(iris, 20), options = list(
