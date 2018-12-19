@@ -215,7 +215,7 @@ Table: (\#tab:df-print) The possible values of the `df_print` option for the `ht
 | default  | Call the `print.data.frame` generic method |
 | kable  | Use the `knitr::kable` function |
 | tibble  | Use the `tibble::print.tbl_df` function |
-| paged  |  Use `rmarkdown::print.paged_df` to create a pageable table |
+| paged  |  Use `rmarkdown::paged_table` to create a pageable table |
 
 #### Paged printing
 
