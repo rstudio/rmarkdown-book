@@ -1,0 +1,14 @@
+---
+title: "Test R Markdown"
+author: "Rajaomalala Sendra Andriampanjato"
+date: "December 23, 2018"
+output: html_document
+---
+
+```{r hello-rmd, echo=FALSE, fig.cap='Un exemple minimal en R Markdown dans l\'IDE RStudio.', out.width='100%'}
+knitr::include_graphics('images/hello-rmd.png', dpi = NA)
+```
+
+```{r hello-rmd-out, echo=FALSE, fig.cap='L\'output du document de l\'exemple minimal dans RStudio.', out.width='100%'}
+knitr::include_graphics('images/hello-rmd-out.png', dpi = NA)
+```
