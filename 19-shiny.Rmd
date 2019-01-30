@@ -18,7 +18,7 @@ runtime: shiny
 ---
 ```
 
-Note that the output format of the R Markdown document must be an HTML format. That is, the document should generate a web page (a `*.html` file). Non-HTML formats such as `pdf_document` and `word_document` will not work with the Shiny runtime. Please also note that some presentation formats are also HTML formats, such as `ioslides_presentation`, `slidy_presentation`, and `revealjs::revealjs_presentation`.
+Note that the output format of the R Markdown document must be an HTML format. That is, the document should generate a web page (a `*.html` file). Non-HTML formats such as `pdf_document` and `word_document` will not work with the Shiny runtime. Please also note that some presentation formats are also HTML formats, such as `ioslides_presentation` and `slidy_presentation`.
 
 You can also create a new Shiny document from the RStudio menu `File -> New File -> R Markdown`, and choose the document type "Shiny" (see Figure \@ref(fig:shiny-new-document)).
 
