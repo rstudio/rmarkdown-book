@@ -124,11 +124,11 @@ knitr::include_graphics("foo.png")
 
 ## Linking with bookdown {#rticles-bookdown}
 
-As explained in Section \@ref(bookdown-markdown), **bookdown**\index{bookdown} offers several extensions to the Markdown syntax, which can be particularly useful for academic writing, including cross-referencing of figures and tables. All **rticles** output formats are based on `rmarkdown::pdf_document`, and we can use them as the "base formats" for `bookdown::pdf_document2`, e.g.,
+As explained in Section \@ref(bookdown-markdown), **bookdown**\index{bookdown} offers several extensions to the Markdown syntax, which can be particularly useful for academic writing, including cross-referencing of figures and tables. All **rticles** output formats are based on `rmarkdown::pdf_document`, and we can use them as the "base formats" for `bookdown::pdf_book`, e.g.,
 
 ```yaml
 output:
-  bookdown::pdf_document2:
+  bookdown::pdf_book:
     base_format: rticles::peerj_article
 ```
 
