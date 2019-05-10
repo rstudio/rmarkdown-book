@@ -425,7 +425,7 @@ You can insert an R code chunk\index{code chunk} either using the RStudio toolba
 There are a lot of things you can do in a code chunk: you can produce text output, tables, or graphics. You have fine control over all these output via chunk options, which can be provided inside the curly braces (between ```` ```{r```` and `}`). For example, you can choose hide text output via the chunk option `results = 'hide'`, or set the figure height to 4 inches via `fig.height = 4`. Chunk options are separated by commas, e.g.,
 
 ````markdown
-`r ''````{r, chunk-label, results='hide', fig.height=4}
+`r ''````{r chunk-label, results='hide', fig.height=4}
 ````
 
 The value of a chunk option can be an arbitrary R expression, which makes chunk options extremely flexible. For example, the chunk option `eval` controls whether to evaluate (execute) a code chunk, and you may conditionally evaluate a chunk via a variable defined previously, e.g.,
