@@ -802,11 +802,13 @@ There are a number of options that affect the output of figures within PDF docum
 
 - `fig_width` and `fig_height` can be used to control the default figure width and height (6x4.5 is used by default).
 
-- `fig_crop` controls whether the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default). If your graphics device is `postscript`, we recommend that you disable this feature (see more info [in this **knitr** issue](https://github.com/yihui/knitr/issues/1365)).
+- `fig_crop` controls whether the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default).
+    - If you are using [TinyTeX](https://yihui.name/tinytex/) as your LaTeX distribution, we recommend that you run `tinytex::tlmgr_install("pdfcrop")` to install the LaTeX package `pdfcrop`. You also have to make sure the system package [`ghostscript`](https://www.ghostscript.com) is available in your system for `pdfcrop` to work. For macOS users who have installed Homebrew, `ghostscript` can be installed via `brew install ghostscript`.
+    - If your graphics device is `postscript`, we recommend that you disable this feature (see more info in the **knitr** issue [#1365](https://github.com/yihui/knitr/issues/1365)).
 
-* `fig_caption` controls whether figures are rendered with captions (this is `false` by default).
+- `fig_caption` controls whether figures are rendered with captions (this is `false` by default).
 
-* `dev` controls the graphics device used to render figures (defaults to `pdf`).
+- `dev` controls the graphics device used to render figures (defaults to `pdf`).
 
 For example:
 
