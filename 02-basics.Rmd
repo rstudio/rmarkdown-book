@@ -215,7 +215,7 @@ cat(yaml::as.yaml(list(
 Note that the subtitle in the above example is quoted because of the colon.
 
 If you have options that need to be the result of an evaluated R expression, you should use `!expr`, which tells the 
-**yaml** package that it needs to parse that sub-option:
+**yaml** package that it needs to parse that option:
 
 ```yaml
 output:
