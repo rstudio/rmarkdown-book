@@ -214,14 +214,13 @@ cat(yaml::as.yaml(list(
 
 Note that the subtitle in the above example is quoted because of the colon.
 
-If you have options that need to be the result of an evaluated R expression, you should use `!expr`, which tells the 
-**yaml** package that it needs to parse that option:
+If you have options that need to be the result of an evaluated R expression, you can use `!expr`, which tells the 
+**yaml** package that it needs to parse and evaluate that option. Below is an example that uses a random theme for the HTML output:
 
 ```yaml
 output:
   html_document:
-    toc: true
-    css: !expr system.file("rmd", "h", "bootstrap", "css", "yeti.min.css", package = "rmarkdown")
+    theme: !expr sample(c("yeti", "united", "lumen"), 1)
 ```
 
 
