@@ -223,7 +223,6 @@ output:
     theme: !expr sample(c("yeti", "united", "lumen"), 1)
 ```
 
-
 If a certain option has sub-options (which means the value of this option is a list in R), the sub-options need to be further indented, e.g.,
 
 ```yaml
