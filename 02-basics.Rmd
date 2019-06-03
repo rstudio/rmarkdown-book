@@ -214,6 +214,16 @@ cat(yaml::as.yaml(list(
 
 Note that the subtitle in the above example is quoted because of the colon.
 
+If you have options that need to be the result of an evaluated R expression, you can use `!expr`, which tells the 
+**yaml** package that it needs to parse and evaluate that option. Below is an example that uses a random theme for the HTML output:
+
+```yaml
+output:
+  html_document:
+    theme: !expr sample(c("yeti", "united", "lumen"), 1)
+```
+
+
 If a certain option has sub-options (which means the value of this option is a list in R), the sub-options need to be further indented, e.g.,
 
 ```yaml
