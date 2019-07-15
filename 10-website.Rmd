@@ -350,6 +350,7 @@ This example demonstrates a number of capabilities of navigation bars:
 
     - [Font Awesome](https://fontawesome.com/icons)
     - [Ionicons](http://ionicons.com/)
+    - [Bootstrap Glyphicons](https://getbootstrap.com/docs/3.3/components/#glyphicons)
 
     When referring to an icon, you should use its full name including the icon set prefix (e.g., `fa-github`, `ion-social-twitter`, and `glyphicon-time`).
 
