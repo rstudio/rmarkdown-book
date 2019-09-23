@@ -779,7 +779,7 @@ print(fit)
 
 ### JavaScript and CSS
 
-If you are using an R Markdown format that targets HTML output (e.g., `html_document` and `ioslides_presenation`, etc.), you can include JavaScript\index{JavaScript} to be executed within the HTML page using the JavaScript engine named `js`.
+If you are using an R Markdown format that targets HTML output (e.g., `html_document` and `ioslides_presentation`, etc.), you can include JavaScript\index{JavaScript} to be executed within the HTML page using the JavaScript engine named `js`.
 
 For example, the following chunk uses jQuery (which is included in most R Markdown HTML formats) to change the color of the document title to red:
 
