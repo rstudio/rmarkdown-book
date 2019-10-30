@@ -402,7 +402,6 @@ By default, R Markdown is defined as all Pandoc Markdown extensions with the fol
 
 ```
 +autolink_bare_uris
-+ascii_identifier
 +tex_math_single_backslash
 ```
 
