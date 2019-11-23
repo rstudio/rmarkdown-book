@@ -36,7 +36,6 @@ abline(fit)
 ```
 
 The slope of the regression is `r b[1]`.
-```
 ````
 
 You can create such a text file with any editor (including but not limited to RStudio). If you use RStudio, you can create a new Rmd file from the menu `File -> New File -> R Markdown`.
