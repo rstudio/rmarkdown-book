@@ -265,7 +265,7 @@ output:
 
 The **xaringan** package is probably best known for this feature. I want to thank Karl for letting me use this photo. It always makes me happy for mysterious reasons.
 
-A less well-known feature is that you can actually replace Karl's picture with other pictures, and/or specify how many times you want a picture to randomly show up in your presentation. For example:
+A less well-known feature is that you can actually replace Karl's picture with other pictures,^[In case you are also interested in Karl's great grandfather's mustache, you can find a picture at https://twitter.com/kwbroman/status/1199142650185691137.] and/or specify how many times you want a picture to randomly show up in your presentation. For example:
 
 ```yaml
 ---
