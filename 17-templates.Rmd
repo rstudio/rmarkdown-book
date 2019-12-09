@@ -14,7 +14,7 @@ Once created, templates are easily accessed within RStudio, and will appear with
 knitr::include_graphics("images/templates-select.png", dpi = NA)
 ```
 
-This chapter explains how to create templates and share them within an R package. If you would like to see some real-world examples, you may check out the source package of **rticles** (https://github.com/rstudio/rticles). The `rmarkdown::html_vignette` format is also a relatively simple example (see both its R source code and [the template structure](https://github.com/rstudio/rmarkdown/tree/master/inst/rmarkdown/templates/html_vignette)). In addition, Michael Harper has kindly prepared more examples in the repository https://github.com/mikey-harper/example-rmd-templates.
+This chapter explains how to create templates and share them within an R package. If you would like to see some real-world examples, you may check out the source package of **rticles** (https://github.com/rstudio/rticles). The `rmarkdown::html_vignette` format is also a relatively simple example (see both its R source code and [the template structure](https://github.com/rstudio/rmarkdown/tree/master/inst/rmarkdown/templates/html_vignette)). In addition, Michael Harper has kindly prepared more examples in the repository https://github.com/dr-harper/example-rmd-templates.
 
 ## Template structure {#template-structure}
 
