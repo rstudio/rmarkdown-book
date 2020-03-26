@@ -438,30 +438,40 @@ output:
 
 Documentation on all available pandoc arguments can be found in the [Pandoc User Guide](http://pandoc.org/MANUAL.html#options).
 
-### Shared options {#shared-options}
+### Shared output options {#shared-options}
 
-If you want to specify a set of default options to be shared by multiple documents within a directory, you can include a file named `_output.yml` within the directory. Note that no YAML delimiters (`---`) or the enclosing `output` field are used in this file. For example:
+You can outsource part or all of the _output_ options to a separate YAML file. This is very convenient to specify a set of default options for multiple documents and thus avoid redundancies (think of it as an "output option template"). The path to this file can be set by the option `output_yaml`. For example:
 
 ```yaml
-html_document:
-  self_contained: false
-  theme: united
-  highlight: textmate
+output_yaml: config/my_custom_opts.yml
 ```
 
-It should not be written as:
+Note that
 
-```yaml
----
-output:
+- options explicitly defined within a document will always override those specified in the separate `output_yaml` file.
+
+- if the `output_yaml` option is not explicitly set in a document, it will default to the file `_output.yml` within the same directory and -- if it exists -- automatically inherit its content.
+
+- in the `output_yaml` file no YAML delimiters (`---`) or the enclosing `output` field are used. A correct example of the file's content could look like:
+
+  ```yaml
   html_document:
     self_contained: false
     theme: united
     highlight: textmate
----
-```
+  ```
 
-All documents located in the same directory as `_output.yml` will inherit its options. Options defined explicitly within documents will override those specified in the shared options file.
+  But _not_:
+
+  ```yaml
+  ---
+  output:
+    html_document:
+      self_contained: false
+      theme: united
+      highlight: textmate
+  ---
+  ```
 
 ### HTML fragments
 
