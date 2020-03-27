@@ -972,7 +972,7 @@ Consult the documentation on [Pandoc templates](https://pandoc.org/README.html#t
 
 ### Other features
 
-Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(markdown-extensions) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared options in `_output.yml` (Section \@ref(shared-options)).
+Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(markdown-extensions) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared output options in a separate YAML file (Section \@ref(shared-options)).
 
 ## Word document
 
