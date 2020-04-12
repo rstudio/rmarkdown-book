@@ -779,7 +779,7 @@ output:
 ---
 ```
 
-If the TOC depth is not explicitly specified, it defaults to 3 (meaning that all level 1, 2, and 3 headers will be included in the TOC).
+If the TOC depth is not explicitly specified, it defaults to 2 (meaning that all level 1 and 2 headers will be included in the TOC), while it defaults to 3 in `html_document`.
 
 You can add section numbering to headers using the `number_sections` option:
 
@@ -799,7 +799,7 @@ If you are familiar with LaTeX, `number_sections: true` means `\section{}`, and 
 
 There are a number of options that affect the output of figures within PDF documents:
 
-- `fig_width` and `fig_height` can be used to control the default figure width and height (6x4.5 is used by default).
+- `fig_width` and `fig_height` can be used to control the default figure width and height (6.5x4.5 is used by default).
 
 - `fig_crop` controls whether the `pdfcrop` utility, if available in your system, is automatically applied to PDF figures (this is `true` by default).
 
@@ -807,7 +807,7 @@ There are a number of options that affect the output of figures within PDF docum
 
     - If your graphics device is `postscript`, we recommend that you disable this feature (see more info in the **knitr** issue [#1365](https://github.com/yihui/knitr/issues/1365)).
 
-- `fig_caption` controls whether figures are rendered with captions (this is `false` by default).
+- `fig_caption` controls whether figures are rendered with captions (this is `true` by default).
 
 - `dev` controls the graphics device used to render figures (defaults to `pdf`).
 
