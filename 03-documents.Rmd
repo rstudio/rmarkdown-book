@@ -779,7 +779,7 @@ output:
 ---
 ```
 
-If the TOC depth is not explicitly specified, it defaults to 3 (meaning that all level 1, 2, and 3 headers will be included in the TOC).
+If the TOC depth is not explicitly specified, it defaults to 2 (meaning that all level 1 and 2 headers will be included in the TOC), while it defaults to 3 in `html_document`.
 
 You can add section numbering to headers using the `number_sections` option:
 
