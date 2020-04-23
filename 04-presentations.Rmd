@@ -583,11 +583,11 @@ Please read the section "Producing slide shows with Pandoc" in Pandoc's manual f
 
 ```markdown
 :::::: {.columns}
-::: {.column width="40%"}
+::: {.column}
 Content of the left column.
 :::
 
-::: {.column width="60%"}
+::: {.column}
 Content of the right column.
 :::
 ::::::
