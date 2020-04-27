@@ -127,3 +127,5 @@ devtools::install_github("username/packagename")
 ```
 
 To find out more about packages and the use of GitHub, you may refer to the book "*R Packages*" [@wickham2015] (http://r-pkgs.had.co.nz/git.html).
+
+If you need some inspiration, there are many examples on CRAN and GitHub providing document templates, such as **tufte** (Chapter \@ref(tufte-handouts)), **prettydoc** (Section \@ref(prettydoc)), **rticles** (Chapter \@ref(journals)), [**memor**,](https://github.com/hebrewseniorlife/memor) and [**rtemps**,](https://github.com/bblodfon/rtemps) etc.
