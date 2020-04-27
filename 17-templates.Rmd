@@ -119,7 +119,7 @@ If you wish to design your own template, we recommend starting from the default 
 
 ## Sharing your templates {#template-share}
 
-As templates are stored within packages, it is easy to distribute them to other users. If you decide not to take the normal approach of publishing your package to CRAN, you may consider using GitHub to host your package instead, in which case users can also easily install your package and templates:
+As templates are stored within packages, it is easy to distribute them to other users. The most common and recommended way is to publish such packages to CRAN. If you decide not to take this way, you may also consider using GitHub to host your package instead, in which case users can also easily install your package and templates:
 
 ```{r, eval=FALSE}
 if (!requireNamespace("devtools")) install.packages("devtools")
