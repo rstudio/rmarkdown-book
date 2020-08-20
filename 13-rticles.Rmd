@@ -38,8 +38,7 @@ If you are using the command line, you can use the `rmarkdown::draft()` function
 
 ```r
 rmarkdown::draft(
-  "MyJSSArticle.Rmd", template = "jss",
-  package = "rticles"
+  "MyJSSArticle.Rmd", template = "jss", package = "rticles"
 )
 ```
 
@@ -63,7 +62,11 @@ The **rticles** package provides templates for various journals and publishers, 
 - MDPI journal submissions
 - Springer journal submissions
 
-The full list is available within the R Markdown templates window in RStudio, or through the command `rticles::journals()`.
+The full list is available within the R Markdown templates window in RStudio, or through the function `rticles::journals()`:
+
+```{r}
+rticles::journals()
+```
 
 ## Using a template {#rticles-usage}
 
