@@ -283,7 +283,17 @@ Developing software is fun, isn't it?
 
 You can knit the source document like other Rmd documents to view the output, but it may be tedious to have to knit it over and over again whenever you make changes. The other way to preview the slides is the RStudio addin "Infinite Moon Reader" or the function `xaringan::inf_mr()`, as mentioned in Section \@ref(compile). With this way, you can continuously preview your slides just by saving the source document. The continuous preview is achieved via a local web server launched by the **servr** package [@R-servr].
 
-One distinction of `xaringan::moon_reader` when compared to other R Markdown output formats is that it does not generate self-contained HTML documents by default (see Section \@ref(document-dependencies)). This means none of the external dependencies such as images or JavaScript libraries will be embedded in the HTML output file by default. Due to technical difficulties (remark.js does not use Pandoc but renders Markdown in real time in the browser), it is hard to implement the self-contained mode well. If you have to publish the slides to a web server, but it is not convenient for you to upload all the dependencies, **xaringan** may not be a good choice for you. If you use GitHub Pages or Netlify, this may not be a big problem (you commit or upload all files).
+One distinction of `xaringan::moon_reader` when compared to other R Markdown output formats is that it does not generate self-contained HTML documents by default (see Section \@ref(document-dependencies)). This means none of the external dependencies such as images or JavaScript libraries will be embedded in the HTML output file by default. You can turn the self-contained mode on via:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    self_contained: true
+```
+
+Due to technical difficulties (remark.js does not use Pandoc but renders Markdown in real time in the browser), it is challenging to implement the self-contained mode really well. Currently, most JavaScript libraries (including remark.js) and CSS files should be correctly embedded in the self-contained mode. Images in slides should also be embedded. The paths of images in slides are identified from `![](PATH)` (Markdown syntax), `<img src="PATH" />` (HTML syntax), and `background-image: url(PATH)` (remark.js syntax for background images). Other types of images will not be discovered or embedded.
+
+If you have to publish the slides to a web server, but **xaringan**'s self-contained mode fails to identify certain resources and embed them, please feel free to file an issue to the GitHub repository at https://github.com/yihui/xaringan. If you publish slides to GitHub Pages or Netlify, this may not be a problem, because you can commit or upload all resources files generated or required by the slides.
 
 ## CSS and themes
 
@@ -444,7 +454,7 @@ The `beforeInit` option can be used to insert arbitrary JavaScript code before r
 
 The **xaringan** package was originally designed for "ninja", meaning that if you know CSS, you will be able to freely customize the style, otherwise you can only accept the default themes. Playing with CSS can be fun and rewarding, but it can also easily waste your time. You aesthetic standards and taste may change from time to time, and you could end up tweaking the styles all the time.
 
-The HTML output file generated from **xaringan** is not self-contained by default, as we mentioned in Section \@ref(xaringan-preview). If your slides must be self-contained and cannot be served through a web server, **xaringan** may not be a good option for you.
+The HTML output file generated from **xaringan** is not self-contained by default, as we mentioned in Section \@ref(xaringan-preview). The self-contained mode of **xaringan** may not work perfectly.
 
 HTML widgets may not work well in **xaringan**. This might be improved in the future, but it is a little tricky technically.
 
