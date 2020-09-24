@@ -6,7 +6,7 @@
 
 ```{r include=FALSE}
 bib = knitr::write_bib(c(
-  .packages(), 'blogdown', 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'servr', 'xaringan', 'animation', 'pkgdown', 'tinytex', 'reticulate', 'JuliaCall', 'DT', 'leaflet', 'dygraphs', 'shiny', 'markdown', 'flexdashboard', 'tufte', 'revealjs', 'prettydoc', 'htmltools', 'rticles', 'learnr', 'rmdformats'
+  .packages(), 'blogdown', 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'servr', 'xaringan', 'animation', 'pkgdown', 'tinytex', 'reticulate', 'JuliaCall', 'DT', 'leaflet', 'dygraphs', 'shiny', 'markdown', 'flexdashboard', 'tufte', 'revealjs', 'prettydoc', 'htmltools', 'rticles', 'learnr', 'rmdformats', 'pagedown'
 ), file = NULL)
 bib = unlist(bib)
 bib = gsub("'(Htmlwidgets|iframes|TeX Live|LaTeX)'", '\\1', bib)
