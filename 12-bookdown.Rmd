@@ -57,7 +57,7 @@ As a summary of these files:
 
 - `index.Rmd`: This is the only Rmd document to contain a YAML frontmatter as described within Chapter \@ref(basics), and is the first book chapter.
 
-- Rmd files: A typical **bookdown** book contains multiple chapters, and one chapter lives in one Rmd file.
+- Rmd files: A typical **bookdown** book contains multiple chapters, and each chapter lives in one separate Rmd file.
 
 - `_bookdown.yml`: A configuration file for **bookdown**.
 
