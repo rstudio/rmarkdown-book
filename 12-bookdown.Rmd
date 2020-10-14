@@ -69,7 +69,7 @@ These files are explained in greater detail in the following subsections.
 
 ### Index file
 
-By default, all Rmd files are merged to render the book. The `index.Rmd` file is the first file when merging all Rmd files. You should only specify the YAML metadata in this file, e.g.,
+The `index.Rmd` file contains the first chapter and the YAML metadata, e.g.,
 
 ```yaml
 ---
@@ -88,7 +88,7 @@ description: "This is a minimal example of using
 
 ### Rmd files
 
-The rest of Rmd files must start immediately with the chapter title using the first-level heading, e.g., `# Chapter Title`.
+By default, all Rmd files are merged with the `index.Rmd` to render the book. The Rmd files must start immediately with the chapter title using the first-level heading, e.g., `# Chapter Title`. Note that YAML metadata should not be included in these Rmd files, as it is inherited from the `index.Rmd` file. 
 
 - 01-intro.Rmd
 
