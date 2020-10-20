@@ -216,6 +216,7 @@ Table: (\#tab:df-print) The possible values of the `df_print` option for the `ht
 | kable  | Use the `knitr::kable` function |
 | tibble  | Use the `tibble::print.tbl_df` function |
 | paged  |  Use `rmarkdown::paged_table` to create a pageable table |
+| A custom function | Use the function to create the table |
 
 #### Paged printing
 
@@ -256,6 +257,37 @@ These options are specified in each chunk like below:
 
 ````markdown
 `r ''````{r cols.print=3, rows.print=3}
+mtcars
+```
+````
+
+#### Custom function {#custom-fun-dfprint}
+
+`df_print` option can also take an arbitrary function to create the table in the output document. This function must output in the correct format according to the output used. 
+
+For example, 
+
+```r
+rmarkdown::html_document(df_print = knitr::kable)
+```
+
+is the equivalent of using the method `"kable"`
+
+```r
+rmarkdown::html_document(df_print = "kable")
+```
+
+To use a custom function in `df_print` within the YAML header, the tag `!expr` must be used so that the expression following is evaluated while the yaml is imported into R, as **rmarkdown** uses `yaml::yaml.load(..., eval.expr = TRUE)` internally. See `?yaml::yaml.load` for details.
+
+````markdown
+---
+title: "Motor Trend Car Road Tests"
+output:
+  html_document:
+    df_print: !expr pander::pander 
+---
+
+`r ''````{r}
 mtcars
 ```
 ````
@@ -835,6 +867,7 @@ Table: (\#tab:df-print-pdf) The possible values of the `df_print` option for the
 | default  | Call the `print.data.frame` generic method |
 | kable  | Use the `knitr::kable()` function |
 | tibble  | Use the `tibble::print.tbl_df()` function |
+| A custom function | Use the function to create the table. See \@ref(custom-fun-dfprint) |
 
 For example:
 
