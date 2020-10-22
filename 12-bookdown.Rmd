@@ -156,6 +156,22 @@ It renders the equation below \@ref(eq:emc):
   (\#eq:emc)
 \end{equation}
 
+You can also use equation labels with `$$...$$` syntax. For example:
+
+```latex
+$$
+  E=mc^2
+  (\#eq:emc2)
+$$
+```
+
+It renders the equation below \@ref(eq:emc2):
+
+$$
+  E=mc^2
+  (\#eq:emc2)
+$$
+
 ### Theorems and proofs {#theorems}
 
 Theorems and proofs provide environments that are commonly used within articles and books in mathematics. To write a theorem, you can use the syntax below:
