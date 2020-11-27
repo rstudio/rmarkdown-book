@@ -873,7 +873,7 @@ geometry: margin=1in
 ---
 ```
 
-A few available metadata variables are displayed in Table \@ref(tab:latex-vars) (consult the Pandoc manual for the full list):
+A few available metadata variables are displayed in Table \@ref(tab:latex-vars) (consult the Pandoc manual for [the full list](https://pandoc.org/MANUAL.html#variables-for-latex)):
 
 Table: (\#tab:latex-vars) Available top-level YAML metadata variables for LaTeX output.
 
