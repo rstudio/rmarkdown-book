@@ -77,7 +77,7 @@ Please note that remark.js has its own Markdown interpreter that is _not compati
 
 ### Slides and properties
 
-Every new slide is created under a horizontal rule (`---`). The content of the slide can be arbitrary, e.g., it does not have to have a slide title, and if it does, the title can be of any level you prefer (`#`, `##`, or `###`).
+Every new slide is created under a horizontal rule (`---`) followed by an empty line. The content of the slide can be arbitrary, e.g., it does not have to have a slide title, and if it does, the title can be of any level you prefer (`#`, `##`, or `###`).
 
 A slide can have a few properties, including `class` and `background-image`, etc. Properties are written in the beginning of a slide, e.g.,
 
