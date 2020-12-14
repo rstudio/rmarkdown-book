@@ -263,7 +263,7 @@ mtcars
 
 #### Custom function {#custom-fun-dfprint}
 
-`df_print` option can also take an arbitrary function to create the table in the output document. This function must output in the correct format according to the output used. 
+The `df_print` option can also take an arbitrary function to create the table in the output document. This function must output in the correct format according to the output used.
 
 For example, 
 
@@ -271,13 +271,13 @@ For example,
 rmarkdown::html_document(df_print = knitr::kable)
 ```
 
-is the equivalent of using the method `"kable"`
+is the equivalent to using the method `"kable"`
 
 ```r
 rmarkdown::html_document(df_print = "kable")
 ```
 
-To use a custom function in `df_print` within the YAML header, the tag `!expr` must be used so that the expression following is evaluated while the yaml is imported into R, as **rmarkdown** uses `yaml::yaml.load(..., eval.expr = TRUE)` internally. See `?yaml::yaml.load` for details.
+To use a custom function in `df_print` within the YAML header, the tag `!expr` must be used so the R expression after it will be evaluated. See the `eval.expr` argument on the help page `?yaml::yaml.load` for details.
 
 ````markdown
 ---
