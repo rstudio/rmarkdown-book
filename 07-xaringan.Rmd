@@ -77,7 +77,7 @@ Please note that remark.js has its own Markdown interpreter that is _not compati
 
 ### Slides and properties
 
-Every new slide is created under a horizontal rule (`---`)^[Take care of a trailing space after the 3 dashes - there should be non and only a new line direclty. It is how remark.js is working and it has confused some users already. For a full story, see https://yihui.org/en/2018/07/yue-jiang/]. The content of the slide can be arbitrary, e.g., it does not have to have a slide title, and if it does, the title can be of any level you prefer (`#`, `##`, or `###`).
+Every new slide is created under a horizontal rule (`---`).^[Take care of a trailing space after the 3 dashes - there should be non and only a new line direclty. It is how remark.js is working and it has confused some users already. For a full story, see https://yihui.org/en/2018/07/yue-jiang/.] The content of the slide can be arbitrary, e.g., it does not have to have a slide title, and if it does, the title can be of any level you prefer (`#`, `##`, or `###`).
 
 A slide can have a few properties, including `class` and `background-image`, etc. Properties are written in the beginning of a slide, e.g.,
 
