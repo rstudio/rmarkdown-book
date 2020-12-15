@@ -158,7 +158,7 @@
 \newcommand\ContributorAffiliationFont{\reset@font\fontsize{10}{12}\raggedright\selectfont}
 \newcommand\ContributorNameFont{\reset@font\fontsize{10}{12}\bfseries\raggedright\selectfont}
 
-\newcommand\TitlePageTitleFont{\fontsize{24}{28}\bfseries\selectfont}
+\newcommand\TitlePageTitleFont{\fontsize{24}{28}\slshape\bfseries\selectfont}
 \newcommand\PageNumFont{\reset@font\fontsize{10}{12}\selectfont}
 \newcommand\ChapNumFont{\reset@font\fontsize{24}{24}\bfseries\selectfont}
 \newcommand\ChapTitleFont{\reset@font\fontsize{18}{20}\slshape\selectfont}
@@ -375,7 +375,7 @@
 \let\@oddfoot\@empty
 \let\@evenfoot\@empty
     \let\@evenhead\even@head
-    \let\@oddhead\odd@head
+    \def\@oddhead{\RunningHeadFont\if@mainmatter\ifnum\value{section}>0 \enspace\fi\fi\rightmark\hfill\PageNumFont\thepage}%\odd@head
   \fi
   }
 \else
@@ -447,9 +447,9 @@
   \def\chaptermark##1{%
     \markboth{%
       ##1}{}}%
-  \def\sectionmark##1{%
+  \def\sectionmark##1{%\pagebreak[3]%
     \markright{%
-      ##1}}}
+      \thesection\enspace##1}}}
 \def\pdfon{\@pdftrue}
 \def\pdfoff{\@pdffalse}
 \if@pdf
