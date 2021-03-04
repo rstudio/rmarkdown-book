@@ -1040,7 +1040,7 @@ output: odt_document
 ---
 ```
 
-Similar to `word_document,` you can also provide a style reference document to `odt_document` throught the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
+Similar to `word_document,` you can also provide a style reference document to `odt_document` through the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
 
 ```yaml
 ---
