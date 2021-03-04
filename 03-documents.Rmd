@@ -497,7 +497,7 @@ All documents located in the same directory as `_output.yml` will inherit its op
 
 ### HTML fragments
 
-If want to create an HTML fragment rather than a full HTML document you can use the `html_fragment` format. For example:
+If you want to create an HTML fragment rather than a full HTML document, you can use the `html_fragment` format. For example:
 
 ```yaml
 ---
@@ -1040,7 +1040,7 @@ output: odt_document
 ---
 ```
 
-Similar to `word_document,` you can also provide a style reference document to `odt_document` throught the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
+Similar to `word_document,` you can also provide a style reference document to `odt_document` through the `reference_odt` option. For best results, the reference ODT document should be a modified version of an ODT file produced using **rmarkdown** or Pandoc. For example:
 
 ```yaml
 ---
