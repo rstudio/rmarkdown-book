@@ -793,7 +793,7 @@ output: pdf_document
 ---
 ```
 
-Within R Markdown documents that generate PDF output, you can use raw LaTeX\index{LaTeX}, and even define LaTeX macros. See Pandoc's documentation on the [raw_tex extension](http://pandoc.org/MANUAL.html#extension-raw_tex) for details.
+Within R Markdown documents that generate PDF output, you can use raw LaTeX\index{LaTeX}, and even define LaTeX macros. See Pandoc's documentation on the [raw_tex extension](https://pandoc.org/MANUAL.html#extension-raw_tex) for details.
 
 Note that PDF output (including Beamer slides) requires an installation of LaTeX (see Chapter \@ref(installation)).
 

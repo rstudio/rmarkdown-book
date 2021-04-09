@@ -54,7 +54,7 @@ The **rticles** package provides templates for various journals and publishers, 
 - AMS articles (American Meteorological Society)
 - PeerJ articles
 - Elsevier journal submissions
-- AEA journal submissions (American Meteorological Society)
+- AEA journal submissions (American Economic Association)
 - IEEE Transaction journal submissions
 - Statistics in Medicine journal submissions
 - Royal Society Open Science journal submissions
