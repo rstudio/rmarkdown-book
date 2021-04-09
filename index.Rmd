@@ -38,9 +38,12 @@ options(bookdown.post.latex = function(x) {
   # \FunctionTok{tufte::tufte_html:}\AttributeTok{ default}
   x = gsub('(\\\\FunctionTok\\{[^:]+:)(})(\\\\AttributeTok\\{)(:[^:]+:)', '\\1\\4\\2\\3', x)
   # an ugly hack for Table 16.1 (Pandoc's widths are not good)
-  if (length(grep('0.47\\\\columnwidth', x)) == 0) stop('Table 16.1 not found')
-  x = gsub('( & \\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.65\\2', x)
-  x = gsub('(^\\\\begin\\{minipage\\}\\[[tb]]\\{)0.47(\\\\columnwidth})', '\\10.33\\2', x)
+  if (length(i <- grep('\\caption{\\label{tab:sizing-policy}', x, fixed = TRUE)) == 0)
+    stop('Table 16.1 not found')
+  x[i - 1] = gsub('\\real{0.50}', '\\real{0.67}', x[i - 1], fixed = TRUE)
+  x[i - 2] = gsub('\\real{0.50}', '\\real{0.33}', x[i - 2], fixed = TRUE)
+  # not sure if the following tweaks are still necessary
+  if (FALSE) {
   if (length(i <- grep('^\\\\begin\\{longtable\\}', x)) == 0) return(x)
   i1 = bookdown:::next_nearest(i, which(x == '\\toprule'))
   i2 = bookdown:::next_nearest(i, which(x == '\\endfirsthead'))
@@ -49,6 +52,7 @@ options(bookdown.post.latex = function(x) {
   x[x == '\\end{longtable}'] = '\\end{tabular}\n\\end{table}'
   x[x == '\\endhead'] = ''
   x = x[-unlist(mapply(seq, i1, i2, SIMPLIFY = FALSE))]
+  }
   x
 })
 
