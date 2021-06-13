@@ -270,7 +270,7 @@ There are multiple ways to insert citations,\index{citation} and we recommend th
 }
 ```
 
-You may add a field named `bibliography` to the YAML metadata, and set its value to the path of the BibTeX file. Then in Markdown, you may use `@R-base` (which generates "@R-base") or `[@R-base]` (which generates "[@R-base]") to reference the BibTeX entry. Pandoc will automatically generated a list of references in the end of the document.
+You may add a field named `bibliography` to the YAML metadata, and set its value to the path of the BibTeX file. Then in Markdown, you may use `@R-base` (which generates "@R-base") or `[@R-base]` (which generates "[@R-base]") to reference the BibTeX entry. Pandoc will automatically generate a list of references in the end of the document.
 
 ### Block-level elements
 
