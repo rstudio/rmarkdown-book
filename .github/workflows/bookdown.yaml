@@ -37,6 +37,10 @@ jobs:
         with:
           needs: deploy
 
+      - name: Install missing system dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get install -y ghostscript
+
       - name: Cache bookdown results
         uses: actions/cache@v2
         with:
