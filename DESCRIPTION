@@ -25,5 +25,7 @@ Imports:
     tufte,
     webshot,
     xaringan
+    sigma
 Config/need/deploy: rsconnect
+remotes: jjallaire/sigma
 Encoding: UTF-8
