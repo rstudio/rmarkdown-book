@@ -26,6 +26,7 @@ Imports:
     webshot,
     xaringan
     sigma
-Config/need/deploy: rsconnect
-Remotes: jjallaire/sigma
+Remotes: 
+    jjallaire/sigma
+Config/Needs/deploy: rsconnect
 Encoding: UTF-8
