@@ -24,7 +24,7 @@ Imports:
     shiny,
     tufte,
     webshot,
-    xaringan
+    xaringan,
     sigma
 Remotes: 
     jjallaire/sigma
