@@ -37,11 +37,6 @@ jobs:
         with:
           needs: deploy
 
-      - name: Install phantomjs
-        run: |
-          webshot::install_phantomjs()
-        shell: Rscript {0}
-
       - name: Cache bookdown results
         uses: actions/cache@v2
         with:
