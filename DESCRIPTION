@@ -1,0 +1,32 @@
+Type: Book
+Package: rmarkdownbook
+Title: R Markdown Definitive Guide
+Version: 1.0.0
+Imports:
+    animation,
+    blogdown,
+    bookdown,
+    DT,
+    dygraphs,
+    flexdashboard,
+    JuliaCall,
+    leaflet,
+    learnr,
+    markdown,
+    pagedown,
+    pkgdown,
+    prettydoc,
+    reticulate,
+    revealjs,
+    rmdformats,
+    rticles,
+    servr,
+    shiny,
+    tufte,
+    webshot,
+    xaringan,
+    sigma
+Remotes: 
+    jjallaire/sigma
+Config/Needs/deploy: rsconnect
+Encoding: UTF-8

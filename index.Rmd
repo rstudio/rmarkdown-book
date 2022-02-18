@@ -55,12 +55,6 @@ options(bookdown.post.latex = function(x) {
   }
   x
 })
-
-lapply(c('xfun'), function(pkg) {
-  if (system.file(package = pkg) == '') install.packages(pkg)
-})
-
-if (!xfun::loadable('sigma', new_session = TRUE)) source('https://install-github.me/jjallaire/sigma')
 ```
 
 # Preface {-}
