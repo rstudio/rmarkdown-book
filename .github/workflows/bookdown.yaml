@@ -54,6 +54,9 @@ jobs:
 
       - name: Build and Deploy all book
         if: github.event_name == 'push'
+        env:
+          CONNECT_API_KEY: ${{ secrets.RSC_BOOKDOWN_ORG_TOKEN }}
+          CONTENT_ID: c4506062-503b-4747-bcd8-490dd76620cb
         run: make all
 
       - name: Upload book folder for debug
