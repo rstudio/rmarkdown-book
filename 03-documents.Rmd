@@ -566,8 +566,6 @@ Code in the notebook is executed with the same gestures you would use to execute
 
 The primary difference is that when executing chunks in an R Markdown document, all the code is sent to the console at once, but in a notebook, only one line at a time is sent. This allows execution to stop if a line raises an error.
 
-There is also a `Restart R and Run All Chunks` item in the `Run` menu on the editor toolbar, which gives you a fresh R session prior to running all the chunks. This is similar to the `Knit` button, which launches a separate R session to compile the document.
-
 When you execute code in a notebook, an indicator will appear in the gutter to show you execution progress (Figure \@ref(fig:notebook-longrunning)). Lines of code that have been sent to R are marked with dark green; lines that have not yet been sent to R are marked with light green. If at least one chunk is waiting to be executed, you will see a progress meter appear in the editor's status bar, indicating the number of chunks remaining to be executed. You can click on this meter at any time to jump to the currently executing chunk. When a chunk is waiting to execute, the `Run` button in its toolbar will change to a "queued" icon. If you do not want the chunk to run, you can click on the icon to remove it from the execution queue.
 
 ```{r notebook-longrunning, echo=FALSE, fig.cap='The indicator in the gutter to show the execution progress of a code chunk in the notebook.', out.width='100%'}
