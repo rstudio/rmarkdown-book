@@ -52,10 +52,6 @@ jobs:
         if: github.event_name == 'pull_request'
         run: make gitbook
 
-      - name: Build PDF book
-        if: github.event_name == 'pull_request'
-        run: make pdf2
-
       - name: Build and Deploy all book
         if: github.event_name == 'push'
         env:
