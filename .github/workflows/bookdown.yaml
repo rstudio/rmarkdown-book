@@ -58,10 +58,3 @@ jobs:
           CONNECT_API_KEY: ${{ secrets.RSC_BOOKDOWN_ORG_TOKEN }}
           CONTENT_ID: c4506062-503b-4747-bcd8-490dd76620cb
         run: make all
-
-      - name: Upload book folder for debug
-        if: failure()
-        uses: actions/upload-artifact@main
-        with:
-          name: book-dir
-          path: inst/examples
