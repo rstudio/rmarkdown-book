@@ -23,7 +23,7 @@ Imports:
     servr,
     shiny,
     tufte,
-    webshot2,
+    webshot,
     xaringan,
     sigma
 Remotes: 
