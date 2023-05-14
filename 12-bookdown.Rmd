@@ -177,7 +177,8 @@ $$a^2 + b^2 = c^2$$
 
 Theorems can be numbered and cross-referenced, as you can see from Theorem \@ref(thm:pyth). The `proof` environment behaves similarly to theorem environments but is unnumbered.
 
-Variants of the `theorem` environments include: `r knitr::combine_words(names(bookdown:::theorem_abbr[-1]), before = '\x60')`. Variants of the `proof` environments include `r knitr::combine_words(names(bookdown:::label_names_math2[-1]), before = '\x60')`. The syntax for these environments is similar to the `theorem` environment, e.g., ```` ```{lemma}````.
+Variants of the `theorem` environments include: `r knitr::combine_words(names(bookdown:::theorem_abbr[-1]), before = '\x60')`. The abbreviations for references (e.g. `\@ref(lem:mylemma)`) are respectively `r knitr::combine_words(unlist(bookdown:::theorem_abbr[-1]), before = '\x60')`.
+Variants of the `proof` environments include `r knitr::combine_words(names(bookdown:::label_names_math2[-1]), before = '\x60')`. The syntax for these environments is similar to the `theorem` environment, e.g., ```` ```{lemma}````.
 
 ### Special headers
 
