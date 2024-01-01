@@ -579,7 +579,7 @@ You can generate most elements supported by Pandoc's Markdown (Section \@ref(mar
 
 Please note that images and tables will always be placed on new slides. The only elements that can coexist with an image or table on a slide are the slide header and image/table caption. When you have a text paragraph and an image on the same slide, the image will be moved to a new slide automatically. Images will be scaled automatically to fit the slide, and if the automatic size does not work well, you may manually control the image sizes: for static images included via the Markdown syntax `![]()`, you may use the `width` and/or `height` attributes in a pair of curly braces after the image, e.g., `![caption](foo.png){width=40%}`; for images generated dynamically from R code chunks, you can use the chunk options `fig.width` and `fig.height` to control the sizes.
 
-Please read the section "Producing slide shows with Pandoc" in Pandoc's manual for more information on slide shows, such as the multi-column layout:
+Please read the Pandoc manual for more information on slide shows (<https://pandoc.org/MANUAL.html#slide-shows>), such as the multi-column layout:
 
 ```markdown
 :::::: {.columns}
