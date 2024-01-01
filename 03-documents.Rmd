@@ -470,30 +470,40 @@ output:
 
 Documentation on all available pandoc arguments can be found in the [Pandoc User Guide](http://pandoc.org/MANUAL.html#options).
 
-### Shared options {#shared-options}
+### Shared output options {#shared-options}
 
-If you want to specify a set of default options to be shared by multiple documents within a directory, you can include a file named `_output.yml` within the directory. Note that no YAML delimiters (`---`) or the enclosing `output` field are used in this file. For example:
+You can outsource part or all of the _output_ options to a separate YAML file. This is very convenient to specify a set of default options for multiple documents and thus avoid redundancies (think of it as an "output option template"). The path to this file can be set by the option `output_yaml`. For example:
 
 ```yaml
-html_document:
-  self_contained: false
-  theme: united
-  highlight: textmate
+output_yaml: config/my_custom_opts.yml
 ```
 
-It should not be written as:
+Note that
 
-```yaml
----
-output:
+- options explicitly defined within a document will always override those specified in the separate `output_yaml` file.
+
+- if the `output_yaml` option is not explicitly set in a document, it will default to the file `_output.yml` within the same directory and -- if it exists -- automatically inherit its content.
+
+- in the `output_yaml` file no YAML delimiters (`---`) or the enclosing `output` field are used. A correct example of the file's content could look like:
+
+  ```yaml
   html_document:
     self_contained: false
     theme: united
     highlight: textmate
----
-```
+  ```
 
-All documents located in the same directory as `_output.yml` will inherit its options. Options defined explicitly within documents will override those specified in the shared options file.
+  But _not_:
+
+  ```yaml
+  ---
+  output:
+    html_document:
+      self_contained: false
+      theme: united
+      highlight: textmate
+  ---
+  ```
 
 ### HTML fragments
 
@@ -993,7 +1003,7 @@ Consult the documentation on [Pandoc templates](https://pandoc.org/README.html#t
 
 ### Other features
 
-Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(markdown-extensions) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared options in `_output.yml` (Section \@ref(shared-options)).
+Similar to HTML documents, you can enable or disable certain Markdown extensions for generating PDF documents. See Section \@ref(markdown-extensions) for details. You can also pass more custom Pandoc arguments through the `pandoc_args` option (Section \@ref(pandoc-arguments)), and define shared output options in a separate YAML file (Section \@ref(shared-options)).
 
 ## Word document
 
@@ -1023,7 +1033,7 @@ For more on how to create and use a reference document, you may watch this short
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of Word documents, including figure options (Section \@ref(figure-options)), data frame printing (Section \@ref(data-frame-printing)), syntax highlighting (Section \@ref(appearance-and-style)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared output options (Section \@ref(shared-options)).
 
 ## OpenDocument Text document
 
@@ -1051,7 +1061,7 @@ output:
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of ODT documents, including figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), header and before/after body inclusions (Section \@ref(includes)), custom templates (Section \@ref(custom-templates)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared output options (Section \@ref(shared-options)).
 
 ## Rich Text Format document
 
@@ -1076,7 +1086,7 @@ knitr::raw_output(readLines('table.rtf'))
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of most features of RTF documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), keeping Markdown (Section \@ref(keeping-markdown)), Markdown extensions (Section \@ref(markdown-extensions)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared output options (Section \@ref(shared-options)).
 
 ## Markdown document
 
@@ -1142,7 +1152,7 @@ In many cases, you can simply copy and paste the Markdown generated by `rmarkdow
 
 ### Other features
 
-Refer to Section \@ref(html-document) for the documentation of other features of Markdown documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), header and before/after body inclusions (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared options (Section \@ref(shared-options)).
+Refer to Section \@ref(html-document) for the documentation of other features of Markdown documents, including table of contents (Section \@ref(table-of-contents)), figure options (Section \@ref(figure-options)), header and before/after body inclusions (Section \@ref(includes)), Pandoc arguments (Section \@ref(pandoc-arguments)), and shared output options (Section \@ref(shared-options)).
 
 ## R package vignette
 
