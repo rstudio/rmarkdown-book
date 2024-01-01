@@ -1,0 +1,25 @@
+---
+title: "A Shiny Document"
+output: html_document
+runtime: shiny
+---
+
+A standard R plot can be made interactive by wrapping
+it in the Shiny `renderPlot()` function. The `selectInput()`
+function creates the input widget to drive the plot.
+
+```{r eruptions, echo=FALSE}
+selectInput(
+  'breaks', label = 'Number of bins:',
+  choices = c(10, 20, 35, 50), selected = 20
+)
+
+renderPlot({
+  par(mar = c(4, 4, .1, .5))
+  hist(
+    faithful$eruptions, as.numeric(input$breaks),
+    col = 'gray', border = 'white',
+    xlab = 'Duration (minutes)', main = ''
+  )
+})
+```

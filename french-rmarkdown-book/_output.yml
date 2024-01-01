@@ -1,0 +1,30 @@
+bookdown::gitbook:
+  css: css/style.css
+  split_by: section
+  config:
+    toc:
+      collapse: none
+      before: |
+        <li><a href="./">R Markdown: The Definitive Guide</a></li>
+      after: |
+        <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+    download: [pdf]
+    edit: https://github.com/rstudio/rmarkdown-book/edit/master/%s
+    sharing:
+      github: yes
+      facebook: no
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+  keep_tex: yes
+  latex_engine: xelatex
+  citation_package: natbib
+  template: null
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  highlight_bw: yes
+  quote_footer: ["\\VA{", "}{}"]

@@ -1,0 +1,30 @@
+---
+title: "Multiple Pages"
+output: flexdashboard::flex_dashboard
+---
+
+Visualizations {data-icon="fa-signal"}
+===================================== 
+    
+### Chart 1
+    
+```{r}
+```
+    
+### Chart 2
+
+```{r}
+```
+   
+Tables {data-icon="fa-table"}
+=====================================     
+
+### Table 1
+    
+```{r}
+```
+    
+### Table 2
+
+```{r}
+```
