@@ -43,6 +43,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           needs: deploy
+          extra-packages: github::yihui/knitr
 
       - name: Install missing system dependencies
         if: runner.os == 'Linux'
