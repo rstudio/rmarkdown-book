@@ -1,0 +1,69 @@
+---
+title: "Python code chunks in R Markdown"
+date: 2018-02-22
+---
+
+## A normal R code chunk
+
+```{r}
+library(reticulate)
+x = 42
+print(x)
+```
+
+## Modify an R variable
+
+In the following chunk, the value of `x` on the right hand side
+is `r x`, which was defined in the previous chunk.
+
+```{r}
+x = x + 12
+print(x)
+```
+
+## A Python chunk
+
+This works fine and as expected. 
+
+```{python}
+x = 42 * 2
+print(x) 
+```
+
+The value of `x` in the Python session is `r py$x`.
+It is not the same `x` as the one in R.
+
+## Modify a Python variable
+
+```{python}
+x = x + 18 
+print(x)
+```
+
+Retrieve the value of `x` from the Python session again:
+
+```{r}
+py$x
+```
+
+Assign to a variable in the Python session from R:
+
+```{r}
+py$y = 1:5
+```
+
+See the value of `y` in the Python session:
+
+```{python}
+print(y)
+```
+
+## Python graphics
+
+You can draw plots using the **matplotlib** package in Python.
+
+```{python}
+import matplotlib.pyplot as plt
+plt.plot([0, 2, 1, 4])
+plt.show()
+```
