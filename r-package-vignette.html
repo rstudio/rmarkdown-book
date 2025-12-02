@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.8 R package vignette | R Markdown: The Definitive Guide</title>
+  <meta name="description" content="The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages." />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.8 R package vignette | R Markdown: The Definitive Guide" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bookdown.org/yihui/rmarkdown//images/cover.png" />
+  <meta property="og:description" content="The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages." />
+  <meta name="github-repo" content="rstudio/rmarkdown-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.8 R package vignette | R Markdown: The Definitive Guide" />
+  
+  <meta name="twitter:description" content="The first official book authored by the core R Markdown developers that provides a comprehensive and accurate reference to the R Markdown ecosystem. With R Markdown, you can easily create reproducible data analysis reports, presentations, dashboards, interactive applications, books, dissertations, websites, and journal articles, while enjoying the simplicity of Markdown and the great power of R and other languages." />
+  <meta name="twitter:image" content="https://bookdown.org/yihui/rmarkdown//images/cover.png" />
+
+<meta name="author" content="Yihui Xie, J. J. Allaire, Garrett Grolemund" />
+
+
+<meta name="date" content="2025-12-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="markdown-document.html"/>
+<link rel="next" href="presentations.html"/>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+<link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/sigma/sigma.min.js"></script>
+<script src="libs/sigma/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="libs/sigma-binding/sigma.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Markdown: The Definitive Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html"><i class="fa fa-check"></i>How to read this book</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
+<li class="chapter" data-level="" data-path="software-info.html"><a href="software-info.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>About the Authors</a>
+<ul>
+<li class="chapter" data-level="" data-path="yihui-xie.html"><a href="yihui-xie.html"><i class="fa fa-check"></i>Yihui Xie</a></li>
+<li class="chapter" data-level="" data-path="j.j.-allaire.html"><a href="j.j.-allaire.html"><i class="fa fa-check"></i>J.J. Allaire</a></li>
+<li class="chapter" data-level="" data-path="garrett-grolemund.html"><a href="garrett-grolemund.html"><i class="fa fa-check"></i>Garrett Grolemund</a></li>
+</ul></li>
+<li class="part"><span><b>I Get Started</b></span></li>
+<li class="chapter" data-level="1" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>1</b> Installation</a></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basics-examples.html"><a href="basics-examples.html"><i class="fa fa-check"></i><b>2.1</b> Example applications</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="basics-examples.html"><a href="basics-examples.html#airbnbs-knowledge-repository"><i class="fa fa-check"></i><b>2.1.1</b> Airbnb’s knowledge repository</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basics-examples.html"><a href="basics-examples.html#homework-assignments-on-rpubs"><i class="fa fa-check"></i><b>2.1.2</b> Homework assignments on RPubs</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basics-examples.html"><a href="basics-examples.html#personalized-mail"><i class="fa fa-check"></i><b>2.1.3</b> Personalized mail</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basics-examples.html"><a href="basics-examples.html#employer-health-benefits-survey"><i class="fa fa-check"></i><b>2.1.4</b> 2017 Employer Health Benefits Survey</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basics-examples.html"><a href="basics-examples.html#examples-journal"><i class="fa fa-check"></i><b>2.1.5</b> Journal articles</a></li>
+<li class="chapter" data-level="2.1.6" data-path="basics-examples.html"><a href="basics-examples.html#dashboards-at-eelloo"><i class="fa fa-check"></i><b>2.1.6</b> Dashboards at eelloo</a></li>
+<li class="chapter" data-level="2.1.7" data-path="basics-examples.html"><a href="basics-examples.html#examples-books"><i class="fa fa-check"></i><b>2.1.7</b> Books</a></li>
+<li class="chapter" data-level="2.1.8" data-path="basics-examples.html"><a href="basics-examples.html#examples-websites"><i class="fa fa-check"></i><b>2.1.8</b> Websites</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="compile.html"><a href="compile.html"><i class="fa fa-check"></i><b>2.2</b> Compile an R Markdown document</a></li>
+<li class="chapter" data-level="2.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html"><i class="fa fa-check"></i><b>2.3</b> Cheat sheets</a></li>
+<li class="chapter" data-level="2.4" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>2.4</b> Output formats</a></li>
+<li class="chapter" data-level="2.5" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.5</b> Markdown syntax</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>2.5.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="2.5.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.5.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="2.5.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.5.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.6</b> R code chunks and inline R code</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="r-code.html"><a href="r-code.html#figures"><i class="fa fa-check"></i><b>2.6.1</b> Figures</a></li>
+<li class="chapter" data-level="2.6.2" data-path="r-code.html"><a href="r-code.html#tables"><i class="fa fa-check"></i><b>2.6.2</b> Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="language-engines.html"><a href="language-engines.html"><i class="fa fa-check"></i><b>2.7</b> Other language engines</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="language-engines.html"><a href="language-engines.html#python"><i class="fa fa-check"></i><b>2.7.1</b> Python</a></li>
+<li class="chapter" data-level="2.7.2" data-path="language-engines.html"><a href="language-engines.html#shell-scripts"><i class="fa fa-check"></i><b>2.7.2</b> Shell scripts</a></li>
+<li class="chapter" data-level="2.7.3" data-path="language-engines.html"><a href="language-engines.html#sql"><i class="fa fa-check"></i><b>2.7.3</b> SQL</a></li>
+<li class="chapter" data-level="2.7.4" data-path="language-engines.html"><a href="language-engines.html#rcpp"><i class="fa fa-check"></i><b>2.7.4</b> Rcpp</a></li>
+<li class="chapter" data-level="2.7.5" data-path="language-engines.html"><a href="language-engines.html#stan"><i class="fa fa-check"></i><b>2.7.5</b> Stan</a></li>
+<li class="chapter" data-level="2.7.6" data-path="language-engines.html"><a href="language-engines.html#javascript-and-css"><i class="fa fa-check"></i><b>2.7.6</b> JavaScript and CSS</a></li>
+<li class="chapter" data-level="2.7.7" data-path="language-engines.html"><a href="language-engines.html#julia"><i class="fa fa-check"></i><b>2.7.7</b> Julia</a></li>
+<li class="chapter" data-level="2.7.8" data-path="language-engines.html"><a href="language-engines.html#c-and-fortran"><i class="fa fa-check"></i><b>2.7.8</b> C and Fortran</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="interactive-documents.html"><a href="interactive-documents.html"><i class="fa fa-check"></i><b>2.8</b> Interactive documents</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-widgets"><i class="fa fa-check"></i><b>2.8.1</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.8.2" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-shiny"><i class="fa fa-check"></i><b>2.8.2</b> Shiny documents</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Output Formats</b></span></li>
+<li class="chapter" data-level="3" data-path="documents.html"><a href="documents.html"><i class="fa fa-check"></i><b>3</b> Documents</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="html-document.html"><a href="html-document.html"><i class="fa fa-check"></i><b>3.1</b> HTML document</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="html-document.html"><a href="html-document.html#table-of-contents"><i class="fa fa-check"></i><b>3.1.1</b> Table of contents</a></li>
+<li class="chapter" data-level="3.1.2" data-path="html-document.html"><a href="html-document.html#section-numbering"><i class="fa fa-check"></i><b>3.1.2</b> Section numbering</a></li>
+<li class="chapter" data-level="3.1.3" data-path="html-document.html"><a href="html-document.html#tabbed-sections"><i class="fa fa-check"></i><b>3.1.3</b> Tabbed sections</a></li>
+<li class="chapter" data-level="3.1.4" data-path="html-document.html"><a href="html-document.html#appearance-and-style"><i class="fa fa-check"></i><b>3.1.4</b> Appearance and style</a></li>
+<li class="chapter" data-level="3.1.5" data-path="html-document.html"><a href="html-document.html#figure-options"><i class="fa fa-check"></i><b>3.1.5</b> Figure options</a></li>
+<li class="chapter" data-level="3.1.6" data-path="html-document.html"><a href="html-document.html#data-frame-printing"><i class="fa fa-check"></i><b>3.1.6</b> Data frame printing</a></li>
+<li class="chapter" data-level="3.1.7" data-path="html-document.html"><a href="html-document.html#code-folding"><i class="fa fa-check"></i><b>3.1.7</b> Code folding</a></li>
+<li class="chapter" data-level="3.1.8" data-path="html-document.html"><a href="html-document.html#mathjax-equations"><i class="fa fa-check"></i><b>3.1.8</b> MathJax equations</a></li>
+<li class="chapter" data-level="3.1.9" data-path="html-document.html"><a href="html-document.html#document-dependencies"><i class="fa fa-check"></i><b>3.1.9</b> Document dependencies</a></li>
+<li class="chapter" data-level="3.1.10" data-path="html-document.html"><a href="html-document.html#advanced-customization"><i class="fa fa-check"></i><b>3.1.10</b> Advanced customization</a></li>
+<li class="chapter" data-level="3.1.11" data-path="html-document.html"><a href="html-document.html#shared-options"><i class="fa fa-check"></i><b>3.1.11</b> Shared options</a></li>
+<li class="chapter" data-level="3.1.12" data-path="html-document.html"><a href="html-document.html#html-fragments"><i class="fa fa-check"></i><b>3.1.12</b> HTML fragments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="notebook.html"><a href="notebook.html"><i class="fa fa-check"></i><b>3.2</b> Notebook</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="notebook.html"><a href="notebook.html#using-notebooks"><i class="fa fa-check"></i><b>3.2.1</b> Using Notebooks</a></li>
+<li class="chapter" data-level="3.2.2" data-path="notebook.html"><a href="notebook.html#saving-and-sharing"><i class="fa fa-check"></i><b>3.2.2</b> Saving and sharing</a></li>
+<li class="chapter" data-level="3.2.3" data-path="notebook.html"><a href="notebook.html#notebook-format"><i class="fa fa-check"></i><b>3.2.3</b> Notebook format</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="pdf-document.html"><a href="pdf-document.html"><i class="fa fa-check"></i><b>3.3</b> PDF document</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="pdf-document.html"><a href="pdf-document.html#table-of-contents-1"><i class="fa fa-check"></i><b>3.3.1</b> Table of contents</a></li>
+<li class="chapter" data-level="3.3.2" data-path="pdf-document.html"><a href="pdf-document.html#figure-options-1"><i class="fa fa-check"></i><b>3.3.2</b> Figure options</a></li>
+<li class="chapter" data-level="3.3.3" data-path="pdf-document.html"><a href="pdf-document.html#data-frame-printing-1"><i class="fa fa-check"></i><b>3.3.3</b> Data frame printing</a></li>
+<li class="chapter" data-level="3.3.4" data-path="pdf-document.html"><a href="pdf-document.html#syntax-highlighting"><i class="fa fa-check"></i><b>3.3.4</b> Syntax highlighting</a></li>
+<li class="chapter" data-level="3.3.5" data-path="pdf-document.html"><a href="pdf-document.html#latex-options"><i class="fa fa-check"></i><b>3.3.5</b> LaTeX options</a></li>
+<li class="chapter" data-level="3.3.6" data-path="pdf-document.html"><a href="pdf-document.html#latex-packages-for-citations"><i class="fa fa-check"></i><b>3.3.6</b> LaTeX packages for citations</a></li>
+<li class="chapter" data-level="3.3.7" data-path="pdf-document.html"><a href="pdf-document.html#advanced-customization-1"><i class="fa fa-check"></i><b>3.3.7</b> Advanced customization</a></li>
+<li class="chapter" data-level="3.3.8" data-path="pdf-document.html"><a href="pdf-document.html#other-features"><i class="fa fa-check"></i><b>3.3.8</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="word-document.html"><a href="word-document.html"><i class="fa fa-check"></i><b>3.4</b> Word document</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="word-document.html"><a href="word-document.html#other-features-1"><i class="fa fa-check"></i><b>3.4.1</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="opendocument-text-document.html"><a href="opendocument-text-document.html"><i class="fa fa-check"></i><b>3.5</b> OpenDocument Text document</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="opendocument-text-document.html"><a href="opendocument-text-document.html#other-features-2"><i class="fa fa-check"></i><b>3.5.1</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="rich-text-format-document.html"><a href="rich-text-format-document.html"><i class="fa fa-check"></i><b>3.6</b> Rich Text Format document</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="rich-text-format-document.html"><a href="rich-text-format-document.html#other-features-3"><i class="fa fa-check"></i><b>3.6.1</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="markdown-document.html"><a href="markdown-document.html"><i class="fa fa-check"></i><b>3.7</b> Markdown document</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="markdown-document.html"><a href="markdown-document.html#markdown-variants"><i class="fa fa-check"></i><b>3.7.1</b> Markdown variants</a></li>
+<li class="chapter" data-level="3.7.2" data-path="markdown-document.html"><a href="markdown-document.html#other-features-4"><i class="fa fa-check"></i><b>3.7.2</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="r-package-vignette.html"><a href="r-package-vignette.html"><i class="fa fa-check"></i><b>3.8</b> R package vignette</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="presentations.html"><a href="presentations.html"><i class="fa fa-check"></i><b>4</b> Presentations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html"><i class="fa fa-check"></i><b>4.1</b> ioslides presentation</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#display-modes"><i class="fa fa-check"></i><b>4.1.1</b> Display modes</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#incremental-bullets"><i class="fa fa-check"></i><b>4.1.2</b> Incremental bullets</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#visual-appearance"><i class="fa fa-check"></i><b>4.1.3</b> Visual appearance</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#code-highlighting"><i class="fa fa-check"></i><b>4.1.4</b> Code highlighting</a></li>
+<li class="chapter" data-level="4.1.5" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#adding-a-logo"><i class="fa fa-check"></i><b>4.1.5</b> Adding a logo</a></li>
+<li class="chapter" data-level="4.1.6" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#tables-1"><i class="fa fa-check"></i><b>4.1.6</b> Tables</a></li>
+<li class="chapter" data-level="4.1.7" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#advanced-layout"><i class="fa fa-check"></i><b>4.1.7</b> Advanced layout</a></li>
+<li class="chapter" data-level="4.1.8" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#text-color"><i class="fa fa-check"></i><b>4.1.8</b> Text color</a></li>
+<li class="chapter" data-level="4.1.9" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#presenter-mode"><i class="fa fa-check"></i><b>4.1.9</b> Presenter mode</a></li>
+<li class="chapter" data-level="4.1.10" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#printing-and-pdf-output"><i class="fa fa-check"></i><b>4.1.10</b> Printing and PDF output</a></li>
+<li class="chapter" data-level="4.1.11" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#custom-templates-2"><i class="fa fa-check"></i><b>4.1.11</b> Custom templates</a></li>
+<li class="chapter" data-level="4.1.12" data-path="ioslides-presentation.html"><a href="ioslides-presentation.html#other-features-5"><i class="fa fa-check"></i><b>4.1.12</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="slidy-presentation.html"><a href="slidy-presentation.html"><i class="fa fa-check"></i><b>4.2</b> Slidy presentation</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="slidy-presentation.html"><a href="slidy-presentation.html#display-modes-1"><i class="fa fa-check"></i><b>4.2.1</b> Display modes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="slidy-presentation.html"><a href="slidy-presentation.html#text-size"><i class="fa fa-check"></i><b>4.2.2</b> Text size</a></li>
+<li class="chapter" data-level="4.2.3" data-path="slidy-presentation.html"><a href="slidy-presentation.html#footer-elements"><i class="fa fa-check"></i><b>4.2.3</b> Footer elements</a></li>
+<li class="chapter" data-level="4.2.4" data-path="slidy-presentation.html"><a href="slidy-presentation.html#other-features-6"><i class="fa fa-check"></i><b>4.2.4</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="beamer-presentation.html"><a href="beamer-presentation.html"><i class="fa fa-check"></i><b>4.3</b> Beamer presentation</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="beamer-presentation.html"><a href="beamer-presentation.html#themes"><i class="fa fa-check"></i><b>4.3.1</b> Themes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="beamer-presentation.html"><a href="beamer-presentation.html#slide-level"><i class="fa fa-check"></i><b>4.3.2</b> Slide level</a></li>
+<li class="chapter" data-level="4.3.3" data-path="beamer-presentation.html"><a href="beamer-presentation.html#other-features-7"><i class="fa fa-check"></i><b>4.3.3</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="powerpoint-presentation.html"><a href="powerpoint-presentation.html"><i class="fa fa-check"></i><b>4.4</b> PowerPoint presentation</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="powerpoint-presentation.html"><a href="powerpoint-presentation.html#ppt-templates"><i class="fa fa-check"></i><b>4.4.1</b> Custom templates</a></li>
+<li class="chapter" data-level="4.4.2" data-path="powerpoint-presentation.html"><a href="powerpoint-presentation.html#other-features-8"><i class="fa fa-check"></i><b>4.4.2</b> Other features</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Extensions</b></span></li>
+<li class="chapter" data-level="5" data-path="dashboards.html"><a href="dashboards.html"><i class="fa fa-check"></i><b>5</b> Dashboards</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="layout.html"><a href="layout.html"><i class="fa fa-check"></i><b>5.1</b> Layout</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="layout.html"><a href="layout.html#row-based-layouts"><i class="fa fa-check"></i><b>5.1.1</b> Row-based layouts</a></li>
+<li class="chapter" data-level="5.1.2" data-path="layout.html"><a href="layout.html#attributes-on-sections"><i class="fa fa-check"></i><b>5.1.2</b> Attributes on sections</a></li>
+<li class="chapter" data-level="5.1.3" data-path="layout.html"><a href="layout.html#multiple-pages"><i class="fa fa-check"></i><b>5.1.3</b> Multiple pages</a></li>
+<li class="chapter" data-level="5.1.4" data-path="layout.html"><a href="layout.html#story-boards"><i class="fa fa-check"></i><b>5.1.4</b> Story boards</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="dashboard-components.html"><a href="dashboard-components.html"><i class="fa fa-check"></i><b>5.2</b> Components</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="dashboard-components.html"><a href="dashboard-components.html#value-boxes"><i class="fa fa-check"></i><b>5.2.1</b> Value boxes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="dashboard-components.html"><a href="dashboard-components.html#gauges"><i class="fa fa-check"></i><b>5.2.2</b> Gauges</a></li>
+<li class="chapter" data-level="5.2.3" data-path="dashboard-components.html"><a href="dashboard-components.html#text-annotations"><i class="fa fa-check"></i><b>5.2.3</b> Text annotations</a></li>
+<li class="chapter" data-level="5.2.4" data-path="dashboard-components.html"><a href="dashboard-components.html#navigation-bar"><i class="fa fa-check"></i><b>5.2.4</b> Navigation bar</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>5.3</b> Shiny</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="shiny.html"><a href="shiny.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.3.2" data-path="shiny.html"><a href="shiny.html#a-shiny-dashboard-example"><i class="fa fa-check"></i><b>5.3.2</b> A Shiny dashboard example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="shiny.html"><a href="shiny.html#input-sidebar"><i class="fa fa-check"></i><b>5.3.3</b> Input sidebar</a></li>
+<li class="chapter" data-level="5.3.4" data-path="shiny.html"><a href="shiny.html#learning-more"><i class="fa fa-check"></i><b>5.3.4</b> Learning more</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tufte-handouts.html"><a href="tufte-handouts.html"><i class="fa fa-check"></i><b>6</b> Tufte Handouts</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tufte-headings.html"><a href="tufte-headings.html"><i class="fa fa-check"></i><b>6.1</b> Headings</a></li>
+<li class="chapter" data-level="6.2" data-path="tufte-figures.html"><a href="tufte-figures.html"><i class="fa fa-check"></i><b>6.2</b> Figures</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tufte-figures.html"><a href="tufte-figures.html#margin-figures"><i class="fa fa-check"></i><b>6.2.1</b> Margin figures</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tufte-figures.html"><a href="tufte-figures.html#arbitrary-margin-content"><i class="fa fa-check"></i><b>6.2.2</b> Arbitrary margin content</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tufte-figures.html"><a href="tufte-figures.html#full-width-figures"><i class="fa fa-check"></i><b>6.2.3</b> Full-width figures</a></li>
+<li class="chapter" data-level="6.2.4" data-path="tufte-figures.html"><a href="tufte-figures.html#main-column-figures"><i class="fa fa-check"></i><b>6.2.4</b> Main column figures</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="tufte-sidenotes.html"><a href="tufte-sidenotes.html"><i class="fa fa-check"></i><b>6.3</b> Sidenotes</a></li>
+<li class="chapter" data-level="6.4" data-path="tufte-references.html"><a href="tufte-references.html"><i class="fa fa-check"></i><b>6.4</b> References</a></li>
+<li class="chapter" data-level="6.5" data-path="tufte-tables.html"><a href="tufte-tables.html"><i class="fa fa-check"></i><b>6.5</b> Tables</a></li>
+<li class="chapter" data-level="6.6" data-path="tufte-quotes.html"><a href="tufte-quotes.html"><i class="fa fa-check"></i><b>6.6</b> Block quotes</a></li>
+<li class="chapter" data-level="6.7" data-path="tufte-responsiveness.html"><a href="tufte-responsiveness.html"><i class="fa fa-check"></i><b>6.7</b> Responsiveness</a></li>
+<li class="chapter" data-level="6.8" data-path="tufte-sans.html"><a href="tufte-sans.html"><i class="fa fa-check"></i><b>6.8</b> Sans-serif fonts and epigraphs</a></li>
+<li class="chapter" data-level="6.9" data-path="tufte-css.html"><a href="tufte-css.html"><i class="fa fa-check"></i><b>6.9</b> Customize CSS styles</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="xaringan.html"><a href="xaringan.html"><i class="fa fa-check"></i><b>7</b> xaringan Presentations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="xaringan-start.html"><a href="xaringan-start.html"><i class="fa fa-check"></i><b>7.1</b> Get started</a></li>
+<li class="chapter" data-level="7.2" data-path="xaringan-key.html"><a href="xaringan-key.html"><i class="fa fa-check"></i><b>7.2</b> Keyboard shortcuts</a></li>
+<li class="chapter" data-level="7.3" data-path="xaringan-format.html"><a href="xaringan-format.html"><i class="fa fa-check"></i><b>7.3</b> Slide formatting</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="xaringan-format.html"><a href="xaringan-format.html#slides-and-properties"><i class="fa fa-check"></i><b>7.3.1</b> Slides and properties</a></li>
+<li class="chapter" data-level="7.3.2" data-path="xaringan-format.html"><a href="xaringan-format.html#the-title-slide"><i class="fa fa-check"></i><b>7.3.2</b> The title slide</a></li>
+<li class="chapter" data-level="7.3.3" data-path="xaringan-format.html"><a href="xaringan-format.html#content-classes"><i class="fa fa-check"></i><b>7.3.3</b> Content classes</a></li>
+<li class="chapter" data-level="7.3.4" data-path="xaringan-format.html"><a href="xaringan-format.html#incremental-slides"><i class="fa fa-check"></i><b>7.3.4</b> Incremental slides</a></li>
+<li class="chapter" data-level="7.3.5" data-path="xaringan-format.html"><a href="xaringan-format.html#xaringan-notes"><i class="fa fa-check"></i><b>7.3.5</b> Presenter notes</a></li>
+<li class="chapter" data-level="7.3.6" data-path="xaringan-format.html"><a href="xaringan-format.html#yolo-true"><i class="fa fa-check"></i><b>7.3.6</b> yolo: true</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="xaringan-preview.html"><a href="xaringan-preview.html"><i class="fa fa-check"></i><b>7.4</b> Build and preview slides</a></li>
+<li class="chapter" data-level="7.5" data-path="css-and-themes.html"><a href="css-and-themes.html"><i class="fa fa-check"></i><b>7.5</b> CSS and themes</a></li>
+<li class="chapter" data-level="7.6" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>7.6</b> Some tips</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="some-tips.html"><a href="some-tips.html#autoplay-slides"><i class="fa fa-check"></i><b>7.6.1</b> Autoplay slides</a></li>
+<li class="chapter" data-level="7.6.2" data-path="some-tips.html"><a href="some-tips.html#countdown-timer"><i class="fa fa-check"></i><b>7.6.2</b> Countdown timer</a></li>
+<li class="chapter" data-level="7.6.3" data-path="some-tips.html"><a href="some-tips.html#highlight-code-lines"><i class="fa fa-check"></i><b>7.6.3</b> Highlight code lines</a></li>
+<li class="chapter" data-level="7.6.4" data-path="some-tips.html"><a href="some-tips.html#working-offline"><i class="fa fa-check"></i><b>7.6.4</b> Working offline</a></li>
+<li class="chapter" data-level="7.6.5" data-path="some-tips.html"><a href="some-tips.html#macros"><i class="fa fa-check"></i><b>7.6.5</b> Macros</a></li>
+<li class="chapter" data-level="7.6.6" data-path="some-tips.html"><a href="some-tips.html#disadvantages"><i class="fa fa-check"></i><b>7.6.6</b> Disadvantages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="revealjs.html"><a href="revealjs.html"><i class="fa fa-check"></i><b>8</b> reveal.js Presentations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="display-modes-2.html"><a href="display-modes-2.html"><i class="fa fa-check"></i><b>8.1</b> Display modes</a></li>
+<li class="chapter" data-level="8.2" data-path="appearance-and-style-1.html"><a href="appearance-and-style-1.html"><i class="fa fa-check"></i><b>8.2</b> Appearance and style</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appearance-and-style-1.html"><a href="appearance-and-style-1.html#smaller-text"><i class="fa fa-check"></i><b>8.2.1</b> Smaller text</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="slide-transitions.html"><a href="slide-transitions.html"><i class="fa fa-check"></i><b>8.3</b> Slide transitions</a></li>
+<li class="chapter" data-level="8.4" data-path="slide-backgrounds.html"><a href="slide-backgrounds.html"><i class="fa fa-check"></i><b>8.4</b> Slide backgrounds</a></li>
+<li class="chapter" data-level="8.5" data-path="d-presentations.html"><a href="d-presentations.html"><i class="fa fa-check"></i><b>8.5</b> 2-D presentations</a></li>
+<li class="chapter" data-level="8.6" data-path="custom-css-1.html"><a href="custom-css-1.html"><i class="fa fa-check"></i><b>8.6</b> Custom CSS</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="custom-css-1.html"><a href="custom-css-1.html#slide-ids-and-classes"><i class="fa fa-check"></i><b>8.6.1</b> Slide IDs and classes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="custom-css-1.html"><a href="custom-css-1.html#styling-text-spans"><i class="fa fa-check"></i><b>8.6.2</b> Styling text spans</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="reveal.js-options.html"><a href="reveal.js-options.html"><i class="fa fa-check"></i><b>8.7</b> reveal.js options</a></li>
+<li class="chapter" data-level="8.8" data-path="reveal.js-plugins.html"><a href="reveal.js-plugins.html"><i class="fa fa-check"></i><b>8.8</b> reveal.js plugins</a></li>
+<li class="chapter" data-level="8.9" data-path="other-features-9.html"><a href="other-features-9.html"><i class="fa fa-check"></i><b>8.9</b> Other features</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="community.html"><a href="community.html"><i class="fa fa-check"></i><b>9</b> Community Formats</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="prettydoc.html"><a href="prettydoc.html"><i class="fa fa-check"></i><b>9.1</b> Lightweight Pretty HTML Documents</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="prettydoc.html"><a href="prettydoc.html#prettydoc-usage"><i class="fa fa-check"></i><b>9.1.1</b> Usage</a></li>
+<li class="chapter" data-level="9.1.2" data-path="prettydoc.html"><a href="prettydoc.html#prettydoc-vignettes"><i class="fa fa-check"></i><b>9.1.2</b> Package vignettes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="rmdformats.html"><a href="rmdformats.html"><i class="fa fa-check"></i><b>9.2</b> The rmdformats package</a></li>
+<li class="chapter" data-level="9.3" data-path="shower-presentations.html"><a href="shower-presentations.html"><i class="fa fa-check"></i><b>9.3</b> Shower presentations</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="websites.html"><a href="websites.html"><i class="fa fa-check"></i><b>10</b> Websites</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="blogdown-start.html"><a href="blogdown-start.html"><i class="fa fa-check"></i><b>10.1</b> Get started</a></li>
+<li class="chapter" data-level="10.2" data-path="blogdown-directory.html"><a href="blogdown-directory.html"><i class="fa fa-check"></i><b>10.2</b> The directory structure</a></li>
+<li class="chapter" data-level="10.3" data-path="blogdown-deploy.html"><a href="blogdown-deploy.html"><i class="fa fa-check"></i><b>10.3</b> Deployment</a></li>
+<li class="chapter" data-level="10.4" data-path="blogdown-other.html"><a href="blogdown-other.html"><i class="fa fa-check"></i><b>10.4</b> Other site generators</a></li>
+<li class="chapter" data-level="10.5" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html"><i class="fa fa-check"></i><b>10.5</b> rmarkdown’s site generator</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#a-simple-example"><i class="fa fa-check"></i><b>10.5.1</b> A simple example</a></li>
+<li class="chapter" data-level="10.5.2" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#site-authoring"><i class="fa fa-check"></i><b>10.5.2</b> Site authoring</a></li>
+<li class="chapter" data-level="10.5.3" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#common-elements"><i class="fa fa-check"></i><b>10.5.3</b> Common elements</a></li>
+<li class="chapter" data-level="10.5.4" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#site-navigation"><i class="fa fa-check"></i><b>10.5.4</b> Site navigation</a></li>
+<li class="chapter" data-level="10.5.5" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#html-generation"><i class="fa fa-check"></i><b>10.5.5</b> HTML generation</a></li>
+<li class="chapter" data-level="10.5.6" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#site-configuration"><i class="fa fa-check"></i><b>10.5.6</b> Site configuration</a></li>
+<li class="chapter" data-level="10.5.7" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#publishing-websites"><i class="fa fa-check"></i><b>10.5.7</b> Publishing websites</a></li>
+<li class="chapter" data-level="10.5.8" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#additional-examples"><i class="fa fa-check"></i><b>10.5.8</b> Additional examples</a></li>
+<li class="chapter" data-level="10.5.9" data-path="rmarkdown-site.html"><a href="rmarkdown-site.html#custom-site-generators"><i class="fa fa-check"></i><b>10.5.9</b> Custom site generators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="pkgdown.html"><a href="pkgdown.html"><i class="fa fa-check"></i><b>11</b> HTML Documentation for R Packages</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="pkgdown-start.html"><a href="pkgdown-start.html"><i class="fa fa-check"></i><b>11.1</b> Get started</a></li>
+<li class="chapter" data-level="11.2" data-path="pkgdown-components.html"><a href="pkgdown-components.html"><i class="fa fa-check"></i><b>11.2</b> Components</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="pkgdown-components.html"><a href="pkgdown-components.html#home-page"><i class="fa fa-check"></i><b>11.2.1</b> Home page</a></li>
+<li class="chapter" data-level="11.2.2" data-path="pkgdown-components.html"><a href="pkgdown-components.html#function-reference"><i class="fa fa-check"></i><b>11.2.2</b> Function reference</a></li>
+<li class="chapter" data-level="11.2.3" data-path="pkgdown-components.html"><a href="pkgdown-components.html#articles"><i class="fa fa-check"></i><b>11.2.3</b> Articles</a></li>
+<li class="chapter" data-level="11.2.4" data-path="pkgdown-components.html"><a href="pkgdown-components.html#news"><i class="fa fa-check"></i><b>11.2.4</b> News</a></li>
+<li class="chapter" data-level="11.2.5" data-path="pkgdown-components.html"><a href="pkgdown-components.html#navigation-bar-1"><i class="fa fa-check"></i><b>11.2.5</b> Navigation bar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="books.html"><a href="books.html"><i class="fa fa-check"></i><b>12</b> Books</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bookdown-start.html"><a href="bookdown-start.html"><i class="fa fa-check"></i><b>12.1</b> Get started</a></li>
+<li class="chapter" data-level="12.2" data-path="bookdown-project.html"><a href="bookdown-project.html"><i class="fa fa-check"></i><b>12.2</b> Project structure</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="bookdown-project.html"><a href="bookdown-project.html#index-file"><i class="fa fa-check"></i><b>12.2.1</b> Index file</a></li>
+<li class="chapter" data-level="12.2.2" data-path="bookdown-project.html"><a href="bookdown-project.html#rmd-files"><i class="fa fa-check"></i><b>12.2.2</b> Rmd files</a></li>
+<li class="chapter" data-level="12.2.3" data-path="bookdown-project.html"><a href="bookdown-project.html#bookdown.yml"><i class="fa fa-check"></i><b>12.2.3</b> <code>_bookdown.yml</code></a></li>
+<li class="chapter" data-level="12.2.4" data-path="bookdown-project.html"><a href="bookdown-project.html#output.yml"><i class="fa fa-check"></i><b>12.2.4</b> <code>_output.yml</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html"><i class="fa fa-check"></i><b>12.3</b> Markdown extensions</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html#equations"><i class="fa fa-check"></i><b>12.3.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="12.3.2" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html#theorems"><i class="fa fa-check"></i><b>12.3.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="12.3.3" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html#special-headers"><i class="fa fa-check"></i><b>12.3.3</b> Special headers</a></li>
+<li class="chapter" data-level="12.3.4" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html#text-references"><i class="fa fa-check"></i><b>12.3.4</b> Text references</a></li>
+<li class="chapter" data-level="12.3.5" data-path="bookdown-markdown.html"><a href="bookdown-markdown.html#cross-referencing"><i class="fa fa-check"></i><b>12.3.5</b> Cross referencing</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="bookdown-output.html"><a href="bookdown-output.html"><i class="fa fa-check"></i><b>12.4</b> Output Formats</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="bookdown-output.html"><a href="bookdown-output.html#html"><i class="fa fa-check"></i><b>12.4.1</b> HTML</a></li>
+<li class="chapter" data-level="12.4.2" data-path="bookdown-output.html"><a href="bookdown-output.html#latexpdf"><i class="fa fa-check"></i><b>12.4.2</b> LaTeX/PDF</a></li>
+<li class="chapter" data-level="12.4.3" data-path="bookdown-output.html"><a href="bookdown-output.html#e-books"><i class="fa fa-check"></i><b>12.4.3</b> E-books</a></li>
+<li class="chapter" data-level="12.4.4" data-path="bookdown-output.html"><a href="bookdown-output.html#a-single-document"><i class="fa fa-check"></i><b>12.4.4</b> A single document</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="bookdown-edit.html"><a href="bookdown-edit.html"><i class="fa fa-check"></i><b>12.5</b> Editing</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="bookdown-edit.html"><a href="bookdown-edit.html#build-the-book"><i class="fa fa-check"></i><b>12.5.1</b> Build the book</a></li>
+<li class="chapter" data-level="12.5.2" data-path="bookdown-edit.html"><a href="bookdown-edit.html#preview-a-chapter"><i class="fa fa-check"></i><b>12.5.2</b> Preview a chapter</a></li>
+<li class="chapter" data-level="12.5.3" data-path="bookdown-edit.html"><a href="bookdown-edit.html#serve-the-book"><i class="fa fa-check"></i><b>12.5.3</b> Serve the book</a></li>
+<li class="chapter" data-level="12.5.4" data-path="bookdown-edit.html"><a href="bookdown-edit.html#rstudio-addins"><i class="fa fa-check"></i><b>12.5.4</b> RStudio addins</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="bookdown-publish.html"><a href="bookdown-publish.html"><i class="fa fa-check"></i><b>12.6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="bookdown-publish.html"><a href="bookdown-publish.html#rstudio-connect"><i class="fa fa-check"></i><b>12.6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="12.6.2" data-path="bookdown-publish.html"><a href="bookdown-publish.html#other-services"><i class="fa fa-check"></i><b>12.6.2</b> Other services</a></li>
+<li class="chapter" data-level="12.6.3" data-path="bookdown-publish.html"><a href="bookdown-publish.html#publishers"><i class="fa fa-check"></i><b>12.6.3</b> Publishers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="journals.html"><a href="journals.html"><i class="fa fa-check"></i><b>13</b> Journals</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="rticles-start.html"><a href="rticles-start.html"><i class="fa fa-check"></i><b>13.1</b> Get started</a></li>
+<li class="chapter" data-level="13.2" data-path="rticles-templates.html"><a href="rticles-templates.html"><i class="fa fa-check"></i><b>13.2</b> rticles templates</a></li>
+<li class="chapter" data-level="13.3" data-path="rticles-usage.html"><a href="rticles-usage.html"><i class="fa fa-check"></i><b>13.3</b> Using a template</a></li>
+<li class="chapter" data-level="13.4" data-path="rticles-latex.html"><a href="rticles-latex.html"><i class="fa fa-check"></i><b>13.4</b> LaTeX content</a></li>
+<li class="chapter" data-level="13.5" data-path="rticles-bookdown.html"><a href="rticles-bookdown.html"><i class="fa fa-check"></i><b>13.5</b> Linking with bookdown</a></li>
+<li class="chapter" data-level="13.6" data-path="rticles-contrib.html"><a href="rticles-contrib.html"><i class="fa fa-check"></i><b>13.6</b> Contributing templates</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="learnr.html"><a href="learnr.html"><i class="fa fa-check"></i><b>14</b> Interactive Tutorials</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="learnr-start.html"><a href="learnr-start.html"><i class="fa fa-check"></i><b>14.1</b> Get started</a></li>
+<li class="chapter" data-level="14.2" data-path="learnr-types.html"><a href="learnr-types.html"><i class="fa fa-check"></i><b>14.2</b> Tutorial types</a></li>
+<li class="chapter" data-level="14.3" data-path="learnr-exercises.html"><a href="learnr-exercises.html"><i class="fa fa-check"></i><b>14.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="learnr-exercises.html"><a href="learnr-exercises.html#solutions"><i class="fa fa-check"></i><b>14.3.1</b> Solutions</a></li>
+<li class="chapter" data-level="14.3.2" data-path="learnr-exercises.html"><a href="learnr-exercises.html#hints"><i class="fa fa-check"></i><b>14.3.2</b> Hints</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="learnr-quiz.html"><a href="learnr-quiz.html"><i class="fa fa-check"></i><b>14.4</b> Quiz questions</a></li>
+<li class="chapter" data-level="14.5" data-path="learnr-videos.html"><a href="learnr-videos.html"><i class="fa fa-check"></i><b>14.5</b> Videos</a></li>
+<li class="chapter" data-level="14.6" data-path="learnr-shiny.html"><a href="learnr-shiny.html"><i class="fa fa-check"></i><b>14.6</b> Shiny components</a></li>
+<li class="chapter" data-level="14.7" data-path="learnr-nav.html"><a href="learnr-nav.html"><i class="fa fa-check"></i><b>14.7</b> Navigation and progress tracking</a></li>
+</ul></li>
+<li class="part"><span><b>IV Other Topics</b></span></li>
+<li class="chapter" data-level="15" data-path="parameterized-reports.html"><a href="parameterized-reports.html"><i class="fa fa-check"></i><b>15</b> Parameterized reports</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="params-declare.html"><a href="params-declare.html"><i class="fa fa-check"></i><b>15.1</b> Declaring parameters</a></li>
+<li class="chapter" data-level="15.2" data-path="params-use.html"><a href="params-use.html"><i class="fa fa-check"></i><b>15.2</b> Using parameters</a></li>
+<li class="chapter" data-level="15.3" data-path="params-knit.html"><a href="params-knit.html"><i class="fa fa-check"></i><b>15.3</b> Knitting with parameters</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="params-knit.html"><a href="params-knit.html#the-knit-button"><i class="fa fa-check"></i><b>15.3.1</b> The <code>Knit</code> button</a></li>
+<li class="chapter" data-level="15.3.2" data-path="params-knit.html"><a href="params-knit.html#knit-with-custom-parameters"><i class="fa fa-check"></i><b>15.3.2</b> Knit with custom parameters</a></li>
+<li class="chapter" data-level="15.3.3" data-path="params-knit.html"><a href="params-knit.html#the-interactive-user-interface"><i class="fa fa-check"></i><b>15.3.3</b> The interactive user interface</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="params-publish.html"><a href="params-publish.html"><i class="fa fa-check"></i><b>15.4</b> Publishing</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>16</b> HTML Widgets</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="htmlwidgets-overview.html"><a href="htmlwidgets-overview.html"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.2" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html"><i class="fa fa-check"></i><b>16.2</b> A widget example (sigma.js)</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html#file-layout"><i class="fa fa-check"></i><b>16.2.1</b> File layout</a></li>
+<li class="chapter" data-level="16.2.2" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html#dependencies"><i class="fa fa-check"></i><b>16.2.2</b> Dependencies</a></li>
+<li class="chapter" data-level="16.2.3" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html#r-binding"><i class="fa fa-check"></i><b>16.2.3</b> R binding</a></li>
+<li class="chapter" data-level="16.2.4" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html#javascript-binding"><i class="fa fa-check"></i><b>16.2.4</b> JavaScript binding</a></li>
+<li class="chapter" data-level="16.2.5" data-path="htmlwidgets-sigma.html"><a href="htmlwidgets-sigma.html#demo"><i class="fa fa-check"></i><b>16.2.5</b> Demo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="htmlwidgets-create.html"><a href="htmlwidgets-create.html"><i class="fa fa-check"></i><b>16.3</b> Creating your own widgets</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="htmlwidgets-create.html"><a href="htmlwidgets-create.html#requirements"><i class="fa fa-check"></i><b>16.3.1</b> Requirements</a></li>
+<li class="chapter" data-level="16.3.2" data-path="htmlwidgets-create.html"><a href="htmlwidgets-create.html#scaffolding"><i class="fa fa-check"></i><b>16.3.2</b> Scaffolding</a></li>
+<li class="chapter" data-level="16.3.3" data-path="htmlwidgets-create.html"><a href="htmlwidgets-create.html#other-packages"><i class="fa fa-check"></i><b>16.3.3</b> Other packages</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="htmlwidgets-size.html"><a href="htmlwidgets-size.html"><i class="fa fa-check"></i><b>16.4</b> Widget sizing</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="htmlwidgets-size.html"><a href="htmlwidgets-size.html#specifying-a-sizing-policy"><i class="fa fa-check"></i><b>16.4.1</b> Specifying a sizing policy</a></li>
+<li class="chapter" data-level="16.4.2" data-path="htmlwidgets-size.html"><a href="htmlwidgets-size.html#javascript-resize-method"><i class="fa fa-check"></i><b>16.4.2</b> JavaScript resize method</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="htmlwidgets-advanced.html"><a href="htmlwidgets-advanced.html"><i class="fa fa-check"></i><b>16.5</b> Advanced topics</a>
+<ul>
+<li class="chapter" data-level="16.5.1" data-path="htmlwidgets-advanced.html"><a href="htmlwidgets-advanced.html#data-transformation"><i class="fa fa-check"></i><b>16.5.1</b> Data transformation</a></li>
+<li class="chapter" data-level="16.5.2" data-path="htmlwidgets-advanced.html"><a href="htmlwidgets-advanced.html#passing-javascript-functions"><i class="fa fa-check"></i><b>16.5.2</b> Passing JavaScript functions</a></li>
+<li class="chapter" data-level="16.5.3" data-path="htmlwidgets-advanced.html"><a href="htmlwidgets-advanced.html#custom-widget-html"><i class="fa fa-check"></i><b>16.5.3</b> Custom widget HTML</a></li>
+<li class="chapter" data-level="16.5.4" data-path="htmlwidgets-advanced.html"><a href="htmlwidgets-advanced.html#create-a-widget-without-an-r-package"><i class="fa fa-check"></i><b>16.5.4</b> Create a widget without an R package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="document-templates.html"><a href="document-templates.html"><i class="fa fa-check"></i><b>17</b> Document Templates</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="template-structure.html"><a href="template-structure.html"><i class="fa fa-check"></i><b>17.1</b> Template structure</a></li>
+<li class="chapter" data-level="17.2" data-path="template-support.html"><a href="template-support.html"><i class="fa fa-check"></i><b>17.2</b> Supporting files</a></li>
+<li class="chapter" data-level="17.3" data-path="template-pandoc.html"><a href="template-pandoc.html"><i class="fa fa-check"></i><b>17.3</b> Custom Pandoc templates</a></li>
+<li class="chapter" data-level="17.4" data-path="template-share.html"><a href="template-share.html"><i class="fa fa-check"></i><b>17.4</b> Sharing your templates</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="new-formats.html"><a href="new-formats.html"><i class="fa fa-check"></i><b>18</b> Creating New Formats</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="format-derive.html"><a href="format-derive.html"><i class="fa fa-check"></i><b>18.1</b> Deriving from built-in formats</a></li>
+<li class="chapter" data-level="18.2" data-path="format-custom.html"><a href="format-custom.html"><i class="fa fa-check"></i><b>18.2</b> Fully custom formats</a></li>
+<li class="chapter" data-level="18.3" data-path="format-use.html"><a href="format-use.html"><i class="fa fa-check"></i><b>18.3</b> Using a new format</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="shiny-documents.html"><a href="shiny-documents.html"><i class="fa fa-check"></i><b>19</b> Shiny Documents</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="shiny-start.html"><a href="shiny-start.html"><i class="fa fa-check"></i><b>19.1</b> Getting started</a></li>
+<li class="chapter" data-level="19.2" data-path="shiny-deploy.html"><a href="shiny-deploy.html"><i class="fa fa-check"></i><b>19.2</b> Deployment</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="shiny-deploy.html"><a href="shiny-deploy.html#shinyapps.io"><i class="fa fa-check"></i><b>19.2.1</b> ShinyApps.io</a></li>
+<li class="chapter" data-level="19.2.2" data-path="shiny-deploy.html"><a href="shiny-deploy.html#shiny-server-rstudio-connect"><i class="fa fa-check"></i><b>19.2.2</b> Shiny Server / RStudio Connect</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="shiny-embedded.html"><a href="shiny-embedded.html"><i class="fa fa-check"></i><b>19.3</b> Embedded Shiny apps</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="shiny-embedded.html"><a href="shiny-embedded.html#shiny-embed-inline"><i class="fa fa-check"></i><b>19.3.1</b> Inline applications</a></li>
+<li class="chapter" data-level="19.3.2" data-path="shiny-embedded.html"><a href="shiny-embedded.html#external-applications"><i class="fa fa-check"></i><b>19.3.2</b> External applications</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="shiny-widgets.html"><a href="shiny-widgets.html"><i class="fa fa-check"></i><b>19.4</b> Shiny widgets</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="shiny-widgets.html"><a href="shiny-widgets.html#the-shinyapp-function"><i class="fa fa-check"></i><b>19.4.1</b> The <code>shinyApp()</code> function</a></li>
+<li class="chapter" data-level="19.4.2" data-path="shiny-widgets.html"><a href="shiny-widgets.html#example-k-means-clustering"><i class="fa fa-check"></i><b>19.4.2</b> Example: k-Means clustering</a></li>
+<li class="chapter" data-level="19.4.3" data-path="shiny-widgets.html"><a href="shiny-widgets.html#widget-size-and-layout"><i class="fa fa-check"></i><b>19.4.3</b> Widget size and layout</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="shiny-multiple.html"><a href="shiny-multiple.html"><i class="fa fa-check"></i><b>19.5</b> Multiple pages</a></li>
+<li class="chapter" data-level="19.6" data-path="shiny-delay.html"><a href="shiny-delay.html"><i class="fa fa-check"></i><b>19.6</b> Delayed rendering</a></li>
+<li class="chapter" data-level="19.7" data-path="shiny-args.html"><a href="shiny-args.html"><i class="fa fa-check"></i><b>19.7</b> Output arguments for render functions</a>
+<ul>
+<li class="chapter" data-level="19.7.1" data-path="shiny-args.html"><a href="shiny-args.html#a-caveat"><i class="fa fa-check"></i><b>19.7.1</b> A caveat</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Markdown: The Definitive Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-package-vignette" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> R package vignette<a href="r-package-vignette.html#r-package-vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>html_vignette</code> format provides a lightweight alternative to <code>html_document</code> suitable for inclusion in packages to be released to CRAN. It reduces the size of a basic vignette from 600Kb to around 10Kb. The format differs from a conventional HTML document as follows:</p>
+<ul>
+<li>Never uses retina figures</li>
+<li>Has a smaller default figure size</li>
+<li>Uses a custom lightweight CSS stylesheet</li>
+</ul>
+<p>To use <code>html_vignette</code>, you specify it as the output format and add some additional vignette related settings via the <code>\Vignette*{}</code> macros:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb127-1"><a href="r-package-vignette.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb127-2"><a href="r-package-vignette.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Vignette Title&quot;</span></span>
+<span id="cb127-3"><a href="r-package-vignette.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> rmarkdown::html_vignette</span></span>
+<span id="cb127-4"><a href="r-package-vignette.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb127-5"><a href="r-package-vignette.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  %\VignetteEngine{knitr::rmarkdown}</span>
+<span id="cb127-6"><a href="r-package-vignette.html#cb127-6" aria-hidden="true" tabindex="-1"></a>  %\VignetteIndexEntry{Your Vignette Title}</span>
+<span id="cb127-7"><a href="r-package-vignette.html#cb127-7" aria-hidden="true" tabindex="-1"></a>  %\VignetteEncoding{UTF-8}</span>
+<span id="cb127-8"><a href="r-package-vignette.html#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Note that you should change the <code>title</code> field and the <code>\VignetteIndexEntry{}</code> to match the title of your vignette.</p>
+<p>Most options for <code>html_document</code> (Section <a href="html-document.html#html-document">3.1</a>) also work for <code>html_vignette</code>, except <code>fig_retina</code> and <code>theme</code>, which have been set to <code>null</code> internally in this format.</p>
+<p>The <code>html_vignette</code> template includes a basic CSS theme. To override this theme, you can specify your own CSS in the document metadata as follows:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb128-1"><a href="r-package-vignette.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb128-2"><a href="r-package-vignette.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="at">  rmarkdown:</span><span class="fu">:html_vignette</span><span class="kw">:</span></span>
+<span id="cb128-3"><a href="r-package-vignette.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> mystyles.css</span></span></code></pre></div>
+<p>The default figure size is 3x3. Because the figure width is small, usually you will be able to put two images side-by-side if you set the chunk option <code>fig.show='hold'</code>, e.g.,</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb129-1"><a href="r-package-vignette.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.show=&#39;hold&#39;}</span></span>
+<span id="cb129-2"><a href="r-package-vignette.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="in">plot(1:10)</span></span>
+<span id="cb129-3"><a href="r-package-vignette.html#cb129-3" aria-hidden="true" tabindex="-1"></a><span class="in">plot(10:1)</span></span>
+<span id="cb129-4"><a href="r-package-vignette.html#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>If you want larger figure sizes you can change the <code>fig_width</code> and <code>fig_height</code> in the document output options or alternatively override the default options on a per-chunk basis.</p>
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="markdown-document.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="presentations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/rmarkdown-book/edit/main/03-documents.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["rmarkdown.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "none"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
