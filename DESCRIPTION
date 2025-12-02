@@ -27,6 +27,7 @@ Imports:
     xaringan,
     sigma
 Remotes: 
-    jjallaire/sigma
+    jjallaire/sigma,
+    yihui/knitr
 Config/Needs/deploy: rsconnect
 Encoding: UTF-8
