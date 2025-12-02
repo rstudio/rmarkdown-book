@@ -9,26 +9,3 @@ for (fmt in formats) {
   res =  xfun::Rscript(c('-e', shQuote(cmd)))
   if (res != 0) stop('Failed to compile the book to ', fmt)
 }
-
-# When several format are rendered, usually when make all is called,
-# then we publish everything to bookdown.org
-if (length(formats) > 1) {
-  message(">> Publishing Books")
-  if (!is.na(Sys.getenv("CI", NA))) {
-    xfun::pkg_load2("rsconnect")
-    # On CI connect to server, using API KEY and deploy using appId
-    rsconnect::addConnectServer('https://bookdown.org', 'bookdown.org')
-    rsconnect::connectApiUser(
-      account = 'GHA', server = 'bookdown.org',
-      apiKey = Sys.getenv('CONNECT_API_KEY')
-    )
-    rsconnect::deploySite(
-      appId = Sys.getenv('CONTENT_ID'),
-      server = 'bookdown.org',
-      render = 'none', logLevel = 'verbose',
-      forceUpdate = TRUE)
-  } else if (Sys.getenv('USER') == 'yihui') {
-    # for local deployment when rsconnect/ is available
-    bookdown::publish_book('rmarkdown', server = 'bookdown.org', render = 'none')
-  }
-}

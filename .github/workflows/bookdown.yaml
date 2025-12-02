@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main, master]
   workflow_dispatch:
+    inputs:
+      publish:
+        description: 'publish the book to github pages for connect cloud deployment'
+        required: false
+        default: false
+        type: boolean
 
 name: bookdown
 
@@ -17,7 +23,7 @@ jobs:
       R_KNITR_OPTIONS: "knitr.chunk.tidy=TRUE"
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
         with:
@@ -43,19 +49,28 @@ jobs:
         run: sudo apt-get install -y ghostscript
 
       - name: Cache bookdown results
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: _bookdown_files
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
-      - name: Build Gitbook
-        if: github.event_name == 'pull_request'
-        run: make gitbook
-
-      - name: Build and Deploy all book
-        if: github.event_name == 'push'
-        env:
-          CONNECT_API_KEY: ${{ secrets.RSC_BOOKDOWN_ORG_TOKEN }}
-          CONTENT_ID: c4506062-503b-4747-bcd8-490dd76620cb
+      - name: Build all book
         run: make all
+
+      - name: Deploy to gh-pages for Connect Cloud deploy
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: _book
+          clean: true
+          single-commit: true
+          dry-run: ${{ (github.event_name == 'workflow_dispatch' && (github.event.inputs.publish == 'false' || github.event.inputs.publish == false)) || false }}
+
+      - name: Upload book folder for debug
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: book-dir
+          path: .
