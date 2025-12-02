@@ -53,8 +53,7 @@ options(bookdown.post.latex = function(x) {
   x
 })
 
-knitr::opts_chunk$set(webshot = "webshot")
-webshot::install_phantomjs()
+knitr::opts_chunk$set(webshot = "webshot2")
 ```
 
 # Preface {-}
