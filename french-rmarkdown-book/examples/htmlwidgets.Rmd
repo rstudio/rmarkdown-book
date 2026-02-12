@@ -1,0 +1,17 @@
+---
+title: "An Interactive Map"
+---
+
+Below is a map that shows the location of the
+Department of Statistics, Iowa State University.
+
+```{r out.width='100%', echo=FALSE}
+library(leaflet)
+leaflet() %>% addTiles() %>%
+  setView(-93.65, 42.0285, zoom = 17) %>%
+  addPopups(
+    -93.65, 42.0285,
+    'Here is the <b>Department of Statistics</b>, ISU'
+  )
+```
+

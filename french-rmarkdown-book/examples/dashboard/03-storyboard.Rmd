@@ -1,0 +1,27 @@
+---
+title: "Storyboard Commentary"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+
+### A nice scatterplot here
+
+```{r}
+plot(cars, pch = 20)
+grid()
+```
+
+---
+
+Some commentary about Frame 1.
+
+### A beautiful histogram on this board
+
+```{r}
+hist(faithful$eruptions, col = 'gray', border = 'white', main = '')
+```
+
+---
+
+Some commentary about Frame 2.

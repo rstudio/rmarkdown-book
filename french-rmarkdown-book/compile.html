@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basics-examples.html">
+<link rel="next" href="cheat-sheets.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Markdown: The Definitive Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="les-bases.html"><a href="les-bases.html"><i class="fa fa-check"></i><b>1</b> Les Bases</a><ul>
+<li class="chapter" data-level="1.1" data-path="basics-examples.html"><a href="basics-examples.html"><i class="fa fa-check"></i><b>1.1</b> Exemple d’application</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="basics-examples.html"><a href="basics-examples.html#connaissance-de-repo-de-lairbnb"><i class="fa fa-check"></i><b>1.1.1</b> Connaissance de repo de l’Airbnb</a></li>
+<li class="chapter" data-level="1.1.2" data-path="basics-examples.html"><a href="basics-examples.html#devoir-a-la-maison-envoye-a-rpubs"><i class="fa fa-check"></i><b>1.1.2</b> Devoir à la maison envoyé à RPubs</a></li>
+<li class="chapter" data-level="1.1.3" data-path="basics-examples.html"><a href="basics-examples.html#mail-personalise"><i class="fa fa-check"></i><b>1.1.3</b> Mail personalisé</a></li>
+<li class="chapter" data-level="1.1.4" data-path="basics-examples.html"><a href="basics-examples.html#tendance-de-benefice-des-employes-de-sante-en-2017"><i class="fa fa-check"></i><b>1.1.4</b> Tendance de Bénéfice des Employés de Santé en 2017</a></li>
+<li class="chapter" data-level="1.1.5" data-path="basics-examples.html"><a href="basics-examples.html#examples-journal"><i class="fa fa-check"></i><b>1.1.5</b> Article de journal</a></li>
+<li class="chapter" data-level="1.1.6" data-path="basics-examples.html"><a href="basics-examples.html#dashboards-chez-eelloo"><i class="fa fa-check"></i><b>1.1.6</b> Dashboards chez eelloo</a></li>
+<li class="chapter" data-level="1.1.7" data-path="basics-examples.html"><a href="basics-examples.html#examples-books"><i class="fa fa-check"></i><b>1.1.7</b> Livres</a></li>
+<li class="chapter" data-level="1.1.8" data-path="basics-examples.html"><a href="basics-examples.html#examples-websites"><i class="fa fa-check"></i><b>1.1.8</b> Les Site Web</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="compile.html"><a href="compile.html"><i class="fa fa-check"></i><b>1.2</b> Compiler un document R Markdown</a></li>
+<li class="chapter" data-level="1.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html"><i class="fa fa-check"></i><b>1.3</b> Cheat sheets</a></li>
+<li class="chapter" data-level="1.4" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>1.4</b> Output formats</a></li>
+<li class="chapter" data-level="1.5" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>1.5</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>1.5.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="1.5.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>1.5.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="1.5.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>1.5.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>1.6</b> R code chunks and inline R code</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="r-code.html"><a href="r-code.html#figures"><i class="fa fa-check"></i><b>1.6.1</b> Figures</a></li>
+<li class="chapter" data-level="1.6.2" data-path="r-code.html"><a href="r-code.html#tables"><i class="fa fa-check"></i><b>1.6.2</b> Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="language-engines.html"><a href="language-engines.html"><i class="fa fa-check"></i><b>1.7</b> Other language engines</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="language-engines.html"><a href="language-engines.html#python"><i class="fa fa-check"></i><b>1.7.1</b> Python</a></li>
+<li class="chapter" data-level="1.7.2" data-path="language-engines.html"><a href="language-engines.html#shell-scripts"><i class="fa fa-check"></i><b>1.7.2</b> Shell scripts</a></li>
+<li class="chapter" data-level="1.7.3" data-path="language-engines.html"><a href="language-engines.html#sql"><i class="fa fa-check"></i><b>1.7.3</b> SQL</a></li>
+<li class="chapter" data-level="1.7.4" data-path="language-engines.html"><a href="language-engines.html#rcpp"><i class="fa fa-check"></i><b>1.7.4</b> Rcpp</a></li>
+<li class="chapter" data-level="1.7.5" data-path="language-engines.html"><a href="language-engines.html#stan"><i class="fa fa-check"></i><b>1.7.5</b> Stan</a></li>
+<li class="chapter" data-level="1.7.6" data-path="language-engines.html"><a href="language-engines.html#javascript-and-css"><i class="fa fa-check"></i><b>1.7.6</b> JavaScript and CSS</a></li>
+<li class="chapter" data-level="1.7.7" data-path="language-engines.html"><a href="language-engines.html#julia"><i class="fa fa-check"></i><b>1.7.7</b> Julia</a></li>
+<li class="chapter" data-level="1.7.8" data-path="language-engines.html"><a href="language-engines.html#c-and-fortran"><i class="fa fa-check"></i><b>1.7.8</b> C and Fortran</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="interactive-documents.html"><a href="interactive-documents.html"><i class="fa fa-check"></i><b>1.8</b> Interactive documents</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-widgets"><i class="fa fa-check"></i><b>1.8.1</b> HTML widgets</a></li>
+<li class="chapter" data-level="1.8.2" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-shiny"><i class="fa fa-check"></i><b>1.8.2</b> Shiny documents</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="compile" class="section level2">
+<h2><span class="header-section-number">1.2</span> Compiler un document R Markdown</h2>
+<p>le façon de compiler un document en R Markdown est de clicker sur le boutton <code>Knit</code> comme dans le Figure suivant <a href="les-bases.html#fig:hello-rmd">1.1</a>, et le racourci qui est <code>Ctrl + Shift + K</code> (<code>Cmd + Shift + K</code> en macOS). Dans le fond, RStudio appelle la fonction <code>rmarkdown::render()</code> pour obtenir le rendu du document <em>dans une nouvelle session de R</em>. Notez que l’emphase est ici, qui va certain fois confus pour les utilisateurs de R Markdown. Rendu d’un document Rmd dans une nouvelle session de R veut dire que <em>pas d’objet dans votre R session pour le présent (e.x, ceux que vous avez créé dans votre console R) qui sont disponibles dans cette session de R</em>.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> reproductivité est la principale raison que le Rstudio utilise la nouvelle session de R pour pouvoir faire un rendu de vos documents en Rmd: la plupart des cas, vous voulez continuez votre travail dans un document la prochaine fois lorsque vous ouvre R , ou dans des environements d’un autre ordinateur de personne. Voir <a href="https://stackoverflow.com/a/48494678/559676">ceci est un Réponse de stackoverflow</a> si vous voulez encore plus.</p>
+<p>Si vous devrez faire un rendu d’un document dans une session de R courante, vous pouvez appeller la fonction <code>rmarkdown::render()</code> par vous-même, et passer dans le chemin (path) de votre fichier Rmd dans cette fonction. Le deuxième argument de cette fonction c’est le format de l’output, par lequel vous allez spécifier les formats par défauts pour votre premier output et vous allez le spécifier dans le métadonnées de YAML (si cela est absent, l’output par défaut est <code>html_document</code>). Quand vous avez des multiples de format sur l’output dans le metadonnées, et ne veut pas utiliser le premier, vous pouvez spécifier l’une dans le deuxième rgument, ex., pour un document en Rmd <code>foo.Rmd</code> avec un métadonnées:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
+  <span class="fu">html_document:</span>
+    <span class="fu">toc:</span><span class="at"> true</span>
+  <span class="fu">pdf_document:</span>
+    <span class="fu">keep_tex:</span><span class="at"> true</span></code></pre></div>
+<p>You can render it to PDF via:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&#39;foo.Rmd&#39;</span>, <span class="st">&#39;pdf_document&#39;</span>)</code></pre></div>
+<p>La fonction appellée peut vous donner plus de liberté (ex., vous pouvez générer des séries de rapport dans un loop), mais vous devrait porter une productivité dans le cerveau quand vous fait un rendu de document de cette façon. Bien sur, vous pouvez commencer par un nouvelle session bien vidé par vous-même, et appeller <code>rmarkdown::render()</code> dans cette session. Tout au long que vous ne vous interactiver pas manuellement avec cette session (ex., manuellement créer des variables dans le console R), votre rapport devrait être reproductible.</p>
+<p>Une autre principale façon de travailler avec les documents Rmd est le R Markdown Notebooks, which will be introduced in Section <a href="#notebook"><strong>??</strong></a>. With notebooks, you can run code chunks individually and see results right inside the RStudio editor. This is a convenient way to interact or experiment with code in an Rmd document, because you do not have to compile the whole document. Without using the notebooks, you can still partially execute code chunks, but the execution only occurs in the R console, and the notebook interface presents results of code chunks right beneath the chunks in the editor, which can be a great advantage. Again, for the sake of reproducibility, you will need to compile the whole document eventually in a clean environment.</p>
+<p>Lastly, I want to mention an “unofficial” way to compile Rmd documents: the function <code>xaringan::inf_mr()</code>, or equivalently, the RStudio addin “Infinite Moon Reader”. Obviously, this requires you to install the <strong>xaringan</strong> package <span class="citation">[@R-xaringan]</span>, which is available on CRAN. The main advantage of this way is LiveReload: a technology that enables you to live preview the output as soon as you save the source document, and you do not need to hit the <code>Knit</code> button. The other advantage is that it compiles the Rmd document <em>in the current R session</em>, which may or may not be what you desire. Note that this method only works for Rmd documents that output to HTML, including HTML documents and presentations.</p>
+<p>A few R Markdown extension packages, such as <strong>bookdown</strong> and <strong>blogdown</strong>, have their own way of compiling documents, and we will introduce them later.</p>
+<p>Note that it is also possible to render a series of reports instead of single one from a single R Markdown source document. You can parameterize an R Markdown document, and generate different reports using different parameters. See Chapter <a href="#parameterized-reports"><strong>??</strong></a> for details.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Cela n’est pas sctrictement vrais, mais presque vrais. Vous pouvez enregistrer votre session en R pour le présent dans un fichier, exemple, <code>.RData</code>, et charger cela dans une nouvelle session de R.<a href="compile.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basics-examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cheat-sheets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/rmarkdown-book/edit/master/%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

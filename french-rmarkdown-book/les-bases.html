@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="basics-examples.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Markdown: The Definitive Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="les-bases.html"><a href="les-bases.html"><i class="fa fa-check"></i><b>1</b> Les Bases</a><ul>
+<li class="chapter" data-level="1.1" data-path="basics-examples.html"><a href="basics-examples.html"><i class="fa fa-check"></i><b>1.1</b> Exemple d’application</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="basics-examples.html"><a href="basics-examples.html#connaissance-de-repo-de-lairbnb"><i class="fa fa-check"></i><b>1.1.1</b> Connaissance de repo de l’Airbnb</a></li>
+<li class="chapter" data-level="1.1.2" data-path="basics-examples.html"><a href="basics-examples.html#devoir-a-la-maison-envoye-a-rpubs"><i class="fa fa-check"></i><b>1.1.2</b> Devoir à la maison envoyé à RPubs</a></li>
+<li class="chapter" data-level="1.1.3" data-path="basics-examples.html"><a href="basics-examples.html#mail-personalise"><i class="fa fa-check"></i><b>1.1.3</b> Mail personalisé</a></li>
+<li class="chapter" data-level="1.1.4" data-path="basics-examples.html"><a href="basics-examples.html#tendance-de-benefice-des-employes-de-sante-en-2017"><i class="fa fa-check"></i><b>1.1.4</b> Tendance de Bénéfice des Employés de Santé en 2017</a></li>
+<li class="chapter" data-level="1.1.5" data-path="basics-examples.html"><a href="basics-examples.html#examples-journal"><i class="fa fa-check"></i><b>1.1.5</b> Article de journal</a></li>
+<li class="chapter" data-level="1.1.6" data-path="basics-examples.html"><a href="basics-examples.html#dashboards-chez-eelloo"><i class="fa fa-check"></i><b>1.1.6</b> Dashboards chez eelloo</a></li>
+<li class="chapter" data-level="1.1.7" data-path="basics-examples.html"><a href="basics-examples.html#examples-books"><i class="fa fa-check"></i><b>1.1.7</b> Livres</a></li>
+<li class="chapter" data-level="1.1.8" data-path="basics-examples.html"><a href="basics-examples.html#examples-websites"><i class="fa fa-check"></i><b>1.1.8</b> Les Site Web</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="compile.html"><a href="compile.html"><i class="fa fa-check"></i><b>1.2</b> Compiler un document R Markdown</a></li>
+<li class="chapter" data-level="1.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html"><i class="fa fa-check"></i><b>1.3</b> Cheat sheets</a></li>
+<li class="chapter" data-level="1.4" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>1.4</b> Output formats</a></li>
+<li class="chapter" data-level="1.5" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>1.5</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html#inline-formatting"><i class="fa fa-check"></i><b>1.5.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="1.5.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>1.5.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="1.5.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>1.5.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>1.6</b> R code chunks and inline R code</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="r-code.html"><a href="r-code.html#figures"><i class="fa fa-check"></i><b>1.6.1</b> Figures</a></li>
+<li class="chapter" data-level="1.6.2" data-path="r-code.html"><a href="r-code.html#tables"><i class="fa fa-check"></i><b>1.6.2</b> Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="language-engines.html"><a href="language-engines.html"><i class="fa fa-check"></i><b>1.7</b> Other language engines</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="language-engines.html"><a href="language-engines.html#python"><i class="fa fa-check"></i><b>1.7.1</b> Python</a></li>
+<li class="chapter" data-level="1.7.2" data-path="language-engines.html"><a href="language-engines.html#shell-scripts"><i class="fa fa-check"></i><b>1.7.2</b> Shell scripts</a></li>
+<li class="chapter" data-level="1.7.3" data-path="language-engines.html"><a href="language-engines.html#sql"><i class="fa fa-check"></i><b>1.7.3</b> SQL</a></li>
+<li class="chapter" data-level="1.7.4" data-path="language-engines.html"><a href="language-engines.html#rcpp"><i class="fa fa-check"></i><b>1.7.4</b> Rcpp</a></li>
+<li class="chapter" data-level="1.7.5" data-path="language-engines.html"><a href="language-engines.html#stan"><i class="fa fa-check"></i><b>1.7.5</b> Stan</a></li>
+<li class="chapter" data-level="1.7.6" data-path="language-engines.html"><a href="language-engines.html#javascript-and-css"><i class="fa fa-check"></i><b>1.7.6</b> JavaScript and CSS</a></li>
+<li class="chapter" data-level="1.7.7" data-path="language-engines.html"><a href="language-engines.html#julia"><i class="fa fa-check"></i><b>1.7.7</b> Julia</a></li>
+<li class="chapter" data-level="1.7.8" data-path="language-engines.html"><a href="language-engines.html#c-and-fortran"><i class="fa fa-check"></i><b>1.7.8</b> C and Fortran</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="interactive-documents.html"><a href="interactive-documents.html"><i class="fa fa-check"></i><b>1.8</b> Interactive documents</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-widgets"><i class="fa fa-check"></i><b>1.8.1</b> HTML widgets</a></li>
+<li class="chapter" data-level="1.8.2" data-path="interactive-documents.html"><a href="interactive-documents.html#intro-shiny"><i class="fa fa-check"></i><b>1.8.2</b> Shiny documents</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="les-bases" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Les Bases</h1>
+<p>R Markdown donne la possibilité d’écrire de framework en science des données. Vous pouvez utiliser un seul fichier R Markdown pour les deux.</p>
+<ul>
+<li><p>sauver et executer le code, et</p></li>
+<li><p>générer un rapport de haut qualité qu’on peut partager à l’audiance.</p></li>
+</ul>
+<p>R Markdown a été fait pour faciliter la productivité, depuis que les codes machines et les narations sont dans le même document, et les résultats sont automatiquement générés des codes sources. R Markdown supporte beaucoups de statique et de dynamique/interactive formats output.</p>
+<p>Si vous préferez la vidéo d’introduction de R Markdown, nous recommandons de voir le siteweb suvant <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a>, et regarder le vidéo sur la séction “Get Started” (en anglais), cela va couvrir les bases sur R Markdown.</p>
+<p>Ci-dessous le minimal de document de R Markdown, cela va être un fichier de texte brut, avec la convention d’extention <code>.Rmd</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Hello R Markdown&quot;</span>
+<span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Awesome Me&quot;</span>
+<span class="fu">date:</span><span class="at"> </span><span class="st">&quot;2018-02-14&quot;</span>
+<span class="fu">output:</span><span class="at"> html_document</span>
+<span class="ot">---</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">Cette paragraphe est un document R Markdown.
+
+Ci-dessous c&#39;est le chunck code:
+
+```{r}
+fit = lm(dist ~ speed, data = cars)
+b   = coef(fit)
+plot(cars)
+abline(fit)
+```
+
+Le slope de la regression est<span class="bn">`r b[1]`</span>.
+```</code></pre></div>
+<p>Vous pouvez créer ce fichier de texte dans tous les éditeurs de texte (incluant mais cela ne se limite pas sur RStudio). Si vous utilise RStudio, vous pouvez créer un nouveau fichier Rmd provenant du menu <code>Fichier -&gt; Nouveau Fichier -&gt; R Markdown</code>.</p>
+<p>Il y a trois bases de composant de document de R Markdown: le metadonnées, le texte, et le code. le metadonnée est écris entre le pair de trois tirés <code>---</code>. Le syntaxe pour le metadonnée c’est le YAML (YAML Ain’t Markup Language, <a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), certains fois on l’appelle aussi YAML metadonnées ou “YAML frontmatter” . Avant d’entrer dans les chose difficiles, on va vous prevenir d’avance que les matières d’indentation en YAML, pour cela n’oublie pas de mettre des sub-fields dans le filière d’en haut. Voir <a href="https://bookdown.org/yihui/bookdown/r-markdown.html">Appendix B.2</a> de <span class="citation">@xie2016</span> pour quelques exemples qui montrent les syntaxes sur YAML.</p>
+<p>Le corps du document est après le metadonnées. Le syntaxe pour le texte (on le connait aussi sous le nom de prose ou narratives) est Markdown, qui est introduit dans la Section <a href="markdown-syntax.html#markdown-syntax">1.5</a>. Il y a deux de code machine, cela va être expliqué de façon plus détaillé dans la Section <a href="r-code.html#r-code">1.6</a>:</p>
+<ul>
+<li><p>Le code chunk commence par trois backticks comme <code>```{r}</code> avec <code>r</code> indique le nom du language ,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> et cela se termine par trois backticks. Vous pouvez écrire un chunk d’options dans un the curly braces’{}’ (ex., mettre un figure de hauteur de 5 inches on a: <code>```{r, fig.height=5}</code>).</p></li>
+<li><p>Une expression de ligne de code en R  commence par <code>`r</code> et se termine un backtick <code>`</code>.</p></li>
+</ul>
+<p>La Figure <a href="les-bases.html#fig:hello-rmd">1.1</a> montre l’exemple ci-dessus dans l’IDE RStudio. Vous pouvez cliquer sur le boutton <code>Knit</code> pour compiler le document (en page HTML). Le Figure <a href="les-bases.html#fig:hello-rmd-out">1.2</a> montre l’output dans le Rtudio Viewer.</p>
+<div class="figure"><span id="fig:hello-rmd"></span>
+<img src="images/hello-rmd.png" alt="Un exemple minimal en R Markdown dans l'IDE RStudio." width="100%" />
+<p class="caption">
+FIGURE 1.1: Un exemple minimal en R Markdown dans l’IDE RStudio.
+</p>
+</div>
+<div class="figure"><span id="fig:hello-rmd-out"></span>
+<img src="images/hello-rmd-out.png" alt="L'output du document de l'exemple minimal dans RStudio." width="100%" />
+<p class="caption">
+FIGURE 1.2: L’output du document de l’exemple minimal dans RStudio.
+</p>
+</div>
+<p>Maintenant examinez si près l’exemple. Avez vous remarqué un problème? l’objet <code>b</code> est un vecteur de coéfficient de longueur 2 provenant d’une regression linéaire; <code>b[1]</code> est actuellement l’intercept, et <code>b[2]</code> est le slope! Cet exemple minimal montre comment R Markdown est si grand pour la reproductivité des recherches research: cela inclut le code source qui est dans le document, qui va faciliter la découverte des problèmes et de les fixer, ainsi que la mise à jour de l’output du document. Tout ce que vous devrez changer c’est <code>b[1]</code> en <code>b[2]</code>, et cliquer sur le boutton <code>Knit</code> encore une fois. Avez vous copié le nombre <code>-17.579</code> d’être exécuté quelque part dans le document, cela va être très difficile de reconnaître le problème. En fait, j’ai utilisé cet exemple queleque fois par moi-même dans ma présentation avant que j’ai découvert ce problème là durant l’un de mes discours, mais j’ai découvert cela quand même.</p>
+<p>Même si ce qu’on a vu ci-dessus n’est qu’un outil d’exemple, cela va peut-être devenir un histoire d’horreur, si cela va se passer dans les recherches scientifiques qui n’est pas fait dans le moyen de reproductivité (ex, copier-et-coller). Voici deux de mes vidéos préferés videos concernant ce thème là:</p>
+<ul>
+<li><p>“A reproducible workflow” par Ignasi Bartomeus et Francisco Rodríguez-Sánchez (<a href="https://youtu.be/s3JldKoA0zw" class="uri">https://youtu.be/s3JldKoA0zw</a>). C’est un vidéo de 2-min qui ne semble pas seulement artistic mais aussi montre les problèmes commun et très pratique dans l’analyse des données.</p>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/s3JldKoA0zw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe></li>
+<li><p>“The Importance of Reproducible Research in High-Throughput Biology” par Keith Baggerly (<a href="https://youtu.be/7gYIs7uYbMo" class="uri">https://youtu.be/7gYIs7uYbMo</a>). Vous allez peut être impressionné par le contenu et le style de l’enseignement. Keith Baggerly et Kevin Coombes sont notablement des héros sur la révélation <a href="https://en.wikipedia.org/wiki/Anil_Potti">the Duke/Potti scandal</a>, qui va décrire “l’un des grand fraudes en recherche médicale de tout le temps” par le programme télévisé de “60 Minutes”.</p>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe></li>
+</ul>
+<p>C’est tout à fait normal pour l’homme de faire un érreur (dans le computing), et le code source est réellement disponible.</p> 
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Ce n’est pas limité seulement sur le language R; voir la Section <a href="language-engines.html#language-engines">1.7</a> pour connaître comment utilisent les autres languages.<a href="les-bases.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="basics-examples.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/rmarkdown-book/edit/master/%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
